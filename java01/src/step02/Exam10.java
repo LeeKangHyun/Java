@@ -31,6 +31,5 @@ public class Exam10 {
     System.out.println(좀더진보된읽기정보.nextLine());
     System.out.println(좀더진보된읽기정보.nextLine());
     System.out.println(좀더진보된읽기정보.nextLine());
-  
   }
 }
