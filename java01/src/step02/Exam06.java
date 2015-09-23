@@ -8,10 +8,15 @@ import java.io.File;
 public class Exam06 {
   public static void main(String[] args) {
     //1) 파일 Or 디렉토리 정보를 준비한다.
-    File f1 = new File("c:/javaide/Java01");  //정보 수집, 생성
+    //File f1 = new File("c:/javaide/Java01");  //정보 수집, 생성
+    File f1 = new File("c:/javaide/Hello2.java");
     
     System.out.println(f1.exists());
     System.out.println(f1.isDirectory());
     System.out.println(f1.isFile());
+    System.out.println(f1.canWrite());
+    System.out.println(f1.getParent());
+    System.out.println(f1.length());
+    f1.delete();
   }
 }
