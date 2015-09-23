@@ -8,9 +8,9 @@ package step01;
 public class Exam09/*프로그램명*/ {
   public static void main(String[] args) {
     int i1 = 20;
-    
-    i1 = 30;
-    i1 = 40;
+    //i1 = 3.14159;
+    //i1 = true;
+    //i1 = "Hello";
     
     System.out.println(i1);
   }
