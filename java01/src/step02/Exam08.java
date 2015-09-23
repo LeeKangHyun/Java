@@ -11,10 +11,10 @@ public class Exam08 {
     //1) 키보드 정보 얻기
     InputStream keyboardInfo = System.in;
 
-    //키보드로부터 입력된 값중에서 1바이트를 리턴
-    System.out.println(keyboardInfo.read());
-    System.out.println(keyboardInfo.read());
-    System.out.println(keyboardInfo.read());
+    //read() : 키보드로부터 입력된 값중에서 1바이트를 리턴
+    System.out.println((char)keyboardInfo.read());
+    System.out.println((char)keyboardInfo.read());
+    System.out.println((char)keyboardInfo.read());
 
     //2) Scanner 도구를 통해 키보드로 입력된 한 줄의 문자열 얻기
     Scanner 스캐너정보 = new Scanner(keyboardInfo);
