@@ -10,10 +10,12 @@ public class Socket_c01 {
     Scanner ks = new Scanner(System.in);
     System.out.print("input Ip> ");
     String ip = ks.nextLine();
+    System.out.print("Input Port> ");
+    int pt = Integer.parseInt(ks.nextLine());
     System.out.print("> ");
     String str = ks.nextLine();
     
-    Socket socket = new Socket(ip, 8888);
+    Socket socket = new Socket(ip, pt);
     
     OutputStream os = socket.getOutputStream();
     PrintStream ps = new PrintStream(os);
