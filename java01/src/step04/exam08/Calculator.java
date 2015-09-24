@@ -9,19 +9,21 @@ package step04.exam08;
 
 public class Calculator {
 
-  static int plus(int a, int b) {
-    return a + b;
+  static int result;  //정수 메모리는 기본이 0으로 초기화 된다.
+  
+  static void plus(int a) {
+    result = result + a;
   }
 
-  static int minus(int a, int b) {
-    return a - b;
+  static void minus(int a) {
+    result = result - a;
   }
 
-  static int multiple(int a, int b) {
-    return a * b;
+  static void multiple(int a) {
+    result = result * a;
   }
 
-  static int divide(int a, int b) {
-    return a / b;
+  static void divide(int a) {
+    result = result / a;
   }
 }
