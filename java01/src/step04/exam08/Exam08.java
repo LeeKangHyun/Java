@@ -11,13 +11,12 @@ public class Exam08 {
     //계산: 2 + 5 * 3 - 1 
     //(연산자 우선 순위 적용하지 않음. 그냥 순서대로)
 
-    int result = 0;
+    Calculator.plus(2);
+    Calculator.plus(5);
+    Calculator.multiple(3);
+    Calculator.minus(1);
     
-    result = Calculator.plus(2,  5);
-    result = Calculator.multiple(result, 3);
-    result = Calculator.minus(result, 1);
-    
-    System.out.println(result);
+    System.out.println(Calculator.result);
   }
 
 }
