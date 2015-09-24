@@ -9,7 +9,7 @@ public class Exam08 {
 
   public static void main(String[] args) {
     //계산: 2 + 5 * 3 - 1 
-    //(연산자 우선 순위 적용하지 않음. 그냥 순서대로)
+    //조건 : 연산자 우선 순위 적용하지 않음. 그냥 순서대로
 
     Calculator.plus(2);
     Calculator.plus(5);
