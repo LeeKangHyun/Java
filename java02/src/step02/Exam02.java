@@ -1,5 +1,7 @@
 /*
  * 주제: 다른 타입끼리의 계산결과
+ * - 자바에서 내부적으로 정의한 규칙(암시적 형변환)에 따라 타입을 변환한 후 계산 한다.
+ *   (byte, short, char) > int > long > float > double
  */
 package step02;
 
