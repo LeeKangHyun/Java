@@ -17,7 +17,7 @@ public class Exam13 {
     System.out.print("> ");
     String str = keyScanner.nextLine();
     
-    Socket socket = new Socket("192.168.0.145", 8888);
+    Socket socket = new Socket("192.168.0.62", 8888);
 
     OutputStream out1 = socket.getOutputStream();
     PrintStream out2 = new PrintStream(out1);
