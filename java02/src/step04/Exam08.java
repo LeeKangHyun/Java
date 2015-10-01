@@ -23,7 +23,7 @@ public class Exam08 {
     }
     
     for (int i = 0; i < 3; i++) {
-      System.out.printf("이름=%s, 총점=%d, 평균=%.2f\n", 
+      System.out.printf("이름=%s, 총점=%d, 평균=%.1f\n", 
                         names[i], 
                         scores[i][5], 
                         avers[i]);
