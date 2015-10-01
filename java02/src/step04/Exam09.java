@@ -22,8 +22,8 @@ public class Exam09 {
     // => 사용자가 정의한 타입의 메모리를 준비할 때는 반드시 new를 사용해야 한다.
     // => 클래스 설계도에 따라 준비한 메모리를 "인스턴스"라고 부른다.
     // => 인스턴스를 저장하는 변수를 "레퍼런스"라고 부른다.
-    Score hong = new Score();
-    // hong => 레퍼런스 변수이다.
+    Score hong = new Score(); 
+    // 위에서 만든 hong => 레퍼런스 변수(Score의 인스턴스를 만들고 그 메모리주소를 보관하는 변수)이다. 
     
     hong.name = "홍길동";
     hong.subjects[0] = 100;

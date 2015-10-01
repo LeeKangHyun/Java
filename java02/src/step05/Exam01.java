@@ -21,7 +21,7 @@ public class Exam01 {
     };
 
     //--------
-    setInfo(scores[0], "홍길동", 100, 100, 100, 100, 100);
+    setInfo(/*아규먼트 = 값*/scores[0], "홍길동", 100, 100, 100, 100, 100);
     print(scores[0]);
 
     //--------
@@ -35,7 +35,7 @@ public class Exam01 {
 
   // 아규먼트를 받아서 처리하는 메서드
   // score 파라미터: 성적정보 아규먼트를 받는 변수
-  public static void print(Score score) {
+  public static void print(Score score/*파라미터 = 데이터 받는 변수*/) {
     System.out.printf("%s: %d, %f\n", 
         score.name, score.sum, score.aver); 
   }

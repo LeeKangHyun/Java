@@ -44,11 +44,12 @@ public class Exam01 {
     sub[4] = 100;
     sub[5] = 0;
 
-    for (int i = 0; i < 5; i++) { // 직관성
+    for (int i = 0; i < 5/*직관성*/; i++) { 
       sub[5] += sub[i];
     }
     sub[6] = sub[5] / 5;
-    //sub[7] = 100; // 컴파일할 때 오류가 발생하지 않지만, 실행할 때 인덱스 범위 오류가 발생!
+    //sub[7] = 100; // 컴파일할 때 오류가 발생하지 않지만, 
+    //실행할 때 인덱스 범위 오류가 발생!
     for (int i = 0; i < 5; i++) {
       System.out.println(sub[i]);
     }
