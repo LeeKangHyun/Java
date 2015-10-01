@@ -7,7 +7,7 @@ public class Exam10 {
 
   // 클래스는 메모리를 준비하는 것이 아니다.
   // 어떤 메모리를 준비해야 하는지를 가리키는 설계도이다.
-  // => 사용자 정의 데이터 타
+  // => 사용자 정의 데이터 타입
   static class Score {
     String name;
     int[] subjects = new int[5];
