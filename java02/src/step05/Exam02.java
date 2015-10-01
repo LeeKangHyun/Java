@@ -1,9 +1,9 @@
 /* 
- * 주제: 반복해서 사용하는 명령어들은 별도로 분리하여 정의한다. - 메서드
+ * 주제: 기능을 잘게 쪼개기 전의 문제점!
  */
 package step05;
 
-public class Exam01 {
+public class Exam02 {
 
   static class Score {
     String name;
@@ -22,6 +22,19 @@ public class Exam01 {
 
     //--------
     setInfo(scores[0], "홍길동", 100, 100, 100, 100, 100);
+    print(scores[0]);
+    
+    scores[0].subjects[2] = 50;
+    // 총점과 평균을 구하는 명령어를 별도의 메서드로 정의해 두면 편했을 것이다.
+    // 그러나 이 명령어들은 setInfo()에 함께 묶여 있기 때문에 재사용 할수 없었다.
+    // => 가능한 기능들을 잘게 쪼개 두면 나중에 다시 쓰기 쉬워진다.
+    // => 개선코드 "Exam03.java" 참고!
+    scores[0].sum = 0;
+    for (int i = 0; i < scores[0].subjects.length; i++) {
+      scores[0].sum += scores[0].subjects[i];
+    }
+
+    scores[0].aver = scores[0].sum / (float)scores[0].subjects.length;
     print(scores[0]);
 
     //--------
