@@ -1,5 +1,5 @@
 /* 
- * 주제: 인스턴스 배열
+ * 주제: gabage & gabage collector
  */
 package step04;
 
@@ -13,17 +13,31 @@ public class Exam11 {
   }
 
   public static void main(String[] args) {
-    // Score 메모리를 담는 변수를 선언한다.
-    Score v1, v2, v3;
-    v1 = new Score(); // Score 설계도에 따라 메모리를 준비한 후 변수에 저장한다.
-    v2 = new Score();
-    v3 = new Score();
+    Score v1 = new Score();
+    Score v2 = new Score();
+    Score v3 = v1;
+    v2 = v1;  // v2가 가리키던 인스턴스의 주소는 잃어버린다.
+    // 즉 사용할 수 없는 인스턴스가 된다. => "garbage"
 
-    // Score 메모리를 담는 변수를 배열로 선언한다.
-    Score[] scores = new Score[3];
-    scores[0] = new Score(); // Score설계도에 따라 메모리를 준비후 변수에 저장
-    scores[1] = new Score(); // Score설계도에 따라 메모리를 준비후 변수에 저장
-    scores[2] = new Score(); // Score설계도에 따라 메모리를 준비후 변수에 저장
+    // garbage? == dangling object
+    // - 참조하는 레퍼런스가 단 한 개도 존재하지 않는 인스턴스를 말한다.
+    // - 즉 사용할 수 없는 상대, => 그냥 메모리만 점유 => 낭비되고 욌는 상태.
+    // - JVM은 다음의 규"garbage collector"를 통해서 다음 규칙에 따라 가비지를 제거한다.
+    //   => 다시 그 메모리를 사용할 수 있는 상태로 만든다.
+    //   1) 메모리가 부족할 때,
+    //   2) CPU가 한가할 때(idle time) 
+
+
+    /* 참고: dangling pointer?
+     * - 무효한 인스턴스를 가리키는 경우,
+     */
+    /*char* p;
+    p = (char*)malloc(100)
+        p[0] = 'a';
+    p[99] = 'z';
+    free(p);
+    p[1] = 'b'; // p는 무효한 주소를 가리키기 때문에 "dangling pointer"이다.
+    */
   }
 }
 
