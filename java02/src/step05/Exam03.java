@@ -8,7 +8,7 @@ public class Exam03 {
   static class Score {
     String name;
     int[] subjects = new int[5];
-    int sum;
+    int sum; 
     float aver;
   }
 
