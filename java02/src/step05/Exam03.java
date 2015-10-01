@@ -17,7 +17,7 @@ public class Exam03 {
     Score[] scores = {
         new Score(), 
         new Score(), 
-        new Score()
+        new Score() 
     };
 
     //--------
