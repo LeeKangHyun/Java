@@ -1,5 +1,5 @@
 /*
- * 주제: 자바 핵심 클래스 - String (2)
+ * 주제: 자바 핵심 클래스 - String (3)
  */
 package step06;
 
@@ -9,46 +9,46 @@ public class Exam03 {
 
   public static void main(String[] args) {
     String s1 = new String("Hello");
-    String s2 = new String("Hello");
+    // immutable: 값을 바꿀 수 없다.
+    // => String 인스턴스는 한 번 생성되면 값을 바꿀 수 없다.
+    // => immutable 객체라 부른다.
+    // 예)
+
+    String s2 = s1.replace('l', 'x');
+    System.out.println(s1);
+    // replace(): 기존의 문자열을 바꾸는 것이 아니라, 새로운 인스턴스를 생성한다.
+    System.out.println(s2);
     
-    if (s1 != s2) // 레퍼런스에 저장된 주소 비교
-      System.out.println("s1 != s2");
+    // 자주 사용하는 문자열 메소
+    String s3 = s1.substring(2);
+    System.out.println(s3);
+    String s4 = s1.substring(1, 3); // 1 <= x < 3
+    System.out.println(s4);
     
-    if (s1.equals(s2))  // 레퍼런스가 가리키는 인스턴스의 내용이 같은지 비교
-      System.out.println("s1.equals(s2)");
+    // 특정 문자의 위치 알아내기 => 첫 번쨰 찾은 문자의 위치 
+    System.out.println(s1.indexOf('e'));
+    System.out.println(s1.indexOf('l'));
     
-    // 문자열을 비교할 때 == 을 사용한다고 오해하는 이유! 이건 주소 비교
-    String s3 = "Hello";
-    String s4 = "Hello";
+    System.out.println(s1.lastIndexOf('l'));  // 끝에서 부터
     
-    if (s3 == s4)
-      System.out.println("s3 == s4");
+    // 퀴즈?
+    // - 스캐너로부터 1줄 입력 받는다.
+    // - 해당 문자열이 이메일인지 확인한다.
     
-    // 문자열 비교 응용:
+    System.out.println("Input email> ");
     Scanner sc = new Scanner(System.in);
-    System.out.print("> ");
-    
     String str = sc.nextLine();
     sc.close();
     
-    // 사용자가 입력한 문자열은 새 인스턴스에 들어있다.
-    // 따라서 상수 문자열 "Hello" 인스턴스와 다른 주소이다.
-    if (str == "Hello")  // 주소 비교! 조심할 것!
-      System.out.println("인사");
-    else if (str == "bye")
-      System.out.println("잘가");
+    if (str.indexOf('@') == -1)
+      System.out.println("nono");
+    else if (str.indexOf('.') == -1)
+      System.out.println("nono!");
     else
-      System.out.println("헐...");
-    
-    // 해결책!
-    if ("Hello".equals(str))  // 인스턴스의 내용을 비교할 것! 오호라~ 바로 이것이구나!
-      System.out.println("인사");
-    else if ("bye".equals(str))
-      System.out.println("잘가");
-    else
-      System.out.println("헐...");
+      System.out.println("email");
   }
-
+  // 정규표현식을 이용하여 이메일을 검사하라!
+  // ? regex .... 
 }
 
 
