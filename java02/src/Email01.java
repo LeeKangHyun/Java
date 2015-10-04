@@ -17,7 +17,7 @@ public class Email01 {
     boolean tf;
 
     tf = Pattern.matches(RegEx, str);
-
+    
     if (tf)
       System.out.println(str + " is Email.");
     else
