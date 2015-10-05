@@ -75,7 +75,7 @@ public class Exam09 {
     StringBuffer sb1 = new StringBuffer("Hello");
     StringBuffer sb2 = new StringBuffer("Hello");    
 
-    // StringBuffer는 상속 받은 toString()을재 오버라이딩 하지 않았다.
+    // StringBuffer는 상속 받은 toString()을 현재 오버라이딩 하지 않았다.
     // 그래서 리턴값이 false이다.
     if (sb1.equals(sb2))
       System.out.println("sb1.equals(sb2)");

@@ -19,13 +19,13 @@ public class Exam03 {
     // replace(): 기존의 문자열을 바꾸는 것이 아니라, 새로운 인스턴스를 생성한다.
     System.out.println(s2);
     
-    // 자주 사용하는 문자열 메소
+    // 자주 사용하는 문자열 메소드
     String s3 = s1.substring(2);
     System.out.println(s3);
     String s4 = s1.substring(1, 3); // 1 <= x < 3
     System.out.println(s4);
     
-    // 특정 문자의 위치 알아내기 => 첫 번쨰 찾은 문자의 위치 
+    // 특정 문자의 위치 알아내기 => 첫 번째 찾은 문자의 위치 
     System.out.println(s1.indexOf('e'));
     System.out.println(s1.indexOf('l'));
     

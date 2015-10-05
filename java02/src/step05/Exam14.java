@@ -6,7 +6,7 @@ package step05;
 public class Exam14 {
 
   static class Student {
-    // 클래 변수는 클래스가 로딩될 때 생성된다.
+    // 클래스 변수는 클래스가 로딩될 때 생성된다.
     // 인스턴스 생성과 상관없다.
     // 클래스 변수의 용도: 모든 인스턴스들이 공유하는 값을 저장한다.
     static int count;
