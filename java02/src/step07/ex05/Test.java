@@ -19,10 +19,10 @@ public class Test {
     Calculator3 c1 = new Calculator3();
     Calculator3 c2 = new Calculator3();
 
-    c1.plus(8);
-    c1.minus(6);
-    c1.multiple(3);
-    c1.divide(2);
+    c1.plus(8); // Calculator2 plus()호출
+    c1.minus(6);  // Calculator2 minus()호출
+    c1.multiple(3); // Calculator2 multiple() 호출  
+    c1.divide(2); // Calculator2 divide() 호출
     
     System.out.println(c1.result);
   }

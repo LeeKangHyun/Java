@@ -15,7 +15,7 @@ public class Calculator2 {
 
   // 인스턴스 메서드
   public void plus(int a) {
-    this.result += a;
+    this.result += a; 
   }
   
   public void minus(int a) {
