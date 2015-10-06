@@ -16,21 +16,15 @@ public class Test {
   public static void main(String[] args) {
     // 10 + 2 - 7 = ?
     // 8 - 6 + 3 = ?
-    Calculator2 c1 = new Calculator2();
-    Calculator2 c2 = new Calculator2();
+    Calculator3 c1 = new Calculator3();
+    Calculator3 c2 = new Calculator3();
 
-    c1.plus(10);  // 기존 기능 사용 불가! 이유? 접근 불가! 공개하지 않았기 때문에.
-    c2.plus(8);
+    c1.plus(8);
+    c1.minus(6);
+    c1.multiple(3);
+    c1.divide(2);
     
-    c1.plus(2);
-    c2.minus(6);
-
-    c1.minus(7);
-    c2.plus(3);
-
     System.out.println(c1.result);
-    System.out.println(c2.result);
-
   }
 
 }
