@@ -9,8 +9,8 @@ public class Student extends User {
   float aver;
   
   public Student() {
-    //super();  // <--- 다른 생성자를 호출하는 뭄장이 있기때문에
-                //      슈퍼 클래스의 기본 새성자를 호출하는 문장이 삽입되지 않는다.
+    //super();  // <--- 다른 생성자를 호출하는 문장이 있기때문에
+                //      슈퍼 클래스의 기본 생성자를 호출하는 문장이 삽입되지 않는다.
     this("홍길동");
 
   }
