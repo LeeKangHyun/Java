@@ -1,4 +1,4 @@
-package step07.ex01;
+package step07.ex02;
 
 public class Calculator {
   static int plus(int a, int b) {
