@@ -1,13 +1,15 @@
 /*
- * 주제: 클래스 정의 
- * - 유지보수하기 쉽게 관련된 메서드를 분류하는 문법.
- * - 사용자 정의 데이터 타입을 만들 때 사용하는 문법. 
- * 
- * 클래스를 역할에 따라 다음 세가지로 분류한다.(by Ivar Jacobson의 Objectory methodology)
- * 1) Entity: 데이터를 표현(VO: Value Object)하고 
- *            데이터를 다루는 역할(DAO: Data Access Object).
- * 2) Bounary: 사용자에게 데이터를 출력하고 입력 받는 역할.
- * 3) Controller: Entity와 Boundary 사이에서 조정하는 역할.
+ * 주제: 클래스 변수 (Static 변수)
+ * - 클래스가 로딩될 때 준비되는 변수이다.
+ * - 클래스 로딩?
+ *   1) 클래스 변수나 클래스 메소드를 사용하려 할 때
+ *   2) 인스턴스를 생성하려 할 때
+ *   3) Class.forName() 메소드를 통해 강제적으로 로딩할 때
+ *   주의! 단 한 번만 로딩된다.
+ *   
+ * - 여러 메소드에서 공통으로 사용하는 변수
+ * - result는 plus(), minus() 메서드의 작업 결과를 저장하는 변수이기 때문에
+ *   Calculator 클래스에 두는 것이 유지보수에 좋다.
  */
 package step07.ex02;
 
@@ -15,11 +17,11 @@ public class Test {
 
   public static void main(String[] args) {
     // 10 + 2 - 7 = ?
-    int result = 0;
     
-    result = Calculator.plus(10, 2);
-    result = Calculator.minus(result, 7);
-    System.out.println(result);
+    Calculator.plus(10);
+    Calculator.plus(2);
+    Calculator.minus(7);
+    System.out.println(Calculator.result);
   }
 
 }

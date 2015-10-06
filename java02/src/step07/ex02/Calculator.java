@@ -1,10 +1,12 @@
 package step07.ex02;
 
 public class Calculator {
-  static int plus(int a, int b) {
-    return a + b;
+  static int result;
+  
+  static void plus(int a) {
+    result += a;
   }
-  static int minus(int a, int b) {
-    return a - b;
+  static void minus(int a) {
+    result -= a;
   }
 }
