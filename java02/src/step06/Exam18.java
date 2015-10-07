@@ -23,7 +23,7 @@ public class Exam18 {
     //String pattern = "d"; // 6
     //String pattern = "dd";
     //String pattern = "yyyy-MM-dd";  //2015-09-06
-    String pattern = "MM/dd/YYYY";
+    String pattern = "MM/dd/yyyy";
     SimpleDateFormat formatter = new SimpleDateFormat(pattern);
     // Date ---> text
     String str1 = formatter.format(cal.getTime());

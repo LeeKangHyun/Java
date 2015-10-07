@@ -14,7 +14,7 @@ public class Test {
     // 위 계산식의 결과를 따로따로 관리하기 위해서 인스턴스를 준비한다.
     Calculator c1 = new Calculator(); // result 변수가 준비된다.
     Calculator c2 = new Calculator();
-
+    
     Calculator.plus(c1, 10);
     Calculator.plus(c2, 8);
 
