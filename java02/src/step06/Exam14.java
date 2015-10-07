@@ -15,7 +15,7 @@ public class Exam14 {
     print(v1);
     print(v2);
     
-    // 2) 오토방식을 통해 primitive 값을 전달하 
+    // 2) 오토방식을 통해 primitive 값을 전달하기 
     print(v1);  // v1은 int이다. 파라미터 변수는 오브젝트 타입이다. 오류가 나지 않는다?
     print(v2);
     // 이유?
