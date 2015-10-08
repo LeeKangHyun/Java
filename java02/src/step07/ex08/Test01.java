@@ -43,7 +43,8 @@ public class Test01 {
     //
     // 자바의 모든 클래스는 Object의 하위 클래스 이기 때문에
     // Object 레퍼런스 변수에 넘길 수 있다.
-    print(str);
+   System.out.println();
+    //print();
   }
 
   static void print(Object obj) {

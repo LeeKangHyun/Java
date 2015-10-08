@@ -8,5 +8,6 @@ public class Test {
   public static void main(String[] args) {
    Student s = new Student("s01", "1111", "s01@test.com", false);
    Trainer t = new Trainer("t01", "1111", "t01@test.com", 10000);
+   
   }
 }

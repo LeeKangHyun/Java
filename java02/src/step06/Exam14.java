@@ -4,8 +4,6 @@
  */
 package step06;
 
-import java.lang.reflect.Method;
-
 public class Exam14 {
 
   public static void main(String[] args) throws Exception{
