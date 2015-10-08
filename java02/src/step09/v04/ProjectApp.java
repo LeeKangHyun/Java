@@ -50,11 +50,10 @@ public class ProjectApp {
     System.out.println("[사용법]\n명령");
     System.out.println();
     System.out.println("[명령]");
-    System.out.printf("list\t\t학생 목록을 리턴한다.\n"
+    System.out.println("list\t\t학생 목록을 리턴한다.\n"
                     + "add\t\t학생을 추가한다.\n"
                     + "delete\t\t학생을 삭제한다.\n"
                     + "quit\t\t프로그램을 종료한다.\n");
-    System.out.println();
   }
 
 }
