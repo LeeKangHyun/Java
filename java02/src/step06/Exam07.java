@@ -18,7 +18,6 @@ public class Exam07 {
     }
   }
   
-  
   public static void main(String[] args) {
     // 0) Object의 메서드를 상속 받았다는 것을 확인
     Student s1 = new Student("홍길동", "111-1111", false);

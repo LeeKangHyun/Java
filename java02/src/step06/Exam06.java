@@ -14,7 +14,6 @@
  */
 package step06;
 
-
 public class Exam06 /* extends Object*/{
 
   // 클래스를 만들 때 어떤 클래스의 기능을 상속 받을지 지정하지 않으면,

@@ -7,7 +7,7 @@ package step06;
 public class Exam04 {
 
   public static void main(String[] args) {
-    // Escape 문자: 특별한기능을 수행하는 문
+    // Escape 문자: 특별한기능을 수행하는 문자
     // 1) 줄 바꿈 문자 삽: 
     //  \n (new line) => Unicode(0x000a) => \u000a
     //  \r (line feed) => Unicode(0x000d) => \u000d
