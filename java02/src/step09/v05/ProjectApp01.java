@@ -1,26 +1,23 @@
 /*
- * 작업 목표 :
- * - help 명령 처리: 다음과 같이 출력한다.
- * [사용법]
- * 명령
- * 
- * [명령]
- * list   학생 목록을 리턴한다.
- * add    학생을 추가한다.
- * delete 학생을 삭제한다.
- * quit   프로그램을 종료한다.
- * 
- * - help 명령을 처리하는 코드를 묶어서 유지보수 하기 좋도록 별도의 메서드로 분리
- * - 명령어 마다 그 명령어를 처리할 코드를 메서드로 묶어서 
+ * 작업 목표 : add 명령 처리
+ * - add 명령 구현
+ * 이름? 홍길동4
+이메일? hong4@test.com
+전화? 111-2222
+기수? 자바76기
+정말 저장하시겠습니까?(y/n) y
+저장되었습니다.
+정말 저장하시겠습니까?(y/n) n
+취소하였습니다.
  */
-package step09.v04;
+package step09.v05;
 
 import java.util.Scanner;
 
-public class ProjectApp {
+public class ProjectApp01 {
+  static Scanner sc = new Scanner(System.in);
 
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
     String command = null;
     do {
       System.out.print("명령> ");
@@ -64,6 +61,8 @@ public class ProjectApp {
 
   private static void doAdd() {
     System.out.println("추가 입니다.");
+    String Name, Email, Tel, Class;
+    
   }
 
   private static void doDelete() {
