@@ -47,8 +47,20 @@ ex05.Test04 - java.util.Hashtable
       => 동시에 여러 사람이 들어오면 문제가 되는 경우, 
          => 화장실 
       
-      
-      
+[주제: 제네릭을 이용하여 저장 객체의 타입을 제한하기]
+ex06.Test01 - ArrayList의 제네릭 사용
+ex06.Test02 - HashMap의 제네릭 사용
+
+[주제: HashMap에서 값을 꺼내는 다양한 방법]
+ex07.Test01 - Entry로 key/value 목록을 꺼내기
+ex07.Test02 - key목록을 꺼낸후, 그 key를 가지고 값을 꺼낸다.
+ex07.Test03 - value 목록을 꺼내기
+
+[주제: 목록에서 값을 꺼내는 방법을 객체화 시킨다 - Iterator 패]
+=> 개발자는 값을 꺼내는 방법에 상관없이 일관된 방법으로 값을 꺼낼 수 있다.
+ex08.Test01 - ArrayList에서 짝수 번째 값을 꺼내기
+ex08.Test02 - ArrayList에서 뒤로부터 값을 꺼내기
+ex08.Test03 - ArrayList에서 앞에서부터 값을 꺼내기
       
       
       

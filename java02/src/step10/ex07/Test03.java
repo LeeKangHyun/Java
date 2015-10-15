@@ -1,12 +1,13 @@
-package step10.ex06;
+package step10.ex07;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 
-public class Test02 {
+public class Test03 {
   static class Student {
     String name;
     String tel;
-    
+
     public Student(String name, String tel) {
       this.name = name;
       this.tel = tel;
@@ -16,8 +17,8 @@ public class Test02 {
     public String toString() {
       return "Student [name=" + name + ", tel=" + tel + "]";
     }
-    
-    
+
+
   }
   public static void main(String[] args) {
     HashMap<String, Student> map = new HashMap<String, Student>();
@@ -26,14 +27,11 @@ public class Test02 {
     map.put("s01", new Student("홍길동", "111-1111"));
     map.put("s02", new Student("임꺽정", "111-1111"));
     map.put("s03", new Student("유관순", "111-1111"));
-    
-    // 꺼낼 때 타입 캐스팅 할 필요가 없다.
-    Student s1 = map.get("s01");
-    Student s2 = map.get("s02");
-    Student s3 = map.get("s03");
-    
-    System.out.println(s1);
-    System.out.println(s2);
-    System.out.println(s3);
+
+    // value 목록을 꺼내기
+    map.keySet();
+    for (Student value : map.values()) {
+      System.out.printf("%s\n", value);
   }
+}
 }
