@@ -11,7 +11,7 @@ public class Stack {
     return 0;
   }
   
-  public Object pop() { // 맨 마지막 값을 꺼낸다.(제거한다.)
+  public Object pop() { // 맨 마지막 값을 꺼낸다.(제거한다)
     if (pos == 0)
       return null;
     return list[--pos];
