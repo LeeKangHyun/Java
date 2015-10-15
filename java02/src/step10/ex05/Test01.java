@@ -18,7 +18,7 @@ public class Test01 {
     String v2 = (String)list.get(1);
     Boolean v3 = (Boolean)list.get(2);
     int v4 = (Integer)list.get(0);  // auto-unboxing
-    boolean v5 = (Boolean)list.get(2);  // auti-unboxing
+    boolean v5 = (Boolean)list.get(2);  // auto-unboxing
     String v6 = (String)list.get(5);
     
     System.out.printf("크기: %d\n", list.size());

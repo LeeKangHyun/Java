@@ -18,7 +18,7 @@ public class Test02 {
     set.add(null);
     
     System.out.println(set.size());
-    // setdㅔ 저장된 값 꺼내기 - get() 메서드가 없다.
+    // set에 저장된 값 꺼내기 - get() 메서드가 없다.
     // 1. set에 저장된 값을 담을 배열을 준비한다. 
     Object[] list = new Object[set.size()];
     
