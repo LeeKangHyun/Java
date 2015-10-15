@@ -65,4 +65,12 @@ ex08.Test03 - ArrayList에서 앞에서부터 값을 꺼내기
       
 2. 적용 후
 
+[주제: Bucket과 LinkedList에 제네릭 문법 사용]
+
+
+
+
+
+
+
       
