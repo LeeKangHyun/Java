@@ -1,6 +1,8 @@
 package v06;
 
+import java.io.FileInputStream;
 import java.util.HashMap;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class ProjectApp {
@@ -8,12 +10,34 @@ public class ProjectApp {
   HashMap<String,MenuControl> menuControlMap 
             = new HashMap<String,MenuControl>();
   
-  public ProjectApp() {
-    menuControlMap.put("1", new StudentControl(scanner));
-    menuControlMap.put("2", new ProjectControl(scanner));
+  public ProjectApp() throws Exception{
+    // 메뉴를 처리할 컨트롤의 이름이 있는 menu.properties 파일을 로딩한다.
+    Properties props = new Properties();
+    props.load(new FileInputStream("src/v06/menu.properties"));
+    
+    String className = null;
+    Class clazz = null;
+    MenuControl menuControl = null;
+    
+    for (Object menuNo : props.keySet()) {
+      // 프로퍼티에서 클래스 이름을 가져온다.
+      className = props.getProperty((String)menuNo);
+      
+      // 클래스 이름을 가지고 클래스를 로딩한 후, 인스턴스를 생성한다.
+      clazz = Class.forName(className);
+      menuControl = (MenuControl)clazz.newInstance();
+      
+      // 메뉴 컨트롤의 기본 값을 설정한다.
+      menuControl.setScanner(scanner);
+      
+      // 생성한 인스턴스를 메뉴 컨트롤맵에 등록한다.
+      
+      menuControlMap.put((String)menuNo, menuControl);
+    }
+    
   }
   
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception{
     ProjectApp app = new ProjectApp();
     app.service();
   }

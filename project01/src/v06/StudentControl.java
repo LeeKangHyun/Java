@@ -12,6 +12,8 @@ public class StudentControl extends StorageMenuControl<Student> {
   public StudentControl(Scanner scanner) {
     super(scanner);
   }
+  
+  public StudentControl() {}
 
   public void service() {
     String command = null;
@@ -19,6 +21,7 @@ public class StudentControl extends StorageMenuControl<Student> {
     StudentDeleteCommand deleteHandler = new StudentDeleteCommand();
     StudentListCommand listHandler = new StudentListCommand();
     StudentHelpCommand helpHandler = new StudentHelpCommand();
+    
 
     HashMap<String, Object> params = new HashMap<String, Object>();
     params.put("list", list);

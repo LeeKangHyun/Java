@@ -15,10 +15,14 @@ public class ProjectControl extends StorageMenuControl<Project> {
   ProjectAddCommand addHandler = new ProjectAddCommand();
   ProjectDeleteCommand deleteHandler = new ProjectDeleteCommand();
   ProjectHelpCommand helpHandler = new ProjectHelpCommand();
+  
+  public ProjectControl() {}
+
   public ProjectControl(Scanner scanner) {
     super(scanner);
   }
 
+  
   public void service() {
     String command = null;
 
