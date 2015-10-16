@@ -36,6 +36,7 @@ public class Test01 {
     
     Class classInfo2 = Class.forName("step12.ex02.Test01$Student");
     Student student = (Student)classInfo2.newInstance();
+    
     student.name = "홍길동";
     student.tel = "111-1111";
     System.out.println(student);
