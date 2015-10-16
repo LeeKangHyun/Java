@@ -3,32 +3,32 @@ package v05;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import Command.ProjectAddCommand;
-import Command.ProjectDeleteCommand;
-import Command.ProjectHelpCommand;
-import Command.ProjectListCommand;
+import v05.command.ProjectAddCommand;
+import v05.command.ProjectDeleteCommand;
+import v05.command.ProjectHelpCommand;
+import v05.command.ProjectListCommand;
 
 public class ProjectControl extends StorageMenuControl<Project> {
+  ProjectListCommand listHandler = new ProjectListCommand();
+  ProjectAddCommand addHandler = new ProjectAddCommand();
+  ProjectDeleteCommand deleteHandler = new ProjectDeleteCommand();
+  ProjectHelpCommand helpHandler = new ProjectHelpCommand();
   public ProjectControl(Scanner scanner) {
     super(scanner);
   }
-  
+
   public void service() {
     String command = null;
-    ProjectListCommand listHandler = new ProjectListCommand();
-    ProjectAddCommand addHandler = new ProjectAddCommand();
-    ProjectDeleteCommand deleteHandler = new ProjectDeleteCommand();
-    ProjectHelpCommand helpHandler = new ProjectHelpCommand();
-    
+
     HashMap<String, Object> params = new HashMap<String, Object>();
     params.put("list", list);
     params.put("scanner", scanner);
-    
+
     do {
       System.out.print("프로젝트관리> ");
       command = scanner.nextLine(); 
       switch (command) {
-      
+
       case "list":
         listHandler.execute(params);
         break;
