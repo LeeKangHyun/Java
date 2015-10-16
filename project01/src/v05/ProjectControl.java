@@ -1,7 +1,10 @@
 package v05;
 
-import java.sql.Date;
+import java.util.HashMap;
 import java.util.Scanner;
+
+import Command.ProjectAddCommand;
+import Command.ProjectListCommand;
 
 public class ProjectControl extends StorageMenuControl<Project> {
   public ProjectControl(Scanner scanner) {
@@ -10,15 +13,23 @@ public class ProjectControl extends StorageMenuControl<Project> {
   
   public void service() {
     String command = null;
+    ProjectListCommand listHandler = new ProjectListCommand();
+    ProjectAddCommand addHandler = new ProjectAddCommand();
+    
+    HashMap<String, Object> params = new HashMap<String, Object>();
+    params.put("list", list);
+    params.put("scanner", scanner);
+    
     do {
       System.out.print("프로젝트관리> ");
       command = scanner.nextLine(); 
       switch (command) {
+      
       case "list":
-        doList();
+        listHandler.execute(params);
         break;
       case "add":
-        doAdd();
+        addHandler.execute(params);
         break;
       case "delete":
         doDelete();
@@ -32,34 +43,6 @@ public class ProjectControl extends StorageMenuControl<Project> {
         System.out.println("해당 명령을 지원하지 않습니다.");
       }
     } while (!command.equals("quit"));
-  }
-
-  
-  
-  private void doAdd() {
-    Project project = new Project();
-    
-    System.out.print("프로젝트명? ");
-    project.setTitle(scanner.nextLine());
-    
-    System.out.print("시작일? ");
-    project.setStartDate(Date.valueOf(scanner.nextLine()));
-    
-    System.out.print("종료일? ");
-    project.setEndDate(Date.valueOf(scanner.nextLine()));
-
-    System.out.print("멤버? ");
-    project.setMember(scanner.nextLine());
-    
-    System.out.print("정말 저장하시겠습니까?(y/n)");
-    String yesno = scanner.nextLine();
-    if (yesno.toLowerCase().equals("y")) {
-      list.add(project); 
-      System.out.println("저장되었습니다.");
-      
-    } else {
-      System.out.println("취소하였습니다.");
-    }
   }
   
   private void doDelete() {
