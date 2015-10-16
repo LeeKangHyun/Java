@@ -3,10 +3,10 @@ package v06;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import v05.command.StudentAddCommand;
-import v05.command.StudentDeleteCommand;
-import v05.command.StudentHelpCommand;
-import v05.command.StudentListCommand;
+import v06.command.StudentAddCommand;
+import v06.command.StudentDeleteCommand;
+import v06.command.StudentHelpCommand;
+import v06.command.StudentListCommand;
 
 public class StudentControl extends StorageMenuControl<Student> {
   public StudentControl(Scanner scanner) {

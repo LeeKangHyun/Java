@@ -3,10 +3,12 @@ package v06;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import v05.command.ProjectAddCommand;
-import v05.command.ProjectDeleteCommand;
-import v05.command.ProjectHelpCommand;
-import v05.command.ProjectListCommand;
+import v06.command.ProjectAddCommand;
+import v06.command.ProjectDeleteCommand;
+import v06.command.ProjectHelpCommand;
+import v06.command.ProjectListCommand;
+
+
 
 public class ProjectControl extends StorageMenuControl<Project> {
   ProjectListCommand listHandler = new ProjectListCommand();
