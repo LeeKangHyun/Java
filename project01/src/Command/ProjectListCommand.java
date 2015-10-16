@@ -13,6 +13,7 @@ public class ProjectListCommand {
         "No", "Title", "Start", "End", "Members");
 
     Project project = null;
+    
     for (int i = 0; i < list.size(); i++) {
       project = list.get(i); // 제네릭을 적용했기 때문에 타입 캐스팅 할 필요가 없다.
       if (project == null) 

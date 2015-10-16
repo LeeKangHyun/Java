@@ -1,6 +1,5 @@
 package Command;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -11,29 +10,16 @@ public class ProjectHelpCommand {
   public void execute(HashMap<String, Object> params) {
     Scanner scanner = (Scanner)params.get("scanner");
     ArrayList<Project> list = (ArrayList<Project>)params.get("list");
-    
+
     Project project = new Project();
-    
-    System.out.print("프로젝트명? ");
-    project.setTitle(scanner.nextLine());
 
-    System.out.print("시작일? ");
-    project.setStartDate(Date.valueOf(scanner.nextLine()));
-
-    System.out.print("종료일? ");
-    project.setEndDate(Date.valueOf(scanner.nextLine()));
-
-    System.out.print("멤버? ");
-    project.setMember(scanner.nextLine());
-
-    System.out.print("정말 저장하시겠습니까?(y/n)");
-    String yesno = scanner.nextLine();
-    if (yesno.toLowerCase().equals("y")) {
-      list.add(project); 
-      System.out.println("저장되었습니다.");
-
-    } else {
-      System.out.println("취소하였습니다.");
-    }
+    System.out.println("[사용법]");
+    System.out.println("명령");
+    System.out.println();
+    System.out.println("[명령]");
+    System.out.println("list         프로젝트 목록을 리턴한다.");
+    System.out.println("add          프로젝트를 추가한다.");
+    System.out.println("delete       프로젝트를 삭제한다. ");
+    System.out.println("main         메인으로 이동한다.");
   }
 }
