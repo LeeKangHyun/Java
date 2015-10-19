@@ -31,7 +31,6 @@ public class ProjectApp {
       menuControl.setScanner(scanner);
       
       // 생성한 인스턴스를 메뉴 컨트롤맵에 등록한다.
-      
       menuControlMap.put((String)menuNo, menuControl);
     }
     
@@ -78,6 +77,7 @@ public class ProjectApp {
   private void doMenu() {
     System.out.println("1 회원 관리");
     System.out.println("2 프로젝트 관리");
+    System.out.println("3 게시물 관리");
   }
   
   private void doQuit() {
