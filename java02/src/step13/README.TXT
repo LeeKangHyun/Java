@@ -34,9 +34,12 @@ ex04 - 로컬 이너 클래스 적용 전
 ex05 - 로컬 이너 클래스 적용 후
        => LinkedList에 AbstractItertaor 멤버 이너 클래스를 선언한다.
        
-Test02 - memeber inner class
-Test03 - local inner class
-Test04 - anonymous inner class
+ex06 - 익명 이너 클래스
+       => 다른 클래스를 상속 받아서 로컬 이너 클래스를 만들자!
+       => 인스턴스를 딱 한 개만 만든다면, 익명 이너 클래스로 정의하라!
+       => 보통 익명 이너 클래스는 인스턴스를 바로 생성하기 때문에 
+          인스턴스를 리턴하는 경우 리턴 문장에 포함시킨다.
+
 
 
 
