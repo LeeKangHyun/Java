@@ -12,12 +12,12 @@ public class OuterClass {
     class Local {}
 
     // 4) anonymous inner class: 서브 클래스 만들기
-    new MenuControl() {
+    MenuControl p1 = new MenuControl() {
       public void test() {} // 새 메서드 추가하기
     };
 
     // 5) anonymous inner class: 인터페이스 구현 클래스 만들기
-    new Command() {
+    Command p2 = new Command() {
       public void execute() {}
     };
 

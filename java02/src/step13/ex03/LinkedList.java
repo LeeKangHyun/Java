@@ -8,7 +8,7 @@ public class LinkedList {
   private static class Bucket {
     protected Object value;
     protected Bucket next;
-
+    
     public Bucket() { }
 
     public Bucket(Object value) {
@@ -41,7 +41,7 @@ public class LinkedList {
   // => 일반적인 메서드와 동일하게 바깥 클래스의 인스턴스 변수나 인스턴스 메서드를 사용할 수 있다.
   public class Iterator {
     int cursor;
-
+    
     public boolean hasNext() {
       // 안에서는 밖을 볼 수 있다.
       // 멤버 이너 클래스는 바깥 클래스의 멤버(인스턴수 변수와 인스턴스 메서드)를 사용할 수 있다.
