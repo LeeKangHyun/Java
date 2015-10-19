@@ -1,17 +1,20 @@
 package step13.ex03;
 
 public class Test01 {
-  public class Student {
-    String name;
-    String tel;
-    String location;
-    int workstate;
-    int subject;
-  }
 
   public static void main(String[] args) {
-    Student s1 = new Student();
-    s1.name = "홍길동";
-    s1.tel = "111-1111";
+    LinkedList list = new LinkedList();
+    list.add("00000");
+    list.add("11111");
+    list.add("22222");
+    list.add("33333");
+    list.add("44444");
+    list.add("55555");
+    
+    LinkedList.Iterator iterator = list.iterator();
+    
+    while (iterator.hasNext()) {
+      System.out.println(iterator.next());
+    }
   }
 }

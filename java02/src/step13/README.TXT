@@ -10,10 +10,13 @@
        => 패키지 멤버로 정의하면 다량으로 소스 파일이 생성됨
        => 중첩 클래스로 정의하면 한 클래스에서 관리할 수 있음.
        
+InnerClass - 네 가지 종류의 이너클래스 선 보이기
+
 ex01 = 중첩 클래스를 사용하기 전
        => 상수 값을 정의할 때 패키지 멤버 클래스로 만든다.
        => 상수 값을 분류하는 작은 단위의 클래스가 많이 생성 된다.
        => 소스 파일이 많아지는 문제가 있다.
+       
 ex02 = 중첩 클래스를 사용하기 후
        => top level inner class를 이용하여 상수 값을 관리하자!
        => static inner class
@@ -23,9 +26,9 @@ ex02 = 중첩 클래스를 사용하기 후
           물론, 컴파일하면 각 클래스마다 바이트코드(.class)가 생성된다.
 
 ex03 - 멤버 이너 클래스 사용
+       => 특정 클래스에서만 사용하는 경우, 
        => 인스턴스 변수나 인스턴스 메서들르 사용하는 이너 클래스가 필요할 때
-
-Test01 - top level inner class
+       
 Test02 - memeber inner class
 Test03 - local inner class
 Test04 - anonymous inner class
