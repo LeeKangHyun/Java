@@ -1,6 +1,6 @@
 package step13;
 
-public class InnerClass {
+public class OuterClass {
   // 1) top level inner class
   static class TopLevel {}
 
