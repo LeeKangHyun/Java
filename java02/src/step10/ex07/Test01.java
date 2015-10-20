@@ -21,7 +21,7 @@ public class Test01 {
     
   }
   public static void main(String[] args) {
-    HashMap<String, Student> map = new HashMap<String, Student>();
+    HashMap<String,Student> map = new HashMap<String,Student>();
     //map.put(1, "아무거나"); // 오류! key와 value의 타입이 맞지 않다.
     //map.put("s01", "문자열");  // 오류! value의 타입이 맞지않다.
     map.put("s01", new Student("홍길동", "111-1111"));
