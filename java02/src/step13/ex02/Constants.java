@@ -5,7 +5,7 @@ public class Constants {
   // => 다음 클래스들은 상수 값을 분류하는 역할을 한다.
   // => 상수 값을 사용할 때, 프로퍼티의 값을 사용하는 것처럼 꾸미기 위하여
   //    클래스 이름을 소문자로 하기도 한다.
-  //    예) 안드로으이드 R.java 참고!
+  //    예) 안드로이드 R.java 참고!
   static class location {
     public static final String KANGNAM = "강남교육장";
     public static final String JONGRO = "종로교육장";

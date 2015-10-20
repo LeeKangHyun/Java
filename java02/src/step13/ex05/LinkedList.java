@@ -1,7 +1,7 @@
 package step13.ex05;
 
 public class LinkedList {
-  // 탑 레벨 이너 클래
+  // 탑 레벨 이너 클래스
   private static class Bucket {
     protected Object value;
     protected Bucket next;
@@ -102,7 +102,7 @@ public class LinkedList {
   public int size() {
     return length;
   }
-  public  AbstractIterator iterator(String type) {
+  public AbstractIterator iterator(String type) {
     // 로컬 이너 클래스 - 특정 메서드에서만 사용하는 클래스
     // => 쓸데없이 공개 범위를 넓힐 필요는 없다.
     // => 가능한 한 사용 범위를 좁히는 것이 다른 클래스와의 간섭이나 충돌을 막을 수 있다.

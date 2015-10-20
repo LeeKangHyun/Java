@@ -39,8 +39,6 @@ public class LinkedList {
 
   // Member Inner Class
   // => 일반적인 메서드와 동일하게 바깥 클래스의 인스턴스 변수나 인스턴스 메서드를 사용할 수 있다.
-  
-
   private Bucket start;
   private Bucket end;
   private int length;
