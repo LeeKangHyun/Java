@@ -14,7 +14,7 @@ public class Test05 {
     displayFiles(file);
   }
 
-  private static void displayFiles(File file) throws Exception {
+  private static void displayFiles(File file) {
     File[] files = file.listFiles();
     for (File f : files) {
       if (f.isFile()) {

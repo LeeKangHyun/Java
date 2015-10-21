@@ -13,14 +13,6 @@ public class Test02 {
 
     displayFiles(0, file);
 
-    /*File[] files = file.listFiles();
-    int tab = 1;
-    for (File i : files) {
-      System.out.printf("%s", i.getName());
-      if (file.isDirectory()) {
-        DirPrint(file.getName(), tab);
-      }
-    }*/
   }
 
   private static void displayFiles(int level, File file) {
@@ -34,23 +26,7 @@ public class Test02 {
       }
     }
   }
-  /*public static void DirPrint(String sub, int tab) throws Exception {
-    File file = new File(sub);
-
-    String stab = " ";
-
-    for (int i = 0; i < tab; i++) {
-      stab += stab;
-    }
-
-    File[] sublist = file.listFiles();
-    for (File list : sublist) {
-      System.out.println(stab + list.getName());
-      if (list.isDirectory()) {
-        DirPrint(list.getCanonicalPath().toString(), tab+1);
-      }
-    }
-  }*/
+  
 }
 
 

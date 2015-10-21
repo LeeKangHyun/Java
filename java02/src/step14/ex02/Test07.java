@@ -5,7 +5,7 @@ import java.io.FileFilter;
 
 public class Test07 {
   // 인스턴스를 단 한 번만 만든다면 익명 이너 클래스로 선언하라.
-  static  FileFilter fileFilter = new FileFilter() { 
+  static FileFilter fileFilter = new FileFilter() { 
     @Override
     public boolean accept(File file) {
       if (file.isDirectory() || file.getName().endsWith(".class"))
@@ -31,7 +31,7 @@ public class Test07 {
     for (File f : files) {
       if (f.isFile()) {
         System.out.println(
-            f.getPath()
+           f.getPath()
             .replace(".class", "")
             .substring(6)
             .replace(System.getProperty("file.separator"), "."));

@@ -10,7 +10,7 @@ public class Test04 {
     // 1) 파일 또는 디렉토리 정보 가져오기
     System.out.printf("존재 여부: %b\n", file.exists());
     
-    // 4) 파일지우
+    // 4) 파일지우기
     file.delete();
     
   }
