@@ -31,7 +31,6 @@ public class Test02_out {
     out.write(bytes);
     
     // 3) 국어 점수 출력
-    out.write(name.getBytes());
     out.write(kor >> 24);
     out.write(kor >> 16);
     out.write(kor >> 8);
