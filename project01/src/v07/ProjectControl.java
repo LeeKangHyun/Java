@@ -10,25 +10,23 @@ import v07.command.ProjectDeleteCommand;
 import v07.command.ProjectHelpCommand;
 import v07.command.ProjectListCommand;
 
-
-
 public class ProjectControl extends StorageMenuControl<Project> {
   ProjectListCommand listHandler = new ProjectListCommand();
   ProjectAddCommand addHandler = new ProjectAddCommand();
   ProjectDeleteCommand deleteHandler = new ProjectDeleteCommand();
   ProjectHelpCommand helpHandler = new ProjectHelpCommand();
-  
+
   public ProjectControl() throws Exception {
     String filename = "./data/project.dat";
     FileReader in = new FileReader(filename);
     BufferedReader in2 = new BufferedReader(in);
-    
+
     String line = null;
-    
+
     while((line = in2.readLine()) != null) {
       list.add(new Project(line));
     }
-    
+
     in2.close();
     in.close();
   }
@@ -37,7 +35,7 @@ public class ProjectControl extends StorageMenuControl<Project> {
     super(scanner);
   }
 
-  
+
   public void service() {
     String command = null;
 

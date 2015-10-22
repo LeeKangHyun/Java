@@ -7,7 +7,7 @@ public class Project {
   protected Date    startDate;
   protected Date    endDate;
   protected String  member;
-  
+
   void setValue(String str) {
     String[] tokens = str.split(",");
     if (tokens.length < 4)
@@ -17,14 +17,14 @@ public class Project {
     endDate = Date.valueOf(tokens[2]);
     member = tokens[3];
   }
-  
+
   public Project() {}
-  
+
   public Project(String str) {
     this.setValue(str);
   }
-  
-  
+
+
   public Project(String title, Date startDate, Date endDate) {
     this.title = title;
     this.startDate = startDate;

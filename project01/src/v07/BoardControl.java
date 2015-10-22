@@ -5,10 +5,8 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
-
 public class BoardControl extends StorageMenuControl<Board> {
-  
+
   public BoardControl() throws Exception {
     String filename = "./data/board.dat";
     FileReader in = new FileReader(filename);
@@ -28,7 +26,7 @@ public class BoardControl extends StorageMenuControl<Board> {
     super(scanner);
   }
 
-  
+
   public void service() {
     String command = null;
 
