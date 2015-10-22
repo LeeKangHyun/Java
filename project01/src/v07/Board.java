@@ -29,6 +29,7 @@ public class Board {
   @Override
   public String toString() {
     return "Board [no=" + no + ", title=" + title + "]";
+    //this.getNo() + "," + this.getTitle();
   }
 
   public int getNo() {

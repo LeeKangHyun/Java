@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class BufferedInputStream extends FileInputStream {
-  byte[] buffer = new byte[8096];
+  byte[] buffer = new byte[8192];
   int len;
   int cursor;
   

@@ -34,7 +34,7 @@ public class BufferedDataOutputStream extends DataOutputStream{
     }
     super.close();
   }
-
+  
   public void flush() throws IOException {
     if (cursor > 0) {
       super.write(buffer, 0, cursor);

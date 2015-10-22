@@ -7,7 +7,7 @@ import java.io.InputStream;
 public class BufferedInputStream extends InputStream {
   InputStream inputStream;
   
-  byte[] buffer = new byte[8096];
+  byte[] buffer = new byte[8192];
   int len;
   int cursor;
   

@@ -19,6 +19,5 @@ public class Test01_in {
     System.out.println(end - start);
     
     in.close();
-        
   }
 }
