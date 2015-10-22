@@ -1,18 +1,28 @@
 package v07;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import v07.command.ProjectAddCommand;
-import v07.command.ProjectDeleteCommand;
-import v07.command.ProjectHelpCommand;
-import v07.command.ProjectListCommand;
 
 
-
-public class BoardControl extends StorageMenuControl<Project> {
+public class BoardControl extends StorageMenuControl<Board> {
   
-  public BoardControl() {}
+  public BoardControl() throws Exception {
+    String filename = "./data/board.dat";
+    FileReader in = new FileReader(filename);
+    BufferedReader in2 = new BufferedReader(in);
+
+    String line = null;
+
+    while((line = in2.readLine()) != null) {
+      list.add(new Board(line));
+    }
+
+    in2.close();
+    in.close();
+  }
 
   public BoardControl(Scanner scanner) {
     super(scanner);

@@ -13,7 +13,7 @@ public class ProjectApp {
   public ProjectApp() throws Exception{
     // 메뉴를 처리할 컨트롤의 이름이 있는 menu.properties 파일을 로딩한다.
     Properties props = new Properties();
-    props.load(new FileInputStream("src/v06/menu.properties"));
+    props.load(new FileInputStream("src/v07/menu.properties"));
 
     String className = null;
     Class clazz = null;
@@ -75,7 +75,7 @@ public class ProjectApp {
   }
 
   private void doMenu() {
-    System.out.println("1 회원 관리");
+    System.out.println("1 학생 관리");
     System.out.println("2 프로젝트 관리");
     System.out.println("3 게시물 관리");
   }

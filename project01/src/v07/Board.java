@@ -9,6 +9,23 @@ public class Board {
     protected String content;
     protected String writer;
     
+    void setValue(String str) {
+      String[] tokens = str.split(",");
+      if (tokens.length < 4)
+        return;
+      title = tokens[0];
+      content = tokens[1];
+      createdDate = Date.valueOf(tokens[2]);
+      writer = tokens[3];
+    }
+    
+    public Board() {}
+    
+    public Board(String str) {
+      this.setValue(str);
+      
+    }
+    
     @Override
     public String toString() {
       return "Board [no=" + no + ", title=" + title + "]";

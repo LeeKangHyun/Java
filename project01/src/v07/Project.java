@@ -8,7 +8,22 @@ public class Project {
   protected Date    endDate;
   protected String  member;
   
+  void setValue(String str) {
+    String[] tokens = str.split(",");
+    if (tokens.length < 4)
+      return;
+    title = tokens[0];
+    startDate = Date.valueOf(tokens[1]);  // yyyy-MM-dd ---> Date 객체
+    endDate = Date.valueOf(tokens[2]);
+    member = tokens[3];
+  }
+  
   public Project() {}
+  
+  public Project(String str) {
+    this.setValue(str);
+  }
+  
   
   public Project(String title, Date startDate, Date endDate) {
     this.title = title;

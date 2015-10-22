@@ -1,5 +1,7 @@
 package v07;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -16,7 +18,20 @@ public class ProjectControl extends StorageMenuControl<Project> {
   ProjectDeleteCommand deleteHandler = new ProjectDeleteCommand();
   ProjectHelpCommand helpHandler = new ProjectHelpCommand();
   
-  public ProjectControl() {}
+  public ProjectControl() throws Exception {
+    String filename = "./data/project.dat";
+    FileReader in = new FileReader(filename);
+    BufferedReader in2 = new BufferedReader(in);
+    
+    String line = null;
+    
+    while((line = in2.readLine()) != null) {
+      list.add(new Project(line));
+    }
+    
+    in2.close();
+    in.close();
+  }
 
   public ProjectControl(Scanner scanner) {
     super(scanner);
