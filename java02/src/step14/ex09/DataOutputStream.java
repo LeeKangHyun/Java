@@ -1,12 +1,12 @@
 package step14.ex09;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 
-public class DataOutputStream  {
-  FileOutputStream outputStream;
+public class DataOutputStream extends OutputStream {
+  OutputStream outputStream;
   
-  public DataOutputStream(FileOutputStream outputStream) throws Exception {
+  public DataOutputStream(OutputStream outputStream) throws Exception {
     this.outputStream = outputStream;
   }
   
@@ -25,12 +25,15 @@ public class DataOutputStream  {
     outputStream.write(bytes);
   }
   
-  public void close() throws IOException {
-    outputStream.close();
+  public void close() throws IOException  {
+    // 이 클래스에서 해제할 자원이 있다면 여기 밑에 작성하라!
+  }
+
+  @Override
+  public void write(int b) throws IOException {
+    outputStream.write(b);
   }
 }
-
-
 
 
 

@@ -1,12 +1,12 @@
 package step14.ex09;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
-public class DataInputStream {
-  FileInputStream inputStream;
+public class DataInputStream extends InputStream {
+  InputStream inputStream;
   
-  public DataInputStream(FileInputStream inputStream) throws Exception {
+  public DataInputStream(InputStream inputStream) throws Exception {
     this.inputStream = inputStream;
   }
   
@@ -23,14 +23,17 @@ public class DataInputStream {
     int len = 0;
     len |= inputStream.read() << 8;
     len |= inputStream.read();
-
     byte[] bytes = new byte[len];
     inputStream.read(bytes);
-    
     return new String(bytes);
   }
   
   public void close() throws IOException {
-    inputStream.close();
+    // 이 클래스에서 해제할 자원이 있다면 여기 밑에 작성하라!
+  }
+
+  @Override
+  public int read() throws IOException {
+    return inputStream.read();
   }
 }
