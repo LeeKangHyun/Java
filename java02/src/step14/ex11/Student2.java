@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 // 이 클래스에 대해 직렬화를 허락하노라!
 public class Student2 implements Serializable {
+  // 직렬화를 통해 내보내는 데이터가 어떤 버전인지 지정할 때 사용한다.
+  // => 읽어들이는 쪽에서 이 버젼을 검사하여 읽을지 말 지 결정할 수 있다.
+  // => 세밀하게 다룰 데이터가 아니라면 그냥 기본 값 1로 설정하라!
+  private static final long serialVersionUID = 1L;
+  
   protected String name;
   protected String email;
   protected String tel;
