@@ -10,7 +10,7 @@ import v08.command.StudentListCommand;
 import v08.dao.StudentDao;
 
 
-public class StudentControl extends MenuControl{
+public class StudentControl extends MenuControl {
   StudentDao studentDao;
   StudentAddCommand addHandler;
   StudentDeleteCommand deleteHandler;
@@ -18,10 +18,11 @@ public class StudentControl extends MenuControl{
   StudentHelpCommand helpHandler;
 
   public StudentControl() { 
-    StudentDao studentDao = new StudentDao();
+    studentDao = new StudentDao();
     listHandler = new StudentListCommand();
     addHandler = new StudentAddCommand();
     deleteHandler = new StudentDeleteCommand();
+    helpHandler = new StudentHelpCommand();
     
     listHandler.setStudentDao(studentDao);
     addHandler.setStudentDao(studentDao);

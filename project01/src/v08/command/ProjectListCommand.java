@@ -3,13 +3,20 @@ package v08.command;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import v08.dao.ProjectDao;
 import v08.domain.Project;
 
 
 
 public class ProjectListCommand implements Command{
+  ProjectDao projectDao;
+  
+  public void setProjectDao(ProjectDao projectDao) {
+    this.projectDao = projectDao;
+  }
+  
   public void execute(HashMap<String, Object> params) {
-    ArrayList<Project> list = (ArrayList<Project>)params.get("list");
+    ArrayList<Project> list = projectDao.selectList();
     
     System.out.printf("%-3s %-20s %-10s %-10s %-40s\n", 
         "No", "Title", "Start", "End", "Members");
@@ -28,4 +35,6 @@ public class ProjectListCommand implements Command{
           project.getMember());
     }
   }
+
+  
 }
