@@ -6,8 +6,6 @@ import java.util.HashMap;
 import v08.dao.ProjectDao;
 import v08.domain.Project;
 
-
-
 public class ProjectListCommand implements Command{
   ProjectDao projectDao;
   

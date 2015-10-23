@@ -17,8 +17,6 @@ public class StudentDeleteCommand implements Command{
   public void execute(HashMap<String, Object> params) {
     Scanner scanner = (Scanner)params.get("scanner");
 
-    Student student = new Student();
-
     System.out.print("회원 번호? ");
     int no = Integer.parseInt(scanner.nextLine());
 
