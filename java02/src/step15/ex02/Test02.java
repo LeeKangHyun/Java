@@ -35,7 +35,7 @@ public class Test02 {
   // 그래서, 애플리케이션에서 사용하는 것은 바람직하지 않다. => 사용하지 말아라!
   // 애플리케이션을 위해서 Error처럼 스탤스 모드로 예외를 전달하는 클래스를 제공!
   // => RuntimeException 클래스!
-  // => 이러헤게 애플리케이션에서 발생하는 예외를 "애플리케이션 예외"라고 부른다.
+  // => 이렇게 애플리케이션에서 발생하는 예외를 "애플리케이션 예외"라고 부른다.
   public static void m4() {
     //throw new Error("오류!!!");
     throw new RuntimeException("오류!");

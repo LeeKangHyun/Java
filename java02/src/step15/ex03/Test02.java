@@ -21,7 +21,8 @@ public class Test02 {
       out2.close();
       // close() 하다가 발생된 예외는 특별히 처리할 필요가 없다.
       // => 
-     try {out.close();} catch (Exception e) { }
+     try {out.close();
+     } catch (Exception e) { }
     }
   }
 

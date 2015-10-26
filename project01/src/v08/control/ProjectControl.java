@@ -22,7 +22,7 @@ public class ProjectControl extends MenuControl {
     addHandler = new ProjectAddCommand();
     deleteHandler = new ProjectDeleteCommand();
     helpHandler = new ProjectHelpCommand();
-    
+
     listHandler.setProjectDao(projectDao);
     addHandler.setProjectDao(projectDao);
     deleteHandler.setProjectDao(projectDao);
@@ -56,7 +56,7 @@ public class ProjectControl extends MenuControl {
         helpHandler.execute(params);
         break;
       case "main":
-          projectDao.save(); // 메인화면으로 가기 전에 저장한다.
+        projectDao.save(); // 메인화면으로 가기 전에 저장한다.
         return;
       default:
         System.out.println("해당 명령을 지원하지 않습니다.");
@@ -64,5 +64,5 @@ public class ProjectControl extends MenuControl {
     } while (true);
   }
 
-  
+
 }

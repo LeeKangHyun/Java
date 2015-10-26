@@ -28,7 +28,6 @@ public class Board {
 
   @Override
   public String toString() {
-    //return this.getNo() + "," + this.getTitle();
     return this.getTitle() + "," + this.getContent() + "," +
     this.getCreatedDate().toString() + "," + this.getWriter();
   }

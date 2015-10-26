@@ -8,7 +8,7 @@ public class Test01 {
     result = Calculator.multiple(result, 2);
     result = Calculator.divide(result, 0);
     // 예외 처리 문법이 있기 전
-    // - 리턴 값ㅇ르 통해 예외 상황을 호출자에게 알렸다.
+    // - 리턴 값을 통해 예외 상황을 호출자에게 알렸다.
     // - 값을 리턴하는 메소드의 경우 예외를 알리기 위해 특별한 값을 리턴하도록 고안해야 하는
     //   번거로움이 있었다.
     // - 예) divide()의 경우 0으로 나눌 때 오류가 발생했음을 알리기 위해

@@ -33,7 +33,7 @@ public class ProjectDao {
         FileWriter out = new FileWriter("./data/project.dat");
         BufferedWriter out2 = new BufferedWriter(out);
         PrintWriter out3 = new PrintWriter(out2);
-    ) {
+        ) {
       for (Project p : list) {
         out3.println(p);
       }
