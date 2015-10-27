@@ -7,8 +7,9 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import v08.domain.Board;
-import v08.exception.DaoException;
+import v09.server.domain.Board;
+import v09.server.exception.DaoException;
+
 
 public class BoardDao {
   ArrayList<Board> list = new ArrayList<Board>();
@@ -47,6 +48,8 @@ public class BoardDao {
   }
 
   public Board delete(int no) {
+    if (no >= list.size())
+      return null;
     return list.remove(no);
   }
 

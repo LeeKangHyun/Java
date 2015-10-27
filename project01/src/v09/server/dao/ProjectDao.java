@@ -52,6 +52,8 @@ public class ProjectDao {
   }
 
   public Project delete(int no) {
+    if (no >= list.size())
+      return null;
     return list.remove(no);
   }
 }

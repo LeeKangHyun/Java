@@ -22,10 +22,10 @@ import v09.server.servlet.StudentAddServlet;
 import v09.server.servlet.StudentDeleteServlet;
 import v09.server.servlet.StudentListServlet;
 
-public class StudentServer {
+public class BoardServer {
   HashMap<String,Servlet> servletMap = new HashMap<String,Servlet>();
 
-  public StudentServer() {
+  public BoardServer() {
     ProjectDao projectDao = new ProjectDao();
     ProjectListServlet projectListServlet = new ProjectListServlet();
     projectListServlet.setProjectDao(projectDao);
@@ -67,7 +67,7 @@ public class StudentServer {
   }
 
   public static void main(String[] args) {
-    StudentServer server = new StudentServer();
+    BoardServer server = new BoardServer();
     server.execute();
   }
 
@@ -91,20 +91,21 @@ public class StudentServer {
         BufferedReader in = new BufferedReader(
             new InputStreamReader(
                 socket.getInputStream()));
-
+        
         PrintStream out = new PrintStream(
             socket.getOutputStream());
         ) 
     {
       String message = in.readLine();
+
       int i = message.indexOf('?');
       String command = message.substring(0, (i != -1) ? i : message.length());
-
+      
       HashMap<String,Object> params = new HashMap<String,Object>();
       params.put("out", out);
 
       extractParamDataFromMessage(params, message);
-
+      
       Servlet servlet = servletMap.get(command);
 
       if (servlet != null) {
@@ -136,3 +137,4 @@ public class StudentServer {
     }
   }
 }
+

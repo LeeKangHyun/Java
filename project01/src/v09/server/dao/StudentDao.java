@@ -18,7 +18,7 @@ public class StudentDao {
     try (
         FileReader in = new FileReader(filename);
         BufferedReader in2 = new BufferedReader(in);
-    ) {
+        ) {
       String line = null;
       while((line = in2.readLine()) != null) {
         list.add(new Student(line));
@@ -33,7 +33,7 @@ public class StudentDao {
         FileWriter out = new FileWriter("./data/student.dat");
         BufferedWriter out2 = new BufferedWriter(out);
         PrintWriter out3 = new PrintWriter(out2);
-    ) {
+        ) {
       for (Student s : list) {
         out3.println(s);
       }
@@ -51,6 +51,8 @@ public class StudentDao {
   }
 
   public Student delete(int no) {
+    if (no >= list.size())
+      return null;
     return list.remove(no);
   }
 }

@@ -7,9 +7,6 @@ import java.util.HashMap;
 import v09.server.dao.ProjectDao;
 import v09.server.domain.Project;
 
-
-
-
 public class ProjectAddServlet implements Servlet {
   ProjectDao projectDao;
 
@@ -17,7 +14,7 @@ public class ProjectAddServlet implements Servlet {
     this.projectDao = projectDao;
   }
 
-  public void service(HashMap<String, Object> params) {
+  public void service(HashMap<String,Object> params) {
     Project project = new Project();
 
     project.setTitle((String)params.get("title"));

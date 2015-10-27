@@ -8,11 +8,18 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
+import v09.server.dao.BoardDao;
 import v09.server.dao.ProjectDao;
 import v09.server.dao.StudentDao;
+import v09.server.servlet.BoardAddServlet;
+import v09.server.servlet.BoardDeleteServlet;
+import v09.server.servlet.BoardListServlet;
 import v09.server.servlet.ProjectAddServlet;
+import v09.server.servlet.ProjectDeleteServlet;
 import v09.server.servlet.ProjectListServlet;
 import v09.server.servlet.Servlet;
+import v09.server.servlet.StudentAddServlet;
+import v09.server.servlet.StudentDeleteServlet;
 import v09.server.servlet.StudentListServlet;
 
 public class ProjectServer {
@@ -20,7 +27,6 @@ public class ProjectServer {
 
   public ProjectServer() {
     ProjectDao projectDao = new ProjectDao();
-    
     ProjectListServlet projectListServlet = new ProjectListServlet();
     projectListServlet.setProjectDao(projectDao);
     servletMap.put("/project/list", projectListServlet);
@@ -29,11 +35,35 @@ public class ProjectServer {
     projectAddServlet.setProjectDao(projectDao);
     servletMap.put("/project/add", projectAddServlet);
     
+    ProjectDeleteServlet projectDeleteServlet = new ProjectDeleteServlet();
+    projectDeleteServlet.setProjectDao(projectDao);
+    servletMap.put("/project/delete", projectDeleteServlet);
     
     StudentDao studentDao = new StudentDao();
     StudentListServlet studentListServlet = new StudentListServlet();
     studentListServlet.setStudentDao(studentDao);
     servletMap.put("/student/list", studentListServlet);
+    
+    StudentAddServlet studentAddServlet = new StudentAddServlet();
+    studentAddServlet.setStudentDao(studentDao);
+    servletMap.put("/student/add", studentAddServlet);
+    
+    StudentDeleteServlet studentDeleteServlet = new StudentDeleteServlet();
+    studentDeleteServlet.setStudentDao(studentDao);
+    servletMap.put("/student/delete", studentDeleteServlet);
+    
+    BoardDao boardDao = new BoardDao();
+    BoardListServlet boardListServlet = new BoardListServlet();
+    boardListServlet.setBoardDao(boardDao);
+    servletMap.put("/board/list", boardListServlet);
+    
+    BoardAddServlet boardAddServlet = new BoardAddServlet();
+    boardAddServlet.setBoardDao(boardDao);
+    servletMap.put("/board/add", boardAddServlet);
+    
+    BoardDeleteServlet boardDeleteServlet = new BoardDeleteServlet();
+    boardDeleteServlet.setBoardDao(boardDao);
+    servletMap.put("/board/delete", boardDeleteServlet);
   }
 
   public static void main(String[] args) {
@@ -83,6 +113,7 @@ public class ProjectServer {
       } else {
         out.println("죄송하지만, 요청하신 명령을 찾을수 없습니다.");
       }
+      out.println();
     } catch (Exception e) {
       e.printStackTrace();
     } finally {
