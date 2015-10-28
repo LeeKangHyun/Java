@@ -15,11 +15,13 @@ public class ProjectDeleteServlet implements Servlet {
 
   public void service(HashMap<String,Object> params) {
     PrintStream out = (PrintStream)params.get("out");
+    int no = Integer.parseInt((String)params.get("no"));
 
-
-    if(projectDao.delete(Integer.parseInt((String)params.get("no"))) != null) {
+    try {
+      projectDao.delete(no);
       out.println("삭제하였습니다.");
-    } else
-      out.println("유효하지 않습니다.");
+    } catch (Exception e) {
+      out.println("해당 번호의 프로젝트가 존재하지 않습니다.");
+    }
   }
 }

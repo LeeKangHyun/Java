@@ -48,8 +48,6 @@ public class BoardDao {
   }
 
   public Board delete(int no) {
-    if (no >= list.size())
-      return null;
     return list.remove(no);
   }
 
