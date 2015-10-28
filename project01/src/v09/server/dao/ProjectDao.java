@@ -49,9 +49,12 @@ public class ProjectDao {
 
   public void insert(Project project) {
     list.add(project);
+    this.save();
   }
 
   public Project delete(int no) {
-    return list.remove(no);
+      Project obj = list.remove(no);
+      this.save();
+      return obj;
   }
 }

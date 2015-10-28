@@ -45,10 +45,13 @@ public class BoardDao {
 
   public void insert(Board board) {
     list.add(board);
+    this.save();
   }
 
   public Board delete(int no) {
-    return list.remove(no);
+    Board obj = list.remove(no);
+    this.save();
+    return obj;
   }
 
   public ArrayList<Board> selectList() {

@@ -48,12 +48,13 @@ public class StudentDao {
 
   public void insert(Student student) {
     list.add(student);
+    this.save();
   }
 
   public Student delete(int no) {
-    if (no >= list.size())
-      return null;
-    return list.remove(no);
+    Student obj = list.remove(no);
+    this.save();
+    return obj;
   }
 }
 

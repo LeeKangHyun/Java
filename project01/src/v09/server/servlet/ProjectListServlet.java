@@ -32,7 +32,10 @@ public class ProjectListServlet implements Servlet {
           project.getEndDate(),
           project.getMember());
     }
-    out.println();
+
+    try {
+      Thread.currentThread().sleep(10000);
+    } catch (InterruptedException e) {}
     
   }
 
