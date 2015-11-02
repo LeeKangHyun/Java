@@ -19,7 +19,6 @@ public class Test05 {
   @MyAnno({"홍길동", "임꺽정", "유관순"})
   static class MyClass2 {}
   
-  
   //예3:
   //=> 배열 값이 한 개일 때 중괄호를 빼도 된다.
   //@MyAnno({"홍길동"}) // 기본!
