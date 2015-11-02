@@ -11,4 +11,6 @@ step01 - DDL
      여러개의 컬럼을 묶어서 pk로 지정하기.
          
 step02 - DDL2 : alter 명령 사용법
-  => 
+  => test01.sql : alter 명령 사용법
+  => test02.sql : null 옵션
+  => test03.
