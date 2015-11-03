@@ -13,4 +13,15 @@ step01 - DDL
 step02 - DDL2 : alter 명령 사용법
   => test01.sql : alter 명령 사용법
   => test02.sql : null 옵션
-  => test03.
+  => test03.sql : default 
+  => test04.sql : unique
+  => test05.sql : auto_increment
+  
+step03 - DML
+  => test01.sql
+  => test02.sql
+  => test03.sql
+  
+step04 - DQL
+  => 
+  

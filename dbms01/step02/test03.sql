@@ -7,7 +7,7 @@ CREATE TABLE test11 (
   name VARCHAR(20) not null default '홍길동',
   age INT default 20,
   tel VARCHAR(20),
-  constraint test09_pk primary key (email)
+  constraint test11_pk primary key (email)
 );
 
 -- 데이터 입력
