@@ -21,7 +21,7 @@ public class Test02 {
       // => 그 드라이버 객체를 이용하여 DBMS에 연결한다.
       // => 드라이버가 생성해 준 연결 객체를 리턴한다. 
       con = DriverManager.getConnection(
-          "jdbc:mysql://192.168.0.37:3306/java76db", "java76", "1111");
+          "jdbc:mysql://localhost:3306/java76db", "java76", "1111");
       System.out.println("DBMS 연결 완료!");
       
       // 3) Connection 객체를 통해 DBMS에 SQL을 전달할 객체를 얻는다.

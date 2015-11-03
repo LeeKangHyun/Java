@@ -19,7 +19,7 @@ public class Test09 {
       //DriverManager.registerDriver(new org.postgresql.Driver());
       
       con = DriverManager.getConnection(
-          "jdbc:mysql://192.168.0.37:3306/java76db", "java76", "1111");
+          "jdbc:mysql://localhost:3306/java76db", "java76", "1111");
       
       stmt = con.prepareStatement(
           "update board set title=?, content=? where bno=?");
