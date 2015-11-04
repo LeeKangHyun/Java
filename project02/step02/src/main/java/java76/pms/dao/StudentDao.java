@@ -12,18 +12,19 @@ import java76.pms.annotation.Component;
 import java76.pms.domain.Project;
 import java76.pms.domain.Student;
 import java76.pms.exception.DaoException;
-import java76.pms.util.DBConnectionPool;
 
 @Component
 public class StudentDao {
-DBConnectionPool dbPool;
+  String url;
+  String username;
+  String password;
   
-  public void setDbConnectionPool(DBConnectionPool dbPool) {
-    this.dbPool = dbPool;
+  public StudentDao() {
+    url = "jdbc:mysql://localhost:3306/java76db";
+    username = "java76";
+    password = "1111";
   }
-  
-  public StudentDao() {}
-  
+
   public List<Student> selectList() {
     Connection con = null;
     Statement stmt = null;
@@ -31,7 +32,9 @@ DBConnectionPool dbPool;
     ArrayList<Student> list = new ArrayList<>();
     
     try {
-      con = dbPool.getConnection();
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
       stmt = con.createStatement();
       rs = stmt.executeQuery("select name,email,tel,cid from student");
       
@@ -52,7 +55,7 @@ DBConnectionPool dbPool;
     } finally {
       try {rs.close();} catch (Exception e) {}
       try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {con.close();} catch (Exception e) {}
     }
   }
 
@@ -61,7 +64,9 @@ DBConnectionPool dbPool;
     PreparedStatement stmt = null;
     
     try {
-      con = dbPool.getConnection();
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
       
       stmt = con.prepareStatement(
           "insert into student(name,email,tel,cid) values(?,?,?,?)");
@@ -78,7 +83,7 @@ DBConnectionPool dbPool;
       
     } finally {
       try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {con.close();} catch (Exception e) {}
     }
   }
 
@@ -87,7 +92,9 @@ DBConnectionPool dbPool;
     PreparedStatement stmt = null;
     
     try {
-      con = dbPool.getConnection();
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
       
       stmt = con.prepareStatement(
           "delete from student where email=?");
@@ -101,7 +108,7 @@ DBConnectionPool dbPool;
       
     } finally {
       try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {con.close();} catch (Exception e) {}
     }
   }
   
@@ -110,7 +117,9 @@ DBConnectionPool dbPool;
     PreparedStatement stmt = null;
     
     try {
-      con = dbPool.getConnection();
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
       
       stmt = con.prepareStatement(
           "update student set name=?,tel=?,cid=? where email=?");
@@ -127,10 +136,13 @@ DBConnectionPool dbPool;
       
     } finally {
       try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {con.close();} catch (Exception e) {}
     }
   }
 }
+
+
+
 
 
 

@@ -11,17 +11,18 @@ import java.util.List;
 import java76.pms.annotation.Component;
 import java76.pms.domain.Project;
 import java76.pms.exception.DaoException;
-import java76.pms.util.DBConnectionPool;
 
 @Component
 public class ProjectDao {
-DBConnectionPool dbPool;
+  String url;
+  String username;
+  String password;
   
-  public void setDbConnectionPool(DBConnectionPool dbPool) {
-    this.dbPool = dbPool;
+  public ProjectDao() {
+    url = "jdbc:mysql://localhost:3306/java76db";
+    username = "java76";
+    password = "1111";
   }
-  
-  public ProjectDao() {}
 
   public List<Project> selectList() {
     Connection con = null;
@@ -30,7 +31,9 @@ DBConnectionPool dbPool;
     ArrayList<Project> list = new ArrayList<>();
     
     try {
-      con = dbPool.getConnection();
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
       stmt = con.createStatement();
       rs = stmt.executeQuery("select pno,title,sdt,edt,member from project");
       
@@ -52,7 +55,7 @@ DBConnectionPool dbPool;
     } finally {
       try {rs.close();} catch (Exception e) {}
       try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {con.close();} catch (Exception e) {}
     }
   }
 
@@ -61,7 +64,9 @@ DBConnectionPool dbPool;
     PreparedStatement stmt = null;
     
     try {
-      con = dbPool.getConnection();
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
       
       stmt = con.prepareStatement(
           "insert into project(title,sdt,edt,member) values(?,?,?,?)");
@@ -78,7 +83,7 @@ DBConnectionPool dbPool;
       
     } finally {
       try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {con.close();} catch (Exception e) {}
     }
   }
 
@@ -87,7 +92,9 @@ DBConnectionPool dbPool;
     PreparedStatement stmt = null;
     
     try {
-      con = dbPool.getConnection();
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
       
       stmt = con.prepareStatement(
           "delete from project where pno=?");
@@ -101,7 +108,7 @@ DBConnectionPool dbPool;
       
     } finally {
       try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {con.close();} catch (Exception e) {}
     }
   }
   
@@ -110,7 +117,9 @@ DBConnectionPool dbPool;
     PreparedStatement stmt = null;
     
     try {
-      con = dbPool.getConnection();
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
       
       stmt = con.prepareStatement(
           "update project set title=?,sdt=?,edt=?,member=? where pno=?");
@@ -128,10 +137,13 @@ DBConnectionPool dbPool;
       
     } finally {
       try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {con.close();} catch (Exception e) {}
     }
   }
 }
+
+
+
 
 
 

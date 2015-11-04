@@ -1,3 +1,8 @@
+/*
+ * @Component 애노테이션이 붙은 클래스를 찾기 위해 
+ * 오픈 소스를 사용한다.
+ * => Reflections 라이브러리 도입 
+ */
 package java76.pms.context;
 
 import java.io.File;
@@ -19,11 +24,6 @@ public class AnnotationApplicationContext {
   
   public Object getBean(String name) {
     return objMap.get(name);
-  }
-  
-  public void addBean(String name, Object obj) throws Exception {
-    objMap.put(name, obj);
-    injectDependencies();
   }
   
   private void createObjects(String packageName) throws Exception {

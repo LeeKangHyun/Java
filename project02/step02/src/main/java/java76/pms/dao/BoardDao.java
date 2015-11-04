@@ -11,17 +11,18 @@ import java.util.List;
 import java76.pms.annotation.Component;
 import java76.pms.domain.Board;
 import java76.pms.exception.DaoException;
-import java76.pms.util.DBConnectionPool;
 
 @Component
 public class BoardDao {
-  DBConnectionPool dbPool;
+  String url;
+  String username;
+  String password;
   
-  public void setDbConnectionPool(DBConnectionPool dbPool) {
-    this.dbPool = dbPool;
+  public BoardDao() {
+    url = "jdbc:mysql://localhost:3306/java76db";
+    username = "java76";
+    password = "1111";
   }
-
-  public BoardDao() {}
 
   public List<Board> selectList() {
     Connection con = null;
@@ -30,7 +31,9 @@ public class BoardDao {
     ArrayList<Board> list = new ArrayList<>();
     
     try {
-      con = dbPool.getConnection();
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
       stmt = con.createStatement();
       rs = stmt.executeQuery(
           "select bno,title,content,views,cre_dt from board");
@@ -53,8 +56,7 @@ public class BoardDao {
     } finally {
       try {rs.close();} catch (Exception e) {}
       try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
-      
+      try {con.close();} catch (Exception e) {}
     }
   }
 
@@ -63,7 +65,10 @@ public class BoardDao {
     PreparedStatement stmt = null;
     
     try {
-      con = dbPool.getConnection();      
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
+      
       stmt = con.prepareStatement(
           "insert into project(title,content,cre_dt) values(?,?,?)");
       
@@ -78,7 +83,7 @@ public class BoardDao {
       
     } finally {
       try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {con.close();} catch (Exception e) {}
     }
   }
 
@@ -87,7 +92,10 @@ public class BoardDao {
     PreparedStatement stmt = null;
     
     try {
-      con = dbPool.getConnection();
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
+      
       stmt = con.prepareStatement(
           "delete from board where bno=?");
       
@@ -100,7 +108,7 @@ public class BoardDao {
       
     } finally {
       try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {con.close();} catch (Exception e) {}
     }
   }
   
@@ -109,7 +117,10 @@ public class BoardDao {
     PreparedStatement stmt = null;
     
     try {
-      con = dbPool.getConnection();
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
+      
       stmt = con.prepareStatement(
           "update board set title=?,content=?,cre_dt=now() "
           + "where bno=? and (pwd is null or pwd=?");
@@ -125,10 +136,13 @@ public class BoardDao {
       
     } finally {
       try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {con.close();} catch (Exception e) {}
     }
   }
 }
+
+
+
 
 
 
