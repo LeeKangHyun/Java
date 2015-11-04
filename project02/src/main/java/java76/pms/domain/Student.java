@@ -5,32 +5,18 @@ public class Student {
   protected String email;
   protected String tel;
   protected String cid; // class ID
-  
-  void setValue(String str) {
-    String[] tokens = str.split(",");
-    if (tokens.length < 4)
-      return;
-    name = tokens[0];
-    email = tokens[1];
-    tel = tokens[2];
-    cid = tokens[3];
-  }
-  
+
   public Student() {}
-  
-  public Student(String str) {
-    this.setValue(str);
-  }
- 
+
   public Student(String name, String tel) {
     this.name = name;
     this.tel = tel;
   }
-  
+
   @Override
   public String toString() {
-    return this.getName() + "," + this.getEmail() + "," +
-          this.getTel() + "," + this.getCid();
+    return "Student [name=" + name + ", email=" 
+        + email + ", tel=" + tel + ", cid=" + cid + "]";
   }
 
   public String getName() {
@@ -64,8 +50,8 @@ public class Student {
   public void setCid(String cid) {
     this.cid = cid;
   }
-  
-  
+
+
 }
 
 

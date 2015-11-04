@@ -16,21 +16,16 @@ public class BoardAddServlet implements Servlet {
 		this.boardDao = boardDao;
 	}
 	
-	@Override
 	public void service(HashMap<String,Object> params) {
 		Board board = new Board();
-		
 		board.setTitle((String)params.get("title"));
 		board.setContent((String)params.get("content"));
 		board.setCreatedDate(Date.valueOf((String)params.get("createddate")));
-		board.setWriter((String)params.get("writer"));
+		board.setPassword((String)params.get("password"));
 			
 		boardDao.insert(board);
 		
 		PrintStream out = (PrintStream)params.get("out");
 		out.println("저장되었습니다.");
-		out.println();
 	}
-
-
 }

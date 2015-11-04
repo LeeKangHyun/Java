@@ -11,33 +11,27 @@ import java76.pms.domain.Board;
 public class BoardListServlet implements Servlet {
 	BoardDao boardDao;
 
+	public void setBoardDao(BoardDao boardDao) {
+	  this.boardDao = boardDao;
+	}
+	
 	@Override
 	public void service(HashMap<String, Object> params) {
 		PrintStream out = (PrintStream)params.get("out");
 
 		out.printf("%-3s %-13s %-8s %-13s %s\n", 
-				"No", "Title", "Writer", "Date", "Content"); 
+				"No", "Title", "content", "views", "createddate"); 
 
-		int i = 0;
 		for (Board board : boardDao.selectList()) {
 			if (board == null)
 				continue;
 				out.printf("%3d %-13s %-8s %-13s %s\n", 
-						i++, 
+				    board.getNo(),
 						board.getTitle(),
-						board.getWriter(),
-						board.getCreatedDate(),
-						board.getContent());
+						board.getContent(),
+						board.getViews(),
+						board.getCreatedDate());
 		}
-		out.println();
-	}
-
-	public BoardDao getBoardDao() {
-		return boardDao;
-	}
-
-	public void setBoardDao(BoardDao boardDao) {
-		this.boardDao = boardDao;
 	}
 
 }

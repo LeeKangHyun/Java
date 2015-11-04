@@ -1,63 +1,149 @@
 package java76.pms.dao;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import java76.pms.annotation.Component;
+import java76.pms.domain.Project;
 import java76.pms.domain.Student;
 import java76.pms.exception.DaoException;
 
 @Component
 public class StudentDao {
-  ArrayList<Student> list = new ArrayList<Student>();
-
+  String url;
+  String username;
+  String password;
+  
   public StudentDao() {
-    String filename = "./data/student.dat";
-    try (
-        FileReader in = new FileReader(filename);
-        BufferedReader in2 = new BufferedReader(in);
-        )
-    {
-      String line = null;
-      while ((line = in2.readLine()) != null) {
-        list.add(new Student(line));
+    url = "jdbc:mysql://localhost:3306/java76db";
+    username = "java76";
+    password = "1111";
+  }
+
+  public List<Student> selectList() {
+    Connection con = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+    ArrayList<Student> list = new ArrayList<>();
+    
+    try {
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
+      stmt = con.createStatement();
+      rs = stmt.executeQuery("select name,email,tel,cid from student");
+      
+      Student student = null;
+      while (rs.next()) { 
+        student = new Student();
+        student.setName(rs.getString("name"));
+        student.setEmail(rs.getString("email"));
+        student.setTel(rs.getString("tel"));
+        student.setCid(rs.getString("cid"));
+        list.add(student);
       }
-    } 
-    catch (Exception e) {
-      throw new DaoException("학생정보 로딩 실패");
+      return list;
+      
+    } catch (Exception e) {
+      throw new DaoException(e);
+      
+    } finally {
+      try {rs.close();} catch (Exception e) {}
+      try {stmt.close();} catch (Exception e) {}
+      try {con.close();} catch (Exception e) {}
     }
   }
 
-  public void save() {
-    try(
-        FileWriter out = new FileWriter("./data/student.dat");
-        BufferedWriter out2 = new BufferedWriter(out);
-        PrintWriter out3 = new PrintWriter(out2);
-        ) 
-    {
-      for (Student s : list)
-        out3.println(s);
+  public int insert(Student student) {
+    Connection con = null;
+    PreparedStatement stmt = null;
+    
+    try {
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
+      
+      stmt = con.prepareStatement(
+          "insert into student(name,email,tel,cid) values(?,?,?,?)");
+      
+      stmt.setString(1, student.getName());
+      stmt.setString(2, student.getEmail());
+      stmt.setString(3, student.getTel());
+      stmt.setString(4, student.getCid());
+      
+      return stmt.executeUpdate();
+      
+    } catch (Exception e) {
+      throw new DaoException(e);
+      
+    } finally {
+      try {stmt.close();} catch (Exception e) {}
+      try {con.close();} catch (Exception e) {}
     }
-    catch (Exception e) {
-      throw new DaoException("학생정보 저장 실패");
+  }
+
+  public int delete(String email) {
+    Connection con = null;
+    PreparedStatement stmt = null;
+    
+    try {
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
+      
+      stmt = con.prepareStatement(
+          "delete from student where email=?");
+      
+      stmt.setString(1, email);
+      
+      return stmt.executeUpdate();
+      
+    } catch (Exception e) {
+      throw new DaoException(e);
+      
+    } finally {
+      try {stmt.close();} catch (Exception e) {}
+      try {con.close();} catch (Exception e) {}
     }
   }
-
-  public ArrayList<Student> selectList() {
-    return list;
-  }
-
-  public void insert(Student student) {
-    list.add(student);
-  }
-
-  public Student delete(int no) {
-    Student obj = list.remove(no);
-    this.save();
-    return obj;
+  
+  public int update(Student student) {
+    Connection con = null;
+    PreparedStatement stmt = null;
+    
+    try {
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
+      
+      stmt = con.prepareStatement(
+          "update student set name=?,tel=?,cid=? where email=?");
+      
+      stmt.setString(1, student.getName());
+      stmt.setString(2, student.getTel());
+      stmt.setString(3, student.getCid());
+      stmt.setString(4, student.getEmail());
+      
+      return stmt.executeUpdate();
+      
+    } catch (Exception e) {
+      throw new DaoException(e);
+      
+    } finally {
+      try {stmt.close();} catch (Exception e) {}
+      try {con.close();} catch (Exception e) {}
+    }
   }
 }
+
+
+
+
+
+
+

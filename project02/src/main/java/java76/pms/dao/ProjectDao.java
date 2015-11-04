@@ -1,11 +1,12 @@
 package java76.pms.dao;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import java76.pms.annotation.Component;
 import java76.pms.domain.Project;
@@ -13,52 +14,137 @@ import java76.pms.exception.DaoException;
 
 @Component
 public class ProjectDao {
-	ArrayList<Project> list = new ArrayList<Project>();
+  String url;
+  String username;
+  String password;
+  
+  public ProjectDao() {
+    url = "jdbc:mysql://localhost:3306/java76db";
+    username = "java76";
+    password = "1111";
+  }
 
-	public ProjectDao() {
-		String filename = "./data/project.dat";
-		try (
-				FileReader in = new FileReader(filename);
-				BufferedReader in2 = new BufferedReader(in);
-				)
-		{
-			String line = null;
+  public List<Project> selectList() {
+    Connection con = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+    ArrayList<Project> list = new ArrayList<>();
+    
+    try {
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
+      stmt = con.createStatement();
+      rs = stmt.executeQuery("select pno,title,sdt,edt,member from project");
+      
+      Project project = null;
+      while (rs.next()) { 
+        project = new Project();
+        project.setNo(rs.getInt("pno"));
+        project.setTitle(rs.getString("title"));
+        project.setStartDate(rs.getDate("sdt"));
+        project.setEndDate(rs.getDate("edt"));
+        project.setMember(rs.getString("member"));
+        list.add(project);
+      }
+      return list;
+      
+    } catch (Exception e) {
+      throw new DaoException(e);
+      
+    } finally {
+      try {rs.close();} catch (Exception e) {}
+      try {stmt.close();} catch (Exception e) {}
+      try {con.close();} catch (Exception e) {}
+    }
+  }
 
-			while ((line = in2.readLine()) != null)
-				list.add(new Project(line));
-		} 
-		catch (Exception e) {
-			throw new DaoException("프로젝트정보 로딩 실패");
-		}
-	}
+  public int insert(Project project) {
+    Connection con = null;
+    PreparedStatement stmt = null;
+    
+    try {
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
+      
+      stmt = con.prepareStatement(
+          "insert into project(title,sdt,edt,member) values(?,?,?,?)");
+      
+      stmt.setString(1, project.getTitle());
+      stmt.setDate(2, project.getStartDate());
+      stmt.setDate(3, project.getEndDate());
+      stmt.setString(4, project.getMember());
+      
+      return stmt.executeUpdate();
+      
+    } catch (Exception e) {
+      throw new DaoException(e);
+      
+    } finally {
+      try {stmt.close();} catch (Exception e) {}
+      try {con.close();} catch (Exception e) {}
+    }
+  }
 
-	public void save() {
-		try (
-				FileWriter out = new FileWriter("./data/project.dat");
-				BufferedWriter out2 = new BufferedWriter(out);
-				PrintWriter out3 = new PrintWriter(out2);
-				) 
-		{
-			for (Project p : list)
-				out3.println(p);
-		}
-		catch (Exception e) {
-			throw new DaoException("프로젝트정보 저장 실패");
-		}
-	}
-
-	public ArrayList<Project> selectList() {
-		return list;
-	}
-
-	public void insert(Project project) {
-		list.add(project);
-		this.save();
-	}
-
-	public Project delete(int no) {
-		Project obj = list.remove(no);
-		this.save();
-		return obj;
-	}
+  public int delete(int no) {
+    Connection con = null;
+    PreparedStatement stmt = null;
+    
+    try {
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
+      
+      stmt = con.prepareStatement(
+          "delete from project where pno=?");
+      
+      stmt.setInt(1, no);
+      
+      return stmt.executeUpdate();
+      
+    } catch (Exception e) {
+      throw new DaoException(e);
+      
+    } finally {
+      try {stmt.close();} catch (Exception e) {}
+      try {con.close();} catch (Exception e) {}
+    }
+  }
+  
+  public int update(Project project) {
+    Connection con = null;
+    PreparedStatement stmt = null;
+    
+    try {
+      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+      
+      con = DriverManager.getConnection(url, username, password);
+      
+      stmt = con.prepareStatement(
+          "update project set title=?,sdt=?,edt=?,member=? where pno=?");
+      
+      stmt.setString(1, project.getTitle());
+      stmt.setDate(2, project.getStartDate());
+      stmt.setDate(3, project.getEndDate());
+      stmt.setString(4, project.getMember());
+      stmt.setInt(5, project.getNo());
+      
+      return stmt.executeUpdate();
+      
+    } catch (Exception e) {
+      throw new DaoException(e);
+      
+    } finally {
+      try {stmt.close();} catch (Exception e) {}
+      try {con.close();} catch (Exception e) {}
+    }
+  }
 }
+
+
+
+
+
+
+

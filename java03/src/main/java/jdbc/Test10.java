@@ -15,8 +15,6 @@ public class Test10 {
         )
     {
       DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-      //DriverManager.registerDriver(new org.mariadb.jdbc.Driver());
-      //DriverManager.registerDriver(new org.postgresql.Driver());
       
       con = DriverManager.getConnection(
           "jdbc:mysql://localhost:3306/java76db", "java76", "1111");
@@ -28,8 +26,6 @@ public class Test10 {
       
       stmt.setInt(1, no);
       
-      // delete 실행
-      // => executeUpdate()의 리턴 값? 추가, 변경, 삭제된 레코드의 수.
       int count = stmt.executeUpdate();
       
       if (count > 0) {

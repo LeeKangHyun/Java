@@ -19,11 +19,10 @@ public class BoardDeleteServlet implements Servlet {
 		
 		PrintStream out = (PrintStream)params.get("out");
 
-		try {
-			boardDao.delete(no);
+		if (boardDao.delete(no) > 0) {
 			out.println("삭제하였습니다");
-		} catch (Exception e) {
-			out.println("유효하지 않은 값입니다.");
+		} else {
+			out.println("존재하지 않는 번호입니다.");
 		}
 	}
 
