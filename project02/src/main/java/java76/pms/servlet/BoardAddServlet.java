@@ -20,7 +20,6 @@ public class BoardAddServlet implements Servlet {
 		Board board = new Board();
 		board.setTitle((String)params.get("title"));
 		board.setContent((String)params.get("content"));
-		board.setCreatedDate(Date.valueOf((String)params.get("createddate")));
 		board.setPassword((String)params.get("password"));
 			
 		boardDao.insert(board);

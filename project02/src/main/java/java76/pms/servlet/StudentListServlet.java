@@ -21,7 +21,7 @@ public class StudentListServlet implements Servlet {
         "Name", "Email", "Tel", "Cid");
     
     for (Student student : studentDao.selectList()) {
-      out.printf("%-20s, %-20s, %-20s, %-20s\n", 
+      out.printf("%-20s %-20s %-20s %-20s\n", 
           student.getName(),
           student.getEmail(),
           student.getTel(),

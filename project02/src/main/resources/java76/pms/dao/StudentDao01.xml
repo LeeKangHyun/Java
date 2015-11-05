@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+  namespace: SQL문을 분류하는 용도로 사용하는 그룹명.
+             프로그래밍의 일관성을 위해서 가능한 DAO의 패키지명과 같게 하라!
+-->
+<mapper namespace="java76.pms.dao.StudentDao">
+
+  <!-- SQL문은 <select>, <insert>, <update>, <delete> 엘리먼트에 작성한다.
+       => id 속성: SQL문을 찾을 때 사용할 ID. 가능한 DAO의 메소드 이름과 같게 하라.
+       => resultType 속성: select 결과를 담을 값 객체 이름. fully qualified name.
+   -->
+  <select id="selectList" resultType="java76.pms.domain.Student">
+    select 
+    name,
+    email,
+    tel,
+    cid
+     from student
+  </select>
+</mapper>

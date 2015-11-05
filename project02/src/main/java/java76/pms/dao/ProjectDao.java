@@ -1,138 +1,79 @@
 package java76.pms.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 
 import java76.pms.annotation.Component;
 import java76.pms.domain.Project;
-import java76.pms.exception.DaoException;
-import java76.pms.util.DBConnectionPool;
 
 @Component
 public class ProjectDao {
-DBConnectionPool dbPool;
-  
-  public void setDbConnectionPool(DBConnectionPool dbPool) {
-    this.dbPool = dbPool;
+  SqlSessionFactory sqlSessionFactory;
+
+  public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
+    this.sqlSessionFactory = sqlSessionFactory;
   }
-  
+
   public ProjectDao() {}
 
   public List<Project> selectList() {
-    Connection con = null;
-    Statement stmt = null;
-    ResultSet rs = null;
-    ArrayList<Project> list = new ArrayList<>();
-    
+    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
     try {
-      con = dbPool.getConnection();
-      stmt = con.createStatement();
-      rs = stmt.executeQuery("select pno,title,sdt,edt,member from project");
-      
-      Project project = null;
-      while (rs.next()) { 
-        project = new Project();
-        project.setNo(rs.getInt("pno"));
-        project.setTitle(rs.getString("title"));
-        project.setStartDate(rs.getDate("sdt"));
-        project.setEndDate(rs.getDate("edt"));
-        project.setMember(rs.getString("member"));
-        list.add(project);
-      }
-      return list;
-      
-    } catch (Exception e) {
-      throw new DaoException(e);
-      
+      // selecttList()에 주는 값은,
+      // SQL 맵퍼 파일에 정의된 namespace 이름과 sql 아이디이다.
+      return sqlSession.selectList("java76.pms.dao.ProjectDao.selectList");
+      // 굳이 예외를 받지 않는다.
+      // selectList()가 던지는 RuntimeException 예외를 그대로 호출자에게 위임할 것 이다.
     } finally {
-      try {rs.close();} catch (Exception e) {}
-      try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {sqlSession.close();} catch (Exception e) {}
     }
   }
 
   public int insert(Project project) {
-    Connection con = null;
-    PreparedStatement stmt = null;
-    
+    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
     try {
-      con = dbPool.getConnection();
-      
-      stmt = con.prepareStatement(
-          "insert into project(title,sdt,edt,member) values(?,?,?,?)");
-      
-      stmt.setString(1, project.getTitle());
-      stmt.setDate(2, project.getStartDate());
-      stmt.setDate(3, project.getEndDate());
-      stmt.setString(4, project.getMember());
-      
-      return stmt.executeUpdate();
-      
-    } catch (Exception e) {
-      throw new DaoException(e);
-      
+      // selecttList()에 주는 값은,
+      // SQL 맵퍼 파일에 정의된 namespace 이름과 sql 아이디이다.
+      return sqlSession.insert("java76.pms.dao.ProjectDao.insert", project);
+      // 굳이 예외를 받지 않는다.
+      // selectList()가 던지는 RuntimeException 예외를 그대로 호출자에게 위임할 것 이다.
     } finally {
-      try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {sqlSession.close();} catch (Exception e) {}
     }
   }
 
   public int delete(int no) {
-    Connection con = null;
-    PreparedStatement stmt = null;
-    
+    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
     try {
-      con = dbPool.getConnection();
-      
-      stmt = con.prepareStatement(
-          "delete from project where pno=?");
-      
-      stmt.setInt(1, no);
-      
-      return stmt.executeUpdate();
-      
-    } catch (Exception e) {
-      throw new DaoException(e);
-      
+      // selecttList()에 주는 값은,
+      // SQL 맵퍼 파일에 정의된 namespace 이름과 sql 아이디이다.
+      return sqlSession.delete("java76.pms.dao.ProjectDao.delete", no);
+      // 굳이 예외를 받지 않는다.
+      // selectList()가 던지는 RuntimeException 예외를 그대로 호출자에게 위임할 것 이다.
     } finally {
-      try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {sqlSession.close();} catch (Exception e) {}
     }
   }
-  
+
   public int update(Project project) {
-    Connection con = null;
-    PreparedStatement stmt = null;
-    
+    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
     try {
-      con = dbPool.getConnection();
-      
-      stmt = con.prepareStatement(
-          "update project set title=?,sdt=?,edt=?,member=? where pno=?");
-      
-      stmt.setString(1, project.getTitle());
-      stmt.setDate(2, project.getStartDate());
-      stmt.setDate(3, project.getEndDate());
-      stmt.setString(4, project.getMember());
-      stmt.setInt(5, project.getNo());
-      
-      return stmt.executeUpdate();
-      
-    } catch (Exception e) {
-      throw new DaoException(e);
-      
+      // selecttList()에 주는 값은,
+      // SQL 맵퍼 파일에 정의된 namespace 이름과 sql 아이디이다.
+      return sqlSession.update("java76.pms.dao.ProjectDao.update", project);
+      // 굳이 예외를 받지 않는다.
+      // selectList()가 던지는 RuntimeException 예외를 그대로 호출자에게 위임할 것 이다.
     } finally {
-      try {stmt.close();} catch (Exception e) {}
-      dbPool.returnConnection(con);
+      try {sqlSession.close();} catch (Exception e) {}
     }
   }
 }
-
 
 
 

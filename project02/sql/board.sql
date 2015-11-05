@@ -4,7 +4,7 @@ create table board (
   title varchar(255) not null,
   content text not null,
   views int default 0,
-  cre_dt datetime not null,
+  cre_dt datetime not null default now(),
   pwd varchar(20),
   constraint board_pk primary key (bno)
 );

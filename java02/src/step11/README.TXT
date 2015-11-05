@@ -3,6 +3,8 @@ ex01.Test01 - Date클래스와 Calendar클래스의 인스턴스 생성 방법�
 ex01.Test02 - Singleton 적용 전
 ex01.Test03 - Singleton 적용 후
 
+ex02
+
        
        
        
