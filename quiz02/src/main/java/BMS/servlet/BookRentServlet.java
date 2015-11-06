@@ -3,13 +3,16 @@ package BMS.servlet;
 import java.io.PrintStream;
 import java.util.HashMap;
 
-import BMS.annotation.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import BMS.dao.BookDao;
 import BMS.domain.Book;
 
 @Component("/book/rent")
 public class BookRentServlet implements Servlet {
-	BookDao bookDao;
+  @Autowired
+  BookDao bookDao;
 
 	public void setBoardDao(BookDao bookDao) {
 		this.bookDao = bookDao;

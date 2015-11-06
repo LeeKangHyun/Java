@@ -3,12 +3,15 @@ package BMS.servlet;
 import java.io.PrintStream;
 import java.util.HashMap;
 
-import BMS.annotation.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import BMS.dao.BookDao;
 
 @Component("/book/delete")
 public class BookDeleteServlet implements Servlet {
-	BookDao bookDao;
+  @Autowired
+  BookDao bookDao;
 
 	public void setBookDao(BookDao bookDao) {
 		this.bookDao = bookDao;

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Component;
 
-import BMS.annotation.Component;
 import BMS.domain.Book;
 
 @Component
