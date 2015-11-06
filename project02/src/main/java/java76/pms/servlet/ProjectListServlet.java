@@ -3,17 +3,16 @@ package java76.pms.servlet;
 import java.io.PrintStream;
 import java.util.HashMap;
 
-import java76.pms.annotation.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java76.pms.dao.ProjectDao;
 import java76.pms.domain.Project;
 
 @Component("/project/list")
 public class ProjectListServlet implements Servlet {
+  @Autowired
   ProjectDao projectDao;
-
-  public void setProjectDao(ProjectDao projectDao) {
-    this.projectDao = projectDao;
-  }
 
   @Override
   public void service(HashMap<String,Object> params) {

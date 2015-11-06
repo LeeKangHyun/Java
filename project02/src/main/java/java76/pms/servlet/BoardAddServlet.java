@@ -1,20 +1,19 @@
 package java76.pms.servlet;
 
 import java.io.PrintStream;
-import java.sql.Date;
 import java.util.HashMap;
 
-import java76.pms.annotation.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java76.pms.dao.BoardDao;
 import java76.pms.domain.Board;
 
 @Component("/board/add")
 public class BoardAddServlet implements Servlet {
-	BoardDao boardDao;
+	@Autowired
+  BoardDao boardDao;
 	
-	public void setBoardDao(BoardDao boardDao) {
-		this.boardDao = boardDao;
-	}
 	
 	public void service(HashMap<String,Object> params) {
 		Board board = new Board();

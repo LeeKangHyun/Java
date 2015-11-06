@@ -1,10 +1,12 @@
-[주제: SQL 추가 문법과 mybatis 고급 기법]
-1. 페이징 처리
-  => BoardDao.xml의 selectList에 limit 문법 추가
-  => BoardDao의 selectList() 변경
-  => BoardListServlet 클래스 변경
-  
+[주제: Spring IoC Container 도입]
+1. Ioc (Inversion of Control) 컨테이너
+  => IoC(역제어) => Event 처리, Dependenct Injection(의존 객체 주입)
+  => IoC 컨테이너 => Bean 컨테이너
+     . 객체 관리(생성, 소멸)
+     . 의존 객체 주입
 
+2. 실습
+1) 의존 라이브러리 다운로드
 
   
   

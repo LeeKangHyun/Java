@@ -5,17 +5,15 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java76.pms.annotation.Component;
 import java76.pms.domain.Student;
 
 @Component
 public class StudentDao {
+  @Autowired  // 스프링 IoC 컨테이너에게 명령 => 객체를 모두 생성한 후 다음 타입의 객체를 찾아서 꼽아라.
   SqlSessionFactory sqlSessionFactory;
-
-  public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
-    this.sqlSessionFactory = sqlSessionFactory;
-  }
 
   public StudentDao() {}
 

@@ -1,7 +1,6 @@
 package java76.pms;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.ServerSocket;
@@ -9,16 +8,13 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java76.pms.context.AnnotationApplicationContext;
 import java76.pms.servlet.Servlet;
-import java76.pms.util.DBConnectionPool;
 
 public class ProjectServer {
-  AnnotationApplicationContext context;
+  ApplicationContext context;
 
   class RequestHandler implements Runnable {
     Socket socket;
@@ -66,29 +62,8 @@ public class ProjectServer {
 
   public ProjectServer() throws Exception {
     // Bean Container 생성
-    // Bean? 자바 인스턴스를 말한다.
-    // Bean Container? 자바 인스턴스를 보관 관리하는 객체
-    context = new AnnotationApplicationContext("java76.pms");
-
-    // Resourcees 도구는 자바 클래스가 있는 경로를 뒤진다.
-    // 그 경로에 있는 파일을 읽을 수 있도록 입력 스트림을 준비한다.
-    InputStream configInputStream = Resources.getResourceAsStream(
-        "java76/pms/dao/mybatis-config.xml");
-    SqlSessionFactory sqlSessionFactory =  
-        new SqlSessionFactoryBuilder().build(
-            /*mybatis 설정 파일을 읽을때 사용할 스트림도구*/
-            configInputStream);
-    // 빈 컨테이너에 mybatis 객체 보관
-    // 누가 사용하는가? DAO가 sqlSessionFactory 객체를 사용한다.
-    context.addBean("sqlSessionFactory", sqlSessionFactory);
-
-    DBConnectionPool dbPool = new DBConnectionPool(
-        "com.mysql.jdbc.Driver",
-        "jdbc:mysql://localhost:3306/java76db",
-        "java76",
-        "1111");
-
-    context.addBean("dbPool", dbPool);
+    context = new ClassPathXmlApplicationContext(
+        "java76/pms/application-context.xml");
   }
 
   public static void main(String[] args) {

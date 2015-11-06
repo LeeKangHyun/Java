@@ -5,17 +5,15 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java76.pms.annotation.Component;
 import java76.pms.domain.Board;
 
 @Component
 public class BoardDao {
+  @Autowired
   SqlSessionFactory sqlSessionFactory;
-
-  public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
-    this.sqlSessionFactory = sqlSessionFactory;
-  }
 
   public BoardDao() {}
 

@@ -3,17 +3,16 @@ package java76.pms.servlet;
 import java.io.PrintStream;
 import java.util.HashMap;
 
-import java76.pms.annotation.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java76.pms.dao.StudentDao;
 import java76.pms.domain.Student;
 
 @Component("/student/add")
 public class StudentAddServlet implements Servlet {
+  @Autowired
   StudentDao studentDao;
-  
-  public void setStudentDao(StudentDao studentDao) {
-    this.studentDao = studentDao;
-  }
   
   public void service(HashMap<String,Object> params) {
     Student student = new Student();
