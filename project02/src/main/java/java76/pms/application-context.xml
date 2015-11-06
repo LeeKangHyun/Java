@@ -7,9 +7,8 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-  <!-- 1) @Component 애노테이션이 붙은 클래스의 인스턴스를 자동생성하기 => @Autowired가 붙은 필드에 대해 
-    객체를 자동 주입한다. -->
-
+  <!-- 1) @Component 애노테이션이 붙은 클래스의 인스턴스를 자동생성하기 
+          => @Autowired가 붙은 필드에 대해 객체를 자동 주입한다. -->
   <context:component-scan base-package="java76.pms" />
 
   <!-- 2) MyBatis의 SqlSessionFactory 객체 준비! 
@@ -21,15 +20,15 @@
     - 그 라이브러리를 사용하여 SqlSessionFactory를 준비하라! => Spring용 mybatis어뎁터 의존 라이브러리 추가 
     build.gradle에 'org.mybatis:mybatis-spring:1.2.3' 추가 => 사용법 mybatis 사이트 참조 -->
   <bean id="sqlSessionFactory" 
-  class="org.mybatis.spring.SqlSessionFactoryBean">
+    class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource" />
     
-  <property name="mapperLocations" 
-  value="classpath*:java76/pms/dao/*Dao.xml" />
+    <property name="mapperLocations" 
+      value="classpath*:java76/pms/dao/*Dao.xml" />
   
-  <property name="typeAliasesPackage" 
-  value="java76.pms.domain"/>
-</bean>
+    <property name="typeAliasesPackage" 
+      value="java76.pms.domain"/>
+  </bean>
     
 
   <!-- DataSource(DB커넥션 풀)는 스프링에서 관리 -->
