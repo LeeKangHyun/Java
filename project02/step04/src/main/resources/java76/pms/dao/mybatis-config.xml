@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration><!-- mybatis 설정 정보를 표현하는 최상위 엘리먼트(root element) -->
+  <environments default="development"><!-- DBMS 접속 정보들 -->
+    <environment id="development"><!-- DBMS 접속 정보 -->
+      <transactionManager type="JDBC"/><!-- 트랜잭션 관리자 -->
+      <dataSource type="POOLED"><!-- 커넥션 풀 관리자 -->
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/java76db"/>
+        <property name="username" value="java76"/>
+        <property name="password" value="1111"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers><!-- SQL 파일 경로 정보들 -->
+    <mapper resource="java76/pms/dao/ProjectDao.xml"/><!-- SQL 파일 경로 정보 -->
+    <mapper resource="java76/pms/dao/StudentDao.xml"/><!-- SQL 파일 경로 정보 -->
+    <mapper resource="java76/pms/dao/BoardDao.xml"/><!-- SQL 파일 경로 정보 -->
+  </mappers>
+</configuration>
