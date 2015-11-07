@@ -12,7 +12,7 @@ import BMS.domain.Book;
 @Component("/book/list")
 public class BookListServlet implements Servlet {
   @Autowired
-  BookDao bookDao;
+	BookDao bookDao;
 
 	public void setBookDao(BookDao bookDao) {
 	  this.bookDao = bookDao;

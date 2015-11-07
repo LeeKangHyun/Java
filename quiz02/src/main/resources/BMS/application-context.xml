@@ -36,7 +36,7 @@
     destroy-method="close">
     <!-- results in a setDriverClassName(String) call -->
     <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-    <property name="url" value="jdbc:mysql://localhost:3306/mydb" />
+    <property name="url" value="jdbc:mysql://localhost:3306/java76db" />
     <property name="username" value="java76" />
     <property name="password" value="1111" />
   </bean>

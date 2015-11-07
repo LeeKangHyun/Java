@@ -23,9 +23,7 @@ public class BookDetailServlet implements Servlet {
     PrintStream out = (PrintStream)params.get("out");
     int no = Integer.parseInt((String)params.get("no"));
 
-    int i = 0;
     for (Book book : bookDao.selectList()) {
-      i++;
       if (no != book.getNo())
         continue;
       out.printf("제목: %s\n"
@@ -38,9 +36,6 @@ public class BookDetailServlet implements Servlet {
           book.getPress(),
           book.getTag());
     }
-    if (i == bookDao.selectList().size())
-      out.println("없는 번호");
-      
   }
 
 }

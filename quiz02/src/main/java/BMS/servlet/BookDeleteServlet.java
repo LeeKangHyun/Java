@@ -11,7 +11,7 @@ import BMS.dao.BookDao;
 @Component("/book/delete")
 public class BookDeleteServlet implements Servlet {
   @Autowired
-  BookDao bookDao;
+	BookDao bookDao;
 
 	public void setBookDao(BookDao bookDao) {
 		this.bookDao = bookDao;
