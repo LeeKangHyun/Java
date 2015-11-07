@@ -13,7 +13,7 @@ public class Book implements Serializable {
   protected boolean rent;
   
   public Book() {}
-
+  
   @Override
   public String toString() {
     return "Book [no=" + no + ", title=" + title 
@@ -32,8 +32,6 @@ public class Book implements Serializable {
   public String getTitle() {
     return title;
   }
-
-
 
   public void setTitle(String title) {
     this.title = title;

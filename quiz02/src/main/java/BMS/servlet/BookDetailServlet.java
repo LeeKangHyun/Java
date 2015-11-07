@@ -23,7 +23,7 @@ public class BookDetailServlet implements Servlet {
     PrintStream out = (PrintStream)params.get("out");
     int no = Integer.parseInt((String)params.get("no"));
 
-    for (Book book : bookDao.selectList()) {
+    for (Book book : bookDao.detail()) {
       if (no != book.getNo())
         continue;
       out.printf("제목: %s\n"

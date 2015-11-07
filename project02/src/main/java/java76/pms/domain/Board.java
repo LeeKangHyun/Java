@@ -15,16 +15,12 @@ public class Board implements Serializable {
 
   public Board() {}
 
-
-
   @Override
   public String toString() {
     return "Board [no=" + no + ", title=" + title + ", content=" 
         + content + ", views=" + views + ", createdDate="
         + createdDate + ", password=" + password + "]";
   }
-
-
 
   public int getNo() {
     return no;

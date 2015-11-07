@@ -17,10 +17,12 @@ public class Test01 {
       
       stmt = con.createStatement();
       
-      for (int i = 0; i < 100; i++) {
+      for (int i = 0; i < 50; i++) {
       stmt.executeUpdate(
           "insert into book(title,authors,press,tag) "
-          + "values('book" + i + "', '" + i + "강', 'BIT', '컴퓨터,컴터,컴퓨' )");
+          + "values('book" + (int)(Math.random() * 100) + "', "
+              + "'" + (int)(Math.random() * 100) + "강', "
+                  + "'BIT', '컴퓨터,컴터,컴퓨' )");
       }
       System.out.println("입력 성공!");
       

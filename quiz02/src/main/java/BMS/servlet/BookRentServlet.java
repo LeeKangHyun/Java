@@ -25,7 +25,7 @@ public class BookRentServlet implements Servlet {
 		int no = Integer.parseInt((String)params.get("no"));
 		book.setNo(no);
 
-		for (Book books : bookDao.selectList()) {
+		for (Book books : bookDao.detail()) {
 			if (no != books.getNo())
 				continue;
 			if (books.isRent()) {

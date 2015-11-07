@@ -8,6 +8,7 @@
     <result column="sdt" property="startDate"/>
     <result column="edt" property="endDate"/>
   </resultMap>
+  
   <select id="selectList" resultMap="projectMap"
   parameterType="map">
     select 

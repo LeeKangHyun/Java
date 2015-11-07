@@ -1,5 +1,6 @@
 package BMS.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -14,19 +15,33 @@ public class BookDao {
   @Autowired
   SqlSessionFactory sqlSessionFactory;
   
-  public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
-    this.sqlSessionFactory = sqlSessionFactory;
-  }
-  
   public BookDao() {}
 
-  public List<Book> selectList() {
+  public List<Book> selectList(
+      int pageNo, int pageSize, String keyword, String align) {
+    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+    try {
+      HashMap<String,Object> paramMap = new HashMap<>();
+      paramMap.put("startIndex", (pageNo - 1) * pageSize);
+      paramMap.put("length", pageSize);
+      paramMap.put("keyword", keyword);
+      paramMap.put("align", align);
+      
+      return sqlSession.selectList(
+          "BMS.dao.BookDao.selectList", paramMap);
+    } finally {
+      try {sqlSession.close();} catch (Exception e) {}
+    }
+  }
+  
+  public List<Book> detail() {
     SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
     try {
       // selecttList()에 주는 값은,
       // SQL 맵퍼 파일에 정의된 namespace 이름과 sql 아이디이다.
-      return sqlSession.selectList("BMS.dao.BookDao.selectList");
+      return sqlSession.selectList("BMS.dao.BookDao.detail");
       // 굳이 예외를 받지 않는다.
       // selectList()가 던지는 RuntimeException 예외를 그대로 호출자에게 위임할 것 이다.
     } finally {
