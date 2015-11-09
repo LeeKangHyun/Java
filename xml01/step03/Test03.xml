@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE student SYSTEM "Test03.dtd">
+<!-- gender 속성을 지정하지 않으면 기본값 man을 갖는다.
+	<student name="홍길동"/>
+	-->
+
+<!-- 제안된 값 이외의 값을 넣으면 오류다
+<student name="홍길동" gender="okok"/>
+-->
+	
+<!-- OK -->
+<student name="홍길동" gender="man"/>

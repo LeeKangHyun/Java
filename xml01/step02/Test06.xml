@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE student SYSTEM "Test06.dtd">
+<!-- <student>
+<name></name>
+<tel></tel>
+</student> -->
+
+<!-- <student>
+<name></name>
+<mobile></mobile>
+</student> -->
+
+<!-- <student>
+<name></name>
+<email></email>
+</student> -->
+
+<student>
+<name></name>
+<email></email>
+<tel></tel>
+<mobile></mobile>
+<tel></tel>
+</student>

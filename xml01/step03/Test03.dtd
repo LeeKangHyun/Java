@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 속성의 타입
+CDATA      문자열. 단 &나 <를 넣어서는 안된다.
+(값|값|값)   열거형.
+-->
+<!ELEMENT student EMPTY>
+
+<!ATTLIST student
+  name      CDATA #REQUIRED
+  gender    (man|woman|trans) "man"
+>
+  

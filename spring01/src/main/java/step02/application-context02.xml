@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 생성자의 넘겨주는 값이 뭐냐에 따라 호출할 생성자가 결정된다. -->
+  <!-- Computer(String,int) 생성자 호출 -->
+  <bean id="c1" class="step02.Computer2">
+    <constructor-arg>
+      <value type="java.lang.String">비트개발용1</value>
+    </constructor-arg>
+    <constructor-arg>
+      <value type="int">4</value>
+    </constructor-arg>
+  </bean>
+  
+  <!-- Computer(String,float) 생성자 호출 -->
+  <bean id="c2" class="step02.Computer2">
+    <constructor-arg>
+      <value type="java.lang.String">비트개발용1</value>
+    </constructor-arg>
+    <constructor-arg>
+      <value type="float">3.2f</value>
+    </constructor-arg>
+  </bean>
+
+</beans>

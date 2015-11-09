@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8">
+
+<!ELEMENT students (student*)>
+
+<!ELEMENT student (name,kor,math,eng,gender?)>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT kor (#PCDATA)>
+<!ELEMENT math (#PCDATA)>
+<!ELEMENT eng (#PCDATA)>
+<!ELEMENT gender (#PCDATA)>

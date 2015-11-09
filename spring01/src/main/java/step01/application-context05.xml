@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 빈의 이름이 없다면? 
+       클래스이름 + # + 인덱스 ==> step01.Computer#0
+  -->
+  <!-- 익명 빈의 별명은?
+       같은 타입인 경우 첫 번째 빈에 대해서만 별명이 부여된다.
+       별명은 ==> 클래스이름 ==> step01.Computer
+  -->
+  <bean class="step01.Computer" />
+  <bean class="step01.Computer" /> <!-- 별명 없음 -->
+  <bean class="step01.Computer" /> <!-- 별명 없음 -->
+
+</beans>
+
+
+
+

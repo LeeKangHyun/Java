@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 1) 아규먼트의 순서 지정 전 -->
+  <bean id="c1" class="step02.Computer3">
+    <constructor-arg><value type="java.lang.String">비트개발용1호</value></constructor-arg>
+    <constructor-arg><value type="int">4</value></constructor-arg>
+  </bean>
+  <!-- 스프링은 아규먼트의 순서에 상관없이,
+       내부의 정책에 따라 가장 적합한 생성자를 찾아 호출한다.
+       다음 설정은 Computer3(int, String)이 아니라,
+       Computer3(String, int)를 호출한다. -->
+  <bean id="c2" class="step02.Computer3">
+    <constructor-arg><value type="int">4</value></constructor-arg>
+    <constructor-arg><value type="java.lang.String">비트컴퓨터</value></constructor-arg>
+  </bean>
+  
+  <bean id="c3" class="step02.Computer3">
+    <constructor-arg index="0"><value type="int">4</value></constructor-arg>
+    <constructor-arg index="1"><value type="java.lang.String">비트컴퓨터</value></constructor-arg>
+  </bean>
+  
+  <bean id="c4" class="step02.Computer3">
+    <constructor-arg index="0" type="int" value="4"/>
+    <constructor-arg index="1" type="java.lang.String" value="비트컴퓨터"/>
+  </bean>
+  
+  <bean id="c5" class="step02.Computer3">
+    <constructor-arg index="1" type="int" value="4"/>
+    <constructor-arg index="0" type="java.lang.String" value="비트컴퓨터"/>
+  </bean>
+  
+</beans>

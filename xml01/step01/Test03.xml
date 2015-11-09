@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+validated XML?
+=> well-formed XML중에서 DTD또는 Schema 규칙에 따라 작성된 XML
+--> 
+
+<!-- 사용할 DTD선언 
+=> 문법1: <!DOCTYPE 루트태그이름 SYSTEM "DTD파일URL">
+=> 문법2: <!DOCTYPE 루트태그이름 PUBLIC "DTD정보" "DTD파일URL">
+=> DTD정보? 
+     예) "-//W3C//DTD HTML 4.01 Strict//EN"
+     +/- : +(국제 공인), -(개인 또는 단체)
+     //DTD를 관리하는 책임자(단체)명
+     //DTD 문서명
+     //DTD 문서의 작성 언어
+-->
+<!DOCTYPE students SYSTEM "Test03.dtd">
+<students>
+  <student>
+    <name>홍길동</name>
+    <kor>100</kor>
+    <math>100</math>
+    <eng>90</eng>
+    <gender>man</gender>
+  </student>
+  <student>
+    <name>홍길동</name>
+    <kor>100</kor>
+    <math>100</math>
+    <eng>90</eng>
+    <!-- gender는 선택 태그이다.-->
+  </student>
+</students>
+
+
+ 
+ 

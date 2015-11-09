@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <bean id="c1" class="step01.Computer" />
+
+  <!-- 빈의 아이디는 중복될 수 없다. -->
+  
+  <!-- 
+  <bean id="c1" class="step01.Computer"/> 
+  -->
+  
+  <!-- 아이디 대신 name을 쓸수 있다. 
+       id가 없고 name만 있는 경우, name이 빈의 이름으로 사용된다.
+  -->
+  <bean name="c2" class="step01.Computer" />
+  
+  <!-- id와 name을 동시에 사용할 수 있다.
+       id는 빈의 이름으로 사용되고, name의 값은 빈의 별명으로 사용된다. 
+  -->
+  <bean id="c3" name="c4" class="step01.Computer"/>
+  
+  <!-- name의 값을 여러개 지정할 수 있다. 
+       name에 작성하는 이름들의 구분 값은 공백, 콤마, 세미콜론
+  -->
+  <!-- <bean id="c5" name="a1 a2 a3" class="step01.Computer"/> -->
+  <!-- <bean id="c5" name="a1,a2,a3" class="step01.Computer"/> -->
+  <bean id="c5" name="a1;a2;a3" class="step01.Computer"/>
+
+  <!-- id없이 name이 여러 개? 
+       name의 첫 번째 값이 빈의 이름이 되고, 두 번째 부터는 별명이 된다.
+       => 중요! 빈의 이름이나 별명이나 객체를 찾는데도 똑 같다. 즉 상관없다.
+  -->
+  
+  <bean name="a4 a5 a6" class="step01.Computer"/>
+  
+  <!-- id는 name과 달리 여러 개의 이름을 지정할 수 없다. 
+       따라서 다음 id값은 전체가 하나의 이름이다. "c6 c7 c8"
+  -->
+  <bean id="c6 c7 c8" class="step01.Computer"/>
+</beans>
+
+
+
+

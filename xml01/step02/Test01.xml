@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE student SYSTEM "Test01.dtd">
+<!-- <student>okok</student> -->
+<!-- student 태그는 오직 문자열만 가능하다. -->
+
+<!-- <student>
+<first-name>길동</first-name>
+<last-name>홍</last-name>
+</student> -->
+
+<student/>

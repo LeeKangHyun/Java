@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 2) 자식 엘리먼트 선언 
+#PCDATA: 문자열. parsed character data. 문자열을 해석한다는 의미다.
+         => 문자열에 태그 선언이 있으면 오류 발생.
+-->
+<!ELEMENT student (name, age)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT age (#PCDATA)>

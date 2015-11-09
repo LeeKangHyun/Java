@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE student SYSTEM "Test02.dtd">
+<!-- CDATA에 &나 '<'를 넣어서는 안된다. 
+=> 즉 XML 문서 해석기가 내부적으로 사용하는 명령어를 사용해서는 안된다.
+=> 대신하는 글자를 넣어야 한다.
+&(상수 값을 가리키는 명령어) ==> &amp;
+'<'(태그의 시작을 가리키는 명령어) ==> &lt;
+--> 
+
+<!-- 오류 -->
+<!-- 
+<student name="10<20" />
+-->
+
+<!-- OK
+<student name="10&lt;20" />
+-->
+
+<!-- 오류!
+<student name="10&20" />
+-->
+
+<student name="10&amp;20" />
+
+

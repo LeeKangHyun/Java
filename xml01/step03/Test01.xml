@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE student SYSTEM "Test01.dtd">
+<!-- 
+<student name="홍길동" />
+-->
+
+<!-- 
+<student name="홍길동" tel="1111"/>
+-->
+
+<!-- country에는 오직 "한국"만 가능하다.
+<student name="홍길동" country="한국"/>
+-->
+
+<!-- age 값을 지정하지 않으면 기본 값을 갖는다. -->
+<student name="홍길동" age="30"/>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 1) 아규먼트 타입 지정하기 -->
+  <bean id="c1" class="step02.Computer2">
+    <constructor-arg><value type="java.lang.String">비트개발용1</value></constructor-arg>
+    <constructor-arg><value type="java.lang.String">4</value></constructor-arg>
+  </bean>
+  
+  <!-- 2) 아규먼트 타입 생략하기 -->
+  <bean id="c2" class="step02.Computer2">
+    <constructor-arg><value>비트개발용2</value></constructor-arg>
+    <constructor-arg><value>비트컴퓨</value></constructor-arg>
+  </bean>
+  
+  <!-- 3) 속성으로 타입 및 값 지정하기 -->
+  <bean id="c3" class="step02.Computer2">
+    <constructor-arg type="java.lang.String" value="비트개발용2"/>
+    <constructor-arg type="java.lang.String" value="비트컴퓨터"/>
+  </bean>
+  
+  <!-- 4) 속성으로 값 지정하기(타입 생략) -->
+  <bean id="c4" class="step02.Computer2">
+    <constructor-arg value="비트개발용2"/>
+    <constructor-arg value="비트컴퓨터"/>
+  </bean>
+</beans>

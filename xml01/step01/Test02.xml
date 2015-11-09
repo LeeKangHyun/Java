@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!-- Well-formed XML?
+=> XML 작성 규칙에 따라 작성된 XML 데이터.
+=> 규칙 -->
+
+<!-- XML 문서는 반드시 XML 선언으로 시작해야 한다.
+속성
+=> version: 필수 속성. 1.0 값만 가능.
+=> encoding: 선택 속성. XML문서를 작성할 때 사용한 문자 집합. 
+=> standalone: 선택 속성. yes 또는 no. 문서를 해석하는데 DTD가 있어야 한다면 no.
+=> 반드시 문서의 시작 부분에 위치해야 한다.
+-->
+<!-- 
+<?xml version="1.0"?> 
+-->
+
+<!-- 1) 루트 엘리먼트는 1개여야 한다. -->
+<!--
+<students></students> 
+<students></students> <==오류!
+-->
+
+<!-- 2) 모든 엘리먼트는 반드시 끝 태그가 있어야한다. -->
+<!-- 
+<students>
+  <student>홍길동</student>
+  <student>임꺽정  <= 끝 태그가 없어서 오류!
+</students>
+-->
+ 
+<!-- 3) 만약 끝 태그를 생략하고 싶다면 시작 태그 끝에 /를붙여라 -->
+<!-- 
+<students>
+  <student>
+    <name>홍길동</name>
+    <man></man>
+  </student>
+  <student>
+    <name>유관순</name>
+    <woman/>
+  </student>
+</students>
+-->
+
+<!-- 4) 태그 이름에 공백을 줄 수 없다. --> 
+<!-- 
+<student>
+  <first name></first name> <=== 오류!
+</student>
+-->
+ 
+<!-- 5) 태그 이름은 반드시 문자로 시작하고, 시작 문자 이후부터 숫자나 - 문자를 넣을수 있따. -->
+<!--
+<student>
+  <1stname></1stname> <==오류!
+  <name-1st></name-1st>  <==OK!
+  <한글도되></한글도되>  <==OK!
+</student>
+-->
+ 
+<!-- 5) '<'나 '</' 다음에 공백이 와서는 안된다. -->
+<!-- 
+<student>
+  <first-name></first-name>
+  <first-name ></first-name   >
+  < fist-name></ first-name>
+</student>
+-->
+
+<!-- 6) 엘리먼트끼리 중첩될 수 없다. -->
+
+<!--
+<name>데이터<i>데이터<b>데이터</i>데이터</b></name> <== 오류
+<name>데이터<i>데이터<b>데이터</b></i><b>데이터<i>데이터</i></b></name>
+-->
+
+<!-- 7) 엘리먼트의 이름은 대/소문자를 구분한다. -->
+<test></test>
+
+
+
+
+
+ 
+ 

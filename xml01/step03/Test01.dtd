@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 속성 선언
+#REQUIRED 필수 속성
+#IMPLIED  선택 속성
+#FIXED    속성값 고정
+'기본값'
+-->
+<!ELEMENT student EMPTY>
+<!ATTLIST student
+  name      CDATA #REQUIRED
+  tel       CDATA #IMPLIED
+  country    CDATA #FIXED '한국'
+  age       CDATA '20'
+>
+  

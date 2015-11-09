@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DOCTYPE student SYSTEM "Test03.dtd"> 
+<!-- EMPTY 태그(엘리먼트)는 값(콘텐츠)을 줄 수 없다.
+<student></student>
+	-->
+<student>ok</student> 
+
+<!-- 값을 줄 필요가 없기 때문에 끝 태그 생략 가능! -->
+<student/>

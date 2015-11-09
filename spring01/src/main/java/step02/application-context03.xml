@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 아규먼트의 타입을 지정하지 않으면, 
+       스프링 내부 정책에 따라 가장 적합한 생성자를 호출한다.
+  -->
+  <!-- String 타입이 우선한다. => Computer2(String,String) 생성자 호출됨. -->
+  <bean id="c1" class="step02.Computer2">
+    <constructor-arg><value>비트개발용1</value></constructor-arg>
+    <constructor-arg><value>4</value></constructor-arg>
+  </bean>
+  
+  <!-- String 타입이 우선한다. => Computer2(String,String) 생성자 호출됨. -->
+  <bean id="c2" class="step02.Computer2">
+    <constructor-arg><value>비트개발용1</value></constructor-arg>
+    <constructor-arg><value>3.2f</value></constructor-arg>
+  </bean>
+
+</beans>

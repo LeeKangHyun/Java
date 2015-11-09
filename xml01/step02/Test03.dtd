@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 3) 빈 엘리먼트 선언 -->
+
+<!ELEMENT student EMPTY>
