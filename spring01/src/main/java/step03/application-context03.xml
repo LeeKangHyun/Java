@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:c="http://www.springframework.org/schema/c"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 속성을 이용하여 생성자 호출하기 -->
+  <bean id="c1" 
+    class="step03.Computer" 
+    c:model="오호라1호" 
+    c:ram="4"
+    p:maker="비트컴퓨터"
+    p:speed="3.2"/>
+
+  <bean id="c2" 
+    class="step03.Computer" 
+    c:maker="비트컴퓨터"
+    c:ram="2">
+    <property name="model" value="오호라2호"/>
+    <property name="speed" value="2.8"/>
+   </bean>
+</beans>
+
+
+
+
