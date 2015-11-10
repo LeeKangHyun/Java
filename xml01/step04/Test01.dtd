@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- XML 상수(엔티티; ENTITY) 정의하기
+1) 일반 엔티티 - XML 문서에서 사용하는 엔티티
+2) 파라미터 엔티티 - DTD에서 사용하는 엔티티
+-->
+
+<!-- 일반 엔티티 -->
+<!ENTITY java   "자바프로그래밍">
+<!ENTITY c      "C 프로그래밍">
+
+<!ELEMENT students(student*)>
+<!ELEMENT student EMPTY>
+<!ATTLIST student
+  name      CDATA #REQUIRED
+  tel       CDATA #IMPLIED
+  class     CDATA #IMPLIED
+>
+  

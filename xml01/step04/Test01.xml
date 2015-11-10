@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE studens SYSTEM "Test01.dtd">
+
+<students>
+  <student name="홍길동" class="자바 프로그래밍 76기"/>
+  <student name="임꺽정" class="&java; 76기"
+  <student name="유관순" class="&c; 76기"
+</students>
+
+<!-- XML Built-in Entity
+&amp;  &
+&lt;   <
+&gt;   >
+&quot; "
+&apos; '
+-->

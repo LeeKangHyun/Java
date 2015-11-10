@@ -4,7 +4,7 @@
 #REQUIRED 필수 속성
 #IMPLIED  선택 속성
 #FIXED    속성값 고정
-'기본값'
+' '       기본값
 -->
 <!ELEMENT student EMPTY>
 <!ATTLIST student

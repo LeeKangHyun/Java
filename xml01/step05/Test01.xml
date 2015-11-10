@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+namespace = package
+=> 태그들을 묶어 놓은 패키지와 같다.
+=> 태그 이름 충돌을 방지하는 문법.
+=> 태가 만든 태그와 다른 사람이 만든 태그를 구분하기 위한 방법.
+=> 문법
+   xmlns:별명="네임스페이스이름"
+=> 네임스페이스 이름
+   보통 URL을 사용한다.
+   예) xmlns:bean="http://java76.com/dtd/bean"
+-->
+
+<orders>
+  <!-- 같은 이름의 태그가 있을 때 구분하는 방법 => 이름 공간을 지정한다. -->
+  <c:customer xmlns:c="okok">  
+  	<name>홍길동</name>
+  </c:customer>
+  
+  <s:seller xmlns:s="nono">
+  	<name>비트쇼핑몰</name>
+  </s:seller>
+</orders>

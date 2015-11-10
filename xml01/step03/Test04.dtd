@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!ELEMENT students (student*)>
+<!-- 속성의 타입
+ID    태그가 다르더라도 문서에서 유일한 값이어야 한다.
+-->
+<!ELEMENT student EMPTY>
+<!ATTLIST student
+  name      CDATA #REQUIRED
+  gender    (man|woman|trans) "man"
+  email     ID #REQUIRED
+>

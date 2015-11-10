@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 6) OR 선택 연산자 -->
-<!ELEMENT student (name,age?,tel|mobile|email),address*)>
+<!ELEMENT student (name,age?,(tel|mobile|email)+,address*)>
 <!ELEMENT name    (#PCDATA)>
 <!ELEMENT age     (#PCDATA)>
 <!ELEMENT tel     (#PCDATA)>

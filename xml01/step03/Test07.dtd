@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!ELEMENT projects (student*,project*)>
+
+<!-- 속성의 타입
+NMTOKEN    CDATA와는 달리 XML 이름 짓는 규칙에 따라 값을 작성해야 한다.
+-->
+<!ELEMENT student EMPTY>
+<!ATTLIST student
+  name      NMTOKEN #REQUIRED
+  gender    (man|woman|trans) "man"
+  email     ID #REQUIRED
+  tel       NMTOKENS #IMPLIED
+>
+
+<!ELEMENT project EMPTY>
+<!ATTLIST project
+  title CDATA #REQUIRED
+  owner IDREF #REQUIRED
+  members IDREFS #IMPLIED
+>

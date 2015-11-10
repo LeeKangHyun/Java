@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+default namespace?
+=> 별명을 지정하지 않은 네임스페이스
+=> 문법
+   xmlns="네임스페이스이름"
+-->
+
+<orders xmlns="mynamespace">
+  <customer xmlns:c="okok">  
+  	<c:name>홍길동</c:name>
+  </customer>
+  
+  <seller xmlns:s="nono">
+  	<s:name>비트쇼핑몰</s:name>
+  </seller>
+</orders>

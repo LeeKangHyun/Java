@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE projects SYSTEM "Test02.dtd">
+
+<projects>
+  <project no="1" title="프로젝트 A"/>
+  <project no="2" title="프로젝트 B" owner="홍길동"/>
+  <project no="3" title="프로젝트 C" owner="임꺽정" members="김 이 박"/>
+  
+  <board no="1" title="제목1" content="내용내용"/>
+  <board no="2" title="제목2" content="내용내용" writer="홍길동"/>
+  <board no="3" title="제목3" content="내용내용"/>
+</projects>
