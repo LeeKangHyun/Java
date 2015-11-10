@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <bean id="m1" class="step04.Monitor">
+  	<property name="model" value="베타스캔"/>
+  	<property name="maker" value="오호라컴"/>
+  	<property name="resolution" value="1920x1080"/>
+  	<property name="type" value="0"/>
+  </bean>
+  <bean id="m2" class="step04.Monitor">
+  	<property name="model" value="BITHD모니터"/>
+  	<property name="maker" value="비트컴"/>
+  	<property name="resolution" value="3840x2160"/>
+  	<property name="type" value="1"/>
+  </bean>
+        	
+  <bean id="c1" class="step04.Computer">
+    <property name="model" value="개발용1호"/>
+    <property name="maker" value="비트컴퓨터"/>
+    <property name="ram" value="4"/>
+    <property name="speed" value="3.2"/>
+    <property name="monitor"><ref bean="m1"/></property>
+  </bean> 
+  
+  <bean id="c2" class="step04.Computer">
+    <property name="model" value="개발용2호"/>
+    <property name="maker" value="비트컴퓨터"/>
+    <property name="ram" value="2"/>
+    <property name="speed" value="2.2"/>
+    <property name="monitor" ref="m2"/>
+  </bean>
+  
+  <bean id="c3" class="step04.Computer" p:monitor-ref="m2">
+    <property name="model" value="개발용3호"/>
+    <property name="maker" value="비트컴퓨터"/>
+    <property name="ram" value="8"/>
+    <property name="speed" value="3.8"/>
+  </bean>  
+</beans>
+
+
+
+
