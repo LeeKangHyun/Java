@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  <bean id="h1" class="step08.HDD">
+    <property name="capacity" value="1000" />
+    <property name="rpm" value="7200" />
+  </bean>
+  
+  <bean id="m1" class="step08.Monitor">
+    <property name="model" value="개발자용" />
+    <property name="maker" value="Dell" />
+    <property name="resolution" value="3840 * 2160" />
+  </bean>
+  
+  <bean id="c1" class="step08.Computer">
+    <property name="model" value="웹개발용" />
+    <property name="maker" value="비트컴" />
+  </bean>
+</beans>
+
+
+
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        
+  <!-- 다음과 같이 애노테이션을 처리할 객체를 다음과 같이 등록하지 말고,
+       단축키를 사용하여 쉽게 등록할 수 있다. -->
+  <context:annotation-config/>
+  <!-- 
+  <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+  <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+  <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+  <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+  ... 기타 등등
+  -->
+  
+  <bean id="h1" class="step08.HDD">
+    <property name="capacity" value="1000" />
+    <property name="rpm" value="7200" />
+  </bean>
+  
+  <bean id="m1" class="step08.Monitor">
+    <property name="model" value="개발자용" />
+    <property name="maker" value="Dell" />
+    <property name="resolution" value="3840 * 2160" />
+  </bean>
+  
+  <bean id="m2" class="step08.Monitor">
+    <property name="model" value="일반사용자용" />
+    <property name="maker" value="LG" />
+    <property name="resolution" value="1920 * 1080" />
+  </bean>
+  
+  <bean id="c1" class="step08.Computer4">
+    <property name="model" value="웹개발용" />
+    <property name="maker" value="비트컴" />
+  </bean>
+</beans>
+
+
+
+

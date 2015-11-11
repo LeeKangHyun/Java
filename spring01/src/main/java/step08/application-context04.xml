@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        
+  <!-- @Autowired 애노테이션을 처리할 객체 등록
+       => IoC 컨테이너가 설정 파일에 객체를 모두 생성하고 프로퍼티 설정까지 끝낸 다음에
+          이 객체가 작동한다. => 그래서 post-precessor라고 한다.
+  -->
+  <bean 
+  class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+  
+  <bean id="h1" class="step08.HDD">
+    <property name="capacity" value="1000" />
+    <property name="rpm" value="7200" />
+  </bean>
+  
+  <!-- 
+  <bean id="m1" class="step08.Monitor">
+    <property name="model" value="개발자용" />
+    <property name="maker" value="Dell" />
+    <property name="resolution" value="3840 * 2160" />
+  </bean>
+  -->
+  
+  <bean id="c1" class="step08.Computer3">
+    <property name="model" value="웹개발용" />
+    <property name="maker" value="비트컴" />
+  </bean>
+</beans>
+
+
+
+

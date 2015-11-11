@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  <!-- @Component 애노테이션이 붙은 객체를 자동 생성하려면,
+       그 작업을 처리하는 객체를 등록해야 한다.
+       => 단축키를 사용하라.. -->
+  <context:component-scan base-package="step09" />
+  
+  <!-- component-scan 단축키는 annotation-config를 포함 하기 때문에,
+       annotation-config를 따로 선언할 필요가 없다. -->
+  <!-- 
+  <context:annotation-config/>
+  -->
+  
+</beans>
+
+
+
+
