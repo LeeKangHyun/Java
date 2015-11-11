@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 기본 빈 관리 정책: Singleton 
+       => 객체를 1개만 생성한다.
+  -->
+  <bean id="c1" class="step07.Computer" >
+    <property name="model" value="개발용1호" />
+    <property name="maker" value="비트컴" />
+  </bean>
+  
+  <!-- scope 속성의 기본 값이 singleton 이다. -->
+  <bean id="c2" class="step07.Computer" scope="singleton" >
+    <property name="model" value="개발용2호" />
+    <property name="maker" value="비트컴" />
+  </bean>
+  
+  <!-- prototype?
+       getBean()을 호출할 때 마다 객체를 생성하게 만든다. -->
+  <bean id="c3" class="step07.Computer" scope="prototype" >
+    <property name="model" value="개발용3호" />
+    <property name="maker" value="비트컴" />
+  </bean>
+  
+</beans>
+
+
+
+

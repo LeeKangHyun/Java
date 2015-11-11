@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+  
+  <bean id="factory" class="step06.ComputerFactory2"/>
+  
+  <!-- 스프링 규칙(FactoryBean 인터페이스)에 따라서 만든 메서드를 이용하여 객체 생성하기. 
+    => 왜, factory-method 속성을 설정하지 않는가?
+       => 스프링에서 제안한 규칙(FactoryBean)에 따라 작성했기 때문이다.
+          스프링 IoC 컨테이너는 클래스가 FactoryBean을 구현하였다면,
+          약속된 대로 getObject()를 호출하여 그 리턴 값을 저장한다.  
+  -->
+  <bean id="c1" class="step06.ComputerFactoryBean">
+    <property name="type" value="game"/>
+  </bean>
+
+  <bean id="c2" class="step06.ComputerFactoryBean">
+    <property name="type" value="office" />
+  </bean>
+
+  <bean id="c3" class="step06.ComputerFactoryBean">
+    <property name="type" value="develop" />
+  </bean>
+</beans>
+
+
+
+
+
+
+
+
+

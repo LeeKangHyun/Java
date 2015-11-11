@@ -6,7 +6,7 @@
 -->
 
 <!-- 일반 엔티티 -->
-<!ENTITY java   "자바프로그래밍">
+<!ENTITY java   "자바 프로그래밍">
 <!ENTITY c      "C 프로그래밍">
 
 <!ELEMENT students(student*)>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <bean id="c1" class="step06.ComputerFactory" 
+  factory-method="createComputer">
+    <!-- createComputer() 메소드를 호출할 때 넘겨 줄 값은 
+    constructor-arg 태그를 사용한다. -->
+    <constructor-arg value="office" />
+  </bean>
+
+  <bean id="c2" class="step06.ComputerFactory" 
+  factory-method="createComputer">
+    <constructor-arg value="game" />
+  </bean>
+
+  <bean id="c3" class="step06.ComputerFactory" 
+  factory-method="createComputer">
+    <constructor-arg value="develop" />
+  </bean>
+</beans>
+
+
+
+

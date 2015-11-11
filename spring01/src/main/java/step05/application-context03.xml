@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <bean id="h1" class="step05.HDD" p:capacity="500" p:rpm="7200" />
+  <bean id="h2" class="step05.HDD" p:capacity="1000" p:rpm="10000" />
+  <bean id="h3" class="step05.HDD" p:capacity="2000" p:rpm="10000" />
+
+  <bean id="c1" class="step05.Computer">
+    <property name="model" value="개발용1호" />
+    <property name="maker" value="비트컴퓨터" />
+    <property name="storage"> <!-- set타입 프로퍼티 값 설정 -->
+      <set>
+        <ref bean="h1" />
+        <null/>
+        <ref bean="h2" />
+        <ref bean="h1" />
+      </set>
+    </property>
+  </bean>
+
+  <bean id="c2" class="step05.Computer">
+    <property name="model" value="개발용2호" />
+    <property name="maker" value="비트컴퓨터" />
+    <property name="storage">
+      <set> <!-- set 프로퍼티에 빈 객체를 새로 할당하여 생성하기 -->
+        <bean class="step05.HDD" p:capacity="500" p:rpm="7200" />
+        <bean class="step05.HDD" p:capacity="1000" p:rpm="10000" />
+        <null/>
+        <bean class="step05.HDD" p:capacity="500" p:rpm="7200" />
+      </set>
+    </property>
+  </bean>
+</beans>
+
+
+
+

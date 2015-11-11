@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 커스텀 프로퍼티 에디터(개발자가 정의한 프로퍼티 값 변환기) 장착기를 생성한다. -->
+  <bean
+    class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+    <property name="customEditors">
+      <map>
+        <entry key="java.util.Date" value="step07.DatePropertyEditor" />
+      </map>
+    </property>
+  </bean>
+
+  <bean id="h1" class="step07.HDD">
+    <property name="capacity" value="500" />
+    <property name="rpm" value="7200" />
+    <property name="createdDate" value="2015-1-1" />
+  </bean>
+</beans>
+
+
+
+

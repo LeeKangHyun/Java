@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <bean id="m1" class="step05.Monitor" p:model="모니터1" p:maker="비트컴" />
+  <bean id="m2" class="step05.Monitor" p:model="모니터2" p:maker="비트컴" />
+  <bean id="m3" class="step05.Monitor" p:model="모니터3" p:maker="비트컴" />
+
+  <bean id="c1" class="step05.Computer">
+    <property name="model" value="개발용1호" />
+    <property name="maker" value="비트컴퓨터" />
+    <property name="monitor">
+      <list> <!-- List 구현체에 값을 할당할 때 -->
+        <ref bean="m1" />
+        <null/>
+        <ref bean="m2" />
+        <ref bean="m3" />
+      </list>
+    </property>
+  </bean>
+
+  <bean id="c2" class="step05.Computer">
+    <property name="model" value="개발용2호" />
+    <property name="maker" value="비트컴퓨터" />
+    <property name="monitor">
+      <list> <!-- List 구현체에 빈 객체를 새로 할당하여 생성하기 -->
+        <bean class="step05.Monitor" p:model="모니터4" p:maker="비트컴" />
+        <bean class="step05.Monitor" p:model="모니터5" p:maker="비트컴" />
+        <null/>
+        <bean class="step05.Monitor" p:model="모니터6" p:maker="비트컴" />
+      </list>
+    </property>
+  </bean>
+</beans>
+
+
+
+

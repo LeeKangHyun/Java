@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <bean id="h1" class="step07.HDD" >
+    <!-- 프로퍼티 타입이 primitive라면 문자열을 자동으로 원시타입으로 변환시켜준다. -->
+    <property name="capacity"    value="500" />
+    <property name="rpm"         value="7200" />
+    <!-- String을 Date 객체로 변환할 수 없어서 오류가 발생한다. -->
+    <property name="createdDate" value="2015-1-1" />
+  </bean>
+  
+  <bean id="h2" class="step07.HDD" >
+    <property name="capacity"    value="500" />
+    <property name="rpm"         value="7200" />
+    <!-- 해결책: 직접 문자열을 날짜 객체로 바꾼다.
+    1) java.sql.Date 클래스 사용하기. -->
+    <property name="createdDate">
+      <bean class="java.sql.Date" factory-method="valueOf">
+        <constructor-arg value="2015-11-11" />  
+      </bean>
+    </property>
+  </bean>
+  
+  <!-- 2) java.text.SimpleDateFormat 사용-->
+  <bean id="dateFormat" class="java.text.SimpleDateFormat">
+    <constructor-arg value="MM/dd/yyyy" />
+  </bean>
+  
+  <bean id="h3" class="step07.HDD" >
+    <property name="capacity"    value="500" />
+    <property name="rpm"         value="7200" />
+    <property name="createdDate">
+      <bean factory-bean="dateFormat" factory-method="parse">
+        <constructor-arg value="11/18/2015" />  
+      </bean>
+    </property>
+  </bean>
+  
+</beans>
+
+
+
+
