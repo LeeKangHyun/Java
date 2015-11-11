@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <!-- 커스텀 프로퍼티 에디터 등록기를 장착한다. -->
+  <!-- 다음을 자바 코드로 표현한다면,
+       CustomerEditorConfigurer configurer = new CustomEditorConfigurer();
+       PropertyEditorRegistrar[] registrars = new PropertyEditorRegistrar[1];
+       MyPropertyEditorRegistrar myReg = new MyPropertyEditorRegistrar();
+       DatePropertyEditor dateEditor = new DatePropertyEditor("yyyy-MM-dd");
+       myReg.setDatePropertyEditor(dateEditor);
+       registrars[0] = myReg;
+       configurer.setPropertyEditorRegistrars(registrars);
+  -->
+  <bean
+    class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+    <property name="propertyEditorRegistrars">
+      <array>
+        <bean class="step07.MyPropertyEditorRegistrar">
+          <property name="datePropertyEditor">
+            <bean class="step07.DatePropertyEditor">
+              <constructor-arg value="yyyy-MM-dd" />
+            </bean>
+          </property>
+        </bean>
+      </array>
+    </property>
+  </bean>
+  
+  <bean id="h1" class="step07.HDD">
+    <property name="capacity" value="500" />
+    <property name="rpm" value="7200" />
+    <property name="createdDate" value="2015-1-1" />
+  </bean>
+  
+</beans>
+
+
+
+

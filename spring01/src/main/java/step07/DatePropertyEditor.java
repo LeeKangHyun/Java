@@ -8,7 +8,11 @@ public class DatePropertyEditor extends PropertyEditorSupport {
   SimpleDateFormat dateFormat;
   
   public DatePropertyEditor() {
-    dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    this("yyyy-MM-dd");
+  }
+  
+  public DatePropertyEditor(String pattern) {
+    dateFormat = new SimpleDateFormat(pattern);
   }
   
   @Override

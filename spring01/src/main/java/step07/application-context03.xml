@@ -14,6 +14,7 @@
     <property name="customEditors">
       <map>
         <entry key="java.util.Date" value="step07.DatePropertyEditor" />
+        <entry key="step07.HDD" value="step07.HDDPropertyEditor" />
       </map>
     </property>
   </bean>
@@ -22,6 +23,12 @@
     <property name="capacity" value="500" />
     <property name="rpm" value="7200" />
     <property name="createdDate" value="2015-1-1" />
+  </bean>
+  
+  <bean id="c1" class="step07.Computer">
+    <property name="model" value="개발용1호" />
+    <property name="maker" value="비트컴" />
+    <property name="storage" value="1000,7200" />
   </bean>
 </beans>
 
