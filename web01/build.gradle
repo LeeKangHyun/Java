@@ -1,0 +1,11 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+  compile 'org.springframework:spring-context:4.2.2.RELEASE'
+  compile 'log4j:log4j:1.2.17'
+}
