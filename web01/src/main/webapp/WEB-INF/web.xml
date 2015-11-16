@@ -19,7 +19,7 @@
     <servlet-name>hello servlet</servlet-name>
     <!-- URL이름을 작성할 때 공백을 주어서는 안된다. 확장자 명은 마음대로..
          사용자가 웹 브라우저에서 요청할 때는 다음과 같이 요청 해야 한다.
-         http://IP address(ex:localhost):포트번호/웹어플리케이션폴더/URL -->
+         http://IPaddress(ex:localhost):포트번호/웹어플리케이션폴더/URL -->
     <url-pattern>/ohora/hi</url-pattern>
   </servlet-mapping>
 </web-app>
