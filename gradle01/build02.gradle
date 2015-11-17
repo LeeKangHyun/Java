@@ -1,0 +1,48 @@
+//Gradle step02 - 'java' 그래들 플러그인 사용법
+apply plugin: 'eclipse'
+
+apply plugin: 'java'
+/* java 그래들 플러그인 명령
+=> compileJava
+   - build폴더 생성됨.
+   - build/classes/main/ 디렉토리에 컴파일된 클래스 파일이 복사된다.
+
+=> clean
+   - build폴더 삭제됨.
+
+=> processResources
+    - /src/main/resources 폴더에 있는 파일을 복사하여 
+      /build/resources/main 폴더에 둔다.
+   
+=> classes
+    - compileJava + processResources의 단축 명령어
+
+=> compileTestJava
+   - 단위 테스트 클래스를 컴파일 한다.
+   - compileJava + processResources + classes 작업 수행
+   - /src/test/java 폴더에 있는 파일을 컴파일하여
+     /build/classes/test 폴더로 복사한다.
+
+=> processTestResources
+   - /src/test/resources에 있는 파일을
+     /build/resources/test  복사한다.
+     
+=> 명령어끼리의 관계를 알고 싶다면? gradle 문서 참조
+   UserGuide/23. The Java Plugin 참조 
+   
+=> jar
+   - classes 명령을 수행한 후 준비된 자바 파일을 .jar에 묶는다.
+   
+=> build
+   - 자바 관련 모든 명령을 실행한다.
+*/
+
+
+
+
+
+
+
+
+
+

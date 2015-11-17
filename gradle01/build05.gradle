@@ -1,0 +1,40 @@
+//Gradle step05 - 의존 라이브러리 추가하기
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'war'
+
+compileJava {
+  options.encoding = "UTF-8"
+  sourceCompatibility = 1.8
+}
+
+eclipse {
+  wtp {
+    facet {
+      facet name: 'jst.web', version: '3.1'
+      facet name: 'jst.java', version: '1.8'
+    }
+  }
+}
+
+// 1) 의존 라이브러리를 다운로드 받을 서버를 지정한다.
+repositories {
+    mavenCentral() // 메이븐 기본 서버를 가리킨다. https://repo1.maven.org/maven2/
+}
+
+// 2) 다운받을 라이브러리 파일을 지정한다.
+dependencies {
+  // compile '그룹명:라이브러리명:버전'
+  //compile 'mysql:mysql-connector-java:5.1.37'
+  
+  // compile group: '그룹명', name: '라이브러리명', version: '버전'
+  compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.37'
+  compile 'javax.servlet:javax.servlet-api:3.1.0'
+}
+
+
+
+
+
+
+

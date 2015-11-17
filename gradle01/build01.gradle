@@ -1,0 +1,31 @@
+//Gradle step01 - 'eclipse' 그래들 플러그인 사용법
+
+// 1) 자바 빌드 명령어가 들어 있는 플러그인 추가
+apply plugin: 'java'
+/* java 그래들 플러그인 명령
+=> java플러그인을 붙여야만 자바 관련 이클립스 설정 파일을 추가할 수 있다.
+*/
+
+// 2) 이클립스 설정 파일을 다루는 명령어가 들어있는 플러그인
+apply plugin: 'eclipse'
+/* eclipse 그래들 플러그인 명령
+=> eclipseProject 
+    - .project 파일 및 기타 이클립스 프로젝트를 위한 설정 파일을 생성한다.
+=> cleanEclipseProject 
+    - .project 파일 및 기타 이클립스 프로젝트를 위한 설정 파일을 삭제한다.
+
+플러그인 : eclipse + java
+=> eclipseClasspath 
+    - .classpath 파일을 생성한다.
+=> cleanEclipseClasspath 
+    - .classpath 파일을 삭제한다.
+=> eclipseJdt 
+    - .settings/org.eclipse.jdt.core.prefs 설정 파일을 생성한다.
+=> cleanEclipseJdt 
+    - eclipseJdt로 생성된 설정 파일을 삭제한다.
+
+=> eclipse
+    - 이클립스 관련 모든 설정 파일을 생성한다.
+=> cleanEclipse
+    - eclipse 로 생성된 설정 파일을 삭제한다.
+*/

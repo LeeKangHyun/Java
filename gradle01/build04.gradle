@@ -1,0 +1,37 @@
+//Gradle step04 - Web Application 프로젝트 만들기
+apply plugin: 'java'
+
+// 1) 웹 애플리케이션을 위한 프로젝트 설정 파일을 만들 수 있도록 다음 두 개의 플러그인을 추가한다.
+apply plugin: 'eclipse-wtp'
+apply plugin: 'war'
+
+compileJava {
+  options.encoding = "UTF-8"
+  sourceCompatibility = 1.8
+}
+
+// 2) 웹 애플리케이션 프로젝트의 설정 파일을 만들 때 사용할 옵션
+eclipse {
+  wtp {
+    facet {
+      // 사용할 서블릿의 버전 지정
+      facet name: 'jst.web', version: '3.1'
+      
+      // 웹 앱을 실행할 떄 사용할 자바 버전을 지정
+      facet name: 'jst.java', version: '1.8'
+    }
+  }
+}
+
+// 3) 웹 애플리케이션의 정적 자원(JVM으로 실행하지 않는 파일)과
+//    동적 자원(JVM이 실행해야 하는 파일), 설정 파일(web.xml 등)들을 저장할 폴더를 생성한다.
+// => 정적 자원? HTML, JavaScript, CSS, GIF, JPEG, MOV 등
+// => 동적 자원? JSP
+// => 폴더 경로?
+//    /src/main/webapp
+//    만약 webapp의 이름을 바꾼다면, 별도로 폴더 이름에 대한 정보를 설정해야 한다.
+
+
+
+
+

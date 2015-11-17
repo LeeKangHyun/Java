@@ -1,0 +1,43 @@
+//Gradle step06 - 의존 라이브러리의 배포 정책 지정하기
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'war'
+
+compileJava {
+  options.encoding = "UTF-8"
+  sourceCompatibility = 1.8
+}
+
+eclipse {
+  wtp {
+    facet {
+      facet name: 'jst.web', version: '3.1'
+      facet name: 'jst.java', version: '1.8'
+    }
+  }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+  // 1) compile: 빌드할 때 사용. 또한 배포에 포함.
+  compile 'mysql:mysql-connector-java:5.1.37'
+  
+  // 2) providedCompile: 빌드할 때 사용. 배포에는 제외시킴.
+  // 예 - Servlet API는 서블릿 컨테이너(톰캣)에서 제공하는 것을 사용해야 한다.
+  //     배포할 때 제외시키는 것이 바람직 하다.
+  providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+  
+  // 3) testCompile: 단위 테스트(test 빌드 명령)를 실행할 때 사용하는 라이브러리. 
+  //    배포에는 포함되지 않음.
+  testCompile 'junit:junit:4.12'
+}
+
+
+
+
+
+
+
