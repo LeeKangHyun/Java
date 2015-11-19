@@ -58,6 +58,10 @@ public class ProjectListServlet extends HttpServlet {
             project.getEndDate(),
             project.getMember());
       }
+      
+      RequestDispatcher rd = request.getRequestDispatcher("/copyright");
+      rd.include(request, response);
+      
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
       rd.forward(request, response);

@@ -33,6 +33,9 @@ public class BoardAddServlet extends HttpServlet {
       PrintWriter out = response.getWriter();
       boardDao.insert(board);
       out.println("등록성공!");
+      
+      RequestDispatcher rd = request.getRequestDispatcher("/copyright");
+      rd.include(request, response);
 
       response.setHeader("Refresh","1; url=list");
     } catch (Exception e) {

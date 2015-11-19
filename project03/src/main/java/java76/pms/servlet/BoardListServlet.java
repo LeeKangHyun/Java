@@ -61,6 +61,10 @@ public class BoardListServlet extends HttpServlet {
             board.getViews(),
             board.getCreatedDate());
       }
+      
+      RequestDispatcher rd = request.getRequestDispatcher("/copyright");
+      rd.include(request, response);
+      
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
       rd.forward(request, response);

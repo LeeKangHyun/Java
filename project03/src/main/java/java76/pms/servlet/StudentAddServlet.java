@@ -32,6 +32,10 @@ public class StudentAddServlet extends HttpServlet {
       PrintWriter out = response.getWriter();
       studentDao.insert(student);
       out.println("등록 성공!");
+      
+      RequestDispatcher rd = request.getRequestDispatcher("/copyright");
+      rd.include(request, response);
+      
       response.setHeader("Refresh", "1; url=list");
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");

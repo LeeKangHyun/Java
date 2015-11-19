@@ -34,6 +34,9 @@ public class ProjectAddServlet extends HttpServlet {
       PrintWriter out = response.getWriter();
       projectDao.insert(project); 
       out.println("저장되었습니다.");
+      
+      RequestDispatcher rd = request.getRequestDispatcher("/copyright");
+      rd.include(request, response);
 
       response.setHeader("Refresh", "1; url=list");
     } catch (Exception e) {

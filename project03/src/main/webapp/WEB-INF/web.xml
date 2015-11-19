@@ -62,6 +62,17 @@
     <servlet-class>java76.pms.servlet.ErrorServlet</servlet-class>
   </servlet>
   
+  <servlet>
+    <servlet-name>CopyrightServlet</servlet-name>
+    <servlet-class>java76.pms.servlet.CopyrightServlet</servlet-class>
+  </servlet>
+  <!-- 
+  
+  
+  
+  
+  
+   -->
   <servlet-mapping>
     <servlet-name>BoardListServlet</servlet-name>
     <url-pattern>/board/list</url-pattern>
@@ -117,6 +128,12 @@
     <servlet-name>ErrorServlet</servlet-name>
     <url-pattern>/error</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>CopyrightServlet</servlet-name>
+    <url-pattern>/copyright</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
 
 
