@@ -2,6 +2,7 @@ package java76.pms.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,13 +17,18 @@ public class StudentDeleteServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
-    response.setContentType("text/plain;charset=UTF-8");
-    String email = request.getParameter("email");
+    try {
+      response.setContentType("text/plain;charset=UTF-8");
+      String email = request.getParameter("email");
 
-    StudentDao studentDao = ContextLoader.context.getBean(StudentDao.class);
-    
-    studentDao.delete(email); 
-    
-    response.sendRedirect("list");
+      StudentDao studentDao = ContextLoader.context.getBean(StudentDao.class);
+
+      studentDao.delete(email); 
+
+      response.sendRedirect("list");
+    } catch (Exception e) {
+      RequestDispatcher rd = request.getRequestDispatcher("/error");
+      rd.forward(request, response);
+    }
   }
 }

@@ -58,8 +58,8 @@
   </servlet>
   
   <servlet>
-    <servlet-name>CalculatorServlet</servlet-name>
-    <servlet-class>java76.pms.servlet.CalculatorServlet</servlet-class>
+    <servlet-name>ErrorServlet</servlet-name>
+    <servlet-class>java76.pms.servlet.ErrorServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -114,8 +114,8 @@
   </servlet-mapping>
   
   <servlet-mapping>
-    <servlet-name>CalculatorServlet</servlet-name>
-    <url-pattern>/calc</url-pattern>
+    <servlet-name>ErrorServlet</servlet-name>
+    <url-pattern>/error</url-pattern>
   </servlet-mapping>
 </web-app>
 

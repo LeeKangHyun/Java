@@ -2,6 +2,7 @@ package java76.pms.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,14 +17,19 @@ public class ProjectDeleteServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
-    response.setContentType("text/plain;charset=UTF-8");
-    int no = Integer.parseInt(request.getParameter("no"));
-    
-    ProjectDao projectDao = ContextLoader.context.getBean(ProjectDao.class);
-    
-    projectDao.delete(no);
-    response.sendRedirect("list");
-    
+    try {
+      response.setContentType("text/plain;charset=UTF-8");
+      int no = Integer.parseInt(request.getParameter("no"));
+
+      ProjectDao projectDao = ContextLoader.context.getBean(ProjectDao.class);
+
+      projectDao.delete(no);
+      response.sendRedirect("list");
+    } catch (Exception e) {
+      RequestDispatcher rd = request.getRequestDispatcher("/error");
+      rd.forward(request, response);
+    }
+
   }
 
 }

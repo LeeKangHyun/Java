@@ -3,6 +3,7 @@ package java76.pms.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,43 +19,48 @@ public class ProjectListServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
-    response.setContentType("text/plain;charset=UTF-8");
-    int pageNo = 1;
-    int pageSize = 10;
-    String keyword = "no";
-    String align = "desc";
+    try {
+      response.setContentType("text/plain;charset=UTF-8");
+      int pageNo = 1;
+      int pageSize = 10;
+      String keyword = "no";
+      String align = "desc";
 
-    if (request.getParameter("pageNo") != null) {
-      pageNo = Integer.parseInt(request.getParameter("pageNo"));
-    }
+      if (request.getParameter("pageNo") != null) {
+        pageNo = Integer.parseInt(request.getParameter("pageNo"));
+      }
 
-    if (request.getParameter("pageSize") != null) {
-      pageSize = Integer.parseInt(request.getParameter("pageSize"));
-    }
+      if (request.getParameter("pageSize") != null) {
+        pageSize = Integer.parseInt(request.getParameter("pageSize"));
+      }
 
-    if (request.getParameter("keyword") != null) {
-      keyword = (String)request.getParameter("keyword");
-    }
+      if (request.getParameter("keyword") != null) {
+        keyword = (String)request.getParameter("keyword");
+      }
 
-    if (request.getParameter("align") != null) {
-      align = (String)request.getParameter("align");
-    }
+      if (request.getParameter("align") != null) {
+        align = (String)request.getParameter("align");
+      }
 
-    PrintWriter out = response.getWriter();
+      PrintWriter out = response.getWriter();
 
-    out.printf("%-3s %-20s %-10s %-10s %-40s\n", 
-        "No", "Title", "Start", "End", "Members");
+      out.printf("%-3s %-20s %-10s %-10s %-40s\n", 
+          "No", "Title", "Start", "End", "Members");
 
-    ProjectDao projectDao = ContextLoader.context.getBean(ProjectDao.class);
+      ProjectDao projectDao = ContextLoader.context.getBean(ProjectDao.class);
 
-    for (Project project : projectDao.selectList(
-        pageNo, pageSize, keyword, align)) {
-      out.printf("% 3d %-20s %3$tY-%3$tm-%3$td %4$s %5$-40s\n", 
-          project.getNo(), 
-          project.getTitle(),
-          project.getStartDate(),
-          project.getEndDate(),
-          project.getMember());
+      for (Project project : projectDao.selectList(
+          pageNo, pageSize, keyword, align)) {
+        out.printf("% 3d %-20s %3$tY-%3$tm-%3$td %4$s %5$-40s\n", 
+            project.getNo(), 
+            project.getTitle(),
+            project.getStartDate(),
+            project.getEndDate(),
+            project.getMember());
+      }
+    } catch (Exception e) {
+      RequestDispatcher rd = request.getRequestDispatcher("/error");
+      rd.forward(request, response);
     }
   }
 

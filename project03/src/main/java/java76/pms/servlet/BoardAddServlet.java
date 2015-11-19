@@ -3,6 +3,7 @@ package java76.pms.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,20 +19,25 @@ public class BoardAddServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
-	
-    response.setContentType("text/plain;charset=UTF-8");
-    
-		Board board = new Board();
-		board.setTitle(request.getParameter("title"));
-		board.setContent(request.getParameter("content"));
-		board.setPassword(request.getParameter("password"));
-			
-		BoardDao boardDao = ContextLoader.context.getBean(BoardDao.class);
-		
-		PrintWriter out = response.getWriter();
-		boardDao.insert(board);
-		out.println("등록성공!");
-		
-		response.setHeader("Refresh","1; url=list");
-	}
+
+    try {
+      response.setContentType("text/plain;charset=UTF-8");
+
+      Board board = new Board();
+      board.setTitle(request.getParameter("title"));
+      board.setContent(request.getParameter("content"));
+      board.setPassword(request.getParameter("password"));
+
+      BoardDao boardDao = ContextLoader.context.getBean(BoardDao.class);
+
+      PrintWriter out = response.getWriter();
+      boardDao.insert(board);
+      out.println("등록성공!");
+
+      response.setHeader("Refresh","1; url=list");
+    } catch (Exception e) {
+      RequestDispatcher rd = request.getRequestDispatcher("/error");
+      rd.forward(request, response);
+    }
+  }
 }

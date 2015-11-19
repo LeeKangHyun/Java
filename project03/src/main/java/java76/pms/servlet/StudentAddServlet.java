@@ -3,6 +3,7 @@ package java76.pms.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,19 +19,24 @@ public class StudentAddServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
-    response.setContentType("text/plain;charset=UTF-8");
-    Student student = new Student();
-    student.setName(request.getParameter("name"));
-    student.setEmail(request.getParameter("email"));
-    student.setTel(request.getParameter("tel"));
-    student.setCid(request.getParameter("cid"));
+    try {
+      response.setContentType("text/plain;charset=UTF-8");
+      Student student = new Student();
+      student.setName(request.getParameter("name"));
+      student.setEmail(request.getParameter("email"));
+      student.setTel(request.getParameter("tel"));
+      student.setCid(request.getParameter("cid"));
 
-    StudentDao studentDao = ContextLoader.context.getBean(StudentDao.class);
+      StudentDao studentDao = ContextLoader.context.getBean(StudentDao.class);
 
-    PrintWriter out = response.getWriter();
-    studentDao.insert(student);
-    out.println("등록 성공!");
-    response.setHeader("Refresh", "1; url=list");
+      PrintWriter out = response.getWriter();
+      studentDao.insert(student);
+      out.println("등록 성공!");
+      response.setHeader("Refresh", "1; url=list");
+    } catch (Exception e) {
+      RequestDispatcher rd = request.getRequestDispatcher("/error");
+      rd.forward(request, response);
+    }
   }
 }
 
