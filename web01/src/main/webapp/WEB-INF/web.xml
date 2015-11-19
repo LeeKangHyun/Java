@@ -27,7 +27,6 @@
     <url-pattern>/step05/servlet02</url-pattern>
   </servlet-mapping>
   
-  <!-- 
   <servlet>
     <servlet-name>Servlet03</servlet-name>
     <servlet-class>servlet.Servlet03</servlet-class>
@@ -68,7 +67,16 @@
     <url-pattern>/step05/servlet06</url-pattern>
   </servlet-mapping>
   
-  -->
+  <servlet>
+    <servlet-name>Servlet07</servlet-name>
+    <servlet-class>servlet.Servlet07</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet07</servlet-name>
+    <url-pattern>/step05/servlet07</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
 
 
