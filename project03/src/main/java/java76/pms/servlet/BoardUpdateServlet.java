@@ -18,6 +18,7 @@ public class BoardUpdateServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
+    response.setContentType("text/plain;charset=UTF-8");
     Board board = new Board();
     board.setNo(Integer.parseInt(request.getParameter("no")));
     board.setTitle(request.getParameter("title"));
@@ -27,11 +28,9 @@ public class BoardUpdateServlet extends HttpServlet {
     PrintWriter out = response.getWriter();
     BoardDao boardDao = ContextLoader.context.getBean(BoardDao.class);
 
-    if (boardDao.update(board) > 0) {
-      out.println("변경되었습니다.");  
-    } else {
-      out.println("해당 게시물이 존재하지 않거나 암호가 맞지 않습니다.");
-    }
+    boardDao.update(board);
+    out.println("변경 성공!");  
+    response.setHeader("Refresh", "1; url=list");
   }
 }
 

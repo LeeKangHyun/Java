@@ -18,6 +18,7 @@ public class StudentUpdateServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
+    response.setContentType("text/plain;charset=UTF-8");
     Student student = new Student();
     student.setName(request.getParameter("name"));
     student.setEmail(request.getParameter("email"));
@@ -27,11 +28,9 @@ public class StudentUpdateServlet extends HttpServlet {
     PrintWriter out = response.getWriter();
     StudentDao studentDao = ContextLoader.context.getBean(StudentDao.class);
     
-    if (studentDao.update(student) > 0)
-      out.println("저장되었습니다.");
-    else
-      out.println("유효하지않습니다.");
-    
+    studentDao.update(student);
+    out.println("변경 성공!");
+    response.setHeader("Refresh", "1; url=list");
   }
 }
 

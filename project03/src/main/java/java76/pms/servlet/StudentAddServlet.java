@@ -18,6 +18,7 @@ public class StudentAddServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
+    response.setContentType("text/plain;charset=UTF-8");
     Student student = new Student();
     student.setName(request.getParameter("name"));
     student.setEmail(request.getParameter("email"));
@@ -28,7 +29,8 @@ public class StudentAddServlet extends HttpServlet {
 
     PrintWriter out = response.getWriter();
     studentDao.insert(student);
-    out.println("저장되었습니다.");
+    out.println("등록 성공!");
+    response.setHeader("Refresh", "1; url=list");
   }
 }
 

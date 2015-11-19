@@ -19,6 +19,7 @@ public class ProjectAddServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
+    response.setContentType("text/plain;charset=UTF-8");
     Project project = new Project();
     project.setTitle(request.getParameter("title"));
     project.setStartDate(Date.valueOf(request.getParameter("startDate")));
@@ -31,6 +32,8 @@ public class ProjectAddServlet extends HttpServlet {
     PrintWriter out = response.getWriter();
     projectDao.insert(project); 
     out.println("저장되었습니다.");
+    
+    response.setHeader("Refresh", "1; url=list");
   }
 }
 

@@ -19,6 +19,8 @@ public class BoardAddServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
 	
+    response.setContentType("text/plain;charset=UTF-8");
+    
 		Board board = new Board();
 		board.setTitle(request.getParameter("title"));
 		board.setContent(request.getParameter("content"));
@@ -28,6 +30,8 @@ public class BoardAddServlet extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		boardDao.insert(board);
-		out.println("저장되었습니다.");
+		out.println("등록성공!");
+		
+		response.setHeader("Refresh","1; url=list");
 	}
 }

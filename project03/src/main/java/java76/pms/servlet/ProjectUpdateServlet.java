@@ -19,6 +19,7 @@ public class ProjectUpdateServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
+    response.setContentType("text/plain;charset=UTF-8");
     Project project = new Project();
     project.setTitle(request.getParameter("title"));
     project.setStartDate(Date.valueOf(request.getParameter("startDate")));
@@ -29,11 +30,9 @@ public class ProjectUpdateServlet extends HttpServlet {
     PrintWriter out = response.getWriter();
     ProjectDao projectDao = ContextLoader.context.getBean(ProjectDao.class);
     
-    if (projectDao.update(project) > 0) {
-      out.println("저장되었습니다.");
-    } else {
-      out.println("해당 프로젝트가 존재하지 않습니다");
-    }
+    out.println("변경 성공!");
+    projectDao.update(project);
+    response.setHeader("Refresh", "1; url=list");
 
   }
 }
