@@ -4,19 +4,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 
 import java76.pms.ContextLoader;
 import java76.pms.dao.BoardDao;
 import java76.pms.domain.Board;
 
-public class BoardListServlet extends HttpServlet {
-  private static final long serialVersionUID = 1L;
+public class BoardListServlet extends GenericServlet {
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) 
+  public void service(ServletRequest request, ServletResponse response) 
       throws ServletException, IOException {
 
     int pageNo = 1;

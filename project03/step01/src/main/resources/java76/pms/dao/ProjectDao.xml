@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="java76.pms.dao.ProjectDao">
+  <resultMap type="project" id="projectMap">
+    <id column="pno" property="no"/>
+    <result column="sdt" property="startDate"/>
+    <result column="edt" property="endDate"/>
+  </resultMap>
+  
+  <select id="selectList" resultMap="projectMap"
+  parameterType="map">
+    select 
+      pno,
+      title,
+      sdt,
+      edt,
+      member 
+    from project
+    order by
+    <choose>
+      <when test="title == 'title'">title </when>
+      <when test="sdt == 'sdt'">sdt </when>
+      <when test="edt == 'edt'">edt </when>
+      <otherwise>pno</otherwise>
+    </choose>
+    <choose>
+      <when test="align == 'asc'">asc</when>
+      <otherwise>desc</otherwise>
+    </choose>
+    limit #{startIndex}, #{length}
+  </select>
+  
+  <insert id="insert" parameterType="project">
+    insert into project(title,sdt,edt,member)
+    values(#{title},#{startDate},#{endDate},#{member})
+  </insert>
+  
+  <!-- primitive type인 경우 프로퍼티 이름은 아무거나 지정해도 된다. -->
+  <delete id="delete" parameterType="int">
+    delete from project where pno=#{value}
+  </delete>
+  
+  <update id="update" parameterType="project">
+    update project set 
+    title=#{title},
+    sdt=#{startDate},
+    edt=#{endDate},
+    member=#{member} 
+    where pno=#{no}
+  </update>
+</mapper>

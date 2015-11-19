@@ -4,19 +4,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 
 import java76.pms.ContextLoader;
 import java76.pms.dao.StudentDao;
 import java76.pms.domain.Student;
 
-public class StudentAddServlet extends HttpServlet {
-  private static final long serialVersionUID = 1L;
+public class StudentUpdateServlet extends GenericServlet {
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) 
+  public void service(ServletRequest request, ServletResponse response) 
       throws ServletException, IOException {
     Student student = new Student();
     student.setName(request.getParameter("name"));
@@ -24,11 +22,14 @@ public class StudentAddServlet extends HttpServlet {
     student.setTel(request.getParameter("tel"));
     student.setCid(request.getParameter("cid"));
 
-    StudentDao studentDao = ContextLoader.context.getBean(StudentDao.class);
-
     PrintWriter out = response.getWriter();
-    studentDao.insert(student);
-    out.println("저장되었습니다.");
+    StudentDao studentDao = ContextLoader.context.getBean(StudentDao.class);
+    
+    if (studentDao.update(student) > 0)
+      out.println("저장되었습니다.");
+    else
+      out.println("유효하지않습니다.");
+    
   }
 }
 

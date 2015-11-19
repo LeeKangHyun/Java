@@ -5,19 +5,17 @@ import java.io.PrintWriter;
 import java.sql.Date;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 
 import java76.pms.ContextLoader;
 import java76.pms.dao.ProjectDao;
 import java76.pms.domain.Project;
 
-public class ProjectAddServlet extends HttpServlet {
-  private static final long serialVersionUID = 1L;
+public class ProjectAddServlet extends GenericServlet {
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) 
+  public void service(ServletRequest request, ServletResponse response) 
       throws ServletException, IOException {
     Project project = new Project();
     project.setTitle(request.getParameter("title"));
