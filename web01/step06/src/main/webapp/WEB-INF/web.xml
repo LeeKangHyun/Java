@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1"
+  metadata-complete="true">
+
+  <!-- 서블릿 클래스에 대해 선언한다. -->
+  <servlet>
+    <servlet-name>Servlet01</servlet-name>
+    <servlet-class>servlet.Servlet01</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet01</servlet-name>
+    <url-pattern>/step06/servlet01</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>Servlet02</servlet-name>
+    <servlet-class>servlet.Servlet02</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet02</servlet-name>
+    <url-pattern>/step06/servlet02</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet03</servlet-name>
+    <servlet-class>servlet.Servlet03</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet03</servlet-name>
+    <url-pattern>/step06/servlet03</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>OtherServlet</servlet-name>
+    <servlet-class>servlet.OtherServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>OtherServlet</servlet-name>
+    <url-pattern>/step06/otherservlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet04</servlet-name>
+    <servlet-class>servlet.Servlet04</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet04</servlet-name>
+    <url-pattern>/step06/servlet04</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet05</servlet-name>
+    <servlet-class>servlet.Servlet05</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet05</servlet-name>
+    <url-pattern>/step06/servlet05</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet06</servlet-name>
+    <servlet-class>servlet.Servlet06</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet06</servlet-name>
+    <url-pattern>/step06/servlet06</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CommonServlet</servlet-name>
+    <servlet-class>servlet.CommonServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>CommonServlet</servlet-name>
+    <url-pattern>/step06/commonservlet</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
+
+
+
+
+
+
+
+
+
