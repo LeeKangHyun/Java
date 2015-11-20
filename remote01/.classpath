@@ -72,7 +72,7 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/leekanghyun/Documents/workspace/remote01/lib/calculator.jar" exported="true">
+	<classpathentry kind="lib" path="/Users/leekanghyun/Documents/workspace/Java/remote01/lib/calculator.jar" exported="true">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
