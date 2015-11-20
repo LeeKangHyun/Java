@@ -14,27 +14,7 @@
   
   <servlet-mapping>
     <servlet-name>Servlet01</servlet-name>
-    <url-pattern>/step06/servlet01</url-pattern>
-  </servlet-mapping>
-  
-   <servlet>
-    <servlet-name>Servlet02</servlet-name>
-    <servlet-class>servlet.Servlet02</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>Servlet02</servlet-name>
-    <url-pattern>/step06/servlet02</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>Servlet03</servlet-name>
-    <servlet-class>servlet.Servlet03</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>Servlet03</servlet-name>
-    <url-pattern>/step06/servlet03</url-pattern>
+    <url-pattern>/step07/servlet01</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -44,7 +24,58 @@
   
   <servlet-mapping>
     <servlet-name>OtherServlet</servlet-name>
-    <url-pattern>/step06/otherservlet</url-pattern>
+    <url-pattern>/step07/otherservlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>Servlet02</servlet-name>
+    <servlet-class>servlet.Servlet02</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet02</servlet-name>
+    <url-pattern>/step07/servlet02</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet02Sum</servlet-name>
+    <servlet-class>servlet.Servlet02Sum</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet02Sum</servlet-name>
+    <url-pattern>/step07/servlet02sum</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet02Aver</servlet-name>
+    <servlet-class>servlet.Servlet02Aver</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet02Aver</servlet-name>
+    <url-pattern>/step07/servlet02aver</url-pattern>
+  </servlet-mapping>
+  
+  <!--
+  <servlet>
+    <servlet-name>Servlet03</servlet-name>
+    <servlet-class>servlet.Servlet03</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet03</servlet-name>
+    <url-pattern>/step07/servlet03</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>OtherServlet</servlet-name>
+    <servlet-class>servlet.OtherServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>OtherServlet</servlet-name>
+    <url-pattern>/step07/otherservlet</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -54,7 +85,7 @@
   
   <servlet-mapping>
     <servlet-name>Servlet04</servlet-name>
-    <url-pattern>/step06/servlet04</url-pattern>
+    <url-pattern>/step07/servlet04</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -64,7 +95,7 @@
   
   <servlet-mapping>
     <servlet-name>Servlet05</servlet-name>
-    <url-pattern>/step06/servlet05</url-pattern>
+    <url-pattern>/step07/servlet05</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -74,7 +105,7 @@
   
   <servlet-mapping>
     <servlet-name>Servlet06</servlet-name>
-    <url-pattern>/step06/servlet06</url-pattern>
+    <url-pattern>/step07/servlet06</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -84,9 +115,9 @@
   
   <servlet-mapping>
     <servlet-name>CommonServlet</servlet-name>
-    <url-pattern>/step06/commonservlet</url-pattern>
+    <url-pattern>/step07/commonservlet</url-pattern>
   </servlet-mapping>
-  
+  -->
 </web-app>
 
 

@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'war'
+
+// 자바 컴파일러 설정
+compileJava {
+  options.encoding = 'UTF-8'
+  sourceCompatibility = 1.8
+}
+
+eclipse {
+  wtp {
+    facet {
+      facet name: 'jst.web', version: '3.1'
+      facet name: 'jst.java', version: '1.8'
+    }
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.springframework:spring-context:4.2.2.RELEASE'
+  compile 'log4j:log4j:1.2.17'
+  compile 'javax.servlet:javax.servlet-api:3.1.0'
+  
+  compile 'org.apache.httpcomponents:httpclient:4.5.1'
+  compile 'com.google.code.gson:gson:2.4'
+  //로컬 파일 추가
+  runtime fileTree(dir: 'lib', include: '*.jar')
+}
