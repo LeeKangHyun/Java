@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java76.pms.ContextLoader;
+import org.springframework.context.ApplicationContext;
+
 import java76.pms.dao.StudentDao;
 
 public class StudentDeleteServlet extends HttpServlet {
@@ -21,7 +22,10 @@ public class StudentDeleteServlet extends HttpServlet {
       response.setContentType("text/plain;charset=UTF-8");
       String email = request.getParameter("email");
 
-      StudentDao studentDao = ContextLoader.context.getBean(StudentDao.class);
+      ApplicationContext iocContainer = 
+          (ApplicationContext)this.getServletContext()
+                                  .getAttribute("iocContainer");
+      StudentDao studentDao = iocContainer.getBean(StudentDao.class);
 
       studentDao.delete(email); 
 

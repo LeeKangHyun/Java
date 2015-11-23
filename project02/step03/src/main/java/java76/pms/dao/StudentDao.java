@@ -1,7 +1,6 @@
 package java76.pms.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java76.pms.annotation.Component;
-import java76.pms.domain.Project;
 import java76.pms.domain.Student;
 import java76.pms.exception.DaoException;
 import java76.pms.util.DBConnectionPool;

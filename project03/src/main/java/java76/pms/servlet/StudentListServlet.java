@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java76.pms.ContextLoader;
+import org.springframework.context.ApplicationContext;
+
 import java76.pms.dao.StudentDao;
 import java76.pms.domain.Student;
 
@@ -47,7 +48,10 @@ public class StudentListServlet extends HttpServlet {
       out.printf("%-20s %-20s %-20s %-20s\n", 
           "Name", "Email", "Tel", "Cid");
 
-      StudentDao studentDao = ContextLoader.context.getBean(StudentDao.class);
+      ApplicationContext iocContainer = 
+          (ApplicationContext)this.getServletContext()
+                                  .getAttribute("iocContainer");
+      StudentDao studentDao = iocContainer.getBean(StudentDao.class);
 
       for (Student student : studentDao.selectList(
           pageNo, pageSize, keyword, align)) {

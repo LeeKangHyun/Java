@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java76.pms.ContextLoader;
+import org.springframework.context.ApplicationContext;
+
 import java76.pms.dao.ProjectDao;
 import java76.pms.domain.Project;
 
@@ -30,7 +31,11 @@ public class ProjectUpdateServlet extends HttpServlet {
       project.setNo(Integer.parseInt(request.getParameter("no")));
 
       PrintWriter out = response.getWriter();
-      ProjectDao projectDao = ContextLoader.context.getBean(ProjectDao.class);
+      
+      ApplicationContext iocContainer = 
+          (ApplicationContext)this.getServletContext()
+                                  .getAttribute("iocContainer");
+      ProjectDao projectDao = iocContainer.getBean(ProjectDao.class);
 
       out.println("변경 성공!");
       projectDao.update(project);

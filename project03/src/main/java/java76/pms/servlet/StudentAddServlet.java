@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java76.pms.ContextLoader;
+import org.springframework.context.ApplicationContext;
+
 import java76.pms.dao.StudentDao;
 import java76.pms.domain.Student;
 
@@ -27,7 +28,10 @@ public class StudentAddServlet extends HttpServlet {
       student.setTel(request.getParameter("tel"));
       student.setCid(request.getParameter("cid"));
 
-      StudentDao studentDao = ContextLoader.context.getBean(StudentDao.class);
+      ApplicationContext iocContainer = 
+          (ApplicationContext)this.getServletContext()
+                                  .getAttribute("iocContainer");
+      StudentDao studentDao = iocContainer.getBean(StudentDao.class);
 
       PrintWriter out = response.getWriter();
       studentDao.insert(student);
