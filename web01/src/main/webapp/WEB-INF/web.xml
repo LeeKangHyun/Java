@@ -71,7 +71,7 @@
     <servlet-name>Servlet03Step2</servlet-name>
     <servlet-class>servlet.Servlet03Step2</servlet-class>
   </servlet>
-  
+
   <servlet-mapping>
     <servlet-name>Servlet03Step2</servlet-name>
     <url-pattern>/step07/servlet03step2</url-pattern>
@@ -87,58 +87,57 @@
     <url-pattern>/step07/servlet03step3</url-pattern>
   </servlet-mapping>
   
-  <!--
-  
   <servlet>
-    <servlet-name>OtherServlet</servlet-name>
-    <servlet-class>servlet.OtherServlet</servlet-class>
+    <servlet-name>Servlet04Step1</servlet-name>
+    <servlet-class>servlet.Servlet04Step1</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>OtherServlet</servlet-name>
-    <url-pattern>/step07/otherservlet</url-pattern>
+    <servlet-name>Servlet04Step1</servlet-name>
+    <url-pattern>/step07/servlet04step1</url-pattern>
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>Servlet04</servlet-name>
-    <servlet-class>servlet.Servlet04</servlet-class>
+    <servlet-name>Servlet04Step2</servlet-name>
+    <servlet-class>servlet.Servlet04Step2</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>Servlet04</servlet-name>
-    <url-pattern>/step07/servlet04</url-pattern>
+    <servlet-name>Servlet04Step2</servlet-name>
+    <url-pattern>/step07/servlet04step2</url-pattern>
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>Servlet05</servlet-name>
-    <servlet-class>servlet.Servlet05</servlet-class>
+    <servlet-name>Servlet05Login</servlet-name>
+    <servlet-class>servlet.Servlet05Login</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>Servlet05</servlet-name>
-    <url-pattern>/step07/servlet05</url-pattern>
+    <servlet-name>Servlet05Login</servlet-name>
+    <url-pattern>/step07/servlet05login</url-pattern>
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>Servlet06</servlet-name>
-    <servlet-class>servlet.Servlet06</servlet-class>
+    <servlet-name>Servlet05Logout</servlet-name>
+    <servlet-class>servlet.Servlet05Logout</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>Servlet06</servlet-name>
-    <url-pattern>/step07/servlet06</url-pattern>
+    <servlet-name>Servlet05Logout</servlet-name>
+    <url-pattern>/step07/servlet05logout</url-pattern>
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>CommonServlet</servlet-name>
-    <servlet-class>servlet.CommonServlet</servlet-class>
+    <servlet-name>Servlet05Main</servlet-name>
+    <servlet-class>servlet.Servlet05Main</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>CommonServlet</servlet-name>
-    <url-pattern>/step07/commonservlet</url-pattern>
+    <servlet-name>Servlet05Main</servlet-name>
+    <url-pattern>/step07/servlet05main</url-pattern>
   </servlet-mapping>
-  -->
+  
+
 </web-app>
 
 
