@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1"
+  metadata-complete="true">
+
+  <!-- 서블릿 클래스에 대해 선언한다. -->
+  <servlet>
+    <servlet-name>Servlet01</servlet-name>
+    <servlet-class>servlet.Servlet01</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet01</servlet-name>
+    <url-pattern>/step07/servlet01</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>OtherServlet</servlet-name>
+    <servlet-class>servlet.OtherServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>OtherServlet</servlet-name>
+    <url-pattern>/step07/otherservlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>Servlet02</servlet-name>
+    <servlet-class>servlet.Servlet02</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet02</servlet-name>
+    <url-pattern>/step07/servlet02</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet02Sum</servlet-name>
+    <servlet-class>servlet.Servlet02Sum</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet02Sum</servlet-name>
+    <url-pattern>/step07/servlet02sum</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet02Aver</servlet-name>
+    <servlet-class>servlet.Servlet02Aver</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet02Aver</servlet-name>
+    <url-pattern>/step07/servlet02aver</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet03Step1</servlet-name>
+    <servlet-class>servlet.Servlet03Step1</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet03Step1</servlet-name>
+    <url-pattern>/step07/servlet03step1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet03Step2</servlet-name>
+    <servlet-class>servlet.Servlet03Step2</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Servlet03Step2</servlet-name>
+    <url-pattern>/step07/servlet03step2</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet03Step3</servlet-name>
+    <servlet-class>servlet.Servlet03Step3</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet03Step3</servlet-name>
+    <url-pattern>/step07/servlet03step3</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet04Step1</servlet-name>
+    <servlet-class>servlet.Servlet04Step1</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet04Step1</servlet-name>
+    <url-pattern>/step07/servlet04step1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet04Step2</servlet-name>
+    <servlet-class>servlet.Servlet04Step2</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet04Step2</servlet-name>
+    <url-pattern>/step07/servlet04step2</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet05Login</servlet-name>
+    <servlet-class>servlet.Servlet05Login</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet05Login</servlet-name>
+    <url-pattern>/step07/servlet05login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet05Logout</servlet-name>
+    <servlet-class>servlet.Servlet05Logout</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet05Logout</servlet-name>
+    <url-pattern>/step07/servlet05logout</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet05Main</servlet-name>
+    <servlet-class>servlet.Servlet05Main</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet05Main</servlet-name>
+    <url-pattern>/step07/servlet05main</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet06Step1</servlet-name>
+    <servlet-class>servlet.Servlet06Step1</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet06Step1</servlet-name>
+    <url-pattern>/step07/servlet06step1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet06Step2</servlet-name>
+    <servlet-class>servlet.Servlet06Step2</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet06Step2</servlet-name>
+    <url-pattern>/step07/servlet06step2</url-pattern>
+  </servlet-mapping>
+
+</web-app>
+
+
+
+
+
+
+
+
+
