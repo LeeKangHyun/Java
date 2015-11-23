@@ -22,9 +22,16 @@
 1) Filter02.java 클래스 작성한다.
 2) web.xml에 Filter01과 같은 URL로 Filter02를 등록한다.
 
+3. 더 넓은 범위의 필터 추가하기
 
+1) Filter03.java클래스 작성한다.
+2) Servlet02.java 클래스 작성한다.
+3) web.xml에 서블릿 등록하고, 필터는 /step08/* 로 URL로 등록한다.
 
+4. 모든 요청에 대해 작업하는 필터 추가하기
 
+1) Filter04.java 클래스 작성한다.
+2) web.xml에 * URL로 필터를 등록한다.
 
 
 
