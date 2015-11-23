@@ -137,6 +137,25 @@
     <url-pattern>/step07/servlet05main</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>Servlet06Step1</servlet-name>
+    <servlet-class>servlet.Servlet06Step1</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet06Step1</servlet-name>
+    <url-pattern>/step07/servlet06step1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet06Step2</servlet-name>
+    <servlet-class>servlet.Servlet06Step2</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet06Step2</servlet-name>
+    <url-pattern>/step07/servlet06step2</url-pattern>
+  </servlet-mapping>
 
 </web-app>
 
