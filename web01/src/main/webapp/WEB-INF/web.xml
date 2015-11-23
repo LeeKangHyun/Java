@@ -57,16 +57,37 @@
     <url-pattern>/step07/servlet02aver</url-pattern>
   </servlet-mapping>
   
-  <!--
   <servlet>
-    <servlet-name>Servlet03</servlet-name>
-    <servlet-class>servlet.Servlet03</servlet-class>
+    <servlet-name>Servlet03Step1</servlet-name>
+    <servlet-class>servlet.Servlet03Step1</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>Servlet03</servlet-name>
-    <url-pattern>/step07/servlet03</url-pattern>
+    <servlet-name>Servlet03Step1</servlet-name>
+    <url-pattern>/step07/servlet03step1</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet03Step2</servlet-name>
+    <servlet-class>servlet.Servlet03Step2</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet03Step2</servlet-name>
+    <url-pattern>/step07/servlet03step2</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Servlet03Step3</servlet-name>
+    <servlet-class>servlet.Servlet03Step3</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Servlet03Step3</servlet-name>
+    <url-pattern>/step07/servlet03step3</url-pattern>
+  </servlet-mapping>
+  
+  <!--
   
   <servlet>
     <servlet-name>OtherServlet</servlet-name>
