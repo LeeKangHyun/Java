@@ -18,8 +18,8 @@
     from board
     order by 
     <choose>
-      <when test="title == 'title'">title </when>
-      <when test="views == 'views'">views </when>
+      <when test="keyword == 'title'">title </when>
+      <when test="keyword == 'views'">views </when>
       <otherwise>bno</otherwise>
     </choose>
     <choose>

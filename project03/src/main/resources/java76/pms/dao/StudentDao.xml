@@ -13,8 +13,8 @@
      from student
      order by
      <choose>
-      <when test="email == 'email'">email </when>
-      <when test="tel == 'tel'">tel </when>
+      <when test="keyword == 'email'">email </when>
+      <when test="keyword == 'tel'">tel </when>
       <otherwise>name</otherwise>
     </choose>
     <choose>

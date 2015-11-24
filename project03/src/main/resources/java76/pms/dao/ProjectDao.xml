@@ -20,9 +20,9 @@
     from project
     order by
     <choose>
-      <when test="title == 'title'">title </when>
-      <when test="sdt == 'sdt'">sdt </when>
-      <when test="edt == 'edt'">edt </when>
+      <when test="keyword == 'title'">title </when>
+      <when test="keyword == 'sdt'">sdt </when>
+      <when test="keyword == 'edt'">edt </when>
       <otherwise>pno</otherwise>
     </choose>
     <choose>
