@@ -111,6 +111,15 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     <servlet-class>servlet.Servlet04</servlet-class>
   </servlet>
   
+  <servlet>
+    <servlet-name>Servlet05</servlet-name>
+    <servlet-class>servlet.Servlet05</servlet-class>
+    <init-param>
+      <param-name>param1</param-name>
+      <param-value>오호라...</param-value>
+    </init-param>
+  </servlet>
+  
   <!-- 서블릿 매핑 -->
   
   <servlet-mapping>
@@ -133,6 +142,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     <url-pattern>/step08/servlet04</url-pattern>
   </servlet-mapping>
 
+  <servlet-mapping>
+    <servlet-name>Servlet05</servlet-name>
+    <url-pattern>/step08/servlet05</url-pattern>
+  </servlet-mapping>
 
 </web-app>
 
