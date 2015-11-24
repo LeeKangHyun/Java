@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test08</title>
+</head>
+<body>
+  <h1>강의 주제</h1>
+  <p>서버에 데이터를 보내기 위한 입력 폼 관련 태그 활용</p>
+
+  <h2>입력폼</h2>
+  <form action="서블릿주소" method="요청방식(GET 또는 POST)">
+  <h3>텍스트 입력 상자</h3>
+    일반 입력 상자 - 
+    <input type="text" name="paramName"><br>
+    미리 값을 넣은 텍스트 상자 - 
+    <input type="text" name="paramName" value="값값"><br>
+    읽기 전용 텍스트 상자 - 
+    <input type="text" name="paramName" readonly><br>
+  
+  <h3>텍스트 입력 상자</h3>: <input type="text" name="paramName"><br>
+  <h3>텍스트 입력 상자(글자를 *로 출력)</h3>: 
+  <input type="password" name="paramName"><br>
+  
+  <h3>체크 상자</h3>: 
+    <input type="checkbox" name="preferLang">Java
+    <input type="checkbox" name="preferLang">C
+    <input type="checkbox" name="preferLang">C++<br>
+    
+  <h3>선택 상자</h3>: 
+    <input type="radio" name="working">재직중
+    <input type="radio" name="working">미취업
+    <input type="radio" name="working">재취업<br>
+    
+  <h3>목록 선택 상자</h3>:
+    <select name="working2">
+      <option>재직중</option>
+      <option>미취업</option>
+      <option>재취업</option>
+    </select><br>
+    
+  <h3>목록 상자</h3>:
+    <select name="licenses" multiple="multiple">
+      <option>정보처리기사</option>
+      <option>운전면허</option>
+      <option>컴퓨터활용</option>
+    </select><br>  
+    
+  <h3>버튼</h3>:
+    <input type="submit" value="요청을 수행하는 버튼"><br>
+    <input type="reset" value="폼 값을 초기화 하는 버튼"><br>
+    <input type="button" value="일반 버튼"><br>
+    
+  <h3>버튼2</h3>:
+    <button type="submit">요청을 수행하는 버튼</button><br>
+    <button type="reset">폼 값을 초기화 하는 버튼</button><br>
+    <button type="button">일반 버튼</button><br>
+    
+  <h3>파일 업로드 버튼</h3>:
+    <input type="file" name="file"><br>
+    
+  <h3>여러 줄 입력 상자</h3>:
+    <textarea name="paramName" rows="10" clos="50">
+    여러 줄 ...
+    여러 줄 ...
+    여러 줄 ...
+    </textarea>
+    
+  </form>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
