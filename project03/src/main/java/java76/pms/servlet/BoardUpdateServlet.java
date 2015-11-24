@@ -21,10 +21,18 @@ public class BoardUpdateServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
-    
+
+    int no = Integer.parseInt(request.getParameter("no"));
+
+    ApplicationContext iocContainer = 
+        (ApplicationContext)this.getServletContext()
+        .getAttribute("iocContainer");
+    BoardDao boardDao = iocContainer.getBean(BoardDao.class);
+    Board board = boardDao.selectOne(no);
+
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
-    
+
     out.println("<!DOCTYPE html>");
     out.println("<html>");
     out.println("<head>");
@@ -33,36 +41,40 @@ public class BoardUpdateServlet extends HttpServlet {
     out.println("</head>");
     out.println("<body>");
     out.println("  <h1>게시물 정보</h1>");
-    out.println("  <table border='1'>");
-    out.println("  <tr>");
-    out.println("    <th>번호</th>");
-    out.println("    <td>1</td>");
-    out.println("  </tr>");
-    out.println("  <tr>");
-    out.println("    <th>제목</th>");
-    out.println("    <td>1</td>");
-    out.println("  </tr>");
-    out.println("  <tr>");
-    out.println("    <th>내용</th>");
-    out.println("    <td>1</td>");
-    out.println("  </tr>");
-    out.println("  <tr>");
-    out.println("    <th>조회수</th>");
-    out.println("    <td>1</td>");  
-    out.println("  </tr>");
-    out.println("  <tr>");
-    out.println("    <th>번호</th>");
-    out.println("    <td>1</td>");
-    out.println("  </tr>");
-    out.println("  </table>");
     
+    if (board != null) {
+      out.println("  <table border='1'>");
+      out.println("  <tr>");
+      out.println("    <th>번호</th>");
+      out.printf("    <td>%d</td>\n", board.getNo());
+      out.println("  </tr>");
+      out.println("  <tr>");
+      out.println("    <th>제목</th>");
+      out.printf("    <td>%s</td>\n", board.getTitle());
+      out.println("  </tr>");
+      out.println("  <tr>");
+      out.println("    <th>내용</th>");
+      out.printf("    <td>%s</td>", board.getContent());
+      out.println("  </tr>");
+      out.println("  <tr>");
+      out.println("    <th>조회수</th>");
+      out.printf("    <td>%d</td>\n", board.getViews());  
+      out.println("  </tr>");
+      out.println("  <tr>");
+      out.println("    <th>등록일</th>");
+      out.printf("    <td>%s</td>\n", board.getCreatedDate());
+      out.println("  </tr>");
+      out.println("  </table>");
+    } else {
+      out.println("<p>해당 번호의 게시물을 찾을 수 없습니다.</p>");
+    }
     RequestDispatcher rd = request.getRequestDispatcher("/copyright");
     rd.include(request, response);
 
     out.println("</body>");
     out.println("</html>");
   }
-  
+
   // POST 요청이 들어오면 해당 게시물을 입력한 값으로 변경한다.
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -77,18 +89,18 @@ public class BoardUpdateServlet extends HttpServlet {
       board.setPassword(request.getParameter("password"));
 
       PrintWriter out = response.getWriter();
-      
+
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()
-                                  .getAttribute("iocContainer");
+          .getAttribute("iocContainer");
       BoardDao boardDao = iocContainer.getBean(BoardDao.class);
 
       boardDao.update(board);
       out.println("변경 성공!");  
-      
+
       RequestDispatcher rd = request.getRequestDispatcher("/copyright");
       rd.include(request, response);
-      
+
       response.setHeader("Refresh", "1; url=list");
     }catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");

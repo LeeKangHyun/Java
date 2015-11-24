@@ -27,7 +27,7 @@ public class BoardDao {
       paramMap.put("length", pageSize);
       paramMap.put("keyword", keyword);
       paramMap.put("align", align);
-      
+
       return sqlSession.selectList(
           "java76.pms.dao.BoardDao.selectList", paramMap);
     } finally {
@@ -72,6 +72,16 @@ public class BoardDao {
       return sqlSession.update("java76.pms.dao.BoardDao.update", board);
       // 굳이 예외를 받지 않는다.
       // selectList()가 던지는 RuntimeException 예외를 그대로 호출자에게 위임할 것 이다.
+    } finally {
+      try {sqlSession.close();} catch (Exception e) {}
+    }
+  }
+
+  public Board selectOne(int no) {
+    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+    try {
+      return sqlSession.selectOne("java76.pms.dao.BoardDao.selectOne", no);
     } finally {
       try {sqlSession.close();} catch (Exception e) {}
     }
