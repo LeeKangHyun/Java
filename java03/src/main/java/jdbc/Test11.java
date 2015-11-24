@@ -20,7 +20,7 @@ public class Test11 {
       for (int i = 0; i < 100; i++) {
       stmt.executeUpdate(
           "insert into board(title, content, cre_dt) "
-          + "values('title" + i + "', 'xxxx', now())");
+          + "values('제목" + i + "', 'xxxx', now())");
       }
       System.out.println("입력 성공!");
       

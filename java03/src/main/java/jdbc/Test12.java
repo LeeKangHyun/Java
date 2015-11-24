@@ -20,7 +20,7 @@ public class Test12 {
       for (int i = 0; i < 100; i++) {
       stmt.executeUpdate(
           "insert into student(email,name,tel,cid) "
-          + "values('aaa" + i + "@test.com', 'name"
+          + "values('aaa" + i + "@test.com', '홍길동"
               + (int)(Math.random() * 10)
               + "', '1111', 'java76')");
       }

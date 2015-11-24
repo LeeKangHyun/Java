@@ -14,8 +14,11 @@ public class ContextLoaderListener implements ServletContextListener {
     System.out.println("스프링 IoC 컨테이너 준비하기");
     
     // 1) 스프링 IoC컨테이너 준비
+    //ApplicationContext iocContainer = new ClassPathXmlApplicationContext(
+    //    "java76/pms/application-context.xml");
+    
     ApplicationContext iocContainer = new ClassPathXmlApplicationContext(
-        "java76/pms/application-context.xml");
+        sce.getServletContext().getInitParameter("contextConfigLocation"));
     
     // 2) ServletContext 저장소에 스프링 IoC컨테이너 보관하기
     // => 모든 서블릿들이 공통으로 사용할 객체를 ServletContext에 보관한다.
