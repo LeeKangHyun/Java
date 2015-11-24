@@ -17,6 +17,7 @@ import java76.pms.domain.Board;
 public class BoardUpdateServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
+  // GET 요청이 들어오면 해당 게시물의 상세 정보를 출력한다.
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
@@ -83,8 +84,9 @@ public class BoardUpdateServlet extends HttpServlet {
     out.println("</body>");
     out.println("</html>");
   }
-  
-  /*@Override
+
+  // POST 요청이 들어오면 해당 게시물을 입력한 값으로 변경한다.
+  @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
 
@@ -118,15 +120,6 @@ public class BoardUpdateServlet extends HttpServlet {
       request.setAttribute("error", e); // 오류 정보를 ErrorServlet에게 전달한다.
       rd.forward(request, response);
     }
-  }*/
+  }
 }
 
-  
-  
-  
-  
-  
-  
-  
-  
-  

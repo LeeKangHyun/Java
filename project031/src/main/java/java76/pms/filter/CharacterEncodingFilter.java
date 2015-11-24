@@ -18,9 +18,14 @@ public class CharacterEncodingFilter implements Filter {
   }
 
   @Override
-  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+  public void doFilter(
+      ServletRequest request, ServletResponse response, FilterChain chain)
       throws IOException, ServletException {
+    
+    String encoding = config.getInitParameter("encoding");
     request.setCharacterEncoding(config.getInitParameter("encoding"));
+    
+    System.out.printf("요청 데이터에 대해 문자 집합(%s) 지정\n", encoding);
     
     chain.doFilter(request, response);
   }

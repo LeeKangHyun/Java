@@ -18,19 +18,18 @@ public class BoardListServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+  public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
-    
     try {
       int pageNo = 1;
       int pageSize = 10;
       String keyword = "no";
       String align = "desc";
-      
+
       if (request.getParameter("pageNo") != null) {
         pageNo = Integer.parseInt(request.getParameter("pageNo"));
       }
-      
+
       if (request.getParameter("pageSize") != null) {
         pageSize = Integer.parseInt(request.getParameter("pageSize"));
       }
@@ -42,15 +41,15 @@ public class BoardListServlet extends HttpServlet {
       if (request.getParameter("align") != null) {
         align = request.getParameter("align");
       }
-      
+
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()
           .getAttribute("iocContainer");
       BoardDao boardDao = iocContainer.getBean(BoardDao.class);
-      
+
       response.setContentType("text/html;charset=UTF-8");
       PrintWriter out = response.getWriter();
-      
+
       out.println("<!DOCTYPE html>");
       out.println("<html>");
       out.println("<head>");
@@ -66,7 +65,7 @@ public class BoardListServlet extends HttpServlet {
       out.println("    <th>조회수</th>");
       out.println("    <th>등록일</th>");
       out.println("    </tr>");
-      
+
       for (Board board : boardDao.selectList(
           pageNo, pageSize, keyword, align)) {
         out.println("    <tr>");
@@ -81,15 +80,17 @@ public class BoardListServlet extends HttpServlet {
 
       RequestDispatcher rd = request.getRequestDispatcher("/copyright");
       rd.include(request, response);
-      
+
       out.println("</body>");
       out.println("</html>");
-      
+
+
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
       rd.forward(request, response);
     }
   }
+
 }
 
 

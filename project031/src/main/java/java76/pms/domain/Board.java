@@ -12,13 +12,13 @@ public class Board implements Serializable {
   protected int views;
   protected Date createdDate;
   protected String password;
-  
+
   public Board() {}
 
   @Override
   public String toString() {
     return "Board [no=" + no + ", title=" + title + ", content=" 
-  + content + ", views=" + views + ", createdDate="
+        + content + ", views=" + views + ", createdDate="
         + createdDate + ", password=" + password + "]";
   }
 
@@ -69,7 +69,5 @@ public class Board implements Serializable {
   public void setPassword(String password) {
     this.password = password;
   }
-  
-  
-  
+
 }
