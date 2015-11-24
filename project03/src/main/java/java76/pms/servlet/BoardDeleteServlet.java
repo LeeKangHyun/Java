@@ -18,7 +18,6 @@ public class BoardDeleteServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
-
     try {
       response.setContentType("text/plain;charset=UTF-8");
       int no = Integer.parseInt(request.getParameter("no"));

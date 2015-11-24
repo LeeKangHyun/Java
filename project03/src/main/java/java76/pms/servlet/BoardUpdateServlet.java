@@ -91,21 +91,18 @@ public class BoardUpdateServlet extends HttpServlet {
       throws ServletException, IOException {
 
     try {
-      response.setContentType("text/plain;charset=UTF-8");
-      
       Board board = new Board();
-      
       board.setNo(Integer.parseInt(request.getParameter("no")));
       board.setTitle(request.getParameter("title"));
       board.setContent(request.getParameter("content"));
       board.setPassword(request.getParameter("password"));
 
+      response.setContentType("text/plain;charset=UTF-8");
       PrintWriter out = response.getWriter();
 
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()
           .getAttribute("iocContainer");
-      
       BoardDao boardDao = iocContainer.getBean(BoardDao.class);
 
       if (boardDao.update(board) > 0) {

@@ -22,8 +22,6 @@ public class BoardAddServlet extends HttpServlet {
       throws ServletException, IOException {
 
     try {
-      response.setContentType("text/plain;charset=UTF-8");
-
       Board board = new Board();
       board.setTitle(request.getParameter("title"));
       board.setContent(request.getParameter("content"));
@@ -35,6 +33,7 @@ public class BoardAddServlet extends HttpServlet {
       BoardDao boardDao = iocContainer.getBean(BoardDao.class);
       boardDao.insert(board);
 
+      response.setContentType("text/plain;charset=UTF-8");
       PrintWriter out = response.getWriter();
       out.println("등록성공!");
 
