@@ -22,8 +22,6 @@ public class BoardListServlet extends HttpServlet {
       throws ServletException, IOException {
 
     try {
-      response.setContentType("text/plain;charset=UTF-8");
-
       int pageNo = 1;
       int pageSize = 10;
       String keyword = "no";
@@ -45,30 +43,48 @@ public class BoardListServlet extends HttpServlet {
         align = request.getParameter("align");
       }
 
-      PrintWriter out = response.getWriter();
-
-      out.printf("%-3s %-13s %-8s %-13s %s\n", 
-          "No", "Title", "content", "views", "createddate"); 
-
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()
-                                  .getAttribute("iocContainer");
+          .getAttribute("iocContainer");
       BoardDao boardDao = iocContainer.getBean(BoardDao.class);
 
-      for (Board board : boardDao.selectList(pageNo, pageSize, keyword, align)) {
-        if (board == null)
-          continue;
-        out.printf("%3d %-13s %-8s %-13s %s\n", 
-            board.getNo(),
-            board.getTitle(),
-            board.getContent(),
-            board.getViews(),
-            board.getCreatedDate());
+      response.setContentType("text/plain;charset=UTF-8");
+      PrintWriter out = response.getWriter();
+
+      out.println("<!DOCTYPE html>");
+      out.println("<html>");
+      out.println("<head>");
+      out.println("<meta charset='UTF-8'>");
+      out.println("<title>게시판 목록</title>");
+      out.println("</head>");
+      out.println("<body>");
+      out.println("<h1>게시판</h1>");
+      out.println("<table border='1'>");
+      out.println("<tr>");
+      out.println("<th>번호</th>");
+      out.println("<th>제목</th>");
+      out.println("<th>조회수</th>");
+      out.println("<th>등록일</th>");
+      out.println("</tr>");
+
+      for (Board board : boardDao.selectList(
+          pageNo, pageSize, keyword, align)) {
+        out.println("<tr>");
+        out.printf("<td>%s</td>\n", board.getNo());
+        out.printf("<td>%s</td>\n", board.getTitle());
+        out.printf("<td>%s</td>\n", board.getViews());
+        out.printf("<td>%s</td>\n", board.getCreatedDate());
+        out.println("</tr>");
       }
-      
+      out.println("</table>");
+
       RequestDispatcher rd = request.getRequestDispatcher("/copyright");
       rd.include(request, response);
-      
+
+      out.println("</body>");
+      out.println("</html>");
+
+
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
       rd.forward(request, response);
