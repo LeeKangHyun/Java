@@ -14,12 +14,32 @@ public class ErrorServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
-    response.setContentType("text/plain;charset=UTF-8");
+    response.setContentType("text/html;charset=UTF-8");
 
     PrintWriter out = response.getWriter();
-    out.println("*****************************");
-    out.println("*      오류가 발생했습니다.      *");
-    out.println("*****************************");
+    out.println("<!DOCTYPE html>");
+    out.println("<html>");
+    out.println("<head>");
+    out.println("  <meta charset='UTF-8'>");
+    out.println("  <title>시스템 오류</title>");
+    out.println("</head>");
+    out.println("<body>");
+    out.println("  <h1>오류 정보</h1>");
+    
+    Exception error = (Exception)request.getAttribute("error");
+    
+    if (error != null) {
+      out.println("<pre>");
+      error.printStackTrace(out);
+      out.println("</pre>");
+    } else {
+      out.println("<p>원인을 알수 없는 오류가 발생했습니다.");
+      out.println("계속해서 오류가 발생하면 관리자에게 문의하시기 바랍니다.<br>");
+      out.println("이메일: admin@test.com, 사내번호: 4119</p>");
+    }
+    
+    out.println("</body>");
+    out.println("</html>");
   }
 
   @Override

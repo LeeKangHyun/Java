@@ -67,11 +67,7 @@ public class BoardDao {
     SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
     try {
-      // selecttList()에 주는 값은,
-      // SQL 맵퍼 파일에 정의된 namespace 이름과 sql 아이디이다.
       return sqlSession.update("java76.pms.dao.BoardDao.update", board);
-      // 굳이 예외를 받지 않는다.
-      // selectList()가 던지는 RuntimeException 예외를 그대로 호출자에게 위임할 것 이다.
     } finally {
       try {sqlSession.close();} catch (Exception e) {}
     }
