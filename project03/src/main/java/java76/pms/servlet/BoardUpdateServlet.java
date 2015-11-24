@@ -17,8 +17,55 @@ import java76.pms.domain.Board;
 public class BoardUpdateServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
+  // GET 요청이 들어오면 해당 게시물의 상세 정보를 출력한다.
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) 
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+      throws ServletException, IOException {
+    
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
+    
+    out.println("<!DOCTYPE html>");
+    out.println("<html>");
+    out.println("<head>");
+    out.println("  <meta charset='UTF-8'>");
+    out.println("  <title>게시판 정보</title>");
+    out.println("</head>");
+    out.println("<body>");
+    out.println("  <h1>게시물 정보</h1>");
+    out.println("  <table border='1'>");
+    out.println("  <tr>");
+    out.println("    <th>번호</th>");
+    out.println("    <td>1</td>");
+    out.println("  </tr>");
+    out.println("  <tr>");
+    out.println("    <th>제목</th>");
+    out.println("    <td>1</td>");
+    out.println("  </tr>");
+    out.println("  <tr>");
+    out.println("    <th>내용</th>");
+    out.println("    <td>1</td>");
+    out.println("  </tr>");
+    out.println("  <tr>");
+    out.println("    <th>조회수</th>");
+    out.println("    <td>1</td>");  
+    out.println("  </tr>");
+    out.println("  <tr>");
+    out.println("    <th>번호</th>");
+    out.println("    <td>1</td>");
+    out.println("  </tr>");
+    out.println("  </table>");
+    
+    RequestDispatcher rd = request.getRequestDispatcher("/copyright");
+    rd.include(request, response);
+
+    out.println("</body>");
+    out.println("</html>");
+  }
+  
+  // POST 요청이 들어오면 해당 게시물을 입력한 값으로 변경한다.
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
 
     try {

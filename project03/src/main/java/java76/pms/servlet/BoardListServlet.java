@@ -71,7 +71,8 @@ public class BoardListServlet extends HttpServlet {
           pageNo, pageSize, keyword, align)) {
         out.println("    <tr>");
         out.printf("    <td>%s</td>\n", board.getNo());
-        out.printf("    <td>%s</td>\n", board.getTitle());
+        out.printf("    <td><a href='update?no=%d'>%s</a></td>\n",
+            board.getNo(), board.getTitle());
         out.printf("    <td>%s</td>\n", board.getViews());
         out.printf("    <td>%s</td>\n", board.getCreatedDate());
         out.println("    </tr>");
