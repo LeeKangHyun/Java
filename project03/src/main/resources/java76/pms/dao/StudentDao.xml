@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="java76.pms.dao.StudentDao">
+
   <select id="selectList" resultType="student"
   parameterType="map">
     select 
@@ -39,6 +40,17 @@
       name=#{name},
       tel=#{tel},
       cid=#{cid} 
-    where email=#{no}
+    where email=#{email}
   </update>
+  
+  <select id="selectOne" resultType="student" 
+  parameterType="String">
+    select
+      name,
+      email,
+      tel,
+      cid
+    from student
+    where email=#{value}
+  </select>
 </mapper>

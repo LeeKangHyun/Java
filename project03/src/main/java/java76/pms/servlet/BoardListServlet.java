@@ -89,6 +89,7 @@ public class BoardListServlet extends HttpServlet {
 
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
+      request.setAttribute("error", e); // 오류 정보를 ErrorServlet에게 전달한다.
       rd.forward(request, response);
     }
   }

@@ -53,11 +53,10 @@ public class ProjectDao {
     SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
     try {
-      // selecttList()에 주는 값은,
-      // SQL 맵퍼 파일에 정의된 namespace 이름과 sql 아이디이다.
-      return sqlSession.delete("java76.pms.dao.ProjectDao.delete", no);
-      // 굳이 예외를 받지 않는다.
-      // selectList()가 던지는 RuntimeException 예외를 그대로 호출자에게 위임할 것 이다.
+      HashMap<String,Object> paramMap = new HashMap<>();
+      paramMap.put("no", no);
+      
+      return sqlSession.delete("java76.pms.dao.ProjectDao.delete", paramMap);
     } finally {
       try {sqlSession.close();} catch (Exception e) {}
     }
@@ -76,6 +75,18 @@ public class ProjectDao {
       try {sqlSession.close();} catch (Exception e) {}
     }
   }
+
+  public Project selectOne(int no) {
+    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+    
+    try {
+      return sqlSession.selectOne("java76.pms.dao.ProjectDao.selectOne", no);
+    } finally {
+      try {sqlSession.close();} catch (Exception e) {}
+    }
+  }
+  
+  
 }
 
 

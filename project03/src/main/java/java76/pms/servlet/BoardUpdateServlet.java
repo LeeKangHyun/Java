@@ -140,7 +140,7 @@ public class BoardUpdateServlet extends HttpServlet {
 
       response.setHeader("Refresh", "2; url=list");
       
-    }catch (Exception e) {
+    } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
       request.setAttribute("error", e); // 오류 정보를 ErrorServlet에게 전달한다.
       rd.forward(request, response);

@@ -21,7 +21,6 @@ public class StudentListServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
     try {
-      response.setContentType("text/plain;charset=UTF-8");
       int pageNo = 1;
       int pageSize = 10;
       String keyword = "email";
@@ -43,30 +42,53 @@ public class StudentListServlet extends HttpServlet {
         align = (String)request.getParameter("align");
       }
 
-      PrintWriter out = response.getWriter();
-
-      out.printf("%-20s %-20s %-20s %-20s\n", 
-          "Name", "Email", "Tel", "Cid");
-
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()
                                   .getAttribute("iocContainer");
       StudentDao studentDao = iocContainer.getBean(StudentDao.class);
 
+      response.setContentType("text/html;charset=UTF-8");
+      PrintWriter out = response.getWriter();
+      
+      out.println("<!DOCTYPE html>");
+      out.println("<html>");
+      out.println("<head>");
+      out.println("  <meta charset='UTF-8'>");
+      out.println("  <title>학생 목록</title>");
+      out.println("</head>");
+      out.println("<body>");
+      out.println("  <h1>학생</h1>");
+      
+      out.println("  <a href='form.html'>새 글</a><br>");
+      out.println("  <table border='1'>");
+      out.println("    <tr>");
+      out.println("    <th>이름</th>");
+      out.println("    <th>이메일</th>");
+      out.println("    <th>전화번호</th>");
+      out.println("    <th>클래스</th>");
+      out.println("    </tr>");
+      
       for (Student student : studentDao.selectList(
           pageNo, pageSize, keyword, align)) {
-        out.printf("%-20s %-20s %-20s %-20s\n", 
-            student.getName(),
-            student.getEmail(),
-            student.getTel(),
-            student.getCid());
+        out.println("    <tr>");
+        out.printf("    <td>%s</td>\n", student.getName());
+        out.printf("    <td><a href='update?email=%s'>%s</a></td>\n",
+            student.getEmail(), student.getEmail());
+        out.printf("    <td>%s</td>\n", student.getTel());
+        out.printf("    <td>%s</td>\n", student.getCid());
+        out.println("    </tr>");
       }
+      out.println("  </table>");
       
       RequestDispatcher rd = request.getRequestDispatcher("/copyright");
       rd.include(request, response);
+
+      out.println("</body>");
+      out.println("</html>");
       
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
+      request.setAttribute("error", e); // 오류 정보를 ErrorServlet에게 전달한다.
       rd.forward(request, response);
     }
   }
