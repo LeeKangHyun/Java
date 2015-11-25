@@ -44,10 +44,10 @@
   
   <update id="update" parameterType="project">
     update project set 
-    title=#{title},
-    sdt=#{startDate},
-    edt=#{endDate},
-    member=#{member} 
+      title=#{title},
+      sdt=#{startDate},
+      edt=#{endDate},
+      member=#{member} 
     where pno=#{no}
   </update>
 </mapper>

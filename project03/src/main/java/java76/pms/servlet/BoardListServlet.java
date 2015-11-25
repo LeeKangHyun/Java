@@ -58,6 +58,8 @@ public class BoardListServlet extends HttpServlet {
       out.println("</head>");
       out.println("<body>");
       out.println("  <h1>게시판</h1>");
+      
+      out.println("  <a href='form.html'>새 글</a><br>");
       out.println("  <table border='1'>");
       out.println("    <tr>");
       out.println("    <th>번호</th>");

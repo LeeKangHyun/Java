@@ -1,6 +1,7 @@
 package java76.pms.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,19 +17,42 @@ public class BoardDeleteServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) 
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
     try {
-      response.setContentType("text/plain;charset=UTF-8");
       int no = Integer.parseInt(request.getParameter("no"));
+      String password = request.getParameter("password");
       
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()
                                   .getAttribute("iocContainer");
       BoardDao boardDao = iocContainer.getBean(BoardDao.class);
+      if (boardDao.delete(no, password) > 0) {
+        response.sendRedirect("list");  // 상대경로
+        return;
+      } 
+      
+      response.setContentType("text/html;charset=UTF-8");
+      PrintWriter out = response.getWriter();
 
-      boardDao.delete(no);
-      response.sendRedirect("list");
+      out.println("<!DOCTYPE html>");
+      out.println("<html>");
+      out.println("<head>");
+      out.println("  <meta charset='UTF-8'>");
+      out.println("  <title>게시판 삭제</title>");
+      out.println("</head>");
+      out.println("<body>");
+      out.println("  <h1>게시물 삭제오류</h1>");
+      out.println("  <p>해당 게시물이 존재하지 않거나 암호가 맞지 않습니다.</p>");
+      
+      RequestDispatcher rd = request.getRequestDispatcher("/copyright");
+      rd.include(request, response);
+      
+      out.println("</body>");
+      out.println("</html>");
+
+      response.setHeader("Refresh", "2; url=list");
+      
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
       rd.forward(request, response);
