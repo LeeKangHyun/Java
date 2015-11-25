@@ -22,12 +22,10 @@ public class BoardUpdateServlet extends HttpServlet {
   protected void doGet(
       HttpServletRequest request, HttpServletResponse response) 
           throws ServletException, IOException {
-
     int no = Integer.parseInt(request.getParameter("no"));
 
     ApplicationContext iocContainer = 
-        (ApplicationContext)this.getServletContext()
-        .getAttribute("iocContainer");
+        (ApplicationContext)this.getServletContext().getAttribute("iocContainer");
     BoardDao boardDao = iocContainer.getBean(BoardDao.class);
     Board board = boardDao.selectOne(no);
 
@@ -38,65 +36,61 @@ public class BoardUpdateServlet extends HttpServlet {
     out.println("<html>");
     out.println("<head>");
     out.println("  <meta charset='UTF-8'>");
-    out.println("  <title>게시판 정보</title>");
+    out.println("  <title></title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("  <h1>게시물 정보</h1>");
 
     if (board != null) {
       out.println("  <form id='form1' action='update' method='post'>");
       out.println("  <table border='1'>");
-      out.println("    <tr>");
-      out.println("      <th>번호</th>");
-      out.printf("      <td><input type='text' name='no' value='%d' readonly></td>\n", 
+      out.println("  <tr>");
+      out.println("    <th>번호</th>");
+      out.printf("    <td><input type='text' name='no' value='%d' readonly></td>\n", 
           board.getNo());
-      out.println("     </tr>");
-      out.println("     <tr>");
-      out.println("       <th>제목</th>");
-      out.printf("       <td><input type='text' name='title' value='%s'></td>\n", 
+      out.println("  </tr>");
+      out.println("  <tr>");
+      out.println("    <th>제목</th>");
+      out.printf("    <td><input type='text' name='title' value='%s'></td>\n", 
           board.getTitle());
-      out.println("    </tr>");
-      out.println("    <tr>");
-      out.println("      <th>내용</th>");
-      out.printf("      <td><textarea name='content' rows='10' cols='60'>%s</textarea></td>\n", 
+      out.println("  </tr>");
+      out.println("  <tr>");
+      out.println("    <th>내용</th>");
+      out.printf("    <td><textarea name='content' rows='10' cols='60'>%s</textarea></td>\n", 
           board.getContent());
-      out.println("    </tr>");
-      out.println("    <tr>");
-      out.println("      <th>조회수</th>");
-      out.printf("      <td>%d</td>\n", board.getViews());
-      out.println("    </tr>");
-      out.println("    <tr>");
-      out.println("      <th>등록일</th>");
-      out.printf("      <td>%s</td>\n", board.getCreatedDate());
-      out.println("    </tr>");
-      out.println("    <tr>");
-      out.println("      <th>암호</th>");
-      out.printf("      <td><input type='password' name='password'></td>");
-      out.println("    </tr>");
+      out.println("  </tr>");
+      out.println("  <tr>");
+      out.println("    <th>조회수</th>");
+      out.printf("    <td>%d</td>\n", board.getViews());
+      out.println("  </tr>");
+      out.println("  <tr>");
+      out.println("    <th>등록일</th>");
+      out.printf("    <td>%s</td>\n", board.getCreatedDate());
+      out.println("  </tr>");
+      out.println("  <tr>");
+      out.println("    <th>암호</th>");
+      out.println("    <td><input type='password' name='password'></td>");
+      out.println("  </tr>");
       out.println("  </table>");
-      
-      out.println("<p>");
-      out.println("<button name='update' type='submit'>변경</button>");
-      out.println("<button name='delete' type='submit' onclick='deleteBoard()'>삭제</button>");
-      out.println("<p>");
-      
+
+      out.println("  <p>");
+      out.println("  <button name='update' type='submit'>변경</button>");
+      out.println("  <button name='delete' type='submit' onclick='deleteBoard()'>삭제</button>");
+      out.println("  </p>");
+
       out.println("  </form>");
     } else {
-      out.println("<p>해당 번호의 게시물을 찾을 수 없습니다.</p>");
+      out.println("<p>찾을수 없다.</p>");
     }
-    
     RequestDispatcher rd = request.getRequestDispatcher("/copyright");
     rd.include(request, response);
-    
-    out.println("<script>");
-    out.println("function deleteBoard() {");
-    out.println("  document.getElementById('form1').action='delete';");
-    out.println("}");
-    out.println("</script>");
-    
+
+    out.println("  <script>");
+    out.println("  function deleteBoard() {");
+    out.println("    document.getElementById('form1').action='delete';");
+    out.println("  }");
+    out.println("  </script>");
     out.println("</body>");
     out.println("</html>");
-
 
   }
 
@@ -105,27 +99,27 @@ public class BoardUpdateServlet extends HttpServlet {
   public void doPost(
       HttpServletRequest request, HttpServletResponse response) 
           throws ServletException, IOException {
-
     try {
       Board board = new Board();
       board.setNo(Integer.parseInt(request.getParameter("no")));
       board.setTitle(request.getParameter("title"));
       board.setContent(request.getParameter("content"));
       board.setPassword(request.getParameter("password"));
-
+      
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()
           .getAttribute("iocContainer");
+      
       BoardDao boardDao = iocContainer.getBean(BoardDao.class);
-
+      
       if (boardDao.update(board) > 0) {
         response.sendRedirect("list");
         return;
       }
-
+      
       response.setContentType("text/html;charset=UTF-8");
       PrintWriter out = response.getWriter();
-
+      
       out.println("<!DOCTYPE html>");
       out.println("<html>");
       out.println("<head>");
@@ -133,20 +127,31 @@ public class BoardUpdateServlet extends HttpServlet {
       out.println("  <title>게시판 변경</title>");
       out.println("</head>");
       out.println("<body>");
-      out.println("  <h1>게시물 변경 오류</h1>");
-      out.println("  <p>해당게시물이 존재하지 않거나 암호가 맞지 않습니다.</p>");
-
+      out.println("  <h1>게시물 변경오류</h1>");
+      out.println("  <p>해당 게시물이 존재하지 않거나 암호가 맞지 않습니다.</p>");
+      
       RequestDispatcher rd = request.getRequestDispatcher("/copyright");
       rd.include(request, response);
-
+      
       out.println("</body>");
       out.println("</html>");
-
+      
       response.setHeader("Refresh", "2; url=list");
+      
+
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
+      request.setAttribute("error", e);
       rd.forward(request, response);
     }
   }
 }
+
+
+
+
+
+
+
+
 

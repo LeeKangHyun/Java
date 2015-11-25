@@ -10,16 +10,19 @@
     <result column="cre_dt" property="createdDate"/>
   </resultMap>
 
-  <select id="selectList" resultMap="boardMap" parameterType="map"> 
-    select 
+  <select id="selectList" resultMap="boardMap" parameterType="map">
+  
+    select
       bno,
       title,
+      content,
       views,
       cre_dt
     from board
     order by
     <choose>
       <when test="keyword == 'title'">title </when>
+      <when test="keyword == 'views'">views </when>
       <otherwise>bno </otherwise>
     </choose>
     <choose>
@@ -27,6 +30,7 @@
       <otherwise>desc</otherwise>
     </choose>
     limit #{startIndex}, #{length}
+  
   </select>
   
   <insert id="insert" parameterType="board">
@@ -37,30 +41,27 @@
   <delete id="delete" parameterType="map">
     delete from board
     where bno=#{no} and (pwd is null or pwd=#{password})
+  
   </delete>
   
   <update id="update" parameterType="board">
-    update board set
-      title=#{title},
-      content=#{content},
-      cre_dt=now()
-    where bno=#{no} and (pwd is null or pwd=#{password})
+  update board set
+    title=#{title},
+    content=#{content},
+    cre_dt=now()
+  where bno=#{no} and (pwd is null or pwd=#{password})
   </update>
   
-  <select id="selectOne" resultMap="boardMap"
-    parameterType="int">
-    select
+  <select id="selectOne" resultMap="boardMap" parameterType="int">
+    select 
       bno,
       title,
       content,
       views,
       cre_dt
     from board
-    where bno=#{no}  
+    where bno=#{no}
   </select>
-    
-  
-  
 
 </mapper>
 

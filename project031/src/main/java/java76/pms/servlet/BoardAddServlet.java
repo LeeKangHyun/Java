@@ -20,28 +20,30 @@ public class BoardAddServlet extends HttpServlet {
   public void doPost(
       HttpServletRequest request, HttpServletResponse response) 
           throws ServletException, IOException {
+
     try {
       Board board = new Board();
-
-      response.setContentType("text/html;charset=UTF-8");
+      
       board.setTitle(request.getParameter("title"));
       board.setContent(request.getParameter("content"));
       board.setPassword(request.getParameter("password"));
-
+      
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()
           .getAttribute("iocContainer");
       
       BoardDao boardDao = iocContainer.getBean(BoardDao.class);
+      
       boardDao.insert(board);
-
+      
       response.sendRedirect("list");
+      
       
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
       rd.forward(request, response);
     }
-
   }
+
 }
 
