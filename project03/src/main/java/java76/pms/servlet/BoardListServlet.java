@@ -71,7 +71,7 @@ public class BoardListServlet extends HttpServlet {
       for (Board board : boardDao.selectList(
           pageNo, pageSize, keyword, align)) {
         out.println("    <tr>");
-        out.printf("    <td>%s</td>\n", board.getNo());
+        out.printf("    <td>%d</td>\n", board.getNo());
         out.printf("    <td><a href='update?no=%d'>%s</a></td>\n",
             board.getNo(), board.getTitle());
         out.printf("    <td>%s</td>\n", board.getViews());
@@ -85,7 +85,6 @@ public class BoardListServlet extends HttpServlet {
 
       out.println("</body>");
       out.println("</html>");
-
 
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");

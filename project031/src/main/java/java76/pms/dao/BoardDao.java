@@ -49,15 +49,14 @@ public class BoardDao {
     }
   }
 
-  public int delete(int no) {
+  public int delete(int no, String password) {
     SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
     try {
-      // selecttList()에 주는 값은,
-      // SQL 맵퍼 파일에 정의된 namespace 이름과 sql 아이디이다.
-      return sqlSession.delete("java76.pms.dao.BoardDao.delete", no);
-      // 굳이 예외를 받지 않는다.
-      // selectList()가 던지는 RuntimeException 예외를 그대로 호출자에게 위임할 것 이다.
+      HashMap<String,Object> paramMap = new HashMap<>();
+      paramMap.put("no", no);
+      paramMap.put("password", password);
+      return sqlSession.delete("java76.pms.dao.BoardDao.delete", paramMap);
     } finally {
       try {sqlSession.close();} catch (Exception e) {}
     }
@@ -82,6 +81,7 @@ public class BoardDao {
       try {sqlSession.close();} catch (Exception e) {}
     }
   }
+
 }
 
 
