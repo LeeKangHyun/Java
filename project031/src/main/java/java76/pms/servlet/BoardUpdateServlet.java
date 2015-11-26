@@ -137,7 +137,6 @@ public class BoardUpdateServlet extends HttpServlet {
       out.println("</html>");
       
       response.setHeader("Refresh", "2; url=list");
-      
 
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");

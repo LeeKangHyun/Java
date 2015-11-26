@@ -63,7 +63,7 @@ public class BoardListServlet extends HttpServlet {
       out.println("  <table border='1'>");
       out.println("  <tr>");
       out.println("    <th>번호</th>");
-      out.println("   <th>제목</th>");
+      out.println("    <th>제목</th>");
       out.println("    <th>조회수</th>");
       out.println("    <th>작성일</th>");
       out.println("  </tr>");

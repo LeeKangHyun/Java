@@ -46,6 +46,7 @@ public class BoardDeleteServlet extends HttpServlet {
       out.println("  <meta charset='UTF-8'>");
       out.println("  <title></title>");
       out.println("</head>");
+      
       out.println("<body>");
       out.println("  <h1>게시물 삭제오류</h1>");
       out.println("  <p>해당 게시물이 존재하지 않거나 암호가 맞지 않습니다.</p>");
@@ -65,3 +66,7 @@ public class BoardDeleteServlet extends HttpServlet {
     }
   }
 }
+
+
+
+
