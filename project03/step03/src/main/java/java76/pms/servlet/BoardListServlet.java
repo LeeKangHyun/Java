@@ -1,7 +1,7 @@
 package java76.pms.servlet;
 
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -47,25 +47,48 @@ public class BoardListServlet extends HttpServlet {
           .getAttribute("iocContainer");
       BoardDao boardDao = iocContainer.getBean(BoardDao.class);
 
-      // DAO로부터 데이터를 받는다.
-      List<Board> boards = boardDao.selectList(
-          pageNo, pageSize, keyword, align);
-      
-      // DAO로부터 받은 데이터를 ServletRequest 보관소에 저장한다.
-      request.setAttribute("boards", boards);
-      
-      // JSP에게 출력을 위임한다.
-      // include를 할 경우, 응답 데이터의 콘텐츠 타입을 미리 설정해야 한다.
       response.setContentType("text/html;charset=UTF-8");
-      RequestDispatcher rd = 
-          request.getRequestDispatcher("/board/BoardList.jsp");
+      PrintWriter out = response.getWriter();
+
+      out.println("<!DOCTYPE html>");
+      out.println("<html>");
+      out.println("<head>");
+      out.println("  <meta charset='UTF-8'>");
+      out.println("  <title>게시판 목록</title>");
+      out.println("</head>");
+      out.println("<body>");
+      out.println("  <h1>게시판</h1>");
       
+      out.println("  <a href='form.html'>새 글</a><br>");
+      out.println("  <table border='1'>");
+      out.println("    <tr>");
+      out.println("    <th>번호</th>");
+      out.println("    <th>제목</th>");
+      out.println("    <th>조회수</th>");
+      out.println("    <th>등록일</th>");
+      out.println("    </tr>");
+
+      for (Board board : boardDao.selectList(
+          pageNo, pageSize, keyword, align)) {
+        out.println("    <tr>");
+        out.printf("    <td>%d</td>\n", board.getNo());
+        out.printf("    <td><a href='update?no=%d'>%s</a></td>\n",
+            board.getNo(), board.getTitle());
+        out.printf("    <td>%s</td>\n", board.getViews());
+        out.printf("    <td>%s</td>\n", board.getCreatedDate());
+        out.println("    </tr>");
+      }
+      out.println("  </table>");
+
+      RequestDispatcher rd = request.getRequestDispatcher("/copyright");
       rd.include(request, response);
-      
+
+      out.println("</body>");
+      out.println("</html>");
 
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
-      request.setAttribute("error", e);
+      request.setAttribute("error", e); // 오류 정보를 ErrorServlet에게 전달한다.
       rd.forward(request, response);
     }
   }
