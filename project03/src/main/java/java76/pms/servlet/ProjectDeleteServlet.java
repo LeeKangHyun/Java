@@ -1,7 +1,6 @@
 package java76.pms.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,26 +31,12 @@ public class ProjectDeleteServlet extends HttpServlet {
         return;
       }
       
-      response.setContentType("text/html;charset=UTF-8");
-      PrintWriter out = response.getWriter();
+      request.setAttribute("errorCode", "401");
       
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head>");
-      out.println("  <meta charset='UTF-8'>");
-      out.println("  <title>프로젝트 삭제</title>");
-      out.println("</head>");
-      out.println("<body>");
-      out.println("  <h1>프로젝트 삭제오류</h1>");
-      out.println("  <p>해당 프로젝트가 존재하지 않습니다.</p>");
+      RequestDispatcher rd = 
+          request.getRequestDispatcher("/project/ProjectAuthError.jsp");
       
-      RequestDispatcher rd = request.getRequestDispatcher("/copyright");
       rd.include(request, response);
-      
-      out.println("</body>");
-      out.println("</html>");
-
-      response.setHeader("Refresh", "2; url=list");
       
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");

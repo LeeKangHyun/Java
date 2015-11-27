@@ -47,7 +47,7 @@
   </c:if>
   
   <c:if test="${empty board}">
-    <p>해당 번호의 게시무을 찾을 수 없습니다.</p>
+    <p>해당 번호의 게시물을 찾을 수 없습니다.</p>
   </c:if>
 
   <jsp:include page="/Copyright.jsp"></jsp:include>

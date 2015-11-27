@@ -1,7 +1,6 @@
 package java76.pms.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -30,68 +29,13 @@ public class ProjectUpdateServlet extends HttpServlet {
     ProjectDao projectDao = iocContainer.getBean(ProjectDao.class);
     Project project = projectDao.selectOne(no);
 
+    request.setAttribute("project", project);
+    
     response.setContentType("text/html;charset=UTF-8");
-    PrintWriter out = response.getWriter();
 
-    out.println("<!DOCTYPE html>");
-    out.println("<html>");
-    out.println("<head>");
-    out.println("  <meta charset='UTF-8'>");
-    out.println("  <title>프로젝트 정보</title>");
-    out.println("</head>");
-    out.println("<body>");
-    out.println("  <h1>프로젝트 정보</h1>");
-
-    if (project != null) {
-      out.println("  <form id='form1' action='update' method='post'>");
-      out.println("  <table border='1'>");
-      out.println("  <tr>");
-      out.println("    <th>번호</th>");
-      out.printf("    <td><input type='text' name='no' value='%d' readonly></td>",
-          project.getNo());
-      out.println("  </tr>");
-      out.println("  <tr>");
-      out.println("    <th>제목</th>");
-      out.printf("    <td><input type='text' name='title' value='%s'></td>", 
-          project.getTitle());
-      out.println("  </tr>");
-      out.println("  <tr>");
-      out.println("    <th>시작일</th>");
-      out.printf("    <td><input type='text' name='startDate' value='%s'></td>", 
-          project.getStartDate());
-      out.println("  </tr>");
-      out.println("  <tr>");
-      out.println("    <th>종료일</th>");
-      out.printf("    <td><input type='text' name='endDate' value='%s'></td>", 
-          project.getEndDate());
-      out.println("  </tr>");
-      out.println("  <tr>");
-      out.println("    <th>멤버</th>");
-      out.printf("    <td><input type='text' name='member' value='%s'></td>", 
-          project.getMember());
-      out.println("  </tr>");
-      out.println("  </table>");
-
-      out.println("  <p>");
-      out.println("  <button name='update' type='submit'>변경</button>");
-      out.println("  <button name='delete' type='submit' onclick='deleteProject()'>삭제</button>");
-      out.println("  </p>");
-
-      out.println("  </form>");
-    } else {
-      out.println("<p>해당 번호의 프로젝트를 찾을 수 없습니다.</p>");
-    }
-    RequestDispatcher rd = request.getRequestDispatcher("/copyright");
+    RequestDispatcher rd = request.getRequestDispatcher("/project/ProjectDetail.jsp");
     rd.include(request, response);
 
-    out.println("<script>");
-    out.println("function deleteProject() {");
-    out.println("  document.getElementById('form1').action = 'delete';");
-    out.println("}");
-    out.println("</script>");
-
-    out.println("</body>");
-    out.println("</html>");
   }
 
   @Override
@@ -114,27 +58,14 @@ public class ProjectUpdateServlet extends HttpServlet {
         response.sendRedirect("list");  // 상대경로
         return;
       }
-
-      response.setContentType("text/plain;charset=UTF-8");
-      PrintWriter out = response.getWriter();
-
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head>");
-      out.println("  <meta charset='UTF-8'>");
-      out.println("  <title>프로젝트 변경</title>");
-      out.println("</head>");
-      out.println("<body>");
-      out.println("  <h1>프로젝트 변경오류</h1>");
-      out.println("  <p>해당 프로젝트가 존재하지 않습니다.</p>");
-
-      RequestDispatcher rd = request.getRequestDispatcher("/copyright");
+      
+      request.setAttribute("errorCode", "401");
+      
+      RequestDispatcher rd = 
+          request.getRequestDispatcher("/project/ProjectAuthError.jsp");
+      
       rd.include(request, response);
 
-      out.println("</body>");
-      out.println("</html>");
-
-      response.setHeader("Refresh", "2; url=list");
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
       request.setAttribute("error", e); // 오류 정보를 ErrorServlet에게 전달한다.
