@@ -10,6 +10,13 @@ Controller: Model과 View가 사용할 데이터를 가공한다.
   - webapp/board/BoardList.jsp 작성 => 게시물 목록 화면을 출력
   - BoardListServlet.java변경 => 화면 출력과 관련된 코드를 제거.
    
-
-
+2. <jsp:useBean>적용
+  - boardlist.jsp에 적용
+  
+3. Copyright을 JSP로 전환하기
+  - Copyright.jsp
+  
+4. <jsp:include>
+  
+5. EL 적
 
