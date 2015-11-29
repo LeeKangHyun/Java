@@ -8,19 +8,19 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java76.pms.domain.Board;
+import java76.pms.domain.Project;
 
 @Component
-public class BoardDao {
-  @Autowired 
+public class ProjectDao {
+  @Autowired
   SqlSessionFactory sqlSessionFactory;
 
-  public BoardDao() {}
+  public ProjectDao() {}
 
-  public List<Board> selectList(int pageNo, int pageSize,
-      String keyword, String align) {
-    SqlSession sqlSession = sqlSessionFactory.openSession();
-    
+  public List<Project> selectList(
+      int pageNo, int pageSize, String keyword, String align) {
+    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
     try {
       HashMap<String,Object> paramMap = new HashMap<>();
       paramMap.put("startIndex", (pageNo - 1) * pageSize);
@@ -29,61 +29,65 @@ public class BoardDao {
       paramMap.put("align", align);
       
       return sqlSession.selectList(
-          "java76.pms.dao.BoardDao.selectList", paramMap);
+          "java76.pms.dao.ProjectDao.selectList", paramMap);
     } finally {
       try {sqlSession.close();} catch (Exception e) {}
     }
   }
 
-  public int insert(Board board) {
-    // auto-commit 활성화 한다.
+  public int insert(Project project) {
     SqlSession sqlSession = sqlSessionFactory.openSession(true);
-    
+
     try {
-      return sqlSession.insert("java76.pms.dao.BoardDao.insert", board);
+      // selecttList()에 주는 값은,
+      // SQL 맵퍼 파일에 정의된 namespace 이름과 sql 아이디이다.
+      return sqlSession.insert("java76.pms.dao.ProjectDao.insert", project);
+      // 굳이 예외를 받지 않는다.
+      // selectList()가 던지는 RuntimeException 예외를 그대로 호출자에게 위임할 것 이다.
     } finally {
       try {sqlSession.close();} catch (Exception e) {}
     }
   }
 
-  public int delete(int no, String password) {
+  public int delete(int no) {
     SqlSession sqlSession = sqlSessionFactory.openSession(true);
-    
+
     try {
       HashMap<String,Object> paramMap = new HashMap<>();
       paramMap.put("no", no);
-      paramMap.put("password", password);
       
-      return sqlSession.delete("java76.pms.dao.BoardDao.delete", paramMap);
+      return sqlSession.delete("java76.pms.dao.ProjectDao.delete", paramMap);
+    } finally {
+      try {sqlSession.close();} catch (Exception e) {}
+    }
+  }
+
+  public int update(Project project) {
+    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+    try {
+      // selecttList()에 주는 값은,
+      // SQL 맵퍼 파일에 정의된 namespace 이름과 sql 아이디이다.
+      return sqlSession.update("java76.pms.dao.ProjectDao.update", project);
+      // 굳이 예외를 받지 않는다.
+      // selectList()가 던지는 RuntimeException 예외를 그대로 호출자에게 위임할 것 이다.
+    } finally {
+      try {sqlSession.close();} catch (Exception e) {}
+    }
+  }
+
+  public Project selectOne(int no) {
+    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+    
+    try {
+      return sqlSession.selectOne("java76.pms.dao.ProjectDao.selectOne", no);
     } finally {
       try {sqlSession.close();} catch (Exception e) {}
     }
   }
   
-  public int update(Board board) {
-    SqlSession sqlSession = sqlSessionFactory.openSession(true);
-    
-    try {
-      return sqlSession.update("java76.pms.dao.BoardDao.update", board);
-    } finally {
-      try {sqlSession.close();} catch (Exception e) {}
-    }
-  }
-
-  public Board selectOne(int no) {
-    SqlSession sqlSession = sqlSessionFactory.openSession(true);
-    
-    try {
-      return sqlSession.selectOne("java76.pms.dao.BoardDao.selectOne", no);
-    } finally {
-      try {sqlSession.close();} catch (Exception e) {}
-    }
-  }
+  
 }
-
-
-
-
 
 
 
