@@ -22,14 +22,12 @@ public class ProjectAddServlet extends HttpServlet {
       throws ServletException, IOException {
     
     try {
-      response.setContentType("text/plain;charset=UTF-8");
       Project project = new Project();
       
       project.setTitle(request.getParameter("title"));
       project.setStartDate(Date.valueOf(request.getParameter("startDate")));
       project.setEndDate(Date.valueOf(request.getParameter("endDate")));
       project.setMember(request.getParameter("member"));
-
 
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()
