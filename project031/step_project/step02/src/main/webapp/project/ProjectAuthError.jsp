@@ -14,7 +14,7 @@
   <p>
   <c:choose>
     <c:when test="${errorCode == '401'}">
-      해당 게시물이 존재하지 않거나 암호가 맞지 않습니다.
+      해당 프로젝트가 존재하지 않습니다.
     </c:when>
     <c:otherwise>
       알수 없는 오류입니다.

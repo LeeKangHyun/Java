@@ -62,6 +62,7 @@ public class ProjectUpdateServlet extends HttpServlet {
 
       request.setAttribute("errorCode", "401");
       
+      response.setContentType("text/html;charset=UTF-8");
       RequestDispatcher rd =
           request.getRequestDispatcher("/project/ProjectAuthError.jsp");
       rd.include(request, response);

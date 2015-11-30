@@ -32,7 +32,7 @@
   
   <!-- primitive type인 경우 프로퍼티 이름은 아무거나 지정해도 된다. -->
   <delete id="delete" parameterType="String">
-    delete from student where email=#{value}
+    delete from student where email=#{email}
   </delete>
   
   <update id="update" parameterType="student">

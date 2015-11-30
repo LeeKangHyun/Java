@@ -32,25 +32,6 @@
     limit #{startIndex}, #{length}
   </select>
   
-  <insert id="insert" parameterType="project">
-    insert into project(title,sdt,edt,member)
-    values(#{title},#{startDate},#{endDate},#{member})
-  </insert>
-  
-  <!-- primitive type인 경우 프로퍼티 이름은 아무거나 지정해도 된다. -->
-  <delete id="delete" parameterType="map">
-    delete from project where pno=#{no}
-  </delete>
-  
-  <update id="update" parameterType="project">
-    update project set 
-      title=#{title},
-      sdt=#{startDate},
-      edt=#{endDate},
-      member=#{member} 
-    where pno=#{no}
-  </update>
-  
   <select id="selectOne" resultMap="projectMap" parameterType="int">
     select 
       pno,
@@ -61,6 +42,26 @@
     from project
     where pno=#{no}
   </select>
+  
+  <update id="update" parameterType="project">
+    update project set 
+      title=#{title},
+      sdt=#{startDate},
+      edt=#{endDate},
+      member=#{member} 
+    where pno=#{no}
+  </update>
+  
+  <!-- primitive type인 경우 프로퍼티 이름은 아무거나 지정해도 된다. -->
+  <delete id="delete" parameterType="int">
+    delete from project where pno=#{no}
+  </delete>
+  
+  <insert id="insert" parameterType="project">
+    insert into project(title,sdt,edt,member)
+    values(#{title},#{startDate},#{endDate},#{member})
+  </insert>
+  
 </mapper>
 
 

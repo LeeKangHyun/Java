@@ -14,8 +14,7 @@
 			<table border='1'>
 				<tr>
 					<th>번호</th>
-					<td><input type='text' name='no' value='${project.no}'
-						readonly></td>
+					<td><input type='text' name='no' value='${project.no}' readonly></td>
 				</tr>
 				<tr>
 					<th>프로젝트명</th>
@@ -37,7 +36,7 @@
 				</tr>
 			</table>
 			<p>
-				<button name='update' type='submit'>변경</button>
+				<button name='update' type='submit'>변 경</button>
 				<button name='delete' type='submit' onclick='deleteProject()'>삭제</button>
 			</p>
 		</form>
@@ -46,7 +45,6 @@
   <c:if test="${empty project}">
     <p>해당 번호의 프로젝트를 찾을 수 없습니다.</p>
   </c:if>
-
 
   <jsp:include page="/Copyright.jsp"/>
 	<script>

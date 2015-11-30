@@ -1,7 +1,6 @@
 package java76.pms.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,26 +31,12 @@ public class StudentDeleteServlet extends HttpServlet {
         return;
       }
       
+      request.setAttribute("errorCode", "401");
       response.setContentType("text/html;charset=UTF-8");
-      PrintWriter out = response.getWriter();
-      
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head>");
-      out.println("  <meta charset='UTF-8'>");
-      out.println("  <title>학생 삭제</title>");
-      out.println("</head>");
-      out.println("<body>");
-      out.println("  <h1>학생 삭제오류</h1>");
-      out.println("  <p>해당 학생이 존재하지 않거나 이메일이 맞지 않습니다.</p>");
-      
-      RequestDispatcher rd = request.getRequestDispatcher("/copyright");
+      RequestDispatcher rd = 
+          request.getRequestDispatcher("/student/StudentAuthError.jsp");
       rd.include(request, response);
       
-      out.println("</body>");
-      out.println("</html>");
-
-      response.setHeader("Refresh", "2; url=list");
       
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");

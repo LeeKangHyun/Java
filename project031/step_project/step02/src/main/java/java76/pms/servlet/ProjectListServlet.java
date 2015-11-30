@@ -56,6 +56,7 @@ public class ProjectListServlet extends HttpServlet {
       request.setAttribute("projects", projects);
 
       response.setContentType("text/html;charset=UTF-8");
+      
       RequestDispatcher rd = 
           request.getRequestDispatcher("/project/ProjectList.jsp");
       

@@ -38,7 +38,7 @@
   </insert>
   
   <!-- primitive type인 경우 프로퍼티 이름은 아무거나 지정해도 된다. -->
-  <delete id="delete" parameterType="map">
+  <delete id="delete" parameterType="int">
     delete from project where pno=#{no}
   </delete>
   
