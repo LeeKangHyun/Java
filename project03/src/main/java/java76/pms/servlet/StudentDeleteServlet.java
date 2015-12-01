@@ -1,6 +1,7 @@
 package java76.pms.servlet;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.context.ApplicationContext;
 
 import java76.pms.dao.StudentDao;
+import java76.pms.util.MultipartHelper;
 
 public class StudentDeleteServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
@@ -19,7 +21,12 @@ public class StudentDeleteServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
     try {
-      String email = request.getParameter("email");
+      
+      Map<String,String> paramMap = 
+          MultipartHelper.parseMultipartData(request, 
+              this.getServletContext().getRealPath("/student"));
+      
+      String email = paramMap.get("email");
 
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()

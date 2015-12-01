@@ -23,8 +23,8 @@ public class StudentListServlet extends HttpServlet {
     try {
       int pageNo = 1;
       int pageSize = 10;
-      String keyword = "email";
-      String align = "desc";
+      String keyword = "name";
+      String align = "asc";
 
       if (request.getParameter("pageNo") != null) {
         pageNo = Integer.parseInt((String)request.getParameter("pageNo"));

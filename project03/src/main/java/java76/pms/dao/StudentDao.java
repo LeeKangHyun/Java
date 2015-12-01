@@ -83,6 +83,20 @@ public class StudentDao {
       try {sqlSession.close();} catch (Exception e) {}
     }
   }
+
+  public Student login(String email, String password) {
+    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+    
+    try {
+      HashMap<String,Object> paramMap = new HashMap<>();
+      paramMap.put("email", email);
+      paramMap.put("password", password);
+      
+      return sqlSession.selectOne("java76.pms.dao.StudentDao.login", paramMap);
+    } finally {
+      try {sqlSession.close();} catch (Exception e) {}
+    }
+  }
 }
 
 

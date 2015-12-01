@@ -18,5 +18,10 @@ Controller: Model과 View가 사용할 데이터를 가공한다.
   
 4. <jsp:include>
   
-5. EL 적
+5. EL 적용
 
+6. 프로젝트 및 학생 관리에도 EL 적용
+
+7. 로그인/로그아웃 구현
+  - /webapp/auth/loginform.jsp 작성
+  - LoginServlet.java클래스 작성

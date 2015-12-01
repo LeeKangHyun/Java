@@ -8,7 +8,8 @@
 
 <body>
   <h1>학생 추가</h1>
-  <form action='add' method='post'>
+  <form action='add' method='post' 
+        enctype="multipart/form-data">
   <table border='1'>
   <tr>
     <th>학생 이름</th>
@@ -25,6 +26,11 @@
   <tr>
     <th>클래스</th>
     <td><input type='text' name='cid'></td>
+  </tr>
+  <tr>
+    <th>사진</th>
+    <td><input type="file" name="photo">
+    </td>
   </tr>
   </table>
   <p><button type='submit'>등록</button></p>

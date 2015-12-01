@@ -10,10 +10,12 @@
 <title>학생 목록</title>
 </head>
 <body>
+<jsp:include page="/Header.jsp"/>
 <h1>학생 목록</h1>
 <a href="form.html">학생추가</a>
 <table border='1'>
 <tr>
+<th>사진</th>
 <th>이름</th>
 <th>이메일</th>
 <th>전화번호</th>
@@ -21,6 +23,7 @@
 </tr>
 <c:forEach var="student" items="${students}">
 <tr>
+<td><img src='${student.photo}' height='30' width="30" align="middle"></td>
 <td>${student.name}</td>
 <td><a href='update?email=${student.email}'>${student.email}</a></td>
 <td>${student.tel}</td>

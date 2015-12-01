@@ -6,7 +6,8 @@
 
   <select id="selectList" resultType="student"
   parameterType="map">
-    select 
+    select
+      photo, 
       name,
       email,
       tel,
@@ -16,7 +17,7 @@
     <choose>
       <when test="keyword == 'email'">email </when>
       <when test="keyword == 'tel'">tel </when>
-      <otherwise>name</otherwise>
+      <otherwise>name </otherwise>
     </choose>
     <choose>
       <when test="align == 'desc'">desc</when>
@@ -26,8 +27,8 @@
   </select>
   
   <insert id="insert" parameterType="student">
-    insert into student(name,email,tel,cid)
-    values(#{name},#{email},#{tel},#{cid})
+    insert into student(photo,name,email,tel,cid)
+    values(#{photo},#{name},#{email},#{tel},#{cid})
   </insert>
   
   <!-- primitive type인 경우 프로퍼티 이름은 아무거나 지정해도 된다. -->
@@ -37,6 +38,7 @@
   
   <update id="update" parameterType="student">
     update student set 
+      photo=#{photo},
       name=#{name},
       tel=#{tel},
       cid=#{cid} 
@@ -46,11 +48,32 @@
   <select id="selectOne" resultType="student" 
   parameterType="String">
     select
+      photo,
       name,
       email,
       tel,
       cid
     from student
-    where email=#{value}
+    where email=#{email}
+  </select>
+  
+  <select id="login" resultType="student" 
+  parameterType="map">
+    select
+      name,
+      email,
+      tel,
+      cid
+    from student
+    where email=#{email} and pwd=#{password}
   </select>
 </mapper>
+
+
+
+
+
+
+
+
+

@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"
     trimDirectiveWhitespaces="true"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +11,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>h</h1>
+<jsp:include page="/Header.jsp"/>
+<h1>학생 상세정보</h1>
 <c:if test='${not empty student}'>
-<form id='form1' action='update' method='post'>
+<form id='form1' action='update' method='post'
+enctype="multipart/form-data">
 <table border='1'>
 <tr>
 <th>이름</th>
 <td><input type='text' name='name' value='${student.name}'></td>
+<td rowspan="5"><img src="${student.photo}" width="100" height="110"></td>
 </tr>
 <tr>
 <th>이메일</th>
@@ -29,6 +33,10 @@
 <tr>
 <th>학번</th>
 <td><input type='text' name='cid' value='${student.cid}'></td>
+</tr>
+<tr>
+<th>사진 관리</th>
+<td><input type='file' name='photo' value='사진 변경'></td>
 </tr>
 </table>
 <button name="update" type="submit">변경</button>

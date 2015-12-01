@@ -1,6 +1,7 @@
 package java76.pms.domain;
 
 public class Student {
+  protected String photo;
   protected String name;
   protected String email;
   protected String tel;
@@ -15,8 +16,16 @@ public class Student {
 
   @Override
   public String toString() {
-    return "Student [name=" + name + ", email=" 
-        + email + ", tel=" + tel + ", cid=" + cid + "]";
+    return "Student [photo=" + photo + ", name=" + name 
+        + ", email=" + email + ", tel=" + tel + ", cid=" + cid + "]";
+  }
+
+  public String getPhoto() {
+    return photo;
+  }
+
+  public void setPhoto(String photo) {
+    this.photo = photo;
   }
 
   public String getName() {

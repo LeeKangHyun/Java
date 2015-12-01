@@ -1,6 +1,7 @@
 package java76.pms.servlet;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import org.springframework.context.ApplicationContext;
 
 import java76.pms.dao.StudentDao;
 import java76.pms.domain.Student;
+import java76.pms.util.MultipartHelper;
 
 public class StudentUpdateServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
@@ -20,17 +22,19 @@ public class StudentUpdateServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
     
-    String email = request.getParameter(("email"));
+    String email = request.getParameter("email");
     
     ApplicationContext iocContainer = 
         (ApplicationContext)this.getServletContext()
         .getAttribute("iocContainer");
+    
     StudentDao studentDao = iocContainer.getBean(StudentDao.class);
+    
     Student student = studentDao.selectOne(email);
     
     response.setContentType("text/html;charset=UTF-8");
-    
     request.setAttribute("student", student);
+    
     RequestDispatcher rd = 
         request.getRequestDispatcher("/student/StudentDetail.jsp");
     
@@ -42,10 +46,19 @@ public class StudentUpdateServlet extends HttpServlet {
       throws ServletException, IOException {
     try {
       Student student = new Student();
-      student.setName(request.getParameter("name"));
-      student.setEmail(request.getParameter("email"));
-      student.setTel(request.getParameter("tel"));
-      student.setCid(request.getParameter("cid"));
+      
+      Map<String,String> paramMap = 
+          MultipartHelper.parseMultipartData(request, 
+              this.getServletContext().getRealPath("/student"));
+      
+      student.setName(paramMap.get("name"));
+      student.setEmail(paramMap.get("email"));
+      student.setTel(paramMap.get("tel"));
+      student.setCid(paramMap.get("cid"));
+      student.setPhoto("default.jpg");
+      if (paramMap.get("photo") != null) {
+        student.setPhoto(paramMap.get("photo"));
+      }
 
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()

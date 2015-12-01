@@ -9,6 +9,7 @@
 <title>프로젝트 정보</title>
 </head>
 <body>
+<jsp:include page="/Header.jsp"/>
   <h1>프로젝트 정보 JSP</h1>
   <c:if test="${not empty project}">
     <form id='form1' action='update' method='post'>
