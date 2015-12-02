@@ -1,5 +1,7 @@
 package java76.pms.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java76.pms.dao.BoardDao;
 import java76.pms.domain.Board;
+import java76.pms.util.MultipartHelper;
 
 @Component("/board/add.do")
 public class BoardAddController implements PageController {
@@ -17,12 +20,16 @@ public class BoardAddController implements PageController {
   public String execute(
       HttpServletRequest request, HttpServletResponse response) 
           throws Exception {
-    
       Board board = new Board();
       
-      board.setTitle(request.getParameter("title"));
-      board.setContent(request.getParameter("content"));
-      board.setPassword(request.getParameter("password"));
+      Map<String,String> paramMap = 
+          MultipartHelper.parseMultipartData(request, 
+              request.getServletContext().getRealPath("/attachfile"));
+      
+      board.setTitle(paramMap.get("title"));
+      board.setContent(paramMap.get("content"));
+      board.setPassword(paramMap.get("password"));
+      board.setAttachFile(paramMap.get("attachFile"));
 
       boardDao.insert(board);
       

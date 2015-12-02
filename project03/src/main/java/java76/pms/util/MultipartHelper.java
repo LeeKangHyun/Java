@@ -37,9 +37,9 @@ public class MultipartHelper {
             File file = new File(saveDir + "/" + filename);
             item.write(file);
             map.put(item.getFieldName(), filename);
-            Thumbnails.of(file)
-            .size(60, 60)
-            .toFile(saveDir + "/thumbnail/s-" + filename);
+//            Thumbnails.of(file)
+//            .size(60, 60)
+//            .toFile(saveDir + "/thumbnail/s-" + filename);
           }
         }
       }

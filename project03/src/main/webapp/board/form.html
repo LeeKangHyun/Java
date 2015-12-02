@@ -8,7 +8,8 @@
 
 <body>
   <h1>새 글</h1>
-  <form action='add.do' method='post'>
+  <form action='add.do' method='post'
+        enctype="multipart/form-data">
   <table border='1'>
   <tr>
     <th>제목</th>
@@ -18,6 +19,10 @@
     <th>내용</th>
     <td><textarea name='content' rows='10' cols='60' 
     placeholder="내용을 입력하세요."></textarea></td>  
+  </tr>
+  <tr>
+    <th>파일</th>
+    <td><input type="file" name='attachFile'></td>
   </tr>
   <tr>
     <th>암호</th>
