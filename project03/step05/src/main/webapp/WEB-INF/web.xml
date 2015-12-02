@@ -35,6 +35,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
 
   <servlet>
+    <servlet-name>BoardListServlet</servlet-name>
+    <servlet-class>java76.pms.servlet.BoardListServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>BoardAddServlet</servlet-name>
     <servlet-class>java76.pms.servlet.BoardAddServlet</servlet-class>
   </servlet>
@@ -85,13 +89,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     <servlet-name>ErrorServlet</servlet-name>
     <servlet-class>java76.pms.servlet.ErrorServlet</servlet-class>
   </servlet>
-  
-  <servlet>
-    <servlet-name>dispatch</servlet-name>
-    <servlet-class>java76.pms.servlet.DispatcherServlet</servlet-class>
-  </servlet>
 
+  <servlet>
+    <servlet-name>CopyrightServlet</servlet-name>
+    <servlet-class>java76.pms.servlet.CopyrightServlet</servlet-class>
+  </servlet>
+  
   <!-- -->
+  <servlet-mapping>
+    <servlet-name>BoardListServlet</servlet-name>
+    <url-pattern>/board/list</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>BoardAddServlet</servlet-name>
     <url-pattern>/board/add</url-pattern>
@@ -143,12 +151,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     <servlet-name>ErrorServlet</servlet-name>
     <url-pattern>/error</url-pattern>
   </servlet-mapping>
-  
+
   <servlet-mapping>
-    <servlet-name>dispatch</servlet-name>
-    <url-pattern>*.do</url-pattern>
+    <servlet-name>CopyrightServlet</servlet-name>
+    <url-pattern>/copyright</url-pattern>
   </servlet-mapping>
-  
+
 </web-app>
 
 
