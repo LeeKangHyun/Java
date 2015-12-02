@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace: SQL문을 분류하는 용도로 사용하는 그룹명. 프로그래밍의 일관성을 위해서 가능한 DAO의 패키지명과 같게 
+	하라! -->
+<mapper namespace="java76.pms.dao.StudentDao">
+	<!-- SQL문은 <select>, <insert>, <update>, <delete> 엘리먼트에 작성한다. => id 속성: 
+		SQL문을 찾을 때 사용할 아이디. 가능한 DAO의 메서드 이름과 같게 하라! => resultType 속성: select 결과를 
+		담을 값 객체 이름. fully qualified name. -->
+	<select id="selectList" resultType="student" parameterType="map">
+		select
+		  name,
+		  email,
+		  tel,
+		  cid 
+		from student
+		order by
+		<choose>
+      <when test="keyword == 'email'"> email </when>
+      <when test="keyword == 'tel'"> tel </when>
+      <otherwise> name </otherwise>
+    </choose>
+    <choose>
+      <when test="align == 'desc'">desc</when>
+      <otherwise>asc</otherwise>
+    </choose>
+		limit #{startIndex}, #{length}
+	</select>
+
+	<insert id="insert" parameterType="student">
+		insert into student(name,email,tel,cid)
+		values(#{name},#{email},#{tel},#{cid})
+	</insert>
+
+	<delete id="delete" parameterType="string">
+		delete from student where email=#{value}
+	</delete>
+
+	<update id="update" parameterType="student">
+		update student set
+		name=#{name},
+		tel=#{tel},
+		cid=#{cid}
+		where email=#{email}
+	</update>
+	
+	<select id="selectOne" resultType="student" parameterType="string">
+		select
+		  name,
+		  email,
+		  tel,
+		  cid 
+		from student
+		where email=#{email}
+	</select>
+</mapper>
+
+
+
+
+

@@ -20,9 +20,6 @@
 <tr>
 <th>이름</th>
 <td><input type='text' name='name' value='${student.name}' size='20'></td>
-<td rowspan="5"><img 
-src="../file/${(empty student.photo) ? 'default.jpg' : student.photo}" 
-width="100" height="130"></td>
 
 </tr>
 <tr>
@@ -41,6 +38,13 @@ width="100" height="130"></td>
 <th>사진 관리</th>
 <td><input type='file' name='photofile' value='사진 변경'>
     <input type='hidden' name='photo' value=''></td>
+</tr>
+<tr>
+<th colspan='2'>프로필 사진</th>
+</tr>
+<tr>
+<td colspan='2'><img 
+src="../file/${(empty student.photo) ? 'default.jpg' : student.photo}" style='size:313px'></td>
 </tr>
 </table>
 <button name="update" type="submit">변경</button>

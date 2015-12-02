@@ -12,6 +12,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import net.coobird.thumbnailator.Thumbnails;
+
 public class MultipartHelper {
 
   public static Map<String,String> parseMultipartData(
@@ -35,6 +37,9 @@ public class MultipartHelper {
             File file = new File(saveDir + "/" + filename);
             item.write(file);
             map.put(item.getFieldName(), filename);
+            Thumbnails.of(file)
+            .size(60, 60)
+            .toFile(saveDir + "/thumbnail/s-" + filename);
           }
         }
       }
@@ -52,6 +57,7 @@ public class MultipartHelper {
     String ext = "";
     if (dotPos != -1) {
       ext = originFilename.substring(dotPos);
+      
     }
     return String.format("file-%d-%d%s", 
         System.currentTimeMillis(), count(), ext); 

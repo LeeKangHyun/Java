@@ -23,7 +23,7 @@
 </tr>
 <c:forEach var="student" items="${students}">
 <tr>
-<td><img src="../file/${(empty student.photo) ? 'default.jpg' : student.photo}" 
+<td><img src="../file/thumbnail/s-${(empty student.photo) ? 'default.jpg' : student.photo}" 
      height='60' width='40' align="middle"></td>
 <td>${student.name}</td>
 <td><a href='update?email=${student.email}'>${student.email}</a></td>
