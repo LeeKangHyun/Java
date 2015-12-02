@@ -18,7 +18,8 @@ public class CharacterEncodingFilter implements Filter {
   }
 
   @Override
-  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+  public void doFilter(
+      ServletRequest request, ServletResponse response, FilterChain chain)
       throws IOException, ServletException {
     // 서블릿을 실행하기 전에 요청 데이터의 문자 집합을 UTF-8로 지정한다.
     // => 의미: 클라이언트가 보낸 데이터(POST 방식으로 보낸 데이터)가 

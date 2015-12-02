@@ -30,12 +30,12 @@ public class MultipartHelper {
           map.put(item.getFieldName(), item.getString("UTF-8"));
 
         } else { 
-          filename = generateFilename(item.getName()); // 파일 이름 
-          if (filename == "")
-            continue;
-          File file = new File(saveDir + "/" + filename);
-          item.write(file);
-          map.put(item.getFieldName(), filename);
+          if (item.getSize() > 0) {
+            filename = generateFilename(item.getName()); // 파일 이름 
+            File file = new File(saveDir + "/" + filename);
+            item.write(file);
+            map.put(item.getFieldName(), filename);
+          }
         }
       }
 
@@ -52,10 +52,9 @@ public class MultipartHelper {
     String ext = "";
     if (dotPos != -1) {
       ext = originFilename.substring(dotPos);
-      return String.format("file-%d-%d%s", 
-          System.currentTimeMillis(), count(), ext); 
     }
-    return "";
+    return String.format("file-%d-%d%s", 
+        System.currentTimeMillis(), count(), ext); 
   }
 
   static int count = 0;

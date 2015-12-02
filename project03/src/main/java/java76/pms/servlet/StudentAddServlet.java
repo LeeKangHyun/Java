@@ -21,33 +21,31 @@ public class StudentAddServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
-    
+
     try {
       Student student = new Student();
-      
+
       Map<String,String> paramMap = 
           MultipartHelper.parseMultipartData(request, 
-              this.getServletContext().getRealPath("/student"));
-      
+              this.getServletContext().getRealPath("/file"));
+
       response.setContentType("text/html;charset=UTF-8");
-      
+
       student.setName(paramMap.get("name"));
       student.setEmail(paramMap.get("email"));
       student.setTel(paramMap.get("tel"));
       student.setCid(paramMap.get("cid"));
-      student.setPhoto("default.jpg");
-      if (paramMap.get("photo") != null)
-        student.setPhoto(paramMap.get("photo"));
-      
+      student.setPhoto(paramMap.get("photofile"));
+
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()
-                                  .getAttribute("iocContainer");
-      
+          .getAttribute("iocContainer");
+
       StudentDao studentDao = iocContainer.getBean(StudentDao.class);
       studentDao.insert(student);
 
       response.sendRedirect("list");
-      
+
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
       request.setAttribute("error", e);

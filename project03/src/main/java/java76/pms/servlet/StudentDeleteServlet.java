@@ -24,7 +24,7 @@ public class StudentDeleteServlet extends HttpServlet {
       
       Map<String,String> paramMap = 
           MultipartHelper.parseMultipartData(request, 
-              this.getServletContext().getRealPath("/student"));
+              this.getServletContext().getRealPath("/file"));
       
       String email = paramMap.get("email");
 

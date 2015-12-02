@@ -15,28 +15,32 @@
 <h1>학생 상세정보</h1>
 <c:if test='${not empty student}'>
 <form id='form1' action='update' method='post'
-enctype="multipart/form-data">
+      enctype="multipart/form-data">
 <table border='1'>
 <tr>
 <th>이름</th>
-<td><input type='text' name='name' value='${student.name}'></td>
-<td rowspan="5"><img src="${student.photo}" width="100" height="110"></td>
+<td><input type='text' name='name' value='${student.name}' size='20'></td>
+<td rowspan="5"><img 
+src="../file/${(empty student.photo) ? 'default.jpg' : student.photo}" 
+width="100" height="130"></td>
+
 </tr>
 <tr>
 <th>이메일</th>
-<td><input type='text' name='email' value='${student.email}' readonly></td>
+<td><input type='text' name='email' value='${student.email}' size='20' readonly></td>
 </tr>
 <tr>
 <th>전화번호</th>
-<td><input type='text' name='tel' value='${student.tel}'></td>
+<td><input type='text' name='tel' value='${student.tel}' size='20'></td>
 </tr>
 <tr>
 <th>학번</th>
-<td><input type='text' name='cid' value='${student.cid}'></td>
+<td><input type='text' name='cid' value='${student.cid}' size='20'></td>
 </tr>
 <tr>
 <th>사진 관리</th>
-<td><input type='file' name='photo' value='사진 변경'></td>
+<td><input type='file' name='photofile' value='사진 변경'>
+    <input type='hidden' name='photo' value=''></td>
 </tr>
 </table>
 <button name="update" type="submit">변경</button>

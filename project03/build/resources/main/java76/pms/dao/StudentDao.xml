@@ -3,13 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="java76.pms.dao.StudentDao">
-  <sql id="select_inc">
-    select photo, name, email, tel, cid
-  </sql>
 
   <select id="selectList" resultType="student"
   parameterType="map">
-    <include refid="select_inc"/>
+    select
+      photo, 
+      name,
+      email,
+      tel,
+      cid
     from student
     order by
     <choose>
@@ -29,6 +31,7 @@
     values(#{photo},#{name},#{email},#{tel},#{cid})
   </insert>
   
+  <!-- primitive type인 경우 프로퍼티 이름은 아무거나 지정해도 된다. -->
   <delete id="delete" parameterType="String">
     delete from student where email=#{email}
   </delete>
@@ -44,14 +47,23 @@
   
   <select id="selectOne" resultType="student" 
   parameterType="String">
-  <include refid="select_inc"/>
+    select
+      photo,
+      name,
+      email,
+      tel,
+      cid
     from student
     where email=#{email}
   </select>
   
   <select id="login" resultType="student" 
   parameterType="map">
-  <include refid="select_inc"/>
+    select
+      name,
+      email,
+      tel,
+      cid
     from student
     where email=#{email} and pwd=#{password}
   </select>
