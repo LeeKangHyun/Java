@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
       }
       
       session.setAttribute("loginUser", student);
-      response.sendRedirect("../board/list");
+      response.sendRedirect("../board/list.do");
       
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/error");
