@@ -48,10 +48,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   </servlet>
 
   <servlet>
-    <servlet-name>ProjectListServlet</servlet-name>
-    <servlet-class>java76.pms.servlet.ProjectListServlet</servlet-class>
-  </servlet>
-  <servlet>
     <servlet-name>ProjectAddServlet</servlet-name>
     <servlet-class>java76.pms.servlet.ProjectAddServlet</servlet-class>
   </servlet>
@@ -64,10 +60,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     <servlet-class>java76.pms.servlet.ProjectUpdateServlet</servlet-class>
   </servlet>
 
-  <servlet>
-    <servlet-name>StudentListServlet</servlet-name>
-    <servlet-class>java76.pms.servlet.StudentListServlet</servlet-class>
-  </servlet>
   <servlet>
     <servlet-name>StudentAddServlet</servlet-name>
     <servlet-class>java76.pms.servlet.StudentAddServlet</servlet-class>
@@ -106,10 +98,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   </servlet-mapping>
 
   <servlet-mapping>
-    <servlet-name>ProjectListServlet</servlet-name>
-    <url-pattern>/project/list</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
     <servlet-name>ProjectAddServlet</servlet-name>
     <url-pattern>/project/add</url-pattern>
   </servlet-mapping>
@@ -122,10 +110,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     <url-pattern>/project/update</url-pattern>
   </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>StudentListServlet</servlet-name>
-    <url-pattern>/student/list</url-pattern>
-  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>StudentAddServlet</servlet-name>
     <url-pattern>/student/add</url-pattern>
