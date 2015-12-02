@@ -7,7 +7,7 @@
 <html>
 <head>
   <meta charset='UTF-8'>
-  <meta http-equiv="Refresh" content="2;url=list">
+  <meta http-equiv="Refresh" content="2;url=list.do">
   <title>게시판 오류</title>
 </head>
 <body>

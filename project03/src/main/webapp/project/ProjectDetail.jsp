@@ -7,12 +7,13 @@
 <head>
 <meta charset='UTF-8'>
 <title>프로젝트 정보</title>
+<link rel="stylesheet" type="text/css" href="../css/common.css">
 </head>
 <body>
 <jsp:include page="/Header.jsp"/>
   <h1>프로젝트 정보 JSP</h1>
   <c:if test="${not empty project}">
-    <form id='form1' action='update' method='post'>
+    <form id='form1' action='update.do' method='post'>
       <table border='1'>
         <tr>
           <th>번호</th>
@@ -37,8 +38,8 @@
         </tr>
       </table>
       <p>
-        <button name='update' type='submit'>변경</button>
-        <button name='delete' type='submit' onclick='deleteProject()'>삭제</button>
+        <button name='update' type='submit' class='button1'>변경</button>
+        <a href='delete.do?no=${project.no}' class='button2'>삭제</a>
       </p>
     </form>
   </c:if>
@@ -50,7 +51,7 @@
   <jsp:include page="/Copyright.jsp"></jsp:include>
   <script>
 			function deleteProject() {
-				document.getElementById('form1').action = 'delete';
+				document.getElementById('form1').action = 'delete.do';
 			}
 		</script>
 </body>

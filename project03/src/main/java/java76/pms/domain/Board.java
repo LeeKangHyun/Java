@@ -12,14 +12,24 @@ public class Board implements Serializable {
   protected int views;
   protected Date createdDate;
   protected String password;
+  protected String attachFile;
 
   public Board() {}
 
   @Override
   public String toString() {
-    return "Board [no=" + no + ", title=" + title + ", content=" 
-        + content + ", views=" + views + ", createdDate="
-        + createdDate + ", password=" + password + "]";
+    return "Board [no=" + no + ", title=" + title 
+        + ", content=" + content + ", views=" + views + ", createdDate="
+        + createdDate + ", password=" + password 
+        + ", attachFile=" + attachFile + "]";
+  }
+
+  public String getAttachFile() {
+    return attachFile;
+  }
+
+  public void setAttachFile(String attachFile) {
+    this.attachFile = attachFile;
   }
 
   public int getNo() {

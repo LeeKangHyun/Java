@@ -9,12 +9,13 @@
 <head>
 <meta charset='UTF-8'>
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/common.css">
 </head>
 <body>
 <jsp:include page="/Header.jsp"/>
 <h1>학생 상세정보</h1>
 <c:if test='${not empty student}'>
-<form id='form1' action='update' method='post'
+<form id='form1' action='update.do' method='post'
       enctype="multipart/form-data">
 <table border='1'>
 <tr>
@@ -47,8 +48,8 @@
 src="../file/${(empty student.photo) ? 'default.jpg' : student.photo}" style='size:313px'></td>
 </tr>
 </table>
-<button name="update" type="submit">변경</button>
-<button name="delete" type="submit" onclick="deleteStudent()">삭제</button>
+<button name="update" type="submit" class='button1'>변경</button>
+<a href='delete.do?email=${student.email}' class='button2'>삭제</a>
 </form>
 </c:if>
 <c:if test='${empty student}'>
@@ -57,10 +58,6 @@ src="../file/${(empty student.photo) ? 'default.jpg' : student.photo}" style='si
 
 <jsp:include page="/Copyright.jsp"/>
 
-<script>
-function deleteStudent() {
-	document.getElementById('form1').action = 'delete';
-}
-</script>
+
 </body>
 </html>

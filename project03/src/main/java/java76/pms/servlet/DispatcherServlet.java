@@ -23,21 +23,25 @@ public class DispatcherServlet extends HttpServlet {
       // 1) 스프링 IoC 컨테이너 준비
       ApplicationContext iocContainer = 
           (ApplicationContext)this.getServletContext()
-                                  .getAttribute("iocContainer");
-      
+          .getAttribute("iocContainer");
+
       // 2) 클라이언트 요청을 처리할 페이지 컨트롤러를 찾는다.
       PageController pageController = 
           (PageController)iocContainer.getBean(request.getServletPath());
-      
+
       // 3) 페이지 컨트롤러를 실행한다.
-      String viewURL = pageController.execute(request, response);
-      
+      String viewUrl = pageController.execute(request, response);
+
       // 4) 페이지 컨트롤러가 리턴한 JSP를 실행한다.
-      response.setContentType("text/html;charset=UTF-8");
-      RequestDispatcher rd = request.getRequestDispatcher(viewURL);
-      rd.include(request, response);
-      
-      
+      if (viewUrl.startsWith("redirect:")) {
+        response.sendRedirect(viewUrl.substring(9));
+        return;
+      } else {
+        response.setContentType("text/html;charset=UTF-8");
+        RequestDispatcher rd = request.getRequestDispatcher(viewUrl);
+        rd.include(request, response);
+      }
+
     } catch (Exception e) {
       RequestDispatcher rd = request.getRequestDispatcher("/Error.jsp");
       request.setAttribute("error", e);

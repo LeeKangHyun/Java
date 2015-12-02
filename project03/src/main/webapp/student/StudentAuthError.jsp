@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Refresh" content="2; url=list" charset='UTF-8'>
+<meta http-equiv="Refresh" content="2; url=list.do" charset='UTF-8'>
 <title>Insert title here</title>
 </head>
 <body>

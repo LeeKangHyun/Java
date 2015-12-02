@@ -26,7 +26,7 @@
 <td><img src="../file/thumbnail/s-${(empty student.photo) ? 'default.jpg' : student.photo}" 
      height='60' width='40' align="middle"></td>
 <td>${student.name}</td>
-<td><a href='update?email=${student.email}'>${student.email}</a></td>
+<td><a href='update.do?email=${student.email}'>${student.email}</a></td>
 <td>${student.tel}</td>
 <td>${student.cid}</td>
 </tr>
