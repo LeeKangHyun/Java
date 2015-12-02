@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1"
+  metadata-complete="true">
+
+<!-- 컨텍스트 파라미터 선언 -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>java76/pms/application-context.xml</param-value>
+  </context-param>
+  
+<!-- 리스너 등록하기 -->  
+  <listener>
+    <listener-class>java76.pms.listener.ContextLoaderListener</listener-class>
+  </listener>
+
+
+<!-- 필터 등록하기 -->
+  <filter>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <filter-class>java76.pms.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  
+<!-- URL에 필터 적용하기 -->
+  <filter-mapping>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <url-pattern>*</url-pattern>
+  </filter-mapping>
+
+
+  <servlet>
+    <servlet-name>BoardListServlet</servlet-name>
+    <servlet-class>java76.pms.servlet.BoardListServlet</servlet-class>
+  </servlet>    
+  <servlet>
+    <servlet-name>BoardAddServlet</servlet-name>
+    <servlet-class>java76.pms.servlet.BoardAddServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>BoardUpdateServlet</servlet-name>
+    <servlet-class>java76.pms.servlet.BoardUpdateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>BoardDeleteServlet</servlet-name>
+    <servlet-class>java76.pms.servlet.BoardDeleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ErrorServlet</servlet-name>
+    <servlet-class>java76.pms.servlet.ErrorServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CopyrightServlet</servlet-name>
+    <servlet-class>java76.pms.servlet.CopyrightServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>BoardListServlet</servlet-name>
+    <url-pattern>/board/list</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BoardAddServlet</servlet-name>
+    <url-pattern>/board/add</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BoardUpdateServlet</servlet-name>
+    <url-pattern>/board/update</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BoardDeleteServlet</servlet-name>
+    <url-pattern>/board/delete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ErrorServlet</servlet-name>
+    <url-pattern>/error</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CopyrightServlet</servlet-name>
+    <url-pattern>/copyright</url-pattern>
+  </servlet-mapping>
+
+</web-app>
+
+
+
+
+
+
