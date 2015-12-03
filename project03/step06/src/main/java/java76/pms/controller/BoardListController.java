@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java76.pms.dao.StudentDao;
-import java76.pms.domain.Student;
+import java76.pms.dao.BoardDao;
+import java76.pms.domain.Board;
 
-@Component("/student/list.do")
-public class StudentListController implements PageController {
-  @Autowired StudentDao studentDao;
-
+@Component("/board/list.do")
+public class BoardListController implements PageController {
+  @Autowired BoardDao boardDao;
+  
   @Override
   public String execute(
       HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -29,9 +29,8 @@ public class StudentListController implements PageController {
       pageSize = Integer.parseInt(request.getParameter("pageSize"));
     }
 
-    // 정렬 처리
-    String keyword = "email";
-    String align = "asc";
+    String keyword = "no";
+    String align = "desc";
 
     if (request.getParameter("keyword") != null) {
       keyword = request.getParameter("keyword");
@@ -41,11 +40,22 @@ public class StudentListController implements PageController {
       align = request.getParameter("align");
     }
 
-    List<Student> students = studentDao.selectList(pageNo, pageSize, keyword, align);
+    List<Board> boards = boardDao.selectList(
+        pageNo, pageSize, keyword, align);
 
-    request.setAttribute("students", students);
+    request.setAttribute("boards", boards);
 
-    return "/student/StudentList.jsp";
+    return "/board/BoardList.jsp";
 
   }
+
 }
+
+
+
+
+
+
+
+
+

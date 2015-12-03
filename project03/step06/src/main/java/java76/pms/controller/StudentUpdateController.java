@@ -20,6 +20,7 @@ public class StudentUpdateController implements PageController {
   public String execute(
       HttpServletRequest request, HttpServletResponse response) 
           throws Exception {
+
     if (request.getMethod().equals("GET")) {
       return get(request, response);
     } else {
@@ -27,42 +28,42 @@ public class StudentUpdateController implements PageController {
     }
   }
 
-  public String get(
+  private String get(
       HttpServletRequest request, HttpServletResponse response) 
           throws Exception {
-    String email = request.getParameter("email");
 
+    String email = request.getParameter("email");
     Student student = studentDao.selectOne(email);
     request.setAttribute("student", student);
-
     return "/student/StudentDetail.jsp";
   }
 
   public String post(
       HttpServletRequest request, HttpServletResponse response) 
           throws Exception {
-    Map<String,String> paramMap = MultipartHelper.parseMultipartData(
-        request, 
-        request.getServletContext().getRealPath("/file"));
-
     Student student = new Student();
+
+    Map<String,String> paramMap = 
+        MultipartHelper.parseMultipartData(
+            request, 
+            request.getServletContext().getRealPath("/file"));
+
     student.setName(paramMap.get("name"));
     student.setEmail(paramMap.get("email"));
     student.setTel(paramMap.get("tel"));
     student.setCid(paramMap.get("cid"));
-
-    if (paramMap.get("photofile") != null) { 
+    
+    if (paramMap.get("photofile") != null) { // 사진을 변경했다면,  
       student.setPhoto(paramMap.get("photofile"));
-      
-    } else if (paramMap.get("photo").length() > 0) { 
+    } else if (paramMap.get("photo").length() > 0) { // 기존 사진이 있다면,
       student.setPhoto(paramMap.get("photo"));
-    } 
+    } // 그 밖에는 그냥 null. 사진을 넣지 않는다.
 
     if (studentDao.update(student) <= 0) {
       request.setAttribute("errorCode", "401");
       return "/student/StudentAuthError.jsp";
-    } 
-
+    }
+    
     return "redirect:list.do";
   }
 }

@@ -6,15 +6,6 @@ public class Student {
   protected String email;
   protected String tel;
   protected String cid; // class ID
-  protected String password;
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
 
   public Student() {}
 
@@ -25,8 +16,8 @@ public class Student {
 
   @Override
   public String toString() {
-    return "Student [photo=" + photo + ", name=" + name + ", email=" + email + ", tel=" + tel + ", cid=" + cid
-        + ", password=" + password + "]";
+    return "Student [photo=" + photo + ", name=" + name 
+        + ", email=" + email + ", tel=" + tel + ", cid=" + cid + "]";
   }
 
   public String getPhoto() {
