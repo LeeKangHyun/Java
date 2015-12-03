@@ -30,7 +30,7 @@ public class StudentListController implements PageController {
     }
 
     // 정렬 처리
-    String keyword = "email";
+    String keyword = "name";
     String align = "asc";
 
     if (request.getParameter("keyword") != null) {

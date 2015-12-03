@@ -26,7 +26,7 @@
 
   <insert id="insert" parameterType="student">
     insert into student(name,email,tel,cid,photo,pwd)
-    values(#{name},#{email},#{tel},#{cid},#{photo},#{password})
+    values(#{name},#{email},#{tel},#{cid},#{photo},sha1(#{password}))
   </insert>
 
   <delete id="delete" parameterType="string">
@@ -51,7 +51,7 @@
   <select id="login" resultType="student" parameterType="map">
     <include refid="select_inc"/>
     from student
-    where email=#{email} and pwd=#{password}
+    where email=#{email} and pwd=sha1(#{password})
   </select>
 </mapper>
 

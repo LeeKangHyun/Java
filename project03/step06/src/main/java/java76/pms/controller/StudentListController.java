@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java76.pms.controller.PageController;
 import java76.pms.dao.StudentDao;
 import java76.pms.domain.Student;
 
@@ -17,35 +16,36 @@ public class StudentListController implements PageController {
   @Autowired StudentDao studentDao;
 
   @Override
-  public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+  public String execute(
+      HttpServletRequest request, HttpServletResponse response) throws Exception {
     int pageNo = 1;
     int pageSize = 10;
 
     if (request.getParameter("pageNo") != null) {
-      pageNo = Integer.parseInt((String)request.getParameter("pageNo"));
+      pageNo = Integer.parseInt(request.getParameter("pageNo"));
     }
 
     if (request.getParameter("pageSize") != null) {
-      pageSize = Integer.parseInt((String)request.getParameter("pageSize"));
+      pageSize = Integer.parseInt(request.getParameter("pageSize"));
     }
 
+    // 정렬 처리
     String keyword = "name";
     String align = "asc";
 
     if (request.getParameter("keyword") != null) {
-      keyword = (String)request.getParameter("keyword");
+      keyword = request.getParameter("keyword");
     }
 
     if (request.getParameter("align") != null) {
-      align = (String)request.getParameter("align");
+      align = request.getParameter("align");
     }
 
-    List<Student> students = 
-        studentDao.selectList(pageNo, pageSize, keyword, align);
+    List<Student> students = studentDao.selectList(pageNo, pageSize, keyword, align);
 
     request.setAttribute("students", students);
 
     return "/student/StudentList.jsp";
-  }
 
+  }
 }

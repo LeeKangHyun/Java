@@ -21,6 +21,7 @@ repositories {
 }
 
 dependencies {
+  compile 'org.reflections:reflections:0.9.10'
   compile 'mysql:mysql-connector-java:5.1.37'
 
   compile 'org.mybatis:mybatis:3.3.0'

@@ -29,6 +29,7 @@ public class StudentAddController implements PageController {
     student.setTel(paramMap.get("tel"));
     student.setCid(paramMap.get("cid"));
     student.setPhoto(paramMap.get("photofile"));
+    student.setPassword(paramMap.get("password"));
 
     studentDao.insert(student);
 
