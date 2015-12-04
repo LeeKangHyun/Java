@@ -8,28 +8,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java76.pms.dao.ProjectDao;
 import java76.pms.domain.Project;
 
-@Component
+@Controller
 public class ProjectController {
   @Autowired ProjectDao projectDao;
 
   @RequestMapping("/project/list.do")
   public String list(
-      int pageNo,
-      int pageSize,
-      String keyword,
-      String align,
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="10") int pageSize,
+      @RequestParam(defaultValue="no") String keyword,
+      @RequestParam(defaultValue="desc") String align,
       HttpServletRequest request) throws Exception {
-
-    if (pageNo < 0) pageNo = 1;
-    if (pageSize < 0) pageSize = 10;
-    if (keyword == null) keyword = "no";
-    if (align == null) align = "desc";
 
     HashMap<String,Object> paramMap = new HashMap<>();
     paramMap.put("startIndex", (pageNo - 1) * pageSize);

@@ -17,4 +17,12 @@
   <!-- @RequestMapping 등 웹 관련 애노테이션을 처리할 객체를 등록한다. -->
   <mvc:annotation-driven/>
   
+  <!-- 멀티파트 요청 파라미터를 처리할 객체 등 -->
+  <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+    <property name="maxUploadSize" value="10000000"/>
+
+  </bean>
+  
 </beans>

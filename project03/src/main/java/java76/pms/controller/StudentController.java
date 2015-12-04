@@ -7,34 +7,30 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.fileupload.FileItem;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java76.pms.dao.StudentDao;
 import java76.pms.domain.Student;
 import java76.pms.util.MultipartHelper;
 import net.coobird.thumbnailator.Thumbnails;
 
-@Component
+@Controller
 public class StudentController {
   public static final String SAVED_DIR = "/attachfile";
   @Autowired StudentDao studentDao;
 
   @RequestMapping("/student/list.do")
   public String list(
-      int pageNo,
-      int pageSize,
-      String keyword,
-      String align,
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="10") int pageSize,
+      @RequestParam(defaultValue="name") String keyword,
+      @RequestParam(defaultValue="asc") String align,
       HttpServletRequest request) throws Exception {
 
-    if (pageNo < 0) pageNo = 1;
-    if (pageSize < 0) pageSize = 10;
-    if (keyword == null) keyword = "name";
-    if (align == null) align = "asc";
-    
     HashMap<String,Object> paramMap = new HashMap<>();
     paramMap.put("startIndex", (pageNo - 1) * pageSize);
     paramMap.put("length", pageSize);
@@ -55,18 +51,18 @@ public class StudentController {
       String email,
       String tel,
       String cid,
-      FileItem photofile,
+      MultipartFile photofile,
       String password,
       HttpServletRequest request) throws Exception {
 
     String newPhotoFile = "default.jpg";
 
     if (photofile != null) {
-      newPhotoFile = MultipartHelper.generateFilename(photofile.getName());  
+      newPhotoFile = MultipartHelper.generateFilename(photofile.getOriginalFilename());  
       File attachfile = new File(
           request.getServletContext().getRealPath(SAVED_DIR) 
           + "/" + newPhotoFile);
-      photofile.write(attachfile);
+      photofile.transferTo(attachfile);
       
       Thumbnails.of(attachfile)
       .size(60, 60)
@@ -106,17 +102,17 @@ public class StudentController {
       String tel,
       String cid,
       String photo,
-      FileItem photofile,
+      MultipartFile photofile,
       HttpServletRequest request) throws Exception {
 
     String newPhotoFile = null;
 
     if (photofile != null) {
-      newPhotoFile = MultipartHelper.generateFilename(photofile.getName());  
+      newPhotoFile = MultipartHelper.generateFilename(photofile.getOriginalFilename());  
       File attachfile = new File(
           request.getServletContext().getRealPath(SAVED_DIR) 
           + "/" + newPhotoFile);
-      photofile.write(attachfile);
+      photofile.transferTo(attachfile);
       
       Thumbnails.of(attachfile)
       .size(60, 60)
