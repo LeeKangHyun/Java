@@ -18,11 +18,12 @@ public class AuthController {
 
   @RequestMapping("/auth/login.do")
   public String login(
-      HttpServletRequest request, HttpServletResponse response) 
+      String email,
+      String password,
+      String saveEmail,
+      HttpServletRequest request, 
+      HttpServletResponse response) 
           throws Exception {
-    String email = request.getParameter("email");
-    String password = request.getParameter("password");
-    String saveEmail = request.getParameter("saveEmail");
 
     Cookie emailCookie = null;
     if (saveEmail != null) { // 이메일 저장을 체크했으면,
@@ -49,10 +50,10 @@ public class AuthController {
   
   @RequestMapping("/auth/logout.do")
   public String logout(
-      HttpServletRequest request, HttpServletResponse response) 
+      HttpSession session) 
           throws Exception {
     
-    request.getSession().invalidate();
+    session.invalidate();
     return "redirect:LoginForm.jsp";
   }
 }
