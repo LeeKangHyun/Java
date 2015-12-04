@@ -1,5 +1,7 @@
 package java76.pms.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -7,8 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import java76.pms.annotation.RequestMapping;
 import java76.pms.dao.StudentDao;
 import java76.pms.domain.Student;
 
@@ -35,7 +37,11 @@ public class AuthController {
     }
     response.addCookie(emailCookie);
 
-    Student student = studentDao.login(email, password);
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("email", email);
+    paramMap.put("password", password);
+    
+    Student student = studentDao.login(paramMap);
 
     HttpSession session = request.getSession();
 

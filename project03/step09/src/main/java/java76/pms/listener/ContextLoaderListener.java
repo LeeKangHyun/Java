@@ -26,6 +26,14 @@ public class ContextLoaderListener implements ServletContextListener {
     ApplicationContext iocContainer = new ClassPathXmlApplicationContext(
         sce.getServletContext().getInitParameter("contextConfigLocation"));
     
+    // IoC 컨테이너에 들어있는 빈 확인!
+    String[] names = 
+        iocContainer.getBeanDefinitionNames();
+    for (String name : names) {
+      System.out.println("==>" 
+    + iocContainer.getBean(name).getClass().getName());
+    }
+    
     ServletContext servletContext = sce.getServletContext();
     servletContext.setAttribute("iocContainer", iocContainer);
     
@@ -46,7 +54,6 @@ public class ContextLoaderListener implements ServletContextListener {
       // 3) 객체를 통해 @RequestMapping이 붙은 메서드를 알아낸다.
       // - getAllMethods(클래스, 조건1, 조건2, ...)
       // - withAnnotation(애사용할 조건을 리턴한다.
-      
       methods = getAllMethods(bean.getClass(), /*해당 객체의 클래스에서 찾는다.*/ 
           withAnnotation(RequestMapping.class)); /*검색 조건*/
       

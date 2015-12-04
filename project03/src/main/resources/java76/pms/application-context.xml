@@ -6,8 +6,15 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-
-  <context:component-scan base-package="java76.pms" />
+        
+  <!-- 페이지 컨트롤러 객체는 프론트 컨트롤러가 관리하기 때문에 제외한다. 
+       즉 @Controller 애노테이션이 붙은 것은 제외하자!
+       @Controller?
+       스프링에서 페이지 컨트롤러와 DAO와 서비스 객체를 구분하기 위해 정의한 애노테이션이다.-->
+  <context:component-scan base-package="java76.pms">
+    <!-- java76.pms.controller 패키지의 모든 클래스를 제외한다. -->
+    <context:exclude-filter type="regex" expression="java76.pms.controller.*"/>
+  </context:component-scan>
   
   <bean id="sqlSessionFactory" 
     class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -28,4 +35,9 @@
     <property name="password" value="1111" />
   </bean>
 
+
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <property name="basePackage" value="java76.pms.dao" />
+  </bean>
+  
 </beans>

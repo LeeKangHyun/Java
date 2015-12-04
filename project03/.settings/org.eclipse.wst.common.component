@@ -17,10 +17,13 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis-spring/1.2.3/18f0297b83960f280bacd68e87f9d374813e099e/mybatis-spring-1.2.3.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.2.2.RELEASE/f384619756dc640498cfbb955352ca9546c4630d/spring-context-4.2.2.RELEASE.jar">
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.2.3.RELEASE/fb26a160d984eb9cbf01fbf38f4b17e15fdd50e1/spring-context-4.2.3.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.2.2.RELEASE/f77a7f5b7e3147958350d86331d3e7bea459306b/spring-jdbc-4.2.2.RELEASE.jar">
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.2.3.RELEASE/22f129baf3914b6bbaa842f9356c32d93ecf7bc1/spring-jdbc-4.2.3.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.2.3.RELEASE/46803840259c6d51c531e4f07f4213d758c6ee1d/spring-webmvc-4.2.3.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/commons-dbcp/commons-dbcp/1.4/30be73c965cc990b153a100aaaaafcf239f82d39/commons-dbcp-1.4.jar">
@@ -44,19 +47,22 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/annotations/2.0.1/9ef6656259841cebfb9fb0697bb122ada4485498/annotations-2.0.1.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.2.2.RELEASE/b8d352f994790af6b54a5028255232316b74ca20/spring-aop-4.2.2.RELEASE.jar">
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.2.3.RELEASE/6384a57a024df03bfcb1eeccd3d820da98125b92/spring-aop-4.2.3.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.2.2.RELEASE/c0384c9b077c02ce34234ba258a5161c30ac6895/spring-beans-4.2.2.RELEASE.jar">
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.2.3.RELEASE/249921ead97248410ac04f854075f0a1c1a567e4/spring-beans-4.2.3.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.2.2.RELEASE/963d6c9d0b546b6313fb51618ed5c080e8981ddc/spring-core-4.2.2.RELEASE.jar">
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.2.3.RELEASE/3ed00dad7a16b2a28df9348294f6a67151f43cf6/spring-core-4.2.3.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.2.2.RELEASE/966ab265ede093a8cd24a09f32cf7ad96a24dc71/spring-expression-4.2.2.RELEASE.jar">
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.2.3.RELEASE/67b064c726c276436387c7a183a49deda153a6cc/spring-expression-4.2.3.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.2.2.RELEASE/bc04eea145c8d7099b997c1436afcfc8b9bddf6b/spring-tx-4.2.2.RELEASE.jar">
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.2.3.RELEASE/617420d7e0351c334aa4495d6f30ad21c4c643a7/spring-tx-4.2.3.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.3.RELEASE/98eea3fbe01450fff18aeb7e6003f80a879a049e/spring-web-4.2.3.RELEASE.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/commons-pool/commons-pool/1.5.4/75b6e20c596ed2945a259cea26d7fadd298398e6/commons-pool-1.5.4.jar">
