@@ -11,9 +11,9 @@ public class Project implements Serializable {
   protected Date    startDate;
   protected Date    endDate;
   protected String  member;
-
+  
   public Project() {}
-
+  
   public Project(String title, Date startDate, Date endDate) {
     this.title = title;
     this.startDate = startDate;
@@ -22,8 +22,8 @@ public class Project implements Serializable {
 
   @Override
   public String toString() {
-    return "Project [no=" + no + ", title=" + title + ", startDate=" 
-        + startDate + ", endDate=" + endDate + ", member=" + member + "]";
+    return "Project [no=" + no + ", title=" + title + ", startDate=" + startDate + ", endDate=" + endDate + ", member="
+        + member + "]";
   }
 
   public int getNo() {

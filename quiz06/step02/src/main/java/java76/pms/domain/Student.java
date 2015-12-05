@@ -1,40 +1,28 @@
 package java76.pms.domain;
 
-public class Student {
-  protected String photo;
+import java.io.Serializable;
+
+public class Student implements Serializable {
+  private static final long serialVersionUID = 1L;
+  
   protected String name;
   protected String email;
   protected String tel;
   protected String cid; // class ID
+  protected String photo;
   protected String password;
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
+  
   public Student() {}
-
-  public Student(String name, String tel) {
+  
+  public Student(String name, String email) {
+    this.email = email;
     this.name = name;
-    this.tel = tel;
   }
-
+  
   @Override
   public String toString() {
-    return "Student [photo=" + photo + ", name=" + name + ", email=" + email + ", tel=" + tel + ", cid=" + cid
-        + ", password=" + password + "]";
-  }
-
-  public String getPhoto() {
-    return photo;
-  }
-
-  public void setPhoto(String photo) {
-    this.photo = photo;
+    return this.getName() + "," + this.getEmail() + "," +
+          this.getTel() + "," + this.getCid();
   }
 
   public String getName() {
@@ -69,7 +57,23 @@ public class Student {
     this.cid = cid;
   }
 
+  public String getPhoto() {
+    return photo;
+  }
 
+  public void setPhoto(String photo) {
+    this.photo = photo;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+  
+  
 }
 
 

@@ -67,15 +67,15 @@
 <jsp:include page="/Copyright.jsp"/>
 <script>
 function deleteBoard() {
-  // 암호 텍스트 상자에 입력된 내용을 가져온다.
-  var password = document.getElementById('inputPassword').value;
-  
-  // a 태그의 href 값을 가져와서 "&password=암호" 문자열을 붙인다.
-  var href = document.getElementById('aDelete').href 
-             + "&password=" + password;
-  
-  // a 태그의 href 값을 암호 파라미터가 붙은 값으로 변경한다. 
-  document.getElementById('aDelete').href = href;
+	// 암호 텍스트 상자에 입력된 내용을 가져온다.
+	var password = document.getElementById('inputPassword').value;
+	
+	// a 태그의 href 값을 가져와서 "&password=암호" 문자열을 붙인다.
+	var href = document.getElementById('aDelete').href 
+	           + "&password=" + password;
+	
+	// a 태그의 href 값을 암호 파라미터가 붙은 값으로 변경한다. 
+	document.getElementById('aDelete').href = href;
 }
 </script>
 </body>

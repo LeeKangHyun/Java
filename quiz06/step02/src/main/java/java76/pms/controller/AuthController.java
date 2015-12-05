@@ -40,7 +40,7 @@ public class AuthController {
     HashMap<String,Object> paramMap = new HashMap<>();
     paramMap.put("email", email);
     paramMap.put("password", password);
-
+    
     Student student = studentDao.login(paramMap);
 
     HttpSession session = request.getSession();
@@ -53,12 +53,11 @@ public class AuthController {
     session.setAttribute("loginUser", student);
     return "redirect:../board/list.do";
   }
-
+  
   @RequestMapping("/auth/logout.do")
-  public String logout(
-      HttpSession session) 
+  public String logout(HttpSession session) 
           throws Exception {
-
+    
     session.invalidate();
     return "redirect:LoginForm.jsp";
   }

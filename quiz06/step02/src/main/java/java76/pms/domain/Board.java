@@ -3,33 +3,31 @@ package java76.pms.domain;
 import java.io.Serializable;
 import java.sql.Date;
 
-public class Board implements Serializable {
+public class Board  implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  protected int no;
-  protected String title;
-  protected String content;
-  protected int views;
-  protected Date createdDate;
-  protected String password;
-  protected String attachFile;
-
-  public Board() {}
-
-  @Override
-  public String toString() {
-    return "Board [no=" + no + ", title=" + title 
-        + ", content=" + content + ", views=" + views + ", createdDate="
-        + createdDate + ", password=" + password 
-        + ", attachFile=" + attachFile + "]";
-  }
-
+  protected int       no;
+  protected String    title;
+  protected String    content;
+  protected int       views;
+  protected Date      createdDate;
+  protected String    attachFile; // 컬럼명 = afile
   public String getAttachFile() {
     return attachFile;
   }
 
   public void setAttachFile(String attachFile) {
     this.attachFile = attachFile;
+  }
+
+  protected String    password;
+  
+  public Board() {}
+
+  @Override
+  public String toString() {
+    return "Board [no=" + no + ", title=" + title + ", content=" + content + ", views=" + views + ", createdDate="
+        + createdDate + ", password=" + password + "]";
   }
 
   public int getNo() {
@@ -79,5 +77,7 @@ public class Board implements Serializable {
   public void setPassword(String password) {
     this.password = password;
   }
-
+  
+  
+  
 }

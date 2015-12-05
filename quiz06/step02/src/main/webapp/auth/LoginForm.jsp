@@ -1,5 +1,4 @@
-<%@ page language="java" 
-    contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,8 +13,12 @@
 암호: <input type="password" name="password"><br>
 <input type="submit" value="로그인"><br>
 <input type="checkbox" name="saveEmail" 
-  ${(empty cookie.email)?"":"checked"}>이메일 저장<br>
-  
+  ${(empty cookie.email)?"":"checked"}> 이메일 저장<br>
 </form>
 </body>
 </html>
+
+
+
+
+
