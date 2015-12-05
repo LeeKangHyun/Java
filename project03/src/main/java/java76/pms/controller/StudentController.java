@@ -57,7 +57,7 @@ public class StudentController {
 
     String newPhotoFile = "default.jpg";
 
-    if (photofile != null) {
+    if (photofile.getSize() > 0) {
       newPhotoFile = MultipartHelper.generateFilename(photofile.getOriginalFilename());  
       File attachfile = new File(
           request.getServletContext().getRealPath(SAVED_DIR) 
@@ -107,7 +107,7 @@ public class StudentController {
 
     String newPhotoFile = null;
 
-    if (photofile != null) {
+    if (photofile.getSize() > 0) {
       newPhotoFile = MultipartHelper.generateFilename(photofile.getOriginalFilename());  
       File attachfile = new File(
           request.getServletContext().getRealPath(SAVED_DIR) 

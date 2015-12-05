@@ -53,7 +53,7 @@ public class BoardController {
 
     String newFileName = null;
 
-    if (file != null) {
+    if (file.getSize() > 0) {
       newFileName = MultipartHelper.generateFilename(file.getOriginalFilename());  
       File attachfile = new File(
           request.getServletContext().getRealPath(SAVED_DIR) 
@@ -94,7 +94,7 @@ public class BoardController {
 
     String newFileName = null;
 
-    if (file != null) {
+    if (file.getSize() > 0) {
       newFileName = MultipartHelper.generateFilename(file.getOriginalFilename());  
       File attachfile = new File(
           request.getServletContext().getRealPath(SAVED_DIR) 
