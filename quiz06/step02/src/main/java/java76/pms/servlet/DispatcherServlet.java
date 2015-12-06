@@ -27,7 +27,6 @@ public class DispatcherServlet extends HttpServlet {
       HttpServletRequest request, HttpServletResponse response) 
       throws ServletException, IOException {
     try {
-      //0) 멀티 파트 처리
       Map<String,Object> multipartParamMap = null;
       
       if (request.getMethod().equals("POST") 
@@ -37,35 +36,24 @@ public class DispatcherServlet extends HttpServlet {
                 request.getServletContext().getRealPath("/attachfile"));
       }
       
-      //1) 요청 핸들러 맵을 꺼낸다.
       Map<String,RequestHandler> handlerMap = 
           (Map<String,RequestHandler>)this.getServletContext()
                                           .getAttribute("handlerMap");
       
-      //2) 클라이언트 요청을 처리할 페이지 컨트롤러를 찾는다.
       RequestHandler requestHandler = 
           handlerMap.get(request.getServletPath());
       
-      if (requestHandler == null) { // 요청을 처리할 메서드를 못 찾았습니다.
-        throw new ServletException("해당 URL을 처리할 수 없습니다.");
-      }
-      
-      //3) 페이지 컨트롤러를 실행한다.
       Object instance = requestHandler.getInstance();
       Method method = requestHandler.getMethod();
       
-      //4) 메서드의 파라미터 정보를 알아낸다.
       Parameter[] params = method.getParameters();
       
-      //5) 메서드가 원하는 파라미터 타입에 대한 값을 준비한다.
       Object[] paramValues = new Object[method.getParameterCount()];
       
       Class<?> paramType = null;
       for (int i = 0; i < params.length; i++) {
-        //파라미터의 타입 정보를 가져온다.
         paramType = params[i].getType();
         
-        //파라미터 타입에 맞는 값을 배열에 저장한다.
         if (paramType == String.class ||
             paramType == FileItem.class) {
           paramValues[i] = getParameter(params[i].getName(), 
@@ -89,10 +77,8 @@ public class DispatcherServlet extends HttpServlet {
         }
       }
       
-      //6) 준비한 파라미터 값을 가지고 요청 핸들러를 호출한다.
       String viewUrl = (String)method.invoke(instance, paramValues);
       
-      //7) 페이지 컨트롤러가 리턴한 JSP를 실행한다.
       if (viewUrl.startsWith("redirect:")) {
         response.sendRedirect(viewUrl.substring(9));
         return;

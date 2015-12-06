@@ -28,4 +28,8 @@
     <property name="password" value="1111"/>
   </bean>
   
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+  <property name="basePackage" value="java76.pms.dao" />
+</bean>
+  
 </beans>

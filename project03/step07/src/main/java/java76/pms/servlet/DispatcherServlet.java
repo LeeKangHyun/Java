@@ -23,7 +23,9 @@ public class DispatcherServlet extends HttpServlet {
     try {
       // 1) 요청 핸들러 맵을 꺼낸다.
       Map<String,RequestHandler> handlerMap = 
-          (Map<String,RequestHandler>)this.getServletContext().getAttribute("handlerMap");
+          (Map<String,RequestHandler>)this
+          .getServletContext()
+          .getAttribute("handlerMap");
 
       // 2) 클라이언트 요청을 처리할 페이지 컨트롤러를 찾는다.
       RequestHandler requestHandler = 
