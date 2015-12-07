@@ -1,7 +1,6 @@
 package java76.pms.listener;
 
 import static org.reflections.ReflectionUtils.*;
-
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,12 +37,15 @@ public class ContextLoaderListener implements ServletContextListener {
     
     for (String name : beanNames) {
       bean = iocContainer.getBean(name);
+      
       methods = getAllMethods(bean.getClass(), 
           withAnnotation(RequestMapping.class));
       
       for (Method m : methods) {
         anno = m.getAnnotation(RequestMapping.class);
-        handlerMap.put(anno.value(), new RequestHandler(bean, m));
+        
+        handlerMap.put(anno.value(), 
+            new RequestHandler(bean, m));
       }
     }
     servletContext.setAttribute("handlerMap", handlerMap);

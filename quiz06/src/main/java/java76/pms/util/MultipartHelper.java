@@ -21,6 +21,7 @@ public class MultipartHelper {
       List<FileItem> items = upload.parseRequest(request);
       
       HashMap<String,Object> map = new HashMap<>();
+      String filename = null;
       
       for (FileItem item : items) {
         if (item.isFormField()) { 
@@ -28,7 +29,7 @@ public class MultipartHelper {
         
         } else { 
           if (item.getSize() > 0) {
-            map.put(item.getFieldName(), item);
+            map.put(item.getFieldName(), filename);
           }
         }
       }

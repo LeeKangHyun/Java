@@ -6,6 +6,7 @@ import java.util.Map;
 import java76.pms.domain.Student;
 
 public interface StudentDao {
+
   List<Student> selectList(Map<String,Object> paramMap);
 
   int insert(Student student);

@@ -10,12 +10,12 @@
 </head>
 <body>
 <h1>시스템 오류!</h1>
-<pre>
+<p>
 <%
 Exception e = (Exception)request.getAttribute("error");
 e.printStackTrace(new PrintWriter(out));
 %>
-</pre>
+</p>
 </body>
 </html>
 
