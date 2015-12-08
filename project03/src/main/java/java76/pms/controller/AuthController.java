@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java76.pms.dao.StudentDao;
 import java76.pms.domain.Student;
@@ -17,8 +18,13 @@ import java76.pms.domain.Student;
 @RequestMapping("/auth/*")
 public class AuthController {  
   @Autowired StudentDao studentDao;
+  
+  @RequestMapping(value="login", method=RequestMethod.GET)
+  public String loginform() {
+    return "auth/LoginForm";
+  }
 
-  @RequestMapping("login")
+  @RequestMapping(value="login", method=RequestMethod.POST)
   public String login(
       String email,
       String password,
@@ -45,7 +51,7 @@ public class AuthController {
 
     if (student == null) { // 로그인 실패!
       session.invalidate(); // 세션을 무효화시킴. => 새로 세션 객체 생성!
-      return "/auth/LoginFail.jsp";
+      return "auth/LoginFail";
     }
 
     session.setAttribute("loginUser", student);
@@ -58,7 +64,7 @@ public class AuthController {
           throws Exception {
     
     session.invalidate();
-    return "redirect:LoginForm.jsp";
+    return "redirect:login.do";
   }
 }
 

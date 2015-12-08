@@ -4,12 +4,14 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,11 +20,14 @@ import java76.pms.domain.Board;
 import java76.pms.util.MultipartHelper;
 
 @Controller
+@RequestMapping("/board/*")
 public class BoardController { 
   public static final String SAVED_DIR = "/attachfile";
-  @Autowired BoardDao boardDao;
 
-  @RequestMapping("/board/list.do")
+  @Autowired BoardDao boardDao;
+  @Autowired ServletContext servletContext;
+
+  @RequestMapping("list")
   public String list(
       @RequestParam(defaultValue="1") int pageNo,
       @RequestParam(defaultValue="10") int pageSize,
@@ -40,100 +45,83 @@ public class BoardController {
 
     request.setAttribute("boards", boards);
 
-    return "/board/BoardList.jsp";
+    return "board/BoardList";
   }
 
-  @RequestMapping("/board/add.do")
-  public String add(
-      String title, 
-      String content, 
-      String password,
-      MultipartFile file,
-      HttpServletRequest request) throws Exception {
+  @RequestMapping(value="add", method=RequestMethod.GET)
+  public String form() {
+    return "board/BoardForm";
+  }
 
-    String newFileName = null;
+
+  @RequestMapping(value="add", method=RequestMethod.POST)
+  public String add(
+      Board board,
+      MultipartFile file) throws Exception {
 
     if (file.getSize() > 0) {
-      newFileName = MultipartHelper.generateFilename(file.getOriginalFilename());  
-      File attachfile = new File(
-          request.getServletContext().getRealPath(SAVED_DIR) 
+      String newFileName = MultipartHelper.generateFilename(file.getOriginalFilename());  
+      File attachfile = new File(servletContext.getRealPath(SAVED_DIR) 
           + "/" + newFileName);
       file.transferTo(attachfile);
     }
-
-    Board board = new Board();
-    board.setTitle(title);
-    board.setContent(content);
-    board.setPassword(password);
-    board.setAttachFile(newFileName);
-
     boardDao.insert(board);
 
     return "redirect:list.do";
   }
 
-  @RequestMapping("/board/detail.do")
+  @RequestMapping("detail")
   public String detail(
-      int no,
-      HttpServletRequest request) throws Exception {
+      int no, Model model) throws Exception {
 
     Board board = boardDao.selectOne(no);
-    request.setAttribute("board", board);
-    return "/board/BoardDetail.jsp";
+    model.addAttribute("board", board);
+    return "board/BoardDetail";
   }
 
-  @RequestMapping("/board/update.do")
+  @RequestMapping(value="update", method=RequestMethod.POST)
   public String update(
-      int no, 
-      String title, 
-      String content, 
-      String password,
-      String attachFile, /* 원래 파일 명 */
-      MultipartFile file,
-      HttpServletRequest request) throws Exception {
-
-    String newFileName = null;
+      Board board, MultipartFile file, Model model) throws Exception {
 
     if (file.getSize() > 0) {
-      newFileName = MultipartHelper.generateFilename(file.getOriginalFilename());  
-      File attachfile = new File(
-          request.getServletContext().getRealPath(SAVED_DIR) 
+      String newFileName = MultipartHelper.generateFilename(file.getOriginalFilename());  
+      File attachfile = new File(servletContext.getRealPath(SAVED_DIR) 
           + "/" + newFileName);
       file.transferTo(attachfile);
-    }
-
-    Board board = new Board();
-    board.setNo(no);
-    board.setTitle(title);
-    board.setContent(content);
-    board.setPassword(password);
-    if (newFileName != null) {
       board.setAttachFile(newFileName);
-    } else if (newFileName == null && attachFile.length() > 0) {
-      board.setAttachFile(attachFile);
+    } else if (board.getAttachFile().length() == 0) {
+      board.setAttachFile(null);
     }
 
     if (boardDao.update(board) <= 0) {
-      request.setAttribute("errorCode", "401");
-      return "/board/BoardAuthError.jsp";
+      model.addAttribute("errorCode", "401");
+      return "board/BoardAuthError";
     } 
     return "redirect:list.do";
   }
 
-  @RequestMapping("/board/delete.do")
-  public String delete(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    int no = Integer.parseInt(request.getParameter("no"));
-    String password = request.getParameter("password");
-    
+  @RequestMapping("delete")
+  public String delete(int no, String password, Model model) 
+          throws Exception {
+
     HashMap<String,Object> paramMap = new HashMap<>();
     paramMap.put("no", no);
     paramMap.put("password", password);
 
     if (boardDao.delete(paramMap) <= 0) {
-      request.setAttribute("errorCode", "401");
-      return "/board/BoardAuthError.jsp";
+      model.addAttribute("errorCode", "401");
+      return "board/BoardAuthError";
     } 
 
     return "redirect:list.do";
   }
 }
+
+
+
+
+
+
+
+
+

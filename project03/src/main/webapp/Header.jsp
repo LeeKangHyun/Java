@@ -11,6 +11,6 @@
 </c:if>
 
 <c:if test="${empty loginUser}">
-  <a href="${pageContext.request.contextPath}/auth/LoginForm.jsp">로그인</a>
+  <a href="${pageContext.request.contextPath}/auth/login.do">로그인</a>
 </c:if>
 </div>
