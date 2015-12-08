@@ -12,7 +12,7 @@
 <body>
 <jsp:include page="/Header.jsp"/>
 <h1>학생 목록</h1>
-<a href="form.html">학생추가</a>
+<a href="add.do">학생추가</a>
 <table border='1'>
 <tr>
 <th>사진</th>

@@ -13,7 +13,7 @@
 <body>
 <jsp:include page="/Header.jsp"/>
   <h1>게시판 with JSP + EL + JSTL</h1>
-  <a href="form.html">새 글</a><br>
+  <a href="add.do">새 글</a><br>
   <table border='1'>
     <tr>
       <th>번호</th>
