@@ -8,7 +8,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   <!-- 컨텍스트 파라미터 선언 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:java76/pms/application-context.xml</param-value>
+    <!-- <param-value>classpath:java76/pms/application-context.xml</param-value> -->
+    <param-value>/WEB-INF/conf/application-context.xml</param-value>
   </context-param>
 
   <!-- 리스너 등록하기 -->

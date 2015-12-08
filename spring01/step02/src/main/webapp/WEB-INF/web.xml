@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1" metadata-complete="false">
+
+  <!-- 컨텍스트 파라미터 선언 -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/application-context.xml</param-value>
+  </context-param>
+
+  <!-- 리스너 등록하기 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+
+  <!-- 필터 등록하기 -->
+  <filter>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+
+  <!-- URL에 필터 적용하기 -->
+  <filter-mapping>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <url-pattern>*</url-pattern>
+  </filter-mapping>
+
+  <servlet>
+    <servlet-name>dispatch</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!-- 프론트 컨트롤러가 관리할 빈에 대한 설정 파일
+         만약 설정 파일이 /WEB-INF 폴더에 있고,
+         설정 파일의 이름이 "[프론트컨트롤러 서블릿 이름]-servlet.xml"이라
+         설정 파일 정보를 생략해도 된다.
+         예) /WEB-INF/dispatch-servlet.xml
+     -->
+     <!-- 위 설명에 따라 생략 가능! 
+    <init-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/dispatch-servlet.xml</param-value>
+    </init-param>
+     -->
+  </servlet>
+
+  <!-- -->
+
+  <servlet-mapping>
+    <servlet-name>dispatch</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <!-- URL이 디렉토리 까지만 지정된다면, 해당 디렉토리에서 다음 순서로 파일을 찾는다. -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
+
+
+
+
+
+
+
+
+
+
