@@ -37,20 +37,12 @@
   </bean>
   
 
-  <!-- 인터셉터 객체 준비 -->
-    <bean id="test18Interceptor"
-            class="examweb.controller.Test18Interceptor"/>
-        
-  <!-- 인터셉터 객체를 스프링 WebMVC의 요청 핸들러 관리자에게 등록 -->
-  
-    <bean id="handlerMapping"
-            class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
-        <property name="interceptors">
-            <list>
-                <ref bean="test18Interceptor"/>
-            </list>
-        </property>
-    </bean>
+  <mvc:interceptors>
+    <mvc:interceptor>
+        <mvc:mapping path="/test17/*"/>
+        <bean class="examweb.controller.Test18Interceptor"/>
+    </mvc:interceptor>
+</mvc:interceptors>
 
 </beans>
 
