@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action='s2.do' method='post'>
-이름: <input type='text' name='name'><br>
-<button>다음</button>
-</form>
+입력 정보 확인<br>
+이름: ${member.name}<br>
+나이: ${member.age}<br>
+가입일: ${member.joinDate}<br>
 </body>
 </html>

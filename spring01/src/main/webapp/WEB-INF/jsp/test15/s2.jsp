@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action='s2.do' method='post'>
-이름: <input type='text' name='name'><br>
+<form action='s3.do' method='post'>
+나이: <input type='text' name='age'><br>
 <button>다음</button>
 </form>
 </body>

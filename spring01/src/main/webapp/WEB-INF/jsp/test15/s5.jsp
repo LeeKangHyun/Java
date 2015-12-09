@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action='s2.do' method='post'>
-이름: <input type='text' name='name'><br>
-<button>다음</button>
-</form>
+세션의 값을 무효화시킨 후 입력 정보 확인<br>
+이름: ${sessionScope.name}<br>
+나이: ${sessionScope.age}<br>
+전화: ${sessionScope.tel}<br>
+direct: ${sessionScope.direct}
 </body>
 </html>

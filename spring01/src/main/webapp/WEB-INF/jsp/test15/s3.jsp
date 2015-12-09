@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action='s2.do' method='post'>
-이름: <input type='text' name='name'><br>
-<button>다음</button>
+<form action='s4.do' method='post'>
+전화번호: <input type='text' name='tel'><br>
+<button>완료</button>
 </form>
 </body>
 </html>
