@@ -14,10 +14,10 @@
 <p>
   <c:choose>
     <c:when test="${errorCode == '401'}">
-      없는 학생
+      없는 회원입니다.
     </c:when>
     <c:otherwise>
-      알수 없는 오류
+      알수 없는 오류입니다.
     </c:otherwise>
   </c:choose>
 </p>

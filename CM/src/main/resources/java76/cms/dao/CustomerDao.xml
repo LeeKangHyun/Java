@@ -33,7 +33,7 @@
 
   <delete id="delete" parameterType="map">
     delete from customer
-    where id=#{id} and pwd=sha1(#{password})
+    where id=#{id} and (pwd is null or pwd=sha1(#{password}))
   </delete>
 
   <update id="update" parameterType="customer">
@@ -48,13 +48,17 @@
   </update>
   
   <select id="selectOne" resultMap="customerMap" parameterType="string">
+    select 
+      id, name, age, address, gender, photo
+    from customer
+    where id=#{id}
   </select>
   
-  <select id="login" resultMap="customerMap" parameterType="map">
+  <select id="login" resultMap="customerMap" parameterType="String">
     select 
       id, pwd, name, age, address, gender, photo
     from customer
-    where id=#{id} and pwd=sha1(#{password})
+    where id=#{id} and (pwd is null or pwd=sha1(#{password}))
   </select>
   
 </mapper>

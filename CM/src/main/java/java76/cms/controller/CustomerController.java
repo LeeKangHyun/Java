@@ -97,10 +97,10 @@ public class CustomerController {
       
       customer.setPhoto(newPhotoFile);
       
-      Thumbnails.of(attachfile)
-      .size(60, 60)
-      .toFile(servletContext.getRealPath(SAVED_DIR) 
-          + "/thumbnail/s-" + newPhotoFile);
+//      Thumbnails.of(attachfile)
+//      .size(60, 60)
+//      .toFile(servletContext.getRealPath(SAVED_DIR) 
+//          + "/thumbnail/s-" + newPhotoFile);
     } else if (customer.getPhoto().length() == 0) {
       customer.setPhoto(null);
     }

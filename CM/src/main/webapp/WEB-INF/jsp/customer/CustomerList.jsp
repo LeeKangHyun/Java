@@ -7,11 +7,11 @@
 <html>
 <head>
 <meta charset='UTF-8'>
-<title>학생 목록</title>
+<title>회원 목록</title>
 </head>
 <body>
-<h1>학생 목록</h1>
-<a href="add.do">학생추가</a>
+<h1>회원 목록</h1>
+<a href="add.do">회원 추가</a>
 <table border='1'>
 <tr>
 <th>이름</th>
