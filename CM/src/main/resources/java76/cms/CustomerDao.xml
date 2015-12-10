@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="java76.cms.dao.CustomerDao">
+
+  <resultMap type="customer" id="customerMap">
+    <id column="id" property="id"/>
+    <result column="pwd" property="password"/>
+  </resultMap>
+
+  <select id="selectList" resultMap="customerMap" parameterType="map">
+    select 
+      id, pwd, name, age, address, gender, photo
+    from customer
+    order by
+      <choose>
+        <when test="keyword == 'id'">id </when>
+        <otherwise>name </otherwise>
+      </choose>
+      <choose>
+        <when test="align == 'desc'">desc </when>
+        <otherwise>asc</otherwise>
+      </choose>
+    limit #{startIndex}, #{length}
+  </select>
+
+  <insert id="insert" parameterType="customer">
+    insert into customer(id,pwd,name,age,address,gender,photo)
+    value(#{id},sha1(#{password}),#{name},#{age},#{address},#{gender},#{photo})
+  </insert>
+
+  <delete id="delete" parameterType="map">
+    delete from customer
+    where id=#{id} and pwd=sha1(#{password})
+  </delete>
+
+  <update id="update" parameterType="customer">
+    update customer set
+      name=#{name},
+      pwd=sha1(#{password}),
+      age=#{age},
+      address=#{address},
+      gender=#{gender},
+      photo=#{photo}
+    where id=#{id} and (pwd is null or pwd=sha1(#{password}))
+  </update>
+  
+  <select id="selectOne" resultMap="customerMap" parameterType="string">
+  </select>
+  
+  <select id="login" resultMap="customerMap" parameterType="map">
+    select 
+      id, pwd, name, age, address, gender, photo
+    from customer
+    where id=#{id} and pwd=sha1(#{password})
+  </select>
+  
+</mapper>
