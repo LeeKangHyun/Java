@@ -25,8 +25,8 @@ import net.coobird.thumbnailator.Thumbnails;
 @RequestMapping("/customer/*")
 public class CustomerController {
   public static final String SAVED_DIR = "/attachfile";
-  
   @Autowired CustomerDao customerDao;
+  
   @Autowired ServletContext servletContext;
   
   @RequestMapping("list")

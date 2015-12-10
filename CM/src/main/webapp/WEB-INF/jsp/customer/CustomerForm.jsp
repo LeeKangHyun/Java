@@ -30,10 +30,14 @@
         <td><input type='text' name='age' size='20'></td>
       </tr>
       <tr>
+        <th>주소</th>
+        <td><input type='text' name='address' size='20'></td>
+      </tr>
+      <tr>
         <th>성별</th>
         <td>
-        <input type="radio" value="0" name='gender' checked>남자
-        <input type="radio" value="1" name='gender'>여자
+        <input type="radio" value="man" name='gender' checked>남자
+        <input type="radio" value="woman" name='gender'>여자
         </td>
       </tr>
       <tr>
