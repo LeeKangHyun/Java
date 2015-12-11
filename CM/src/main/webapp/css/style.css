@@ -1,0 +1,40 @@
+@charset "utf-8";
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+
+* { margin:0 auto;  padding:0;}
+ol,ul { list-style: none; }
+nav .header {font-family: 'Orbitron', serif; text-align: center; font-weight: bold;}
+
+hr { margin: 0;	margin-bottom: 15px;	padding: 0; border-top: 1px solid black;}
+
+section { width:100%; position:relative; margin-left: 0; }
+article { float:left; min-height:100px; padding: 15px;}
+article:nth-child(1) { width:100%; background:#eee;}
+article:nth-child(2) { width:100%; background:#ddd;}
+
+.table>thead>tr>th {	text-align: center;	width: 30px; max-width: 80px !important;}
+
+@media screen and (max-width:479px) {  
+	article:nth-child(1) { width:100%; height:300px; background:#eee;}
+	article:nth-child(2) { width:100%; background:#ddd;}
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}

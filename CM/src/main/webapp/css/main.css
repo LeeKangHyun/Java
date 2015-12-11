@@ -1,0 +1,32 @@
+@charset "utf-8";
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+
+* { margin:0 auto;  padding:0; font-size: 1em;}
+ol,ul { list-style: none; }
+nav .header {font-family: 'Orbitron', serif; text-align: center; font-weight: bold;}
+
+hr { margin: 0;	margin-bottom: 15px;	padding: 0; border-top: 1px solid black;}
+
+section { width:100%; position:relative; margin-left: 0; }
+article { float:left; min-height:150px; height: 50%; padding: 15px;}
+article:nth-child(1) { width:60%; height:300px; background:#eee;}
+article:nth-child(2) { width:40%; background:#ddd;}
+article:nth-child(3) { width:40%; background:#ccc; padding: 0;}
+article:nth-child(4) { width:50%; height: 300px; background:#bbb;}
+article:nth-child(5) { width:50%; height: 300px; background:#aaa;}
+
+#news a{ display: block; width: 100%; overflow:hidden; white-space: nowrap; text-overflow:ellipsis;}
+
+#login form input{	top: 0;	width: 68%; }
+#login form .btn-login{	margin-top: -90px;	margin-left: 70%;	width: 30%;	height: 68px;}
+#login .btn-search{	width: 60%;}
+#login .btn-join{	width: 40%;}
+
+@media screen and (max-width:479px) {  
+	article:nth-child(1) { width:100%; height:300px; background:#eee;}
+	article:nth-child(2) { width:100%; background:#ddd;}
+	article:nth-child(3) { width:40%; background:#ccc; padding: 0; display: none;}
+	article:nth-child(4) { width:100%; height: 300px; background:#bbb;}
+	article:nth-child(5) { width:100%; height: 300px; background:#aaa;}
+}
