@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Customer implements Serializable{
   private static final long serialVersionUID = 1L;
 
+  protected int no;
   protected String name;
   protected String password;
   protected String id;
@@ -12,70 +13,61 @@ public class Customer implements Serializable{
   protected String gender;
   protected int age;
   protected String photo;
-
-  @Override
-  public String toString() {
-    return "Customer [name=" + name + ", password=" + password 
-        + ", id=" + id + ", address=" + address + ", gender="
-        + gender + ", age=" + age + ", photo=" + photo + "]";
+  public int getNo() {
+    return no;
   }
-
+  public void setNo(int no) {
+    this.no = no;
+  }
   public String getName() {
     return name;
   }
-
   public void setName(String name) {
     this.name = name;
   }
-
   public String getPassword() {
     return password;
   }
-
   public void setPassword(String password) {
     this.password = password;
   }
-
   public String getId() {
     return id;
   }
-
   public void setId(String id) {
     this.id = id;
   }
-
   public String getAddress() {
     return address;
   }
-
   public void setAddress(String address) {
     this.address = address;
   }
-
   public String getGender() {
     return gender;
   }
-
   public void setGender(String gender) {
     this.gender = gender;
   }
-
   public int getAge() {
     return age;
   }
-
   public void setAge(int age) {
     this.age = age;
   }
-
   public String getPhoto() {
     return photo;
   }
-
   public void setPhoto(String photo) {
     this.photo = photo;
   }
+  @Override
+  public String toString() {
+    return "Customer [no=" + no + ", name=" + name + ", password=" + password + ", id=" + id + ", address=" + address
+        + ", gender=" + gender + ", age=" + age + ", photo=" + photo + "]";
+  }
 
+ 
   
 
 

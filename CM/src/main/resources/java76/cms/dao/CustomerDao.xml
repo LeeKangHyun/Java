@@ -7,6 +7,7 @@
 
   <resultMap type="customer" id="customerMap">
     <id column="id" property="id"/>
+    <id column="cno" property="no"/>
     <result column="pwd" property="password"/>
   </resultMap>
 
@@ -17,11 +18,11 @@
     order by
       <choose>
         <when test="keyword == 'id'">id </when>
-        <otherwise>name </otherwise>
+        <otherwise>cno </otherwise>
       </choose>
       <choose>
-        <when test="align == 'desc'">desc </when>
-        <otherwise>asc</otherwise>
+        <when test="align == 'asc'">asc </when>
+        <otherwise>desc</otherwise>
       </choose>
     limit #{startIndex}, #{length}
   </select>
@@ -61,4 +62,27 @@
     where id=#{id} and (pwd is null or pwd=sha1(#{password}))
   </select>
   
+  <select id="recent" resultMap="customerMap" parameterType="map">
+    select
+      cno, name, age, address, gender, photo
+    from customer
+    order by
+    <choose>
+      <otherwise>cno </otherwise>
+    </choose>
+    <choose>
+      <otherwise>desc</otherwise>
+    </choose>
+    limit #{startIndex}, #{length}
+  </select>
+  
 </mapper>
+
+
+
+
+
+
+
+
+

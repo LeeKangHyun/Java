@@ -19,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java76.cms.dao.CustomerDao;
 import java76.cms.domain.Customer;
 import java76.cms.util.MultipartHelper;
-import net.coobird.thumbnailator.Thumbnails;
 
 @Controller
 @RequestMapping("/customer/*")
@@ -33,8 +32,8 @@ public class CustomerController {
   public String list(
       @RequestParam(defaultValue="1") int pageNo,
       @RequestParam(defaultValue="10") int pageSize,
-      @RequestParam(defaultValue="name") String keyword,
-      @RequestParam(defaultValue="asc") String align,
+      @RequestParam(defaultValue="no") String keyword,
+      @RequestParam(defaultValue="desc") String align,
       HttpServletRequest request) throws Exception {
 
     HashMap<String,Object> paramMap = new HashMap<>();
@@ -127,6 +126,28 @@ public class CustomerController {
       return "customer/CustomerAuthError";
     }
     return "redirect:list.do";
+  }
+  
+  @RequestMapping("recent")
+  public String recent(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="3") int pageSize,
+      @RequestParam(defaultValue="no") String keyword,
+      @RequestParam(defaultValue="desc") String align,
+      HttpServletRequest request) throws Exception {
+    
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("startIndex", (pageNo - 1) * pageSize);
+    paramMap.put("length", pageSize);
+    paramMap.put("keyword", keyword);
+    paramMap.put("align", align);
+
+    List<Customer> customers = customerDao.recent(paramMap);
+
+    request.setAttribute("customers", customers);
+    
+    return "customer/CustomerRecent";
+
   }
   
 }

@@ -18,5 +18,7 @@ public interface CustomerDao {
   Customer selectOne(String id);
 
   Customer login(Map<String,Object> paramMap);
-
+  
+  List<Customer> recent(Map<String,Object> paramMap);
+  
 }
