@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test04</title>
+
+<style type="text/css">
+/* 배경 다루기 */
+
+/* 폰트를 사용하여 배경 출력 
+   => 타이포그래피의 이점 : 색상을 마음대로 지정할 수 있다.
+                       각 색상 별로 이미지를 만들 필요가 없다.
+                       그림이 아니기 때문에 출력 속도가 빠르다.
+                       이미지 파일을 다운받을 필요가 없기 때문에
+                       네트워크 오버헤드가 없다.
+   => 타이포그래피의 단점 : 단색만 가능하다.
+*/
+
+/* 외부 폰트 사용 */
+@font-face {
+  font-family: "myfont";
+  src: url("myfont.woff") format("woff");
+}
+
+input[name=id] {
+  height: 30px;
+}
+
+#idcheck {
+  border-style: none;
+  height: 30px;
+  width: 40px;
+  background: url('icon01.gif') no-repeat left -160px top 0px;
+}
+
+#typhography {
+  font-family: myfont;
+  border-style: 1px solid gray;
+  height: 50px;
+}
+
+#typhography:before {
+  content: "\f179";  
+  /* 폰트 파일에서 특정 폰트를 지정하기 */
+}
+  
+</style>
+
+</head>
+<body>
+  body.....
+  <h1>회원가입</h1>
+  <h1 id='typhography'>
+  <form>
+    id: <input type="text" name="id">
+    <input type="text" id="idcheck" readonly ><br>
+    name: <input type="text" name="name"><br>
+    pwd: <input type="password" name="password"><br>
+  </form>
+</body>
+</html>
