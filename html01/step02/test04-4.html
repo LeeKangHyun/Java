@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test03</title>
+
+<style type="text/css">
+/* pseudi selector(태그의 특정 상태로 찾기) */
+
+/* a 태그에서 링크사이트에 방문 전 */
+
+a {
+  text-decoration: none;
+}
+input {
+  border: 2px solid blue;
+}
+input:active {
+  border: 2px solid green;
+}
+/* 키보드 입력을 받을수 있는 상태 */
+input:focus {
+  border: 2px solid red;
+  box-shadow: 1px 2px;
+}
+</style>
+ 
+</head>
+<body>
+<form>
+입력1: <input type="text"><p>
+입력2: <input type="text"><p>
+입력3: <input type="text"><p>
+입력4: <input type="text" disabled><p>
+입력5: <input type="text"><p>
+입력6: <input type="text" disabled><p>
+</form>
+</body>
+</html>
