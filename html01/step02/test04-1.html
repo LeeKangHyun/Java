@@ -2,37 +2,52 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>test03</title>
+<title>test04</title>
 
 <style type="text/css">
-/* pseudi selector(태그의 특정 상태로 찾기) */
+/* pseudo selector(태그의 특정 상태로 찾기) */
 * {
-  border: 1px dotted gray;
-  padding: 10px;  /*테두리 안쪽 여백*/
-  margin-top: 10px;
+	border: 1px dotted gray;
+	padding: 10px; /* 테두리 안쪽 여백 */
+	margin-top: 10px;
 }
 
+/* 첫 번째 자식 태그 찾기
+ => 해당 태그가 부모의 첫 번째 자식인 경우 
+ */
+h2:first-child {
+	background-color: red;
+}
 </style>
- 
+
 </head>
 <body>
-  <div>
-    <h2>aaaaa</h2>
-    <h2>aaaaa</h2>
-    <h2>aaaaa</h2>
-    <h2>aaaaa</h2>
-    <h2>aaaaa</h2>
-    <h2>aaaaa</h2>
-  </div>
-  
-  <div>
-    <h2>bbbbb</h2>
-    <h2>bbbbb</h2>
-    <h2>bbbbb</h2>
-    <h2>bbbbb</h2>
-    <h2>bbbbb</h2>
-    <h2>bbbbb</h2>
-  </div>
+<div>
+  <h2>aaaaa</h2>
+  <h2>aaaaa</h2>
+  <h2>aaaaa</h2>
+  <h2>aaaaa</h2>
+  <h2>aaaaa</h2>
+  <h2>aaaaa</h2>
+</div>
 
+<div>
+  <p>내가 첫 번째 자식이다.</p>
+  <h2>bbbbb</h2>
+  <h2>bbbbb</h2>
+  <h2>bbbbb</h2>
+  <h2>bbbbb</h2>
+  <h2>bbbbb</h2>
+  <h2>bbbbb</h2>
+</div>
+
+<div>
+  <h2>bbbbb</h2>
+  <h2>bbbbb</h2>
+  <h2>bbbbb</h2>
+  <h2>bbbbb</h2>
+  <h2>bbbbb</h2>
+  <h2>bbbbb</h2>
+</div>
 </body>
 </html>

@@ -2,25 +2,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>test03</title>
+<title>test04</title>
 
 <style type="text/css">
 /* 조건으로 태그 찾기 */
 
-/* */
-input[okok] {
-  border: 1px red solid;
-}
-
-input[type="text"] {
-  color: red;
-}
-
-/*input[level^="l01"] { /* 속성의 값이 l01로 시작하는 엘리먼트를 선택한다.*/
+/* 속성의 값이 l01로 시작하는 엘리먼트를 선택한다.*/
+input[level^="l01"] { 
   color: green;
 }
 </style>
- ㄴ
+
 </head>
 <body>
 <form>
@@ -29,7 +21,7 @@ input[type="text"] {
   <option>삼성</option>
   <option selected>LG</option>
   <option>MS</option>
-</select>
+</select><br>
 <input level="l01adm" okok type="text"><br>
 <input level="l02adm" type="text"><br>
 <input level="l01adm" type="password"><br>

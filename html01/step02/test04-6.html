@@ -7,6 +7,10 @@
 <style type="text/css">
 /* pseudo selector(태그의 특정 상태로 찾기) */
 
+/* nth-child(x)
+   => 순서를 가리키기 때문에 첫 번째 엘리먼트는 1이다.
+*/
+h2:nth-child(2n + 1) {color: blue;}
 </style>
 
 </head>
@@ -19,12 +23,12 @@
   <h2>aaaaa</h2>
   <h2>aaaaa</h2>
 </div>
-
+<hr>
 <div>
   <h2>bbbbb</h2>
-  <h2>bbbbb</h2>
-  <h2>bbbbb</h2>
-  <h2>bbbbb</h2>
+  <h3>bbbbb</h3>
+  <h3>bbbbb</h3>
+  <h3>bbbbb</h3>
   <h2>bbbbb</h2>
   <h2>bbbbb</h2>
 </div>
