@@ -5,29 +5,49 @@
 <title>test04</title>
 
 <style type="text/css">
-/* 스타일 적용   순서
- </style>
- 
+/* 스타일 적용 순서
+=> specificity 값이 낮은 곳에서 높은 곳으로 덮어 쓴다.
+=> 기본 순서 
+   1) 가장 가까운 조상의 스타일을 적용한다.
+   2) 마지막에 나오는 스타일을 적용한다. 
+ */
+
+/* 같은 레벨의 스타일이 여러 개 있을 경우,
+   => 두 스타일은 합친다.
+   => 같은 이름의 스타일은 마지막에 나오는 스타일을 적용한다.
+   => 결론! 합집합이다.  */
+h2 {
+  text-decoration: overline;
+  color: blue;
+}
+
+h2 {
+  background-color: yellow;
+  color: red; /* 기존의 색상을 덮어쓴다.*/
+}
+
+</style>
+
 </head>
 <body>
-  <div>
-     <h1>div1111111</h1>
-     <nav id="n01">
-       <h2 class="g3 g1">제목 1</h2>
-       <p class="g1">내용 내용 내용 내용 내용</p>
-       <h2 class="g2">제목 2</h2>
-       <p class="g2">내용2 내용2 내용2 내용2 내용2</p>
+  <div>div
+     <h1>h1.........</h1>
+     <nav id="n01">nav#n01
+       <h2 class="g3 g1">h2.g3.g1 - 제목 1</h2>
+       <p class="g1">p.g1 - 내용 내용 내용 내용 내용</p>
+       <h2 class="g2">h2.g2 - 제목 2</h2>
+       <p class="g2">p.g2 - 내용2 내용2 내용2 내용2 내용2</p>
      </nav>
      
-     <h1>div2222222</h1>
-     <nav id="n02">
-       <h2 class="g1 g3">제목 3</h2>
-       <p class="g1">내용3 내용3 내용3 내용3 내용3</p>
-       <h2 class="g2 g3">제목 4</h2>
-       <p class="g2">내용4 내용4 내용4 내용4 내용4</p>
+     <h1>h1.........</h1>
+     <nav id="n02">nav#n02
+       <h2 class="g1 g3">h2.g1.g3 - 제목 3</h2>
+       <p class="g1">p.g1 - 내용3 내용3 내용3 내용3 내용3</p>
+       <h2 class="g2 g3">h2.g2.g3 - 제목 4</h2>
+       <p class="g2">p.g2 - 내용4 내용4 내용4 내용4 내용4</p>
      </nav>
-     <p class="g1">내용5 내용5 내용5 내용5 내용5</p>
+     <p class="g1">p.g1 - 내용5 내용5 내용5 내용5 내용5</p>
   </div>
-  <p class="g2 g3">내용6 내용6 내용6 내용6 내용6</p>
+  <p class="g2 g3">p.g2.g3 - 내용6 내용6 내용6 내용6 내용6</p>
 </body>
 </html>

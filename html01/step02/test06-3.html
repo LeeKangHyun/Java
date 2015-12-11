@@ -2,25 +2,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>test03</title>
+<title>test04</title>
 
 <style type="text/css">
 /* 조건으로 태그 찾기 */
 
-/* */
-input[okok] {
-  border: 1px red solid;
-}
-
-input[type="text"] {
-  color: red;
-}
-
-input[level$="adm"] { /* 속성의 값이 adm으로 끝나는 엘리먼트를 선택한다.*/
+/* 속성의 값이 adm으로 끝나는 태그를 찾는다.*/
+input[level$="adm"] { 
   color: blue;
 }
 </style>
- 
+
 </head>
 <body>
 <form>
@@ -29,7 +21,7 @@ input[level$="adm"] { /* 속성의 값이 adm으로 끝나는 엘리먼트를 �
   <option>삼성</option>
   <option selected>LG</option>
   <option>MS</option>
-</select>
+</select><br>
 <input level="l01adm" okok type="text"><br>
 <input level="l02adm" type="text"><br>
 <input level="l01adm" type="password"><br>

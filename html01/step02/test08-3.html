@@ -5,21 +5,23 @@
 <title>test04</title>
 
 <style type="text/css">
-/* 스타일 적용 순서
-=> specificity 값이 낮은 곳에서 높은 곳으로 덮어 쓴다.
-=> 기본 순서 
-   1) 가장 가까운 조상의 스타일을 적용한다.
-   2) 마지막에 나오는 스타일을 적용한다. 
+/* 폰트 크기 설정 */
+body {
+  font-family: 나눔명조, Verdana, Geneva, Arial, sans-serif;
+  font-size: small;
+} 
+
+/* 다른 태그의 폰크 크기 설정 
+   => 구체적으로 폰트의 크기를 지정하기 보다는
+      기준이 되는 폰트 크기의 비율을 지정한다.
  */
 
-/* 상속되는 스타일은 가장 가까운 조상의 스타일을 적용한다. */
-nav {
-  color: blue;
+h1 {
+  /*font-size: 3em;*/   /* 기준 크기 대비 3배 */
+  /*font-size: 400%;*/  /* %를 사용하여 크기를 지정할 수 있다.*/
+  font-size: 50px;      /* 구체적으로 수치를 사용하여 크기를 지정할 수 있다.*/
 }
 
-div {
-  color: red;
-}
 </style>
 
 </head>

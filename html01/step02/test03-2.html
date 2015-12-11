@@ -3,22 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>test03</title>
-<!-- 복합 셀렉터 -->
 
 <style type="text/css">
 /* 복합 셀렉터 사용법 */
-h1, h2 {
-  margin: 0; /* 0는 단위를 붙여도 되고, 붙이지 않아도 된다.*/
+* {
+  margin: 10px;
 }
- 
+
 /* 특정 아이디를 갖는 태그
      . 이미 아이디로 구분할 수 있기 때문에 쓸일이 거의 없다.
      . 그러나 하나의 아이디를 페이지 마다 다른 태그에 적용하는 경우.
  */ 
- 
-nav#n01 { /* n01이라는 아이디를 갖는 nav를 찾아라!*/
+
+/* n01이라는 아이디를 갖는 nav를 찾아라!*/ 
+nav#n01 { 
   background-color: gray;
 } 
+
 p.g2 { /* g2에 속해있는 p태그를 찾아라*/
   color: blue;
 }
@@ -28,33 +29,35 @@ p.g1#p01 {
 }
 
 h2.g2.g3 {
-  border-right-width: 5px;
-  border-left-width: 5px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 10px;
+  border-left-width: 10px;
   border-color: red;
   border-style: solid;
 }
 </style>
- 
+
 </head>
 <body>
-  <div>
-     <h1>h1.....</h1>
-     <nav id="n01">nav...
-       <h2 class="g3 g1">h2.....</h2>
-       <p class="g1">내용 내용 내용 내용 내용</p>
-       <h2 class="g2">h2.....</h2>
-       <p class="g2">내용2 내용2 내용2 내용2 내용2</p>
-     </nav>
-     
-     <h1>h1.....</h1>
-     <nav id="n02">nav...
-       <h2 class="g1 g3">h2.....</h2>
-       <p class="g1">내용3 내용3 내용3 내용3 내용3</p>
-       <h2 class="g2 g3">h2.....</h2>
-       <p class="g2">내용4 내용4 내용4 내용4 내용4</p>
-     </nav>
-     <p class="g1">내용5 내용5 내용5 내용5 내용5</p>
-  </div>
-  <p class="g2 g3">내용6 내용6 내용6 내용6 내용6</p>
+	<div>div..........
+	   <h1>h1..........</h1>
+	   <nav id="n01">nav..........
+	     <h2 class="g3 g1">h2..........</h2>
+	     <p id="p01" class="g1">내용 내용 내용 내용 내용</p>
+	     <h2 class="g2">h2</h2>
+	     <p class="g2">내용2 내용2 내용2 내용2 내용2</p>
+	   </nav>
+	   
+	   <h1>h1..........</h1>
+	   <nav id="n02">nav..........
+	     <h2 class="g1 g3">h2..........</h2>
+	     <p id="p02" class="g1">내용3 내용3 내용3 내용3 내용3</p>
+	     <h2 class="g2 g3">h2..........</h2>
+	     <p class="g2">내용4 내용4 내용4 내용4 내용4</p>
+	   </nav>
+	   <p class="g1">내용5 내용5 내용5 내용5 내용5</p>
+	</div>
+	<p class="g2 g3">내용6 내용6 내용6 내용6 내용6</p>
 </body>
 </html>

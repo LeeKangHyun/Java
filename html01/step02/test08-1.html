@@ -5,21 +5,16 @@
 <title>test04</title>
 
 <style type="text/css">
-/* 스타일 적용 순서
-=> specificity 값이 낮은 곳에서 높은 곳으로 덮어 쓴다.
-=> 기본 순서 
-   1) 가장 가까운 조상의 스타일을 적용한다.
-   2) 마지막에 나오는 스타일을 적용한다. 
- */
+body {
+  font-family: 나눔명조, Verdana, Geneva, Arial, sans-serif;
+  /* 나눔명조 폰트를 사용하라. 
+     없으면, Verdana 폰트를 사용하라!
+     없으면, Geneva를 사용하라.
+     없으면, Arial을 사용하라.
+     없으면, 웹브라우저에 기본 고딕체로 설정된 폰트를 사용하라!
+   */
+} 
 
-/* 상속되는 스타일은 가장 가까운 조상의 스타일을 적용한다. */
-nav {
-  color: blue;
-}
-
-div {
-  color: red;
-}
 </style>
 
 </head>

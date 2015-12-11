@@ -3,56 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <title>test03</title>
-<!-- 복합 셀렉터 -->
 
 <style type="text/css">
 /* 복합 셀렉터 사용법 */
 * {
   /*
   border-style: dotted;
-  border-width: medium;
+  border-width: thick;
   border-color: red;
   */
-  border: dotted thin red;
-  /* margin => 테두리 바깥 여백 지정. 위아래 여백은 겹친다.*/
+  border: thin red dotted ;
+  
+  /* margin => 테두리 바깥 여백 지정. 위 아래 여백은 겹친다.*/
   /*
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 50px;
-  margin-right: 10px; 
+  margin-right: 10px;
   */
   
-  /*margin: 10px 10px 10px 50px;  시계 방향으로 한 번에 값을 지정. */
+  /* 시계 방향으로 한 번에 값을 지정할 수 있다. 12, 3, 6, 9*/
+  /*
+  margin: 10px 10px 10px 50px; 
+  */
   
-  /* 위/아래, 좌/우에 대해 값을 지정할 수 있다. 
-     margin: 10px 50px;*/
+  /* 위/아래, 좌/우에 대해 값을 지정할 수 있다.*/
+  /*
+  margin: 10px 50px;
+  */
   
   /* 사방 테두리 크기가 같다면, 값 한 개만 지정하라.*/
   margin: 10px;
-  
 }
 </style>
- 
+
 </head>
 <body>
-  <div>
-     <h1>h1.....</h1>
-     <nav id="n01">nav...
-       <h2 class="g3 g1">h2.....</h2>
-       <p class="g1">내용 내용 내용 내용 내용</p>
-       <h2 class="g2">h2.....</h2>
-       <p class="g2">내용2 내용2 내용2 내용2 내용2</p>
-     </nav>
-     
-     <h1>h1.....</h1>
-     <nav id="n02">nav...
-       <h2 class="g1 g3">h2.....</h2>
-       <p class="g1">내용3 내용3 내용3 내용3 내용3</p>
-       <h2 class="g2 g3">h2.....</h2>
-       <p class="g2">내용4 내용4 내용4 내용4 내용4</p>
-     </nav>
-     <p class="g1">내용5 내용5 내용5 내용5 내용5</p>
-  </div>
-  <p class="g2 g3">내용6 내용6 내용6 내용6 내용6</p>
+	<div>div..........
+	   <h1>h1..........</h1>
+	   <nav id="n01">nav..........
+	     <h2 class="g3 g1">h2..........</h2>
+	     <p class="g1">내용 내용 내용 내용 내용</p>
+	     <h2 class="g2">h2</h2>
+	     <p class="g2">내용2 내용2 내용2 내용2 내용2</p>
+	   </nav>
+	   
+	   <h1>h1..........</h1>
+	   <nav id="n02">nav..........
+	     <h2 class="g1 g3">h2..........</h2>
+	     <p class="g1">내용3 내용3 내용3 내용3 내용3</p>
+	     <h2 class="g2 g3">h2..........</h2>
+	     <p class="g2">내용4 내용4 내용4 내용4 내용4</p>
+	   </nav>
+	   <p class="g1">내용5 내용5 내용5 내용5 내용5</p>
+	</div>
+	<p class="g2 g3">내용6 내용6 내용6 내용6 내용6</p>
 </body>
 </html>
