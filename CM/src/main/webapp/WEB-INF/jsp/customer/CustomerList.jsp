@@ -94,10 +94,10 @@
 <link rel='stylesheet' type="text/css" href="../css/main.css">
 <script
   src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="./js/jquery.js"></script>
-<script type="text/javascript" src="./js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="./js/jquery-ui-1.8.23.custom.min.js"></script>
-<script type="text/javascript" src="./js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../js/jquery-ui-1.8.23.custom.min.js"></script>
+<script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -261,12 +261,21 @@
 
           <div class="menu-top-menu-container">
             <ul id="top_menu" class="top_nav">
-              <li id="menu-item-3999"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3999"><a
-                href="../auth/login.do">로그인</a></li>
-              <li id="menu-item-4000"
-                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4000"><a
-                href="../customer/add.do">회원가입 </a></li>
+              <c:if test="${not empty loginUser}">
+                <li id="menu-item-3998"
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3998">
+                  ${loginUser.name}님 <a
+                  href="${pageContext.request.contextPath}/auth/logout.do">로그아웃</a>
+                </li>
+              </c:if>
+              <c:if test="${empty loginUser}">
+                <li id="menu-item-4001"
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4001"><a
+                  href="../auth/login.do">로그인</a></li>
+                <li id="menu-item-4000"
+                  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4000"><a
+                  href="../customer/add.do">회원가입</a></li>
+              </c:if>
             </ul>
           </div>
           <div class="extend_top_contact_info top_contact_info"></div>
@@ -274,20 +283,10 @@
       </div>
       <div class="top_bar hasbg">
         <div id="menu_wrapper">
-          <div id="logo_normal" class="logo_container">
-            <div class="logo_align">
-              <a id="custom_logo" class="logo_wrapper hidden"
-                href="http://themes.themegoods2.com/grandrestaurant"> <img
-                src="http://themes.themegoods2.com/grandrestaurant/wp-content/uploads/2015/06/logo@2x.png"
-                alt="Grand Restaurant | Restaurant Theme" width="101"
-                height="34" style="width: 101px; height: 34px;" />
-              </a>
-            </div>
-          </div>
           <div id="logo_transparent" class="logo_container">
             <div class="logo_align">
               <a id="custom_logo_transparent" class="logo_wrapper default"
-                href="http://themes.themegoods2.com/grandrestaurant"> <img
+                href="../customer/list.do"> <img
                 src="http://themes.themegoods2.com/grandrestaurant/wp-content/uploads/2015/06/logo@2x_white.png"
                 alt="Grand Restaurant | Restaurant Theme" width="101"
                 height="34" style="width: 101px; height: 34px;" />
@@ -307,7 +306,7 @@
                   <ul id="main_menu" class="nav">
                     <li id="menu-item-2773"
                       class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home current-menu-ancestor current-menu-parent menu-item-has-children arrow menu-item-2773"><a
-                      href="#">Menu1</a>
+                      href="#">M</a>
                       <ul class="sub-menu">
                         <li id="menu-item-3282"
                           class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-3282"><a
@@ -390,95 +389,6 @@
     </div>
 
 
-    <div class="ppb_wrapper ">
-      <div class="one fullwidth ">
-        <div id="rev_slider_1_1_wrapper"
-          class="rev_slider_wrapper fullscreen-container"
-          style="background-color: #262626; padding: 0px;">
-          <div id="rev_slider_1_1" class="rev_slider fullscreenbanner"
-            style="display: none;">
-            <ul>
-              <li data-transition="zoomin" data-slotamount="7"
-                data-masterspeed="300"
-                data-thumb="http://themes.themegoods2.com/grandrestaurant/wp-content/uploads/2015/06/slide1_bg-320x200.jpg"
-                data-saveperformance="on" data-title="Slide"><img
-                src="http://themes.themegoods2.com/grandrestaurant/wp-content/uploads/2015/06/slide1_bg.jpg"
-                alt="" data-bgposition="center top" data-bgfit="cover"
-                data-bgrepeat="no-repeat">
-                <div class="tp-caption title-first-word tp-fade tp-resizeme"
-                  data-x="90" data-y="center" data-voffset="20" data-speed="300"
-                  data-start="450" data-easing="Power3.easeInOut"
-                  data-splitin="none" data-splitout="none"
-                  data-elementdelay="0.1" data-endelementdelay="0.1"
-                  data-endspeed="300"
-                  style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">Welcome
-                  to</div>
-                <div class="tp-caption title tp-fade tp-resizeme" data-x="90"
-                  data-y="center" data-voffset="80" data-speed="300"
-                  data-start="500" data-easing="Power3.easeInOut"
-                  data-splitin="none" data-splitout="none"
-                  data-elementdelay="0.1" data-endelementdelay="0.1"
-                  data-endspeed="300"
-                  style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
-                  Grand<strong>Restaurant</strong>
-                </div>
-                <div class="tp-caption sub-title tp-fade tp-resizeme"
-                  data-x="90" data-y="center" data-voffset="150" data-speed="300"
-                  data-start="500" data-easing="Power3.easeInOut"
-                  data-splitin="none" data-splitout="none"
-                  data-elementdelay="0.1" data-endelementdelay="0.1"
-                  data-endspeed="300"
-                  style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">
-                  Making The Delicious Premium Food Since 1990<br />Book Online
-                  Or Call (1800)456-6743
-                </div></li>
-              <li data-transition="zoomin" data-slotamount="7"
-                data-masterspeed="300"
-                data-thumb="http://themes.themegoods2.com/grandrestaurant/wp-content/uploads/2015/06/slide1_bg-320x200.jpg"
-                data-saveperformance="on" data-title="Slide"><img
-                src="http://themes.themegoods2.com/grandrestaurant/wp-content/uploads/2015/06/slide1_bg.jpg"
-                alt="" data-bgposition="center top" data-bgfit="cover"
-                data-bgrepeat="no-repeat">
-                <div class="tp-caption title-first-word tp-fade tp-resizeme"
-                  data-x="90" data-y="center" data-voffset="20" data-speed="300"
-                  data-start="450" data-easing="Power3.easeInOut"
-                  data-splitin="none" data-splitout="none"
-                  data-elementdelay="0.1" data-endelementdelay="0.1"
-                  data-endspeed="300"
-                  style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">Welcome
-                  to</div>
-                <div class="tp-caption title tp-fade tp-resizeme" data-x="90"
-                  data-y="center" data-voffset="80" data-speed="300"
-                  data-start="500" data-easing="Power3.easeInOut"
-                  data-splitin="none" data-splitout="none"
-                  data-elementdelay="0.1" data-endelementdelay="0.1"
-                  data-endspeed="300"
-                  style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">
-                  Grand<strong>Restaurant</strong>
-                </div>
-                <div class="tp-caption sub-title tp-fade tp-resizeme"
-                  data-x="90" data-y="center" data-voffset="150" data-speed="300"
-                  data-start="500" data-easing="Power3.easeInOut"
-                  data-splitin="none" data-splitout="none"
-                  data-elementdelay="0.1" data-endelementdelay="0.1"
-                  data-endspeed="300"
-                  style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">
-                  Making The Delicious Premium Food Since 1990<br />Book Online
-                  Or Call (1800)456-6743
-                </div></li>
-            </ul>
-            <div class="tp-bannertimer tp-bottom"
-              style="visibility: hidden !important;"></div>
-          </div>
-
-          <script type="text/javascript">
-
-          </script>
-
-        </div>
-      </div>
-
-
       <div class="info">
 
         <div id="page_caption">
@@ -491,8 +401,6 @@
         </div>
 
       </div>
-
-
 
       <div id="container">
         <div
@@ -514,14 +422,13 @@
           </div>
           <div class="boardList">
             <table border="1" summary="">
-              <caption>회원 목록</caption>
               <colgroup
                 class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
-                <col style="width: 70px;">
-                <col style="width: 134px;">
-                <col style="width: 135px;" class="displaynone">
                 <col style="width: auto;">
-                <col style="width: 84px;">
+                <col style="width: auto;">
+                <col style="width: auto;">
+                <col style="width: auto;">
+                <col style="width: auto;">
                 <col style="width: 80px;" class="">
                 <col style="width: 55px;" class="">
                 <col style="width: 55px;" class="displaynone">
@@ -530,37 +437,31 @@
               <thead
                 class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
                 <tr style="">
-                  <th scope="col">no.</th>
-                  <th scope="col" class="thumb">사진</th>
-                  <th scope="col" class="thumb">성별</th>
-                  <th scope="col" class="displaynone">나이</th>
+                  <th scope="col">id</th>
                   <th scope="col">이름</th>
-                  <th scope="col">조회수</th>
+                  <th scope="col">성별</th>
+                  <th scope="col">나이</th>
+                  <th scope="col">사는곳</th>
                 </tr>
               </thead>
               <tbody
                 class="xans-element- xans-board xans-board-list-4 xans-board-list xans-board-4">
+                <c:forEach var="customer" items="${customers}">
                 <tr style="background-color: #FFFFFF; color: #555555;"
                   class="xans-record-">
-                  <td>1</td>
-                  <td class="thumb"><a href="#"><img
-                      src="./img/photo01.jpg" width="200px" height="150px" border="0" alt=""></a></td>
-                  <td class="displaynone">남자</td>
-                  <td class="subject">20</td>
-                  <td>김****</td>
-                  <td>0</td>
+                  <td><a href="detail.do?id=${customer.id}">${customer.id}</a></td>
+                  <td>${customer.name}</td>
+                  <td>${customer.gender}</td>
+                  <td>${customer.age}</td>
+                  <td>${customer.address}</td>
                 </tr>
-
+                </c:forEach>
               </tbody>
             </table>
           </div>
           <div
             class="xans-element- xans-board xans-board-empty-4 xans-board-empty xans-board-4 boardListEmpty displaynone ">
             <p></p>
-          </div>
-          <div
-            class="xans-element- xans-board xans-board-buttonlist-4 xans-board-buttonlist xans-board-4 displaynone ">
-            <a href="#" class="displaynone">write</a>
           </div>
         </div>
 
@@ -582,14 +483,13 @@
 
 
     </div>
-  </div>
 
   <div class="footer_bar ">
 
     <div class="footer_bar_wrapper ">
       <div id="copyright">© Copyright Couple Manager</div>
       <br class="clear" /> <a id="toTop"><img alt="up"
-        src="./img/up.gif"></a>
+        src="../img/up.gif"></a>
     </div>
   </div>
   <div id="overlay_background"></div>
@@ -662,76 +562,9 @@
     src='http://themes.themegoods2.com/grandrestaurant/wp-content/themes/grandrestaurant/js/custom_onepage.js'></script>
 
 
-
-
-
-
-
-  <h1>회원 목록</h1>
-
-  <form id='form' action='search.do' method='post' enctype="multipart/form-data">
-    <select name="selectgender">
-      <option value="남자">남자</option>
-      <option value="여자">여자</option>
-    </select> <input id='txtselectgender' type="hidden" name='gender' size='10'>
-
-    <select name="selectage">
-      <option value="2">20대</option>
-      <option value="3">30대</option>
-      <option value="4">40대</option>
-      <option value="5">50대</option>
-    </select> <input id='txtselectage' type="hidden" name='age' size='10'> <select
-      name="selectaddress">
-      <option value="서울특별시">서울특별시</option>
-      <option value="경기도">경기도</option>
-      <option value="전라도">전라도</option>
-      <option value="강원도">강원도</option>
-      <option value="경상도">경상도</option>
-      <option value="충청도">충청도</option>
-      <option value="제주도">제주도</option>
-    </select> <input id='txtselectaddress' type="hidden" name='address' size='10'>
-
-    <input type='text' name='id' size='20' placeholder="ID 입력">
-    <p>
-      <button type='submit' onclick="getSelectValue(this.form);">검색</button>
-    </p>
-  </form>
-
-
-  <a href="add.do">회원 추가</a>
-  <a href="recent.do">최신</a>
-  <a href="map.do">지도</a>
-  <table border='1'>
-    <tr>
-      <th>이름</th>
-      <th>나이</th>
-      <th>id</th>
-      <th>주소</th>
-      <th>성별</th>
-    </tr>
-    <c:forEach var="customer" items="${customers}">
-      <tr>
-        <td>${customer.name}</td>
-        <td>${customer.age}</td>
-        <td><a href='detail.do?id=${customer.id}'>${customer.id}</a></td>
-        <td>${customer.address}</td>
-        <td>${customer.gender}</td>
-      </tr>
-    </c:forEach>
-  </table>
-
   <a href="../message/add.do">메세지 보내기</a>
   <a href="../message/list.do">메세지 보관함</a>
 
-  <jsp:include page="../menubar/GoMap.jsp" />
-
-  <script>
-			function getSelectValue(frm) {
-				frm.txtselectgender.value = frm.selectgender.options[frm.selectgender.selectedIndex].value;
-				frm.txtselectage.value = frm.selectage.options[frm.selectage.selectedIndex].value;
-				frm.txtselectaddress.value = frm.selectaddress.options[frm.selectaddress.selectedIndex].value;
-			}
-		</script>
 
 </body>
 </html>

@@ -69,7 +69,7 @@
             '        </div>' + 
             '        <div class="body">' + 
             '            <div class="img">' +
-            '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
+            '                <img src="../img/bit.png" width="73" height="70">' +
             '           </div>' + 
             '            <div class="desc">' + 
             '                <div class="ellipsis">서울특별시 서초구 서초동 1327-14</div>' + 

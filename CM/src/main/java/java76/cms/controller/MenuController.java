@@ -15,4 +15,9 @@ public class MenuController {
   public String map() {
     return "menubar/GoMap";
   }
+  
+  @RequestMapping("main")
+  public String main() {
+    return "menubar/GoHome";
+  }
 }

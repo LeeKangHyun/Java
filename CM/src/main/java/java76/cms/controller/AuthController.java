@@ -56,7 +56,7 @@ public class AuthController {
     }
 
     session.setAttribute("loginUser", customer);
-    return "redirect:../customer/list.do";
+    return "redirect:../menubar/main.do";
   }
   
   @RequestMapping("logout")
