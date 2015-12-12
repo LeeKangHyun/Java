@@ -13,7 +13,6 @@
 <h1>회원 목록</h1>
 <a href="add.do">회원 추가</a>
 <a href="recent.do">최신</a>
-<a href="map.do">지도</a>
 <table border='1'>
 <tr>
 <th>이름</th>

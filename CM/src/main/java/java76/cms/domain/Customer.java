@@ -6,18 +6,34 @@ public class Customer implements Serializable{
   private static final long serialVersionUID = 1L;
 
   protected int no;
+  protected int age;
   protected String name;
   protected String password;
   protected String id;
   protected String address;
   protected String gender;
-  protected int age;
   protected String photo;
+  protected String nature;
+  protected String ideal;
+  @Override
+  public String toString() {
+    return "Customer [no=" + no + ", age=" + age + ", name=" 
+  + name + ", password=" + password + ", id=" + id
+        + ", address=" + address + ", gender=" + gender + ", photo=" 
+  + photo + ", nature=" + nature + ", ideal=" + ideal
+        + "]";
+  }
   public int getNo() {
     return no;
   }
   public void setNo(int no) {
     this.no = no;
+  }
+  public int getAge() {
+    return age;
+  }
+  public void setAge(int age) {
+    this.age = age;
   }
   public String getName() {
     return name;
@@ -49,24 +65,26 @@ public class Customer implements Serializable{
   public void setGender(String gender) {
     this.gender = gender;
   }
-  public int getAge() {
-    return age;
-  }
-  public void setAge(int age) {
-    this.age = age;
-  }
   public String getPhoto() {
     return photo;
   }
   public void setPhoto(String photo) {
     this.photo = photo;
   }
-  @Override
-  public String toString() {
-    return "Customer [no=" + no + ", name=" + name + ", password=" + password + ", id=" + id + ", address=" + address
-        + ", gender=" + gender + ", age=" + age + ", photo=" + photo + "]";
+  public String getNature() {
+    return nature;
   }
-
+  public void setNature(String nature) {
+    this.nature = nature;
+  }
+  public String getIdeal() {
+    return ideal;
+  }
+  public void setIdeal(String ideal) {
+    this.ideal = ideal;
+  }
+  
+  
  
   
 

@@ -42,6 +42,14 @@
 <td><input type='text' name='gender' value='${customer.gender}' size='20' readonly></td>
 </tr>
 <tr>
+<th>성격</th>
+<td><input type='text' name='nature' value='${customer.nature}' size='20' readonly></td>
+</tr>
+<tr>
+<th>이상형</th>
+<td><input type='text' name='ideal' value='${customer.ideal}' size='20' readonly></td>
+</tr>
+<tr>
 <th colspan='2'>프로필 사진</th>
 </tr>
 <tr>
