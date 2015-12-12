@@ -20,13 +20,13 @@
      </tr>
      <tr>
        <th>보낸이</th>
-       <td><input type='text' name='byid' value='<%
+       <td><input type='text' name='byid' value='<%=
        ((Customer)session.getAttribute("loginUser")).getId()%>' size='20' readonly></td>
        
      </tr>
      <tr>
        <th>내용</th>
-       <td><input type='text' name='content' size='20'></td>
+       <td><textarea name='content' cols="30" rows="20"></textarea></td>
      </tr>
     </table>
     <p>
