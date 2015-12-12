@@ -1,0 +1,50 @@
+/*마진과패딩의 초기화 */
+a, abbr, acronym, address, 
+b, blockquote, big, body,
+center, caption, cite, code, command,
+ dd, del, dfn, dl, div, dt, 
+em, embed,
+fieldset, footer, form, 
+h1, h2, h3, h4, h5, h6, header, hgroup, html,
+i, iframe, img,
+label, legend, li, 
+object, ol,
+p, pre, 
+q, 
+s, samp, section, small, span, source, strike, strong, sub, sup,
+table, tbody, tfoot, thead, th, tr, 
+u, ul, 
+var { margin:0; padding:0}
+
+
+h1,h2,h3,h4,h5,h6 {font-size:100% }
+
+
+
+ol, ul {list-style:none}
+
+
+
+address, caption, cite, code, dfn, em, 
+strong, th, var {font-style :normal; font-weight:normal}
+
+
+
+table {border-collapse:collapse; border-spacing:0}
+
+
+
+fieldset, img {border:0}
+
+img, input, button, select, textarea { vertical-align:middle}
+
+
+
+caption, th {text-align:left }
+
+
+
+q:before, q:after {content :''} 
+
+
+.hidden {width:0; height:0; margin:0; padding:0; overflow:hidden; line-height:0; font-size:0; visibility:hidden; position:absolute; left:0; top:0}

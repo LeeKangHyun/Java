@@ -1,32 +1,51 @@
-@charset "utf-8";
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
-@import url(https://fonts.googleapis.com/css?family=Orbitron);
+@charset "utf-8";  /*문자셋 꼭 써준다*/
+body {font-size:12px;  font-family:"돋음","굴림",verdana,arial,sans-serif; color:#333; margin:0 auto;}
+a:link,a:visited{text-decoration:none; color:#333;}
+a:hover,a:active{text-decoration:underline; color:#333;}
+input,textarea,select,option{font-size:12px;  font-family:"돋음","굴림",verdana,arial,sans-serif; color:#333;}
 
-* { margin:0 auto;  padding:0; font-size: 1em;}
-ol,ul { list-style: none; }
-nav .header {font-family: 'Orbitron', serif; text-align: center; font-weight: bold;}
+/*위의셋팅은 그때그때 달라지기에 따로 줌.(고정값아님.)*/
+/*skip*/
+#skip {position:absolute;}
+#skip a{display:block; width:0; height:0; overflow:hidden;}
+#skip a:active,
+#skip a:focus{width:auto;height:auto; padding:6px;}
+/*layout*/
+ 
+.page_content_wrapper img {
+    max-width:none !important;
+    height: auto;
+}
+#baner{width:1245px;  margin:20px 0px 0px -249px; position:relative;}
+#view_box{width:1245px !important;}
+#view_box ul li.view1 a{float:left;}
+#baner #left{width:17px; height:67px; position:absolute; top:200px; left:13px; cursor:pointer;} 
+#baner #right{width:17px; height:67px; position:absolute; top:200px; right:70px; cursor:pointer;} 
 
-hr { margin: 0;	margin-bottom: 15px;	padding: 0; border-top: 1px solid black;}
+.clearfix:after{display: block;content: "" ;clear: both}
+#view_box .gallery{width:4484px; height:483px; position: relative}
+#view_box .gallery li{float:left;}
 
-section { width:100%; position:relative; margin-left: 0; }
-article { float:left; min-height:150px; height: 50%; padding: 15px;}
-article:nth-child(1) { width:60%; height:300px; background:#eee;}
-article:nth-child(2) { width:40%; background:#ddd;}
-article:nth-child(3) { width:40%; background:#ccc; padding: 0;}
-article:nth-child(4) { width:50%; height: 300px; background:#bbb;}
-article:nth-child(5) { width:50%; height: 300px; background:#aaa;}
 
-#news a{ display: block; width: 100%; overflow:hidden; white-space: nowrap; text-overflow:ellipsis;}
 
-#login form input{	top: 0;	width: 68%; }
-#login form .btn-login{	margin-top: -90px;	margin-left: 70%;	width: 30%;	height: 68px;}
-#login .btn-search{	width: 60%;}
-#login .btn-join{	width: 40%;}
 
-@media screen and (max-width:479px) {  
-	article:nth-child(1) { width:100%; height:300px; background:#eee;}
-	article:nth-child(2) { width:100%; background:#ddd;}
-	article:nth-child(3) { width:40%; background:#ccc; padding: 0; display: none;}
-	article:nth-child(4) { width:100%; height: 300px; background:#bbb;}
-	article:nth-child(5) { width:100%; height: 300px; background:#aaa;}
+
+#menu_wrapper .nav li.arrow > a:after, #menu_wrapper div .nav li.arrow > a:after {
+    content: "";
+}
+.sub-menu{
+  opacity:0.7 !important;
+}
+.open_table_field{
+    margin-right: 145px;
+    float: right;
+}
+#menu_wrapper .nav ul li a, #menu_wrapper div .nav li > a {
+    background: none;
+}
+#menu_wrapper .nav ul li ul li a, #menu_wrapper div .nav li ul li a, #menu_wrapper div .nav li.current-menu-parent ul li a {
+    width: 210px;
+}
+#copyright{
+	text-align:center;
 }
