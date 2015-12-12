@@ -1,3 +1,4 @@
+<%@page import="java76.cms.domain.Customer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -483,8 +484,9 @@
   <div id="overlay_background"></div>
   
   <script type="text/javascript">
-    function onAdmin {
-    	  
+    function onAdmin() {
+    	  var id = session.;
+    	  alert(id);
     }
   </script>
 
