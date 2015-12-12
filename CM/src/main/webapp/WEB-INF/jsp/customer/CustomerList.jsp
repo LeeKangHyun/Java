@@ -50,24 +50,24 @@
 <a href="add.do">회원 추가</a>
 <a href="recent.do">최신</a>
 <a href="map.do">지도</a>
-<table border='1'>
-<tr>
-<th>이름</th>
-<th>나이</th>
-<th>id</th>
-<th>주소</th>
-<th>성별</th>
-</tr>
-<c:forEach var="customer" items="${customers}">
-<tr>
-<td>${customer.name}</td>
-<td>${customer.age}</td>
-<td><a href='detail.do?id=${customer.id}'>${customer.id}</a></td>
-<td>${customer.address}</td>
-<td>${customer.gender}</td>
-</tr>
-</c:forEach>
-</table>
+  <table border='1'>
+    <tr>
+      <th>이름</th>
+      <th>나이</th>
+      <th>id</th>
+      <th>주소</th>
+      <th>성별</th>
+    </tr>
+    <c:forEach var="customer" items="${customers}">
+    <tr>
+      <td>${customer.name}</td>
+      <td>${customer.age}</td>
+      <td><a href='detail.do?id=${customer.id}'>${customer.id}</a></td>
+      <td>${customer.address}</td>
+      <td>${customer.gender}</td>
+    </tr>
+    </c:forEach>
+  </table>
 
 <a href="../message/add.do">메세지 보내기</a>
 <a href="../message/list.do">메세지 보관함</a>
