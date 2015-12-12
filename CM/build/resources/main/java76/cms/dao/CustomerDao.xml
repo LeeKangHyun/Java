@@ -13,7 +13,7 @@
 
   <select id="selectList" resultMap="customerMap" parameterType="map">
     select 
-      id, pwd, name, age, address, gender, photo
+      id, pwd, name, age, address, gender, photo, nature, ideal
     from customer
     order by
       <choose>
@@ -28,8 +28,8 @@
   </select>
 
   <insert id="insert" parameterType="customer">
-    insert into customer(id,pwd,name,age,address,gender,photo)
-    value(#{id},sha1(#{password}),#{name},#{age},#{address},#{gender},#{photo})
+    insert into customer(id,pwd,name,age,address,gender,photo,nature,ideal)
+    value(#{id},sha1(#{password}),#{name},#{age},#{address},#{gender},#{photo},#{nature},#{ideal})
   </insert>
 
   <delete id="delete" parameterType="map">
@@ -50,7 +50,7 @@
   
   <select id="selectOne" resultMap="customerMap" parameterType="string">
     select 
-      id, name, age, address, gender, photo
+      id, name, age, address, gender, photo, nature, ideal
     from customer
     where id=#{id}
   </select>
@@ -76,6 +76,18 @@
     limit #{startIndex}, #{length}
   </select>
   
+  <select id="search" resultMap="customerMap" parameterType="map">
+    select 
+      id,
+      age,
+      address,
+      photo 
+  	from customer 
+  	where id like CONCAT('%',#{id},'%') and
+  	age like CONCAT('%',#{age},'%') and
+  	address=#{address} and
+  	gender=#{gender}  
+  </select>
 </mapper>
 
 
