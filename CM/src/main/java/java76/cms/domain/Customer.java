@@ -15,14 +15,6 @@ public class Customer implements Serializable{
   protected String photo;
   protected String nature;
   protected String ideal;
-  @Override
-  public String toString() {
-    return "Customer [no=" + no + ", age=" + age + ", name=" 
-  + name + ", password=" + password + ", id=" + id
-        + ", address=" + address + ", gender=" + gender + ", photo=" 
-  + photo + ", nature=" + nature + ", ideal=" + ideal
-        + "]";
-  }
   public int getNo() {
     return no;
   }
@@ -83,10 +75,12 @@ public class Customer implements Serializable{
   public void setIdeal(String ideal) {
     this.ideal = ideal;
   }
+  @Override
+  public String toString() {
+    return "Customer [no=" + no + ", age=" + age + ", name=" + name + ", password=" + password + ", id=" + id
+        + ", address=" + address + ", gender=" + gender + ", photo=" + photo + ", nature=" + nature + ", ideal=" + ideal
+        + "]";
+  } 
   
-  
- 
-  
-
-
+    
 }

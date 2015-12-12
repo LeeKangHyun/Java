@@ -13,3 +13,12 @@ create table customer (
   primary key(cno, id)
 );
 
+drop table Message;
+create table Message (
+  mno int not null auto_increment primary key,
+  dearid varchar(255) not null,
+  byid varchar(255) not null,
+  content varchar(700),
+  cre_dt datetime
+);
+

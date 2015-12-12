@@ -76,6 +76,18 @@
     limit #{startIndex}, #{length}
   </select>
   
+  <select id="search" resultMap="customerMap" parameterType="map">
+    select 
+      id,
+      age,
+      address,
+      photo 
+  	from customer 
+  	where id like CONCAT('%',#{id},'%') and
+  	age like CONCAT('%',#{age},'%') and
+  	address=#{address} and
+  	gender=#{gender}  
+  </select>
 </mapper>
 
 

@@ -18,20 +18,20 @@
         <td><input type='text' name='name' placeholder="회원 이름을 넣으세요."></td>
       </tr>
       <tr>
-        <th>I  D</th>
-        <td><input type='text' name='id' placeholder="ID를 넣으세요."></td>
+        <th>id</th>
+        <td><input type='text' name='id' size='20'></td>
       </tr>
       <tr>
-        <th>PWD</th>
-        <td><input type='password' name='password' placeholder="비밀번호를 넣으세요."></td>
+        <th>password</th>
+        <td><input type='password' name='password' size='20'></td>
       </tr>
       <tr>
         <th>나이</th>
-        <td><input type='text' name='age'></td>
+        <td><input type='text' name='age' size='20'></td>
       </tr>
       <tr>
         <th>주소</th>
-        <td><input type='text' name='address' placeholder="ex) 서울시, 의정부시, 고양시.."></td>
+        <td><input type='text' name='address' size='20'></td>
       </tr>
       <tr>
         <th>성별</th>
@@ -42,18 +42,16 @@
       </tr>
       <tr>
         <th>성격</th>
-        <td>
-        <input type="radio" value="착함" name='nature' checked="checked">착함
-        <input type="radio" value="능청" name='nature'>능청
-        <input type="radio" value="긍정" name='nature'>긍정
+        <td><input type="radio" value="긍정" name="nature" checked>긍정
+            <input type="radio" value="착함" name="nature">착함
+            <input type="radio" value="활발" name="nature" >활발
         </td>
       </tr>
       <tr>
-        <th>이상형</th>
-        <td>
-        <input type="radio" value="착함" name='ideal' checked="checked">착함
-        <input type="radio" value="능청" name='ideal'>능청
-        <input type="radio" value="긍정" name='ideal'>긍정
+        <th>성격</th>
+        <td><input type="radio" value="긍정" name="ideal" >긍정
+            <input type="radio" value="착함" name="ideal" >착함
+            <input type="radio" value="활발" name="ideal" checked>활발
         </td>
       </tr>
       <tr>

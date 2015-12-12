@@ -150,6 +150,27 @@ public class CustomerController {
 
   }
   
+  @RequestMapping("search")
+  public String search(
+      String id,
+      String address,
+      String age,
+      String gender,
+      HttpServletRequest request) throws Exception {
+	  
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("id", id);
+    paramMap.put("address", address);
+    paramMap.put("age", Integer.parseInt(age));
+    paramMap.put("gender", gender);
+    
+    List<Customer> customers = customerDao.search(paramMap);
+    
+    request.setAttribute("customers", customers);
+
+    return "customer/CustomerSearch";
+  }
+  
 }
 
 
