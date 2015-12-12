@@ -42,16 +42,22 @@
       </tr>
       <tr>
         <th>성격</th>
-        <td><input type="radio" value="긍정" name="nature" checked>긍정
-            <input type="radio" value="착함" name="nature">착함
-            <input type="radio" value="활발" name="nature" >활발
+        <td>
+          <select name="nature">
+            <option value="긍정" selected="selected">긍정</option>
+            <option value="활발">착함</option>
+            <option value="능청">활발</option>
+          </select>
         </td>
       </tr>
       <tr>
-        <th>성격</th>
-        <td><input type="radio" value="긍정" name="ideal" >긍정
-            <input type="radio" value="착함" name="ideal" >착함
-            <input type="radio" value="활발" name="ideal" checked>활발
+        <th>이상형</th>
+        <td>
+          <select name="ideal">
+            <option value="긍정" selected="selected">긍정</option>
+            <option value="활발">착함</option>
+            <option value="능청">활발</option>
+          </select>
         </td>
       </tr>
       <tr>

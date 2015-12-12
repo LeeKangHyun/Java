@@ -47,7 +47,7 @@
     </tr>
     <tr>
       <th>이상형</th>
-      <td><input type='text' name='ideal' value='${customer.ideal}' size='20'></td>
+      <td><input type='text' name='ideal' value='${customer.ideal}' size='20' readonly></td>
     </tr>
     <tr>
       <th colspan='2'>프로필 사진</th>
