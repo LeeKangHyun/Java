@@ -99,6 +99,11 @@
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
+<style>
+.tablefont {
+font-size: large;
+}
+</style>
 
 </head>
 <body class="home page page-id-2 page-template-default">
@@ -127,11 +132,8 @@
   <jsp:include page="../menubar/Header.jsp"/>
 
       <div class="info">
-
         <div id="page_caption">
-
         </div>
-
       </div>
 
       <div id="container">
@@ -153,6 +155,7 @@
               <ul></ul>
             </div>
         
+        <!--  
         <div
           class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 "
           style="padding-left: 400px;">
@@ -160,18 +163,18 @@
             class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
             <div class="path"></div>
             <div class="title">
-              <h2>
-                <font color="#2e2e2e">회원 목록</font>
-              </h2>
 
             </div>
           </div>
+          -->
+          <!--  
           <div class="boardSort">
             <span
               class="xans-element- xans-board xans-board-replysort-4 xans-board-replysort xans-board-4 "></span>
           </div>
-          <div class="boardList">
-            <table border="1" summary="">
+          -->
+          <div class="boardList" >
+            <table border="1" summary="" class="tablefont">
               <colgroup
                 class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
                 <col style="width: auto;">
@@ -215,7 +218,9 @@
           </div>
         </div>
       </div>
+      <!--  
       </div>
+      -->
       
       <div class="one"
         style="padding: 50px 0 70px 0 !important; position: relative; padding: 40px 0 40px 0;">
