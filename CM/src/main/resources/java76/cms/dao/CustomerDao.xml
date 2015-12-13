@@ -92,7 +92,7 @@
   <select id="reco" resultMap="customerMap" parameterType="map">
     select
       id,
-       name,
+      name,
       age,
       address,
       photo
