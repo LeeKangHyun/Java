@@ -155,33 +155,13 @@
             <div id="reponse_msg">
               <ul></ul>
             </div>
-        
-        <div
-          class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 "
-          style="padding-left: 400px;">
-          <div
-            class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
-            <div class="path"></div>
-            <div class="title">
-              <h2>
-                <font color="#2e2e2e">추천 회원 목록</font>
-              </h2>
 
-            </div>
-          </div>
-          <div class="boardSort">
-            <span
-              class="xans-element- xans-board xans-board-replysort-4 xans-board-replysort xans-board-4 "></span>
-          </div>
           <div class="boardList">
+            <c:if test="${not empty customers}">
             <table border="1" summary="">
               <colgroup
                 class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
-                <col style="width: 200px;">
-                <col style="width: auto;" class="thumb">
-                <col style="width: 55px;" class="">
-                <col style="width: 55px;" class="displaynone">
-                <col style="width: 80px;" class="displaynone">
+                <col span="5" style="width: auto;">
               </colgroup>
               <thead
                 class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
@@ -202,12 +182,17 @@
                   <td>${customer.name}</td>
                   <td>${customer.age}</td>
                   <td>${customer.address}</td>
-                  <td><img src="../attachfile/${customer.photo}" width="480px" height="640px"></td>
+                  <td><img src="../attachfile/${customer.photo}" width="100px" height="150px"></td>
                   
                 </tr>
                 </c:forEach>
               </tbody>
             </table>
+            </c:if>
+            
+            <c:if test="${empty customers}">
+              <p>로그인 필요!!</p>
+            </c:if>
           </div>
           <div
             class="xans-element- xans-board xans-board-empty-4 xans-board-empty xans-board-4 boardListEmpty displaynone ">
