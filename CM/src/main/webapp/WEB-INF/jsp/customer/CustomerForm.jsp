@@ -34,7 +34,7 @@
           <div id="reponse_msg">
             <ul></ul>
           </div>
-							  <form id="tg_reservation_form" action='add.do' method='post' enctype="multipart/form-data">
+							  <form id="tg_reservation_form" action='../auth/login.do' method='post' enctype="multipart/form-data">
 							    <table border='1' class="add_box">
 							      <tr>
 							        <th>이름</th>

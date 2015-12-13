@@ -69,7 +69,7 @@
                           href="../customer/recent.do">오늘의 신규 회원</a></li>
                         <li id="menu-item-3896"
                           class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3896"><a
-                          href="../customer/recent.do">추천 회원</a></li>
+                          href="../customer/reco.do">추천 회원</a></li>
                       </ul>
                     </li>
                     <li id="menu-item-3350"

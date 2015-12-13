@@ -41,7 +41,7 @@
         <mvc:mapping path="/**" />
         <bean class="java76.pms.interceptor.AuthInterceptor"/>
     </mvc:interceptor>
-</mvc:interceptors>
+  </mvc:interceptors>
 </beans>
 
 

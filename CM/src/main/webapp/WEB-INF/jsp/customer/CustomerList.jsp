@@ -135,6 +135,24 @@
       </div>
 
       <div id="container">
+      
+      <aside class="side_bar">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#">운영자</a></li>
+            <li><a href="../customer/list.do">1. 회원 관리</a></li>
+            <li><a href="#">2. 운영 현황</a></li>
+          </ul>
+        </aside>
+        
+        <div class="member_box">
+          <div class="reservation_form_wrapper">
+            <h2 class="ppb_title">
+              <span class="update_title">회원 목록</span>
+            </h2>
+            <div id="reponse_msg">
+              <ul></ul>
+            </div>
+        
         <div
           class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 "
           style="padding-left: 400px;">
@@ -197,6 +215,7 @@
           </div>
         </div>
       </div>
+      </div>
       
       <div class="one"
         style="padding: 50px 0 70px 0 !important; position: relative; padding: 40px 0 40px 0;">
@@ -211,6 +230,7 @@
       <br class="clear" /> <a id="toTop"><img alt="up"
         src="../img/up.gif"></a>
     </div>
+  </div>
   </div>
   
   <div id="overlay_background"></div>

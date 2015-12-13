@@ -30,11 +30,10 @@
     </tr>
     <tr>
       <th>사진</th>
-      <td>${customer.photo}</td>
+      <td><img src="../attachfile/${customer.photo}"></td>
     </tr>
     </c:forEach>
   </table>
 </body>
 </html>
 
->
