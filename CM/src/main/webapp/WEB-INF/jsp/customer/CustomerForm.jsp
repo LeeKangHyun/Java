@@ -34,66 +34,6 @@
           <div id="reponse_msg">
             <ul></ul>
           </div>
-          <!--  <form id="tg_reservation_form" method="post">
-                  <input type="hidden" id="action" name="action"
-              value="tg_reservation_mailer">
-            <div class="one_third">
-              <label for="photo">Photo*</label> <input id="photo"
-                name="photo" type="file" class="required_field">
-            </div>
-            <div class="one_third">
-              <label for="ide">Id*</label> <input id="ide"
-                name="ide" type="text" class="required_field">
-            </div>
-            <div class="one_third">
-              <label for="pwd">Password*</label> <input id="pwd" name="pwd"
-                type="password" class="required_field">
-            </div>
-            
-            <div class="one_third">
-              <label for="your_name">Name*</label> <input id="your_name"
-                name="your_name" type="text" class="required_field">
-            </div>
-            <div class="one_third">
-              <label for="email">Age*</label> <input id="email" name="email"
-                type="text" class="required_field">
-            </div>
-            <div class="one_third">
-              <label for="phone">Phone* </label> <input id="phone" name="phone"
-                type="text" class="required_field">
-            </div>
-            
-            <div class="one_third">
-              <label for="addr">Address* </label> <input id="addr" name="addr" 
-                type="text" class="required_field">
-            </div>
-            <div class="one_third">
-              <label for="date" class="hidden">Sex*</label> <input id="sex" name="sex" 
-                type="radio" class="required_field" value="��">Man
-              <input id="sex" name="sex" type="radio" class="required_field" value="��">Woman
-            </div>
-             
-            <br class="clear">
-            <br>
-            <div class="one">
-              <label for="message">Special Requests</label>
-              <textarea id="message" name="message" rows="7" cols="10"></textarea>
-            </div>
-            <br class="clear">
-            <br>
-            <div class="one">
-              <p>
-                <input id="reservation_submit_btn" type="submit"
-                  value="Submit">
-                <input id="reservation_submit_btn" type="reset"
-                  value="Cancle">
-              </p>
-            </div>
-            <br class="clear">
-          </form>
-           -->
-          
-							              <h1 class="hidden">회원 추가</h1>
 							  <form id="tg_reservation_form" action='add.do' method='post' enctype="multipart/form-data">
 							    <table border='1' class="add_box">
 							      <tr>
@@ -162,11 +102,6 @@
 							      <button type='submit' class="btn btn-default">등록</button>
 							    </p>
 							  </form>
-          
-          
-          
-          
-            
         </div>
       </div>
     </div>
