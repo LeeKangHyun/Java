@@ -165,7 +165,7 @@
   
   
   <c:if test='${empty customer}'>
-    <p>없는 학생</p>
+    <jsp:forward page="/CustomerAuthError.jsp"/>
   </c:if>
 
 

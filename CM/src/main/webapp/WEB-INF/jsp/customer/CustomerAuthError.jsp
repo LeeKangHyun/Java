@@ -7,14 +7,14 @@
 <html>
 <head>
 <meta http-equiv="Refresh" content="2; url=list.do" charset='UTF-8'>
-<title>Insert title here</title>
+<title>회원 오</title>
 </head>
 <body>
 
 <p>
   <c:choose>
     <c:when test="${errorCode == '401'}">
-      없는 회원입니다.
+      비밀번호가 틀리거나 입력오류 입니다.
     </c:when>
     <c:otherwise>
       알수 없는 오류입니다.
