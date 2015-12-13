@@ -212,6 +212,7 @@
         src="../img/up.gif"></a>
     </div>
   </div>
+  
   <div id="overlay_background"></div>
 
   <script type='text/javascript'>

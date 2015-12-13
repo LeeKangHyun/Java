@@ -98,7 +98,7 @@
   <input type="hidden" id="pp_footer_style" name="pp_footer_style"
     value="4" />
 
-<jsp:include page="../menubar/Header.jsp"/>
+  <jsp:include page="../menubar/Header.jsp"/>
 
       <div class="info">
 
@@ -107,65 +107,84 @@
         </div>
 
       </div>
-  <h1>회원 상세정보</h1>
-  <c:if test='${not empty customer}'>
-  <form id='form1' action='update.do' method='post'
-        enctype="multipart/form-data">
-  <table border='1'>
-    <tr>
-      <th>이름</th>
-      <td><input type='text' name='name' value='${customer.name}' size='20' readonly></td>
-    </tr>
-    <tr>
-      <th>나이</th>
-      <td><input type='text' name='age' value='${customer.age}' size='20' readonly></td>
-    </tr>
-    <tr>
-      <th>id</th>
-      <td><input type='text' name='id' value='${customer.id}' size='20' readonly></td>
-    </tr>
-    <tr>
-      <th>password</th>
-      <td><input id='inputPassword' type='password' name='password' size='20'></td>
-    </tr>
-    <tr>
-      <th>주소</th>
-      <td><input type='text' name='address' value='${customer.address}' size='20'></td>
-    </tr>
-    <tr>
-      <th>성별</th>
-      <td><input type='text' name='gender' value='${customer.gender}' size='20' readonly></td>
-    </tr>
-    <tr>
-      <th>성격</th>
-      <td><input type='text' name='nature' value='${customer.nature}' size='20' readonly></td>
-    </tr>
-    <tr>
-      <th>이상형</th>
-      <td><input type='text' name='ideal' value='${customer.ideal}' size='20' readonly></td>
-    </tr>
-    <tr>
-      <th colspan='2'>프로필 사진</th>
-    </tr>
-    <tr>
-      <td colspan='2'><img 
-      src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" style='size:313px'></td>
-    </tr>
-    <tr>
-      <th>프로필 변경</th>
-      <td><input type='file' name='photofile' value='사진 변경'><!-- 변경 -->
-          <input type='hidden' name='photo' value='${customer.photo}'></td><!-- 기존 -->
-    </tr>
-  </table>
-  <button name="update" type="submit" class='button1'>변경</button>
-  <a id='aDelete' href='delete.do?id=${customer.id}' 
-  class='button2' onclick='deleteCustomer()'>삭제</a>
-  </form>
-  </c:if>
+      
+    <div id="container">
+        <div
+          class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 "
+          style="padding-left: 400px;">
+          <div
+            class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
+            <div class="path"></div>
+            <div class="title">
+              <h2>
+                <font color="#2e2e2e">회원 상세정보</font>
+              </h2>
+            </div>
+            <c:if test='${not empty customer}'>
+              <form id='form1' action='update.do' method='post'
+                    enctype="multipart/form-data">
+              <table border='1' >
+                <tr>
+                  <th>이름</th>
+                  <td><input type='text' name='name' value='${customer.name}' size='20' readonly></td>
+                </tr>
+                <tr>
+                  <th>나이</th>
+                  <td><input type='text' name='age' value='${customer.age}' size='20' readonly></td>
+                </tr>
+                <tr>
+                  <th>id</th>
+                  <td><input type='text' name='id' value='${customer.id}' size='20' readonly></td>
+                </tr>
+                <tr>
+                  <th>password</th>
+                  <td><input id='inputPassword' type='password' name='password' size='20'></td>
+                </tr>
+                <tr>
+                  <th>주소</th>
+                  <td><input type='text' name='address' value='${customer.address}' size='20'></td>
+                </tr>
+                <tr>
+                  <th>성별</th>
+                  <td><input type='text' name='gender' value='${customer.gender}' size='20' readonly></td>
+                </tr>
+                <tr>
+                  <th>성격</th>
+                  <td><input type='text' name='nature' value='${customer.nature}' size='20' readonly></td>
+                </tr>
+                <tr>
+                  <th>이상형</th>
+                  <td><input type='text' name='ideal' value='${customer.ideal}' size='20' readonly></td>
+                </tr>
+                <tr>
+                  <th colspan='2'>프로필 사진</th>
+                </tr>
+                <tr>
+                  <td colspan='2'><img 
+                  src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" style='size:313px'></td>
+                </tr>
+                <tr>
+                  <th>프로필 변경</th>
+                  <td><input type='file' name='photofile' value='사진 변경'><!-- 변경 -->
+                      <input type='hidden' name='photo' value='${customer.photo}'></td><!-- 기존 -->
+                </tr>
+              </table>
+              <button name="update" type="submit" class='button1'>변경</button>
+              <a id='aDelete' href='delete.do?id=${customer.id}' 
+              class='button2' onclick='deleteCustomer()'>삭제</a>
+              </form>
+            </c:if>
+          </div>
+          
+        </div>
+    </div>
+  
   
   <c:if test='${empty customer}'>
     <p>없는 학생</p>
   </c:if>
+
+
 
 
   <script>
@@ -178,6 +197,21 @@
   }
   </script>
 
+
+    <div class="one"
+        style="padding: 50px 0 70px 0 !important; position: relative; padding: 40px 0 40px 0;">
+        <div class="standard_wrapper">
+          <div class="page_content_wrapper"></div>
+        </div>
+    </div>
+  <div class="footer_bar ">
+
+    <div class="footer_bar_wrapper ">
+      <div id="copyright">© Copyright Couple Manager</div>
+      <br class="clear" /> <a id="toTop"><img alt="up"
+        src="../img/up.gif"></a>
+    </div>
+  </div>
 
   <script type='text/javascript'>
     /* <![CDATA[ */

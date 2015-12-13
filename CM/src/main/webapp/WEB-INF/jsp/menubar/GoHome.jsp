@@ -211,7 +211,7 @@
 
     <div class="footer_bar_wrapper ">
       <div id="copyright">© Copyright Couple Manager</div>
-      <br class="clear" /> <a id="toTop"><img alt="up" src="../img/up.gif"></a>
+      <br class="clear" /><a id="toTop"><img alt="up" src="../img/up.gif"></a>
     </div>
   </div>
   
