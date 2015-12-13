@@ -174,17 +174,17 @@ public class CustomerController {
   
   @RequestMapping("reco")
   public String reco(
-      Customer customer,
+      Customer customer2,
       HttpServletRequest request,
       HttpSession session) {
+
+    customer2 = (Customer)session.getAttribute("loginUser");
     
-    customer = (Customer)session.getAttribute("loginUser");
+    Customer customer = customerDao.selectOne(customer2.getId());
     
     HashMap<String,Object> paramMap = new HashMap<>();
     paramMap.put("ideal", customer.getIdeal());
     paramMap.put("address", customer.getAddress());
-    paramMap.put("age", customer.getAge());
-    paramMap.put("gender", customer.getGender());
     paramMap.put("id", customer.getId());
     
     List<Customer> customers = customerDao.reco(paramMap);

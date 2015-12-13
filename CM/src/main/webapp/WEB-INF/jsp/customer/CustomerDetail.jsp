@@ -74,7 +74,7 @@
 <script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  
+
   <style>
     li {
       list-style: none;
@@ -109,12 +109,120 @@
       <div class="info">
 
         <div id="page_caption">
-
+          <div class="page_title_wrapper">
+            <div class="page_title_inner">
+              <h1>My Page</h1>
+            </div>
+            <br class="clear">
+          </div>
         </div>
 
       </div>
       
     <div id="container">
+        <aside class="side_bar">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Menu 1</a></li>
+            <li><a href="#">Menu 2</a></li>
+            <li><a href="#">Menu 3</a></li>
+            <li><a href="#">Menu 4</a></li>
+          </ul>
+        </aside>
+          
+          
+          <div class="member_box">
+          <div class="reservation_form_wrapper">
+            <h2 class="ppb_title">
+              <span class="update_title">회원 상세정보</span>
+            </h2>
+            <div id="reponse_msg">
+              <ul></ul>
+            </div>
+            
+            <div class="tg_reservation_form">
+	            <c:if test='${not empty customer}'>
+	              <form id='form1' action='update.do' method='post'
+	                    enctype="multipart/form-data">
+	                <ul class="updt_box">
+	                  <li>이름: <input type='text' name='name' value='${customer.name}' size='20' readonly></li>
+	                  <li>나이: <input type='text' name='age' value='${customer.age}' size='20' readonly></li>
+	                  <li>id: <input type='text' name='id' value='${customer.id}' size='20' readonly></li>
+	                  <li>password: <input id='inputPassword' type='password' name='password' size='20'></li>
+	                  <li>성별: <input type='text' name='gender' value='${customer.gender}' size='20' readonly></li>
+	                  <li>성격: <input type='text' name='nature' value='${customer.nature}' size='20' readonly></li>
+	                  <li>이상형: <input type='text' name='ideal' value='${customer.ideal}' size='20' readonly></li>
+	                  <li>주소: <input type='text' name='address' value='${customer.address}' size='40'></li>
+	                  <li>프로필 사진</li>
+	                  <li><img 
+	                  src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" style='size:313px'></li>
+	                  <li>프로필 변경: <input type='file' name='photofile' value='사진 변경'><!-- 변경 -->
+	                      <input type='hidden' name='photo' value='${customer.photo}'></li><!-- 기존 -->
+	                </ul>      
+	              <button  name="update" type="submit" class="btn btn-primary">변경</button>
+	              <a id='aDelete' href='delete.do?id=${customer.id}' class="btn btn-danger" onclick='deleteCustomer()'>삭제</a>
+	              </form>
+	            </c:if>
+            </div>
+            
+            
+            <!-- 
+            <form id="tg_reservation_form" method="post">
+              <div class="one_third1">
+              <img alt="사진" src="" width="120" height="160">
+                <label for="photo">photo</label>
+                <input id="photo" name="photo" type="file" class="required_field"> 
+                <input id="photo" name="photo" type="hidden" class="required_field"> 
+              </div><br>
+              
+            <div class="list_box">  
+                <div class="one_third2">
+                  <label for="ide">아이디: </label><input id="ide" name="ide" type="text" class="required_field">
+                </div> <br>
+                <div class="one_third3">
+                  <label for="sex">성별: </label><input id="sex" name="sex" type="radio" class="required_field" value="남">남,
+                  <input id="sex" name="sex" type="radio" class="required_field" value="여"> 여
+                </div><br>
+                <div class="one_third4">
+                  <label for="name">이름: </label><input id="name"
+                    name="name" type="text" class="required_field">
+                </div><br>
+                <div class="one_third5">
+                  <label for="age">나이: </label> <input id="age"
+                    name="age" type="text" class="required_field">
+                </div><br>
+                <div class="one_third6">
+                  <label for="addr">주소: </label> 
+                  <input id="addr" name="addr" type="text" class="required_field">
+                </div><br>
+                <div class="one_third7">
+                  <label for="phone">Phone: </label> <input id="phone" name="phone"
+                    type="text" class="required_field">
+                </div><br>
+                <div class="one_third8">
+                  <label for="pwd">password: </label> <input id="pwd"
+                    name="pwd" type="password" class="required_field">
+                </div><br>
+                <div class="one_third9">
+                  <label for="message">내용: </label>
+                  <textarea id="message" name="message" rows="7" cols="10"></textarea>
+                </div><br>
+              
+             </div>
+
+              <div class="one">
+                <p>
+                  <input id="reservation_submit_btn" type="submit"
+                    value="submit">
+                  <input id="reservation_submit_btn" type="reset"
+                    value="cencle">
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        
         <div
           class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 "
           style="padding-left: 400px;">
@@ -150,8 +258,8 @@
                   <li><img 
                   src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" style='size:313px'></li>
                   <li>프로필 변경</li>
-                  <li><input type='file' name='photofile' value='사진 변경'><!-- 변경 -->
-                      <input type='hidden' name='photo' value='${customer.photo}'></li><!-- 기존 -->
+                  <li><input type='file' name='photofile' value='사진 변경'>// 변경
+                      <input type='hidden' name='photo' value='${customer.photo}'></li> //기존 
                 </ul>      
               <button name="update" type="submit" class='button1'>변경</button>
               <a id='aDelete' href='delete.do?id=${customer.id}' 
@@ -159,13 +267,15 @@
               </form>
             </c:if>
           </div>
+           -->
+          
           
         </div>
     </div>
-  
+  </div>
   
   <c:if test='${empty customer}'>
-    <jsp:forward page="/CustomerAuthError.jsp"/>
+    <p>없는 학생</p>
   </c:if>
 
 
