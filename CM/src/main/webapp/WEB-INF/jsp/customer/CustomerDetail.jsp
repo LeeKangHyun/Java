@@ -74,6 +74,12 @@
 <script type="text/javascript" src="../js/jquery-migrate-1.2.1.min.js"></script>
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  
+  <style>
+    li {
+      list-style: none;
+    }
+  </style>
 </head>
 <body class="home page page-id-2 page-template-default">
 <input type="hidden" id="pp_menu_layout" name="pp_menu_layout" />
@@ -123,52 +129,30 @@
             <c:if test='${not empty customer}'>
               <form id='form1' action='update.do' method='post'
                     enctype="multipart/form-data">
-              <table border='1' >
-                <tr>
-                  <th>이름</th>
-                  <td><input type='text' name='name' value='${customer.name}' size='20' readonly></td>
-                </tr>
-                <tr>
-                  <th>나이</th>
-                  <td><input type='text' name='age' value='${customer.age}' size='20' readonly></td>
-                </tr>
-                <tr>
-                  <th>id</th>
-                  <td><input type='text' name='id' value='${customer.id}' size='20' readonly></td>
-                </tr>
-                <tr>
-                  <th>password</th>
-                  <td><input id='inputPassword' type='password' name='password' size='20'></td>
-                </tr>
-                <tr>
-                  <th>주소</th>
-                  <td><input type='text' name='address' value='${customer.address}' size='20'></td>
-                </tr>
-                <tr>
-                  <th>성별</th>
-                  <td><input type='text' name='gender' value='${customer.gender}' size='20' readonly></td>
-                </tr>
-                <tr>
-                  <th>성격</th>
-                  <td><input type='text' name='nature' value='${customer.nature}' size='20' readonly></td>
-                </tr>
-                <tr>
-                  <th>이상형</th>
-                  <td><input type='text' name='ideal' value='${customer.ideal}' size='20' readonly></td>
-                </tr>
-                <tr>
-                  <th colspan='2'>프로필 사진</th>
-                </tr>
-                <tr>
-                  <td colspan='2'><img 
-                  src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" style='size:313px'></td>
-                </tr>
-                <tr>
-                  <th>프로필 변경</th>
-                  <td><input type='file' name='photofile' value='사진 변경'><!-- 변경 -->
-                      <input type='hidden' name='photo' value='${customer.photo}'></td><!-- 기존 -->
-                </tr>
-              </table>
+                <ul>
+                  <li>이름</li>
+                  <li><input type='text' name='name' value='${customer.name}' size='20' readonly></li>
+                  <li>나이</li>
+                  <li><input type='text' name='age' value='${customer.age}' size='20' readonly></li>
+                  <li>id</li>
+                  <li><input type='text' name='id' value='${customer.id}' size='20' readonly></li>
+                  <li>password</li>
+                  <li><input id='inputPassword' type='password' name='password' size='20'></li>
+                  <li>주소</li>
+                  <li><input type='text' name='address' value='${customer.address}' size='20'></li>
+                  <li>성별</li>
+                  <li><input type='text' name='gender' value='${customer.gender}' size='20' readonly></li>
+                  <li>성격</li>
+                  <li><input type='text' name='nature' value='${customer.nature}' size='20' readonly></li>
+                  <li>이상형</li>
+                  <li><input type='text' name='ideal' value='${customer.ideal}' size='20' readonly></li>
+                  <li>프로필 사진</li>
+                  <li><img 
+                  src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" style='size:313px'></li>
+                  <li>프로필 변경</li>
+                  <li><input type='file' name='photofile' value='사진 변경'><!-- 변경 -->
+                      <input type='hidden' name='photo' value='${customer.photo}'></li><!-- 기존 -->
+                </ul>      
               <button name="update" type="submit" class='button1'>변경</button>
               <a id='aDelete' href='delete.do?id=${customer.id}' 
               class='button2' onclick='deleteCustomer()'>삭제</a>
