@@ -24,4 +24,6 @@ public interface CustomerDao {
   List<Customer> search(Map<String,Object> paramMap);
   
   List<Customer> reco(Map<String,Object> paramMap);
+  
+  Customer popup(String id);
 }

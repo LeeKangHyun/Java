@@ -1,3 +1,4 @@
+<%@page import="java76.cms.domain.Customer"%>
 <%@ page language="java" 
     contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -143,6 +144,7 @@
             </div>
 
           <div class="boardList">
+            <form name="evt" id="evt" method="post">
             <table border="1" summary="">
               <colgroup
                 class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
@@ -164,7 +166,7 @@
                 <c:forEach var="customer" items="${customers}">
                 <tr style="background-color: #FFFFFF; color: #555555;"
                   class="xans-record-">
-                  <td><a href="detail.do?id=${customer.id}">${customer.id}</a></td>
+                  <td><a onclick="javascript:popup(document.evt.id.value);"><input type="hidden" name='id' id='id' value="${customer.id}">${customer.id}</a></td>
                   <td>${customer.name}</td>
                   <td>${customer.gender}</td>
                   <td>${customer.age}</td>
@@ -174,6 +176,7 @@
                 </c:forEach>
               </tbody>
             </table>
+            </form>
           </div>
           <div
             class="xans-element- xans-board xans-board-empty-4 xans-board-empty xans-board-4 boardListEmpty displaynone ">
@@ -197,7 +200,14 @@
         src="../img/up.gif"></a>
     </div>
   </div>
-  </div>
+  
+  <script>
+    function popup(value1) {
+    	var name = "popup";
+    	
+    	window.open(encodeURI("popup.do?id="+value1+""),name,"width=500, height=500, menubar=no status=no");
+    }
+  </script>
   
   <script type='text/javascript'>
     /* <![CDATA[ */

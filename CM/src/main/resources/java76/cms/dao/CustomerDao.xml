@@ -99,6 +99,18 @@
     from customer
     where nature=#{ideal} and address=#{address} and id!=#{id}
   </select>
+  
+  <select id="popup" resultMap="customerMap" parameterType="String">
+    select
+      id,
+      name,
+      age,
+      address,
+      photo
+    from customer
+    where id=#{id}
+  </select>
+  
 </mapper>
 
 

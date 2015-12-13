@@ -194,6 +194,16 @@ public class CustomerController {
     return "customer/CustomerReco";
   }
   
+  @RequestMapping("popup")
+  public String popup(
+      String id, Model model) throws Exception {
+
+    Customer customer = customerDao.popup(id);
+    model.addAttribute("customer", customer);
+    
+    return "customer/CustomerPopup";
+  }
+  
 }
 
 
