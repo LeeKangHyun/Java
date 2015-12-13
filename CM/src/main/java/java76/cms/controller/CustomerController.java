@@ -56,7 +56,7 @@ public class CustomerController {
     return "customer/CustomerForm";
   }
 
-  @RequestMapping("add")
+  @RequestMapping(value="add", method=RequestMethod.POST)
   public String add(
       Customer customer, MultipartFile photofile) throws Exception {
 
@@ -71,7 +71,7 @@ public class CustomerController {
     
     customerDao.insert(customer);
 
-    return "redirect:list.do";
+    return "redirect:../auth/login.do";
   }
   
   @RequestMapping("detail")
