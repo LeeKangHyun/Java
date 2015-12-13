@@ -156,6 +156,7 @@
                   <th scope="col">성별</th>
                   <th scope="col">나이</th>
                   <th scope="col">사는곳</th>
+                  <th scope="col">사진</th>
                 </tr>
               </thead>
               <tbody
@@ -168,6 +169,7 @@
                   <td>${customer.gender}</td>
                   <td>${customer.age}</td>
                   <td>${customer.address}</td>
+                  <td><img src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" width="100px" height="150px"></td>
                 </tr>
                 </c:forEach>
               </tbody>
