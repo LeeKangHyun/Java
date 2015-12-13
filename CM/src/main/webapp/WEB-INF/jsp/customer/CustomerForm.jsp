@@ -144,8 +144,8 @@
         <td>
           <select name="nature">
             <option value="긍정" selected="selected">긍정</option>
-            <option value="활발">착함</option>
-            <option value="능청">활발</option>
+            <option value="착함">착함</option>
+            <option value="활발">활발</option>
           </select>
         </td>
       </tr>
@@ -154,8 +154,8 @@
         <td>
           <select name="ideal">
             <option value="긍정" selected="selected">긍정</option>
-            <option value="활발">착함</option>
-            <option value="능청">활발</option>
+            <option value="착함">착함</option>
+            <option value="활발">활발</option>
           </select>
         </td>
       </tr>
