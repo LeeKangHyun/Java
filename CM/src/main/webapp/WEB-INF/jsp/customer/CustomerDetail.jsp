@@ -118,14 +118,6 @@
         </div>
 
       </div>
-      
-    div class="info">
-
-        <div id="page_caption">
-
-        </div>
-
-      </div>
 
       <div id="container">
       
@@ -179,7 +171,7 @@
                     <li>주소: &emsp;&emsp; <input type='text' name='address' value='${customer.address}' size='40'></li>
                     <li>프로필 사진</li>
                     <li><img 
-                    src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" style='size:313px'></li>
+                    src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" style='width:640px; height:480;'></li>
                     <li>프로필 변경: <input type='file' name='photofile' value='사진 변경'><!-- 변경 -->
                         <input type='hidden' name='photo' value='${customer.photo}'></li><!-- 기존 -->
                   </ul>      
@@ -196,7 +188,7 @@
         </div>
       </div>
       </div>  
-      
+      </div>
             
             
 
