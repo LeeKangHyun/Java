@@ -7,7 +7,6 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -170,28 +169,6 @@ public class CustomerController {
     request.setAttribute("customers", customers);
 
     return "customer/CustomerSearch";
-  }
-  
-  @RequestMapping("reco")
-  public String reco(
-      Customer customer2,
-      HttpServletRequest request,
-      HttpSession session) {
-
-    customer2 = (Customer)session.getAttribute("loginUser");
-    
-    Customer customer = customerDao.selectOne(customer2.getId());
-    
-    HashMap<String,Object> paramMap = new HashMap<>();
-    paramMap.put("ideal", customer.getIdeal());
-    paramMap.put("address", customer.getAddress());
-    paramMap.put("id", customer.getId());
-    
-    List<Customer> customers = customerDao.reco(paramMap);
-    
-    request.setAttribute("customers", customers);
-    
-    return "customer/CustomerReco";
   }
   
 }

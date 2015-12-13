@@ -22,6 +22,4 @@ public interface CustomerDao {
   List<Customer> recent(Map<String,Object> paramMap);
   
   List<Customer> search(Map<String,Object> paramMap);
-  
-  List<Customer> reco(Map<String,Object> paramMap);
 }

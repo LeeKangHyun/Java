@@ -35,8 +35,8 @@
           <div id="logo_normal" class="logo_container">
             <div class="logo_align">
               <a id="custom_logo" class="logo_wrapper hidden"
-                href="../menubar/main.do"> <img
-                src="../img/bit.png"
+                href="http://themes.themegoods2.com/grandrestaurant"> <img
+                src="http://themes.themegoods2.com/grandrestaurant/wp-content/uploads/2015/06/logo@2x.png"
                 alt="Grand Restaurant | Restaurant Theme" width="101"
                 height="34" style="width: 101px; height: 34px;" />
               </a>
@@ -96,7 +96,7 @@
                           href="#">질문과 답변</a></li>
                         <li id="menu-item-2838"
                           class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2838"><a
-                          href="map.do">찾아오시는 길</a></li>
+                          href="../menubar/map.do">찾아오시는 길</a></li>
                       </ul>
                     </li>
 

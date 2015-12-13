@@ -57,7 +57,7 @@
   
   <select id="login" resultMap="customerMap" parameterType="String">
     select 
-      id, pwd, name, age, address, gender, photo, nature, ideal
+      id, pwd, name, age, address, gender, photo
     from customer
     where id=#{id} and (pwd is null or pwd=sha1(#{password}))
   </select>
@@ -84,20 +84,9 @@
       photo 
   	from customer 
   	where id like CONCAT('%',#{id},'%') and
-  	age like CONCAT(#{age},'%') and
+  	age like CONCAT('%',#{age},'%') and
   	address=#{address} and
   	gender=#{gender}  
-  </select>
-  
-  <select id="reco" resultMap="customerMap" parameterType="map">
-    select
-      id,
-       name,
-      age,
-      address,
-      photo
-    from customer
-    where nature=#{ideal} and address=#{address} and id!=#{id}
   </select>
 </mapper>
 

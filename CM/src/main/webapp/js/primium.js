@@ -6,7 +6,7 @@ $(function(){
 			              .css("overflow","hidden")  
 			         
 			var cnt=0, timerID = 0 , delay = 3000 
-			var arrX =[0,-1245,-2490,-3535]
+			var arrX =[0,-1245,-2490,-3735]
 			// var arrURL = []
 // 			
 			// arrURL[0] ="#pr_baner1"
