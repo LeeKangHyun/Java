@@ -11,7 +11,7 @@
 </head>
 <body>
   <table border="1">
-    <c:forEach var="customer" items="customers">
+    <c:forEach var="customer" items="${customers}">
     <tr>
       <th>이름</th>
       <td>${customer.name}</td>

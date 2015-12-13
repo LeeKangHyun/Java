@@ -16,14 +16,14 @@ input,textarea,select,option{font-size:12px;  font-family:"돋음","굴림",verd
     max-width:none !important;
     height: auto;
 }
-#baner{width:1245px;  margin: 20px 0px 0px -249px; position:relative;}
+#baner{width:1245px;  margin:20px 0px 0px -249px; position:relative;}
 #view_box{width:1245px !important;}
 #view_box ul li.view1 a{float:left;}
 #baner #left{width:17px; height:67px; position:absolute; top:200px; left:13px; cursor:pointer;} 
 #baner #right{width:17px; height:67px; position:absolute; top:200px; right:70px; cursor:pointer;} 
 
 .clearfix:after{display: block;content: "" ;clear: both}
-#view_box .gallery{width:4484px; height:483px; position: relative}
+#view_box .gallery{width:4980px; height:483px; position: relative}
 #view_box .gallery li{float:left;}
 
 
@@ -37,7 +37,7 @@ input,textarea,select,option{font-size:12px;  font-family:"돋음","굴림",verd
   opacity:0.7 !important;
 }
 .open_table_field{
-    margin-right: 145px;
+    margin-right: 260px;
     float: right;
 }
 #menu_wrapper .nav ul li a, #menu_wrapper div .nav li > a {
@@ -48,4 +48,40 @@ input,textarea,select,option{font-size:12px;  font-family:"돋음","굴림",verd
 }
 #copyright{
 	text-align:center;
+}
+input[type=file] {
+     display: inline;
+}
+.update_title {
+	  display: block;
+    font-family: 'Kristi','Times New Roman',Georgia,Times,serif;
+    font-size: 70px;
+    text-transform: none;
+    top: 0;
+    position: relative;
+    color: #cfa670;
+    letter-spacing: 0 !important;
+    font-weight: normal;
+    line-height: 50px;
+    text-transform: lowercase;
+    margin: 30px 0 40px 150px;
+}
+.updt_box {
+	margin-bottom: 25px;
+}
+.updt_box li {
+	margin-bottom:10px;
+	font-size: 1.2em;
+}
+.updt_box li:nth-child(3) {
+	padding-left:15px;
+}
+.updt_box li:nth-child(4) {
+ padding-right: 40px;
+}
+.updt_box li:nth-child(7) {
+ padding-right: 15px;
+}
+.updt_box li:nth-child(8) {
+ padding-right: 160px;
 }

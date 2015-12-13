@@ -1,7 +1,8 @@
 @CHARSET "EUC-KR";
 
 body {
-	background-image: url("../img/love03.jpg");
+	  background-image: url("http://themes.themegoods2.com/grandrestaurant/wp-content/uploads/2015/06/paper_bg.png");
+	/*background-image: url("../imgbak/img/love03.jpg");*/
 }
 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
@@ -57,6 +58,22 @@ div.aligncenter, img.aligncenter {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.add_box {
+	margin:10px auto;
+}
+
+.add_box th {
+	color:#545353;
+}
+
+.add_box tr td th {
+	padding:15px !important;
+}
+
+.add_box td {
+	color: #333;
 }
 
 .wp-caption {
@@ -7957,9 +7974,9 @@ input[type=submit].center, input[type=button].center, a.button.center {
 	width: 100%;
 	height: 100%;
 	z-index: 999;
-	background: #000;
+	/*background: #000;
 	background: rgb(0, 0, 0, 0.85);
-	background: rgba(0, 0, 0, 0.85);
+	background: rgba(0, 0, 0, 0.85);*/
 	display: none;
 }
 
@@ -8026,7 +8043,7 @@ input[type=submit].center, input[type=button].center, a.button.center {
 	background: transparent !important;
 	border: 0;
 	border-bottom: 1px solid #fff;
-	color: #fff;
+	color: #ABABAB;
 	width: 100%;
 	border-radius: 0;
 }
@@ -8335,7 +8352,7 @@ table tr td {
 }
 
 table tr th, table tr td {
-	padding: 20px;
+	padding: 15px;
 	text-align: left;
 	border-bottom: 1px solid #e1e1e1;
 }
