@@ -35,8 +35,8 @@
           <div id="logo_normal" class="logo_container">
             <div class="logo_align">
               <a id="custom_logo" class="logo_wrapper hidden"
-                href="http://themes.themegoods2.com/grandrestaurant"> <img
-                src="http://themes.themegoods2.com/grandrestaurant/wp-content/uploads/2015/06/logo@2x.png"
+                href="../menubar/main.do"> <img
+                src="../img/bit.png"
                 alt="Grand Restaurant | Restaurant Theme" width="101"
                 height="34" style="width: 101px; height: 34px;" />
               </a>
