@@ -9,6 +9,7 @@
 <head>
 <meta charset='UTF-8'>
 <title>My page</title>
+<
 <link rel="stylesheet" type="text/css" href="../css/common.css">
 <link rel='stylesheet' id='tp-kristi-css'
   href='http://fonts.googleapis.com/css?family=Kristi' type='text/css'
@@ -75,11 +76,16 @@
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-  <style>
-    li {
-      list-style: none;
-    }
-  </style>
+<style>
+  li {
+    list-style: none;
+  }
+  
+  .infobox {
+    text-align: left;
+  }
+  
+</style>
 </head>
 <body class="home page page-id-2 page-template-default">
 <input type="hidden" id="pp_menu_layout" name="pp_menu_layout" />
@@ -110,9 +116,6 @@
 
         <div id="page_caption">
           <div class="page_title_wrapper">
-            <div class="page_title_inner">
-              <h1>My Page</h1>
-            </div>
             <br class="clear">
           </div>
         </div>
@@ -123,60 +126,64 @@
       
       <aside class="side_bar">
           <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#">운영자</a></li>
-            <li><a href="../customer/list.do">1. 회원 관리</a></li>
-            <li><a href="#">2. 운영 현황</a></li>
+            <li class="active"><a href="#">회원</a></li>
+            <li><a href="#">1. My Page</a></li>
+            <li><a href="../customer/recent.do">2. 오늘의 신규 회원</a></li>
+            <li><a href="../customer/reco.do">3. 추천 회원</a></li>
           </ul>
         </aside>
         
         <div class="member_box">
           <div class="reservation_form_wrapper">
             <h2 class="ppb_title">
-              <span class="update_title">회원 목록</span>
+              <span class="update_title">마이 페이지</span>
             </h2>
             <div id="reponse_msg">
               <ul></ul>
             </div>
         
+        <!--
         <div
           class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 "
           style="padding-left: 400px;">
-          <div
+          -->
+          <!--  <div
             class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
             <div class="path"></div>
-            <div class="title">
-              <h2>
-                <font color="#2e2e2e">회원 목록</font>
-              </h2>
-
-            </div>
+            <div class="title"></div>
           </div>
+          -->
+          
+          <!--  
           <div class="boardSort">
             <span
               class="xans-element- xans-board xans-board-replysort-4 xans-board-replysort xans-board-4 "></span>
           </div>
+          -->
+          
+          
           <div class="boardList">
             <div class="tg_reservation_form">
               <c:if test='${not empty customer}'>
-                <form id='form1' action='update.do' method='post'
-                      enctype="multipart/form-data">
-                  <ul class="updt_box">
-                    <li>이름: &emsp;&emsp;&emsp; <input type='text' name='name' value='${customer.name}' size='20' readonly></li>
-                    <li>나이: &emsp;&emsp;&emsp; <input type='text' name='age' value='${customer.age}' size='20' readonly></li>
-                    <li>id: &emsp;&emsp;&emsp; <input type='text' name='id' value='${customer.id}' size='20' readonly></li>
-                    <li>password: &emsp; <input id='inputPassword' type='password' name='password' size='20'></li>
-                    <li>성별: &emsp;&emsp;&emsp; <input type='text' name='gender' value='${customer.gender}' size='20' readonly></li>
-                    <li>성격: &emsp;&emsp;&emsp; <input type='text' name='nature' value='${customer.nature}' size='20' readonly></li>
-                    <li>이상형: &emsp; <input type='text' name='ideal' value='${customer.ideal}' size='20' readonly></li>
-                    <li>주소: &emsp;&emsp; <input type='text' name='address' value='${customer.address}' size='40'></li>
+                <form id='form1' action='update.do' method='post' enctype="multipart/form-data">
+                  <ul class="updt_box" >
+                  <div class="infobox">
+                    <li>이름: &emsp;&emsp;&emsp;&emsp;&emsp; <input type='text' name='name' value='${customer.name}' size='20' readonly></li>
+                    <li>나이: &emsp;&emsp;&emsp;&emsp;&emsp; <input type='text' name='age' value='${customer.age}' size='20' readonly></li>
+                    <li>id: &emsp;&emsp;&emsp;&emsp;&emsp; <input type='text' name='id' value='${customer.id}' size='20' readonly></li>
+                    <li>password: &emsp;&emsp; <input id='inputPassword' type='password' name='password' size='20'></li>
+                    <li>성별: &emsp;&emsp;&emsp;&emsp;&emsp; <input type='text' name='gender' value='${customer.gender}' size='20' readonly></li>
+                    <li>성격: &emsp;&emsp;&emsp;&emsp;&emsp; <input type='text' name='nature' value='${customer.nature}' size='20' readonly></li>
+                    <li>이상형: &emsp;&emsp;&emsp;&emsp; <input type='text' name='ideal' value='${customer.ideal}' size='20' readonly></li>
+                    <li>주소: &emsp;&emsp;&emsp;&emsp;&emsp; <input type='text' name='address' value='${customer.address}' size='40'></li>
                     <li>프로필 사진</li>
-                    <li><img 
-                    src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" style='width:640px; height:480;'></li>
-                    <li>프로필 변경: <input type='file' name='photofile' value='사진 변경'><!-- 변경 -->
+                    <li><img src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" style='width:400px; height:300px;'></li>
+                    <li>프로필 변경: &emsp; <input type='file' name='photofile' value='사진 변경'><!-- 변경 -->
                         <input type='hidden' name='photo' value='${customer.photo}'></li><!-- 기존 -->
-                  </ul>      
+                  </ul>
                 <button  name="update" type="submit" class="btn btn-primary">변경</button>
                 <a id='aDelete' href='delete.do?id=${customer.id}' class="btn btn-danger" onclick='deleteCustomer()'>삭제</a>
+                    </div>
                 </form>
               </c:if>
             </div>
@@ -188,8 +195,9 @@
         </div>
       </div>
       </div>  
+      <!--
       </div>
-            
+        -->    
             
 
   
