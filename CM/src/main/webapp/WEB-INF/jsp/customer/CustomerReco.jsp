@@ -182,7 +182,7 @@
                   <td>${customer.name}</td>
                   <td>${customer.age}</td>
                   <td>${customer.address}</td>
-                  <td><img src="../attachfile/${customer.photo}" width="100px" height="150px"></td>
+                  <td><img src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" width="100px" height="150px"></td>
                   
                 </tr>
                 </c:forEach>

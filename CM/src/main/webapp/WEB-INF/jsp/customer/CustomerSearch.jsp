@@ -154,29 +154,44 @@
       <div class="member_box">
           <div class="reservation_form_wrapper">
             <h2 class="ppb_title">
-              <span class="update_title">회원 상세정보</span>
+              <span class="update_title">회원 검색</span>
             </h2>
             <div id="reponse_msg">
               <ul></ul>
             </div>
-            <div class="tg_reservation_form">
-      <div class="updt_box">
-        <c:forEach var="customer" items="${customers}">
-        <ul >
-        <li>나이</li>
-        <li><input type='text' name='age' value='${customer.age}' size='20' readonly></li>
-        <li>id</li>
-        <li><input type='text' name='id' value='${customer.id}' size='20' readonly></li>
-        <li>주소</li>
-        <li><input type='text' name='address' value='${customer.address}' size='20'></li>
-        <li>프로필 사진</li>
-        <li><img 
-          src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" style='size:313px'></li>
-          </ul>
-              <hr>
-              </c:forEach>
-              </div>
-              </div>
+            
+            <div class="boardList">
+            <table border="1" summary="">
+              <colgroup
+                class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
+                <col span="4" style="width: auto;">
+              </colgroup>
+              <thead
+                class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
+                <tr style="">
+                  <th scope="col">나이</th>
+                  <th scope="col">id</th>
+                  <th scope="col">사는곳</th>
+                  <th scope="col">사진</th>
+                </tr>
+              </thead>
+              <tbody
+                class="xans-element- xans-board xans-board-list-4 xans-board-list xans-board-4">
+                <c:forEach var="customer" items="${customers}">
+                <tr style="background-color: #FFFFFF; color: #555555;"
+                  class="xans-record-">
+                  <td>${customer.age}</td>
+                  <td>${customer.id}</td>
+                  <td>${customer.address}</td>
+                  <td><img src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" width="100px" height="150px"></td>
+                  
+                </tr>
+                </c:forEach>
+              </tbody>
+            </table>
+          </div>
+          
+      
             </div>
           </div>
         </div>

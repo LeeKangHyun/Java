@@ -141,37 +141,12 @@
             <div id="reponse_msg">
               <ul></ul>
             </div>
-        
-        <div
-          class="xans-element- xans-board xans-board-listpackage-4 xans-board-listpackage xans-board-4 "
-          style="padding-left: 400px;">
-          <div
-            class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
-            <div class="path"></div>
-            <div class="title">
-              <h2>
-                <font color="#2e2e2e">최근 회원 목록</font>
-              </h2>
 
-            </div>
-          </div>
-          <div class="boardSort">
-            <span
-              class="xans-element- xans-board xans-board-replysort-4 xans-board-replysort xans-board-4 "></span>
-          </div>
           <div class="boardList">
             <table border="1" summary="">
               <colgroup
                 class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
-                <col style="width: auto;">
-                <col style="width: auto;">
-                <col style="width: auto;">
-                <col style="width: auto;">
-                <col style="width: auto;">
-                <col style="width: 80px;" class="">
-                <col style="width: 55px;" class="">
-                <col style="width: 55px;" class="displaynone">
-                <col style="width: 80px;" class="displaynone">
+                <col span="5" style="width: auto;">
               </colgroup>
               <thead
                 class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
