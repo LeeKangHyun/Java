@@ -5,6 +5,7 @@
 <html lang="en-US" data-menu="">
 <head>
 <meta charset="UTF-8" />
+<title>회원 목록</title>
 <meta name="viewport"
   content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="format-detection" content="telephone=no">
@@ -13,7 +14,6 @@
   href="http://themes.themegoods2.com/grandrestaurant/xmlrpc.php" />
 <link rel="shortcut icon"
   href="http://themes.themegoods2.com/grandrestaurant/wp-content/uploads/2015/06/TG-Thumb.png" />
-<title>회원 목록</title>
 <meta name='robots' content='noindex,follow' />
 <link rel="alternate" type="application/rss+xml"
   title="Grand Restaurant | Restaurant Theme &raquo; Feed"
@@ -33,8 +33,6 @@
 <link rel='stylesheet' id='rs-plugin-settings-css'
   href='http://themes.themegoods2.com/grandrestaurant/wp-content/plugins/revslider/rs-plugin/css/settings.css'
   type='text/css' media='all' />
-
-
 
 <link rel='stylesheet' id='tp-kristi-css'
   href='http://fonts.googleapis.com/css?family=Kristi' type='text/css'
@@ -126,278 +124,12 @@
   <input type="hidden" id="pp_footer_style" name="pp_footer_style"
     value="4" />
 
-  <div class="mobile_menu_wrapper">
-    <a id="close_mobile_menu" href="javascript:;"><i
-      class="fa fa-close"></i></a>
-    <form role="search" method="get" name="searchform" id="searchform"
-      action="http://themes.themegoods2.com/grandrestaurant/">
-      <div>
-        <input type="text" name="s" id="s" autocomplete="off"
-          placeholder="Search..." />
-        <button>
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
-      <div id="autocomplete"></div>
-    </form>
-    <div class="menu-side-menu-container">
-      <ul id="mobile_main_menu" class="mobile_main_nav">
-        <li id="menu-item-2885"
-          class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home current-menu-ancestor current-menu-parent menu-item-has-children menu-item-2885"><a
-          href="#">Menu1</a>
-          <ul class="sub-menu">
-            <li id="menu-item-3247"
-              class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-3247"><a
-              href="#">Menu0101</a></li>
-            <li id="menu-item-3956"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3956"><a
-              href="#">Menu0102</a></li>
-            <li id="menu-item-3955"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3955"><a
-              href="#">Menu0103</a></li>
-            <li id="menu-item-3957"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3957"><a
-              href="#">Menu0104</a></li>
-          </ul></li>
-        <li id="menu-item-3351"
-          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3351"><a
-          href="#">Menu2</a>
-          <ul class="sub-menu">
-            <li id="menu-item-3342"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3342"><a
-              href="#">Menu0201</a></li>
-            <li id="menu-item-3252"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3252"><a
-              href="#">Menu0202</a></li>
-            <li id="menu-item-3294"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3294"><a
-              href="#">Menu0203</a></li>
-            <li id="menu-item-3322"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3322"><a
-              href="#">Menu0204</a></li>
-          </ul></li>
-        <li id="menu-item-3962"
-          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3962"><a
-          href="#">Menu3</a>
-          <ul class="sub-menu">
-            <li id="menu-item-3958"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3958"><a
-              href="#">Menu0301</a></li>
-            <li id="menu-item-3959"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3959"><a
-              href="#">Menu0302</a></li>
-            <li id="menu-item-3960"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3960"><a
-              href="#">Menu0303</a></li>
-          </ul></li>
-
-      </ul>
-
-
-    </div>
-    <a href="javascript:;" id="tg_sidemenu_reservation" class="button">Reservation</a>
-    <div class="page_content_wrapper">
-      <div class="sidebar_wrapper">
-        <div class="sidebar">
-          <div class="content">
-            <ul class="sidebar_widget">
-              <li id="custom_flickr-7" class="widget Custom_Flickr"><h2
-                  class="widgettitle">Gallery On Flickr</h2>
-                <ul class="flickr">
-                  <li><a class="img_frame" target="_blank"
-                    href="http://farm6.staticflickr.com/5807/22911138319_bb5503efeb_b.jpg"
-                    title="rosemary and garlic butter biscuits"><img
-                      src="http://farm6.staticflickr.com/5807/22911138319_bb5503efeb_s.jpg"
-                      alt="rosemary and garlic butter biscuits" width="75"
-                      height="75" /></a></li>
-                  <li><a class="img_frame" target="_blank"
-                    href="http://farm6.staticflickr.com/5682/22344147714_3e0565bec3_b.jpg"
-                    title="the glass roof of Kogod cpurtyard at Smithsonian American Art Museum and the National Portrait Gallery"><img
-                      src="http://farm6.staticflickr.com/5682/22344147714_3e0565bec3_s.jpg"
-                      alt="the glass roof of Kogod cpurtyard at Smithsonian American Art Museum and the National Portrait Gallery"
-                      width="75" height="75" /></a></li>
-                  <li><a class="img_frame" target="_blank"
-                    href="http://farm1.staticflickr.com/648/22785534545_5077980b76_b.jpg"
-                    title="The West Concourse of Santiago Calatrava&#039;s PATH station at the World Trade Center"><img
-                      src="http://farm1.staticflickr.com/648/22785534545_5077980b76_s.jpg"
-                      alt="The West Concourse of Santiago Calatrava&#039;s PATH station at the World Trade Center"
-                      width="75" height="75" /></a></li>
-                  <li><a class="img_frame" target="_blank"
-                    href="http://farm1.staticflickr.com/563/22140299986_aee823181a_b.jpg"
-                    title="wild"><img
-                      src="http://farm1.staticflickr.com/563/22140299986_aee823181a_s.jpg"
-                      alt="wild" width="75" height="75" /></a></li>
-                  <li><a class="img_frame" target="_blank"
-                    href="http://farm6.staticflickr.com/5810/21665302921_841d9052d0_b.jpg"
-                    title="rainy day baking- blueberry cake"><img
-                      src="http://farm6.staticflickr.com/5810/21665302921_841d9052d0_s.jpg"
-                      alt="rainy day baking- blueberry cake" width="75" height="75" /></a></li>
-                  <li><a class="img_frame" target="_blank"
-                    href="http://farm1.staticflickr.com/757/21255035669_cb44244cfe_b.jpg"
-                    title="a little gathering"><img
-                      src="http://farm1.staticflickr.com/757/21255035669_cb44244cfe_s.jpg"
-                      alt="a little gathering" width="75" height="75" /></a></li>
-                  <li><a class="img_frame" target="_blank"
-                    href="http://farm1.staticflickr.com/383/20132796029_06ea5cbc84_b.jpg"
-                    title="a morning like this"><img
-                      src="http://farm1.staticflickr.com/383/20132796029_06ea5cbc84_s.jpg"
-                      alt="a morning like this" width="75" height="75" /></a></li>
-                  <li><a class="img_frame" target="_blank"
-                    href="http://farm1.staticflickr.com/275/19929405628_f6cdd4f54c_b.jpg"
-                    title="on the table"><img
-                      src="http://farm1.staticflickr.com/275/19929405628_f6cdd4f54c_s.jpg"
-                      alt="on the table" width="75" height="75" /></a></li>
-                </ul> <br class="clear" /></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="wrapper" class="hasbg">
-    <div class="header_style_wrapper">
-      <div class="above_top_bar">
-        <div class="page_content_wrapper">
-
-          <div class="menu-top-menu-container">
-            <ul id="top_menu" class="top_nav">
-              <c:if test="${not empty loginUser}">
-                <li id="menu-item-3998"
-                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3998">
-                  ${loginUser.name}님 <a
-                  href="${pageContext.request.contextPath}/auth/logout.do">로그아웃</a>
-                </li>
-              </c:if>
-              <c:if test="${empty loginUser}">
-                <li id="menu-item-4001"
-                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4001"><a
-                  href="../auth/login.do">로그인</a></li>
-                <li id="menu-item-4000"
-                  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4000"><a
-                  href="../customer/add.do">회원가입</a></li>
-              </c:if>
-            </ul>
-          </div>
-          <div class="extend_top_contact_info top_contact_info"></div>
-        </div>
-      </div>
-      <div class="top_bar hasbg">
-        <div id="menu_wrapper">
-          <div id="logo_transparent" class="logo_container">
-            <div class="logo_align">
-              <a id="custom_logo_transparent" class="logo_wrapper default"
-                href="../customer/list.do"> <img
-                src="http://themes.themegoods2.com/grandrestaurant/wp-content/uploads/2015/06/logo@2x_white.png"
-                alt="Grand Restaurant | Restaurant Theme" width="101"
-                height="34" style="width: 101px; height: 34px;" />
-              </a>
-            </div>
-          </div>
-          <div class="menu_buttons_container">
-            <div class="menu_buttons_content">
-              <a href="javascript:;" id="tg_reservation" class="button">Reservation</a>
-              <a href="#" id="mobile_nav_icon"></a>
-            </div>
-          </div>
-          <div id="nav_wrapper">
-            <div class="nav_wrapper_inner">
-              <div id="menu_border_wrapper">
-                <div class="menu-main-menu-container">
-                  <ul id="main_menu" class="nav">
-                    <li id="menu-item-2773"
-                      class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home current-menu-ancestor current-menu-parent menu-item-has-children arrow menu-item-2773"><a
-                      href="#">M</a>
-                      <ul class="sub-menu">
-                        <li id="menu-item-3282"
-                          class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-3282"><a
-                          href="#">Menu0101</a></li>
-                        <li id="menu-item-3896"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3896"><a
-                          href="#">Menu0102</a></li>
-                        <li id="menu-item-3912"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3912"><a
-                          href="#">Menu0103</a></li>
-                        <li id="menu-item-3916"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3916"><a
-                          target="_blank" href="#">Menu0104</a></li>
-
-                      </ul></li>
-                    <li id="menu-item-3350"
-                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children arrow menu-item-3350"><a
-                      href="#">Menu2</a>
-                      <ul class="sub-menu">
-                        <li id="menu-item-3341"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3341"><a
-                          href="#">Menu0201</a></li>
-                        <li id="menu-item-3281"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3281"><a
-                          href="#">Menu0202</a></li>
-                        <li id="menu-item-3293"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3293"><a
-                          href="#">Menu0203</a></li>
-                        <li id="menu-item-3321"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3321"><a
-                          href="#">Menu0204</a></li>
-
-                      </ul></li>
-
-                    <li id="menu-item-3852"
-                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3852"><a
-                      href="#">Menu3</a>
-                      <ul class="sub-menu">
-                        <li id="menu-item-2827"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2827"><a
-                          href="#">Menu0301</a></li>
-                        <li id="menu-item-2831"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2831"><a
-                          href="#">Menu0302</a></li>
-                        <li id="menu-item-2838"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2838"><a
-                          href="#">Menu0303</a></li>
-                        <li id="menu-item-2842"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2842"><a
-                          href="#">Menu0304</a></li>
-
-                      </ul></li>
-
-                    <li id="menu-item-2817"
-                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children arrow menu-item-2817"><a
-                      href="#">Menu4</a>
-                      <ul class="sub-menu">
-                        <li id="menu-item-2827"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2827"><a
-                          href="#">Menu0401</a></li>
-                        <li id="menu-item-2831"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2831"><a
-                          href="#">Menu0402</a></li>
-                        <li id="menu-item-2838"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2838"><a
-                          href="#">Menu0403</a></li>
-                        <li id="menu-item-2842"
-                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2842"><a
-                          href="#">Menu0404</a></li>
-
-                      </ul></li>
-
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+  <jsp:include page="../menubar/Header.jsp"/>
 
       <div class="info">
 
         <div id="page_caption">
-          <div class="page_title_wrapper">
-            <div class="page_title_inner">
-              <h1>Member List</h1>
-            </div>
-            <br class="clear">
-          </div>
+
         </div>
 
       </div>
@@ -464,26 +196,14 @@
             <p></p>
           </div>
         </div>
-
-
-
-
       </div>
-
-
-
+      
       <div class="one"
         style="padding: 50px 0 70px 0 !important; position: relative; padding: 40px 0 40px 0;">
         <div class="standard_wrapper">
           <div class="page_content_wrapper"></div>
         </div>
       </div>
-
-
-
-
-    </div>
-
   <div class="footer_bar ">
 
     <div class="footer_bar_wrapper ">

@@ -16,7 +16,7 @@ input,textarea,select,option{font-size:12px;  font-family:"돋음","굴림",verd
     max-width:none !important;
     height: auto;
 }
-#baner{width:1245px;  margin:20px 0px 0px -249px; position:relative;}
+#baner{width:1245px;  margin: 20px 0px 0px -249px; position:relative;}
 #view_box{width:1245px !important;}
 #view_box ul li.view1 a{float:left;}
 #baner #left{width:17px; height:67px; position:absolute; top:200px; left:13px; cursor:pointer;} 
