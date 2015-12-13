@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Refresh" content="2; url=login.do" charset="UTF-8">
+<meta http-equiv="Refresh" content="1;url=login.do" charset="UTF-8">
 <title>로그인 결과</title>
 </head>
 <body>

@@ -64,7 +64,7 @@
   
   <select id="recent" resultMap="customerMap" parameterType="map">
     select
-      cno, name, age, address, gender, photo
+      cno, name, age, address, gender, photo, id
     from customer
     order by
     <choose>

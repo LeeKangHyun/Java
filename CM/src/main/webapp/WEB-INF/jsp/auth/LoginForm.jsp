@@ -192,14 +192,14 @@ function Circle() {
       <canvas id='bg_bubble'></canvas>
     </div>
       <div class="loginBox">
-        <form id='form1' action="login.do" method="post">
-        <strong>ID:</strong> <input type="text" id="id" name="id" value="${cookie.id.value}" class="input"><br><br>
-        <strong>Password:</strong> <input type="password" name="password" class="input"><br>
-        <br/><br/>
-        <input type="submit" value="로그인" class="button"><br><br>
-        &emsp;&emsp;&emsp;&emsp;&emsp;<a href="../customer/add.do" class="button1">회원가입</a>
-        &emsp;<input type="checkbox" name="saveId"
-          ${(empty cookie.id)?"":"checked"}>ID 저장<br>
+        <form id='form' action="login.do" method="post">
+          <strong>ID:</strong> <input type="text" id="id" name="id" value="${cookie.id.value}" class="input"><br><br>
+          <strong>Password:</strong> <input type="password" name="password" class="input"><br>
+          <br/><br/>
+          <input type="submit" value="로그인" class="button"><br><br>
+          &emsp;&emsp;&emsp;&emsp;&emsp;<a href="../customer/add.do" class="button1">회원가입</a>
+          &emsp;<input type="checkbox" name="saveId"
+            ${(empty cookie.id)?"":"checked"}>ID 저장<br>
         </form>
     </div>
   </div>
@@ -207,14 +207,14 @@ function Circle() {
   
   <script type="text/javascript">
   $(document).ready(function(){
-    var RegexId = /^[a-z0-9_-]{3,16}$/; //아이디 유효성 검사 316자 사이
+    var RegexId = /^[a-z0-9_-]{3,16}$/; //아이디 유효성 검사 3~16자 사이
     $("form").submit(function(){
   
       if ( !RegexId.test($.trim($("#id").val())) )
       {
-        alert("id형식이 맞지 않습니다.")
+        document.myform.id.value="";
         $("#id").focus();
-        return false;
+        history.go(-1);
       }
   
     });
