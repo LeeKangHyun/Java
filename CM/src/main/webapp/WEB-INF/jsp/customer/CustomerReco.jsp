@@ -141,7 +141,7 @@
       <aside class="side_bar">
           <ul class="nav nav-pills nav-stacked">
             <li class="active"><a href="#">회원</a></li>
-            <li><a href="../customer/list.do">1. My Page</a></li>
+            <li><a href="#">1. My Page</a></li>
             <li><a href="../customer/recent.do">2. 최근 등록한 회원</a></li>
             <li><a href="../customer/reco.do">3. 추천 회원</a></li>
           </ul>
@@ -162,6 +162,7 @@
               <colgroup
                 class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
                 <col span="5" style="width: auto;">
+                
               </colgroup>
               <thead
                 class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
@@ -171,6 +172,7 @@
                   <th scope="col">나이</th>
                   <th scope="col">사는곳</th>
                   <th scope="col">사진</th>
+                  <th scope="col">메시지</th>
                 </tr>
               </thead>
               <tbody
@@ -178,11 +180,12 @@
                 <c:forEach var="customer" items="${customers}">
                 <tr style="background-color: #FFFFFF; color: #555555;"
                   class="xans-record-">
-                  <td><a href="detail.do?id=${customer.id}">${customer.id}</a></td>
+                  <td>${customer.id}</td>
                   <td>${customer.name}</td>
                   <td>${customer.age}</td>
                   <td>${customer.address}</td>
                   <td><img src="../attachfile/${(empty customer.photo) ? 'default.jpg' : customer.photo}" width="100px" height="150px"></td>
+                  <td>${}</td>
                   
                 </tr>
                 </c:forEach>

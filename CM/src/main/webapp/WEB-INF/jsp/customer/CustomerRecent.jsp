@@ -144,7 +144,7 @@
             </div>
 
           <div class="boardList">
-            <form name="evt" id="evt" method="post">
+            <form name="evt" id="evt" method="get">
             <table border="1" summary="">
               <colgroup
                 class="xans-element- xans-board xans-board-listheader-4 xans-board-listheader xans-board-4 ">
@@ -202,11 +202,14 @@
   </div>
   
   <script>
+  var winObject = null;
     function popup(value1) {
     	var name = "popup";
+    	var settings = "width=500, height=500, menubar=no status=no";
     	
-    	window.open(encodeURI("popup.do?id="+value1+""),name,"width=500, height=500, menubar=no status=no");
+    	winObject = window.open(encodeURI("popup.do",name,settings);
     }
+    
   </script>
   
   <script type='text/javascript'>

@@ -64,7 +64,7 @@
   
   <select id="recent" resultMap="customerMap" parameterType="map">
     select
-      cno, name, age, address, gender, photo
+      cno, name, age, address, gender, photo, id
     from customer
     order by
     <choose>
@@ -81,13 +81,36 @@
       id,
       age,
       address,
-      photo 
+      photo
   	from customer 
   	where id like CONCAT('%',#{id},'%') and
-  	age like CONCAT('%',#{age},'%') and
+  	age like CONCAT(#{age},'%') and
   	address=#{address} and
   	gender=#{gender}  
   </select>
+  
+  <select id="reco" resultMap="customerMap" parameterType="map">
+    select
+      id,
+      name,
+      age,
+      address,
+      photo
+    from customer
+    where nature=#{ideal} and address=#{address} and id!=#{id}
+  </select>
+  
+  <select id="popup" resultMap="customerMap" parameterType="String">
+    select
+      id,
+      name,
+      age,
+      address,
+      photo
+    from customer
+    where id=#{id}
+  </select>
+  
 </mapper>
 
 
