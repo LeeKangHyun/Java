@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+
+<style type="text/css">
+/* 출력 제어하기 */
+
+div {
+  border: 1px solid red;
+  margin: 10px;
+}
+
+/* 출력을 접기  */
+#d1, #d2, #tr2, #tr4 {
+  visibility: collapse; /* 테이블 전용! 다른 태그에는 영향을 주지 않음.*/
+                        /* 다른 태그는 hidden과 동일한 결과가 나온다. */
+                        /* 크롬에서는 hidden과 같다. */
+}
+</style>
+
+</head>
+<body>
+  이 수업은 <span>실무 자바 개발자 양성과정</span> 입니다.
+  <div id="d1">d1:교육 내용은 기업에서 사용하는 애플리케이션을 개발하는 방법을 배웁니다.</div>
+  <div id="d2">d2:교육 내용은 기업에서 사용하는 애플리케이션을 개발하는 방법을 배웁니다.</div>
+  <div id="d3">d3:교육 내용은 기업에서 사용하는 애플리케이션을 개발하는 방법을 배웁니다.</div>
+  <div id="d4">d4:교육 내용은 기업에서 사용하는 애플리케이션을 개발하는 방법을 배웁니다.</div>
+  <div id="d5">d5:교육 내용은 기업에서 사용하는 애플리케이션을 개발하는 방법을 배웁니다.</div>
+  비트캠프는 열정을 가진 IT 개발자를 배출합니다.
+  <hr>
+  <table border='1'>
+	  <tr id="tr1"> <th>번호</th> <th>이름</th> <th>이메일</th> <th>전화번호</th>  </tr>
+	  <tr id="tr2"> <td>1</td> <td>홍길동</td> <td>hong@test.com</td> <td>111-1111</td> </tr>
+	  <tr id="tr3"> <td>2</td> <td>임꺽정</td> <td>leem@test.com</td> <td>111-2222</td> </tr>
+	  <tr id="tr4"> <td>3</td> <td>유관순</td> <td>yoo@test.com</td> <td>111-3333</td> </tr>
+  </table>
+  테스트합니다.
+</body>
+</html>

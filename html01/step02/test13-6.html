@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+
+<style type="text/css">
+/* 상자의 위치 지정하기 - 특정 태그를 기준으로 위치를 지정하기   */
+body {
+  margin: 0px;
+  padding: 0px;
+  font-size: small;
+}
+
+div {
+  border: 1px solid gray;
+}
+
+
+img {
+  /*border: 1px solid yellow;*/
+  vertical-align: middle;
+}
+
+.header {
+  height: 50px;
+  line-height: 50px;
+  background-color: black;
+  color: white;
+  min-width: 600px;
+}
+
+/* position : absolute, fixed, relative 
+1) absolute
+=> absolute 또는 fixed 조상을 기준으로 자식 태그의 위치를 지정하기.
+=> 만약 조상 중에 absolte나 fixed 유형의 태그가 없다면 body를 기준으로 위치를 찾는다.
+=> float과 달리 좌/우, 상/하 어디에든 위치시킬 수 있다.
+
+*/
+.aside {
+  width: 180px;
+  position: absolute;
+  left: 0px;
+  top: 51px; 
+  margin: 0px;
+  background-color: #ffcc00;
+  opacity: 1;
+}
+
+.aside2 {
+  width: 180px;
+  position: absolute;
+  top: 51px;
+  right: 0px;
+  /*left: 500px;*/
+  margin: 0px;
+  background-color: #59f;
+}
+
+.section {
+  margin-left: 181px;
+  padding: 0px 10px;
+  min-width: 300px;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  text-align: center;
+}
+
+/* 쿠폰 이미지를 웹 브라우저 좌표로 위치 지정하기 */
+#coupon {
+  /* absolute의 특징은 기준 태그가 이동하면 그 태그를 따라 함께 이동한다. */
+  /*position: absolute;*/
+  
+  /* 기준이 되는 태그의 이동에 영향을 받지 않고,
+     웹 브라우저의 좌표를 기준으로 고정시키고 싶다면 fixed를 사용하라.*/
+  position: fixed;
+  
+  left: 0px;
+  top: 200px;
+}
+
+#ohora {
+  width: 50px;
+  position: absolute; /* 자신의 부모 태그인 'aside2'를 기준으로 위치를 찾는다.*/
+  right: 10px;
+  bottom: 0px;
+}
+</style>
+
+</head>
+<body>
+  <div class="header">
+    <img src="http://www.bitcamp.co.kr/images/join_head/bit_logo.gif">
+    <span>세계 최고의 프로그래밍 전문 교육기관 "비트캠프"</span>
+  </div>
+  <div class="aside">
+    <h2>메뉴</h2>
+    <ul>
+      <li>학생 관리</li>
+      <li>강사 관리</li>
+      <li>과정 관리</li>
+      <li>교육장 관리</li>
+      <li>수강신청 관리</li>
+    </ul>
+    <h2>공지사항</h2>
+    <ul>
+      <li>공지사항1...</li>
+      <li>공지사항2...</li>
+      <li>공지사항3...</li>
+      <li>공지사항4...</li>
+      <li>공지사항5...</li>
+    </ul>
+  </div>
+  
+  <div class="aside2">
+    <h2>최근글</h2>
+    <ul>
+      <li>제목입니다...</li>
+      <li>제목입니다...</li>
+      <li>제목입니다...</li>
+      <li>제목입니다...</li>
+      <li>제목입니다...</li>
+      <li>제목입니다...</li>
+      <li>제목입니다...</li>
+      <li>제목입니다...</li>
+    </ul>
+    <h2>질문/답변</h2>
+    <ul>
+      <li>질문입니다.</li>
+      <li> -> 답변입니다.</li>
+      <li>질문입니다.</li>
+      <li> -> 답변입니다.</li>
+      <li>질문입니다.</li>
+    </ul>
+    <img id="ohora" src="ohora.jpeg">
+  </div>
+  
+  <div class="section">
+    <h1>회원목록</h1>
+    <table border='1'>
+	    <tr id="tr1"> <th>번호</th> <th>이름</th> <th>이메일</th> <th>전화번호</th>  </tr>
+	    <tr id="tr2"> <td>1</td> <td>홍길동</td> <td>hong@test.com</td> <td>111-1111</td> </tr>
+	    <tr id="tr3"> <td>2</td> <td>임꺽정</td> <td>leem@test.com</td> <td>111-2222</td> </tr>
+	    <tr id="tr4"> <td>3</td> <td>유관순</td> <td>yoo@test.com</td> <td>111-3333</td> </tr>
+	  </table>
+  </div>
+  
+  <div class="footer">
+    <address>서울 서초구 비트 캠프</address>
+  </div>
+  
+  <img id="coupon" src="coupon.png">
+  
+</body>
+</html>

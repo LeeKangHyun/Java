@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+
+<style type="text/css">
+/* 상자의 위치 지정하기 */
+div {
+  border: 1px solid gray;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+span {
+  /*border: 1px solid yellow;*/
+}
+
+img {
+  /*border: 1px solid yellow;*/
+  vertical-align: middle;
+}
+
+.header {
+  height: 50px;
+  line-height: 50px;
+  background-color: black;
+  color: white;
+  
+}
+
+
+/* float 
+=> 위에 떠있는 태그에 의해 아래에 놓여있는 태그의 내용이 가려지지 않도록 
+   자동으로 왼쪽 또는 오른쪽으로 민다.
+=> 위아래 margin이 겹쳐지지 않는다.
+=> 원래 출력되어야 할 위치에서 공중부양한다. 
+=> 좌/우만 가능, 위/아래/중앙 정렬은 불가능! 
+*/
+.aside {
+  width: 180px;
+  float: left;
+  margin: 0px;
+  background-color: #ffcc00;
+}
+
+.section {
+  margin-left: 181px;
+  padding: 0px 10px;
+}
+
+
+</style>
+
+</head>
+<body>
+  <div class="header">
+    <img src="http://www.bitcamp.co.kr/images/join_head/bit_logo.gif">
+    <span>세계 최고의 프로그래밍 전문 교육기관 "비트캠프"</span>
+  </div>
+  <div class="aside">
+    <h2>메뉴</h2>
+    <ul>
+      <li>학생 관리</li>
+      <li>강사 관리</li>
+      <li>과정 관리</li>
+      <li>교육장 관리</li>
+      <li>수강신청 관리</li>
+    </ul>
+    <h2>공지사항</h2>
+    <ul>
+      <li>공지사항1...</li>
+      <li>공지사항2...</li>
+      <li>공지사항3...</li>
+      <li>공지사항4...</li>
+      <li>공지사항5...</li>
+    </ul>
+  </div>
+  
+  <div class="section">
+    <h1>회원목록</h1>
+    <table border='1'>
+	    <tr id="tr1"> <th>번호</th> <th>이름</th> <th>이메일</th> <th>전화번호</th>  </tr>
+	    <tr id="tr2"> <td>1</td> <td>홍길동</td> <td>hong@test.com</td> <td>111-1111</td> </tr>
+	    <tr id="tr3"> <td>2</td> <td>임꺽정</td> <td>leem@test.com</td> <td>111-2222</td> </tr>
+	    <tr id="tr4"> <td>3</td> <td>유관순</td> <td>yoo@test.com</td> <td>111-3333</td> </tr>
+	  </table>
+  </div>
+  
+  <div class="footer">
+    <address>서울 서초구 비트 캠프</address>
+  </div>
+</body>
+</html>
