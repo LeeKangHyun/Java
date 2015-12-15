@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <h1>객체 사용법</h1>
+
+  <script>
+    "use strict";
+
+    //객체 만들기6 => JSON 객체 생성 코드를 문자열로 받아 객체를 생성하기
+    // => 문자열은 반드시 큰 따옴표("")를 사용해야 한다.
+    // => 프로퍼티 이름은 반드시 문자열로 표기해야 한다.
+    // 예) ({"name":"ohora", "age":20, "tel":"111-1111"})
+    //
+    // JSON.parse(json 형식의 객체 생성 코드만 가능)
+    // JSON? JavaScript Object Notation의 약자.
+    //       자바스크립트의 단축 표기법과 거의 같다.
+
+    var code = prompt("JSON 형식으로 객체 생성 코드를 입력하시오!");
+    var obj1 = JSON.parse(code);
+
+    // for ~ in을 사용하여 객체의 값(프로퍼티) 꺼내기
+    for (var key in obj1) {
+      console.log(key, obj1[key]);
+    }
+
+    // eval() 과 JSON.parse() 차이점>?
+    // => eval()은 모든 자바스크립트 문법을 실행할 수 있다.
+    // => JSON.parse()는 오직 JSON 형식으로 된 객체 생성 코드만 실행할 수 있다.
+
+  </script>
+</body>
+
+</html>

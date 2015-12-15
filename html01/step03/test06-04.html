@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <h1>객체 사용법</h1>
+
+  <script>
+    "use strict";
+
+    //객체 만들기4 => 단축 표기법
+
+    var obj1 = {
+        /* key : value, key : value, ...*/
+        "name" : "홍길동",
+        'age' : 30,
+        tel : "111-1111"
+    };
+
+    // for ~ in을 사용하여 객체의 값(프로퍼티) 꺼내기
+    for (var key in obj1) {
+        console.log(key, obj1[key]);
+    }
+
+  </script>
+</body>
+
+</html>
