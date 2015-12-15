@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+  <h1>함수 선언</h1>
+
+  <script>
+  "use strict";
+  // 함수 파라미터 선언
+  // => 파라미터 개수에 상관없이 호출할 수 있다.
+  function f1(a, b, c) {
+      console.log(a, b, c);
+  }
+
+
+  f1(); // 파라미터 보다 적은 개수의 아규먼트를 전달해도 된다.
+  f1(10); // 동적 타입 바인딩이기 때문에 어떤 값도 전달할 수 있다.
+  f1("홍길동", "임꺽정");
+  f1(10, "오호라", true);
+  f1(true, 10, 20, "푸헐..."); // 파라미터 보다 더 많은 개수의 파라미터를
+
+  </script>
+</body>
+</html>

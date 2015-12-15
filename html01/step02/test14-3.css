@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  position: relative;
+  border: 1px solid red;
+  padding: 0px;
+  height: 100%;
+}
+
+/* 헤더 영역 설정 */
+header {
+  margin: 0px;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  background: black;
+  color: white;
+}
+
+#post-box {
+  border: 1px solid red;
+  display: inline;
+  height: 44px;
+  position: absolute;
+  right: 5px;
+  border-style: none;
+}
+
+#post-img {
+  height: 40px;
+}
+
+#post-count {
+  border-radius: 3px;
+  color:black;
+  background: yellow;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-weight: bolder;
+  font-size: 1.2em;
+  position: relative;
+  top:-14px;
+}
+/* 헤더 영역 설정 끝 */
+
+/* 왼쪽 편 메뉴 설정*/
+aside#menu {
+  width: 180px;
+  position: absolute;
+  left: 0px;
+  top: 50px;
+  margin: 0px;
+  background: #ffcc00;
+}
+/* 끝 - 왼쪽 편 메뉴 설정 */
+
+/* 본문 내용 설정 */
+section {
+  margin: 0 180px 0 180px;
+  padding: 0px 19px;
+  min-width: 300px;
+}
+/* 끝 - 본문 내용 설정 */
+
+#toolbar {
+  margin: 10px 0px;
+}
+
+/* 오른쪽 편 메뉴 설정 */
+aside#preview {
+  width: 180px;
+  position: absolute;
+  right: 0px;
+  top: 50px;
+  margin: 0px;
+  background: #59f;
+}
+/* 끝 - 오른쪽 편 메뉴 설정 */
+
+/* 사진 */
+#ohora {
+  width: 100px;
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+}
+
+/* 꼬리말 영역 설정 */
+footer {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  text-align: center;
+}
+/* 끝 - 꼬리말 영역 설정 */
+
+#coupon {
+  display: none;
+  position: fixed;
+  left: 0px;
+  top: 200px;
+}

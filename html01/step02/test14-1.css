@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  font-size: small;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.header {
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  background: black;
+  color: white;
+}
+
+.aside {
+  width: 180px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  margin: 0px;
+  background: #ffcc00;
+}
+
+.aside2 {
+  width: 180px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  margin: 0px;
+  background: #59f;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 50px;
+  left: 0px;
+  text-align: center;
+}
+
+.section {
+  margin-left: 180px;
+  padding: 0px 19px;
+  min-width: 300px;
+}
+
+#coupon {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  left: 0px;
+  top: 239px;
+}
+
+#ohora {
+  width: 100px;
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+}
+
+#title {
+  position: relative; /* 현재 위치 고수하면서 위치 이동 */
+  left: -20px;
+  top: -10px;
+}
+
+#dotori {
+  width: 50px;
+}
+
+#post-box {
+  display: inline;
+  height: 44px;
+  width: 80px;
+  position: absolute;
+  right: 5px;
+  border-style: none;
+}
+
+#post-img {
+  height: 40px;
+}
+
+#count {
+  border-radius: 3px;
+  color:black;
+  background: yellow;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-weight: bolder;
+  font-size: 1.2em;
+  position: relative;
+  right: 14px;
+  top:-14px;
+}
+
+#main {
+  height: 100%;
+  padding: 0px;
+  position: relative;
+  /*border: 0px solid red;*/
+  width: 900px;
+  margin: 0px auto;
+}
