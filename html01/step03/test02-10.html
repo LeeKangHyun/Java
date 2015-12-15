@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+  <h1>함수 선언</h1>
+
+  <script>
+  "use strict";
+
+  // 클로저와 바깥 함수의 로컬 변수
+  // => 로컬 변수는 함수 호출이 끝난 후 삭제된다.
+  // => 로컬 변수의 생명은 함수 블록 안이다.
+  // => 파라미터도 로컬 변수이다.
+
+  // 클로저 규칙
+  // => 바깥 함수의 로컬 변수를 사용할 수 있다.
+  // => 클로저가 사용하는 바깥 함수의 로컬 변수는 별도로 복제하여
+  //    클로저가 관리한다.
+
+  function generator(interest) { // 바깥 함수
+      var interestFunc = function (money) { // 클로저
+          return (interest / 100) * money;
+      }
+
+      return interestFunc;
+  }
+
+  var f = generator(1.25);
+  var f2 = generator(10);
+
+  console.log("100만원의 1년 이자 = ", f2(1000000));
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+  <h1>함수 선언</h1>
+
+  <script>
+  "use strict";
+  // 함수와 변수 호이스팅(hoisting)
+  // => 함수 선언은 항상 <script>를 실행할 때 제일 먼저 실행한다.
+  //    => 함수를 호출하는 문장의 뒤에 선언해도 된다.
+  // => 변수 선언은 항상 <script>를 실행할 때 제일 먼저 실행한다.
+  //    => 변수를 사용한 문장의 뒤에 선언해도 된다.
+
+  var sum = plus(10, 20);
+  console.log(sum);
+
+  function plus(a, b) {
+      return a + b;
+  }
+  </script>
+</body>
+</html>

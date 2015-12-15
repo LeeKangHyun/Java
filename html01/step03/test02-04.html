@@ -11,14 +11,18 @@
   "use strict";
   // 함수의 숨겨진 변수 "arguments"
   // => 모든 아규먼트를 저장하고 있는 배열이다.
-  function plus(a, b) {
-      console.log(a, argumets[0]);
-      console.log(b, argumets[1]);
-      return a + b;
+  function f1(a, b, c) {
+      console.log(a, b, c);
+      console.log(
+          arguments.length, arguments[0], arguments[1], arguments[2]);
+      console.log("----------------");
   }
 
-  var sum = plus(10, 20);
-  console.log(sum);
+  f1(); // 파라미터 보다 적은 개수의 아규먼트를 전달해도 된다.
+  f1(10); // 동적 타입 바인딩이기 때문에 어떤 값도 전달할 수 있다.
+  f1("홍길동", "임꺽정");
+  f1(10, "오호라", true);
+  f1(true, 10, 20, "푸헐..."); // 파라미터 보다 더 많은 개수의 파라미터를
 
   </script>
 </body>

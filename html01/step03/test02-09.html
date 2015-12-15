@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+  <h1>함수 선언</h1>
+
+  <script>
+  "use strict";
+
+  // 중첩 함수(closure)
+  // => 함수 내부에 선언된 함수.
+  // => 교체가 가능한 함수를 만들 때
+
+  function createCalculator(op) {
+      switch (op) {
+          case "+":
+            return function(a, b) {console.log(a + b)}; // 클로저
+          case "-":
+            return function(a, b) {console.log(a - b)}; // 클로저
+          case "*":
+            return function(a, b) {console.log(a * b)}; // 클로저
+          case "/":
+            return function(a, b) {console.log(a / b)}; // 클로저
+          default:
+            return function() {console.log("이 연산을 지원하지 않습니다.")};
+      }
+  }
+  
+  var func = createCalculator("*");
+  func(10,20);
+
+  createCalculator("-")(10,20);
+
+  </script>
+</body>
+</html>
