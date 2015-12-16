@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
 <body>
-  <h1>값 다루기</h1>
+<h1>제어문 사용법</h1>
 
-  <script>
-    "use strict";
+<script>
+"use strict";
 
-    // 조건문 switch
-    var level = prompt("등급을 입력하시오!");
+// 조건문 switch
+var level = prompt("등급을 입력하시오!");
 
-    switch (level) {
-      case "관리자":
-        console.log("PMP 자격증");
-      case "일반":
-        console.log("자바 자격증");
-      default:
-        console.log("오피스 자격증");
+switch (level) {
+	case "팀장":
+		console.log("PMP 자격증")
+    case "개발자":
+		console.log("자바 자격증");
+	default:
+		console.log("오피스 자격증");
+}
 
-    }
-  </script>
+</script>
 </body>
-
 </html>

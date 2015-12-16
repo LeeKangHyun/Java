@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>객체 사용법</h1>
+
+<script>
+"use strict";
+
+// 생성자 2 - 생성자 정의하기  
+
+// 1) 생성자 사용 전
+// => 직접 객체 생성과 초기화 
+var s1 = new Object();
+s1.sname = "홍길동";
+s1.tel = "111-1111";
+s1.email = "hong@test.com";
+console.log(s1);
+
+// => 함수를 이용한 객체 초기화 
+function makeStudent(n, t, e) {
+	var obj = new Object();
+	obj.sname = n;
+	obj.tel = t;
+	obj.email = e;
+	return obj;
+}
+
+var s2 = makeStudent("임꺽정", "111-2222", "leem@test.com");
+var s3 = makeStudent("유관순", "111-3333", "yoo@test.com");
+console.log(s2);
+console.log(s3);
+
+// 2) 생성자 사용 후
+// => 문법은 일반 함수 정의와 같다.
+// => 생성자 역할을 하는 함수는 인스턴스를 초기화 하는 코드를 둔다.
+/*
+function makeStudent2(n, t, e) {
+	// 내부적으로 Object() 생성자 함수를 자동으로 호출한다.
+	// => Object()가 추가한 프로퍼티가 존재한다.
+	this.sname = n;
+	this.tel = t;
+	this.email = e;
+} 
+var s4 = new makeStudent2("안중근", "111-4444", "ahn@test.com");
+*/
+// 다음은 생성자 역할을 하는 함수를 다른 일반 함수와 구분하기 위해
+// 생성자 함수의 이름을 변경한 코드이다.
+function Student(n, t, e) {
+	// 내부적으로 Object() 생성자 함수를 자동으로 호출한다.
+	// => Object()가 추가한 프로퍼티가 존재한다.
+	this.sname = n;
+	this.tel = t;
+	this.email = e;
+} 
+var s4 = new Student("안중근", "111-4444", "ahn@test.com");
+console.log(s4);
+console.log(s4.toString()); // Object()가 추가한 toString()이 존재함을
+                            // 확인할 수 있다.
+
+</script>
+</body>
+</html>

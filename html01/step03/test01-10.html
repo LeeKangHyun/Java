@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
 <body>
-  <h1>변수 선언</h1>
+<h1>변수 선언</h1>
 
-  <script>
-    "use strict";
+<script>
+"use strict";
 
-    // 글로벌 변수와 웹 브라우저 내장 객체 "window"
-    // => 모든 글로벌 변수 및 함수는 window 객체에 저장된다.
-    var v1 = 100;
-    var v2 = "홍길동";
-    window["v1"] = 200;
-    window.v2 = "임꺽정";
+// 글로벌 변수와 웹 브라우저 내장 객체 "window"
+// => 모든 글로벌 변수 및 함수는 window 객체에 저장된다. 
+var v1 = 100;
+var v2 = "홍길동";
+window["v1"] = 200;
+window.v2 = "임꺽정";
 
-    console.log(v1);
-    console.log(window["v1"]);
-    console.log(v2);
-    console.log(window.v2);
-    hello();
-    window.hello();
-    window["hello"]();
+console.log(v1);
+console.log(window["v1"]);
+console.log(v2);
+console.log(window.v2);
+hello();
+window.hello();
+window["hello"]();
 
-    function hello() {
-        console.log("Hello, World!");
-    }
+function hello() {
+	console.log("Hello, World!");
+}
 
-    
-  </script>
+
+</script>
 </body>
-
 </html>

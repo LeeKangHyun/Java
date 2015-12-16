@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-  <h1>함수 선언</h1>
+<h1>함수 선언</h1>
 
-  <script>
-  "use strict";
+<script>
+"use strict";
 
-  // 익명 함수 선언
-  var plus = function (a, b) {
-      return a + b;
-  }
+// 익명 함수 선언 
+//=> 함수 이름이 없기 때문에 선언 후 즉시 변수에 저장해야 한다.
+var plus = function (a, b) {
+	return a + b;
+};
 
-  var minus = function (a, b) {
-      return a - b;
-  }
+var minus = function (a, b) {
+	return a - b;
+};
 
-  // => 변수에 저장된 익명 함수를 사용할 때는 일반 함수처럼 사용한다.
-  var result = plus(10,20);
-  console.log(result);
+//=> 변수에 저장된 익명 함수를 사용할 때는 일반 함수처럼 사용한다.
+var result  = plus(10, 20);
+console.log(result);
 
-  result = minus(10, 20);
-  console.log(result);
-
-  </script>
+result  = minus(10, 20);
+console.log(result);
+</script>
 </body>
 </html>

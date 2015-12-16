@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>객체 사용법</h1>
+
+<script>
+"use strict";
+
+//객체 만들기 7 => Object.create() 
+ 
+//1) 빈 객체 생성하기
+// 생성자 함수? 
+// => 객체를 생성한 후 초기화를 수행하는 함수. 
+// => 자바와는 달리 일반 함수이다. 생성자를 만드는 별도의 문법은 없다.
+// 
+// 생성자를 지정하지 않고 객체를 생성하면, 초기화를 수행하지 않는 빈 객체가 생성된다.
+// 초기화? 객체가 기본으로 갖춰야할 변수나 함수를 추가하는 것.
+// 예) toString() 함수 등  
+var obj1 = Object.create(null);
+console.log(obj1);
+
+// 생성자를 실행하지 않고 생성된 빈 객체는 기본으로 있어야할 함수가 없다.
+// 따라서 다음은 오류! 
+//console.log(obj1.toString()); // 오류!
+
+obj1.name = "홍길동";
+obj1.age = 20;
+console.log(obj1);
+
+
+//2) 생성자를 통해 초기화된 객체 생성
+// => 빈 객체를 생성한다.
+// => 생성자 함수를 호출하여 기본적인 프로퍼티를 빈 객체에 추가한다.
+//    예)toString(), valueOf(), hasOwnProperty() 등 
+// => 다음 코드는 아래의 객체 생성 방법과 같다.
+//    var obj2 = new Object();
+//    var obj2 = {};
+var obj2 = Object.create(Object.prototype);
+
+console.log(obj2);
+
+// 기본적인 함수가 추가되었는지 확인해 보자!
+console.log(obj2.toString());
+
+</script>
+</body>
+</html>

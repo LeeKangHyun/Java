@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>객체 사용법</h1>
+
+<script>
+"use strict";
+
+//객체 만들기 11 => 프로퍼티를 삭제하거나 속성을 변경하기  
+ 
+
+var obj1 = Object.create(Object.prototype);
+obj1.userName = "홍길동";
+
+Object.defineProperty(obj1, 'age', {
+	value: "30",
+	writable: true
+});
+
+Object.defineProperty(obj1, 'tel', {
+	value: "111-1111",
+	writable: true,
+	enumerable: true /* 기본은 false 이다. */
+});
+
+Object.defineProperty(obj1, 'email', {
+	value: "111-1111",
+	writable: true,
+	enumerable: true,
+	configurable: true /* 기본은 false 이다. */ 
+});
+
+console.log(obj1);
+console.log("-------------------------");
+
+// 객체에 추가한 프로퍼티 삭제하기 
+delete obj1.userName; // 삭제 가능! 
+
+// 프로퍼티를 추가할 때 configurable이 false이기 때문에 
+// 삭제나 프로퍼티 속성 변경이 불가하다.
+//delete obj1.age; // 오류! 삭제 불가.
+//delete obj1.tel; // 오류! 삭제 불가. 
+
+// email 프로퍼티는 configurable이 true로 설정되었기 때문에 삭제가 가능하다.
+delete obj1.email;
+
+for (var propName in obj1) {
+	console.log(propName);
+}
+
+</script>
+</body>
+</html>

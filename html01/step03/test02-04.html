@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-  <h1>함수 선언</h1>
+<h1>함수 선언</h1>
 
-  <script>
-  "use strict";
-  // 함수의 숨겨진 변수 "arguments"
-  // => 모든 아규먼트를 저장하고 있는 배열이다.
-  function f1(a, b, c) {
-      console.log(a, b, c);
-      console.log(
-          arguments.length, arguments[0], arguments[1], arguments[2]);
-      console.log("----------------");
-  }
+<script>
+"use strict";
 
-  f1(); // 파라미터 보다 적은 개수의 아규먼트를 전달해도 된다.
-  f1(10); // 동적 타입 바인딩이기 때문에 어떤 값도 전달할 수 있다.
-  f1("홍길동", "임꺽정");
-  f1(10, "오호라", true);
-  f1(true, 10, 20, "푸헐..."); // 파라미터 보다 더 많은 개수의 파라미터를
+//함수의 내장 변수 "arguments"
+//=> 모든 아규먼트를 저장하고 있는 배열이다.
+function f1(a, b, c) {
+	console.log(a, b, c);
+	console.log(
+		arguments.length,
+		arguments[0], arguments[1], arguments[2], arguments[3]);
+    console.log("-------------------------");
+}
 
-  </script>
+
+f1(); // 파라미터 보다 적은 개수의 아규먼트를 전달해도 된다.
+f1(10); // 동적 타입 바인딩이기 때문에 어떤 값도 전달할 수 있다.
+f1("홍길동", "임꺽정");
+f1(10, "오호라", true);
+f1(true, 10, 20, "푸헐..."); // 파라미터 보다 더 많은 개수의 아규먼트를 전달해도 된다.
+
+
+</script>
 </body>
 </html>

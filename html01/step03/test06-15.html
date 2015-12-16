@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>객체 사용법</h1>
+
+<script>
+"use strict";
+
+//객체에 인스턴스 함수 추가하기 3 - 생성자 이용 
+function Calculator() {
+	this.result = 0;
+	this.plus = function(value) {this.result += value;};
+	this.minus = function(value) {this.result -= value;};
+	this.multiple = function(value) {this.result *= value;};
+	this.divide = function(value) {this.result /= value;};
+}
+
+var calc2 = new Calculator();
+var calc3 = new Calculator();
+
+calc2.plus(10);
+calc3.plus(20);
+calc2.multiple(4);
+calc3.multiple(5);
+console.log(calc2.result);
+console.log(calc3.result);
+
+
+</script>
+</body>
+</html>

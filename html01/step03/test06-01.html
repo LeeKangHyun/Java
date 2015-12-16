@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
 <body>
-  <h1>객체 사용법</h1>
+<h1>객체 사용법</h1>
 
-  <script>
-    "use strict";
+<script>
+"use strict";
 
-    //객체 만들기 => 자바스크립트의 객체는 자바의 맵과 유사하다.
-    // [""]
-    // ['']
-    // .
-    var obj1 = new Object();
-    obj1["name"] = "홍길동"; // 프로퍼티라고 부른다.
-    obj1['age'] = 20;      // 프로퍼티 이름 age, 프로퍼티 값 20
-    obj1.tel = "111-1111";
+//객체 만들기 => 자바스크립트의 객체는 자바의 맵과 유사하다.
+//=> 변수명.프로퍼티명 = 값;
+//=> 변수명["프로퍼티명"] = 값;
+//=> 변수명['프로퍼티명'] = 값;
+//=> 변수명[프로퍼티이름을담은변수] = 값;
+//
+var obj1 = new Object();
+obj1["name"] = "홍길동"; // <== 프로퍼티라고 부른다.
+obj1['age'] = 20;      // <== 프로퍼티 이름 age, 프로퍼티 값 20
+obj1.tel = "111-1111";
 
-    // for ~ in을 사용하여 객체의 값(프로퍼티) 꺼내기
-    for (var key in obj1) {
-        console.log(key, obj1[key]);
-    }
+// for ~ in을 사용하여 객체의 값(프로퍼티) 꺼내기 
+for (var key in obj1) {
+	console.log(key, obj1[key]);
+}
 
-  </script>
+</script>
 </body>
-
 </html>

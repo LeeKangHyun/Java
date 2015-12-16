@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>객체 사용법</h1>
+
+<script>
+"use strict";
+
+//객체에 인스턴스 함수 추가하기 
+
+// => 코드 방식
+var calc1 = new Object();
+
+// 인스턴스 변수 추가 <= 프로퍼티 변수 
+calc1.result = 0;
+
+// 인스턴스 함수 추가 <= 프로퍼티 함수 
+// => 인스턴스 함수에서 인스턴스 변수를 사용하려면 반드시 this를 붙여야 한다.
+// => 생략 불가능!
+calc1.plus = function(value) {this.result += value;};
+calc1.minus = function(value) {this.result -= value;};
+calc1.multiple = function(value) {this.result *= value;};
+
+// 물론 바깥에 정의된 함수를 객체에 넣을 수도 있다.
+// => 쯥~ 그냥 위에처럼 해라. 아래와 같이 번거롭게 하지 말라!
+function mydivide(value) {
+	this.result /= value;
+}
+calc1.divide = mydivide; // 함수 이름이 함수 주소를 갖고 있는 레퍼런스이다.
+
+calc1.plus(10);
+calc1.multiple(3);
+console.log(calc1.result);
+
+// => 단축 표기법 
+var calc2 = {
+	result: 0,
+	plus: function(value) {this.result += value;},
+	minus: function(value) {this.result -= value;},
+	multiple: function(value) {this.result *= value;},
+	divide: function(value) {this.result /= value;}
+};
+
+var calc3 = {
+	result: 0,
+	plus: function(value) {this.result += value;},
+	minus: function(value) {this.result -= value;},
+	multiple: function(value) {this.result *= value;},
+	divide: function(value) {this.result /= value;}
+};
+
+calc2.plus(10);
+calc3.plus(20);
+calc2.multiple(4);
+calc3.multiple(5);
+console.log(calc2.result);
+console.log(calc3.result);
+
+
+</script>
+</body>
+</html>

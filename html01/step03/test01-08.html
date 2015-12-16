@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-  <h1>변수 선언</h1>
+<h1>변수 선언</h1>
 
-  <script>
-  "use strict";
+<script>
+"use strict";
 
-  // 변수의 중복 선언
-  var v1 = 200;
-  console.log(v1);
+// 변수의 중복 선언
+var v1 = 200;
+console.log(v1); 
 
-  var v1 = 100;
-  console.log(v1);
+// 같은 이름의 변수를 선언해도 괜찮다. 문법 오류가 아니다.
+var v1 = 100;
+console.log(v1);
 
-  var v1 = "홍길동";
-  console.log(v1);
+var v1 = "홍길동";
+console.log(v1);
 
-  // 이유?
-  // => 자바스크립트는 변수나 함수를 맵으로 관리한다.
-  /*
-  HashMap map = new HashMap();
-  map.put("v1", 200);
-  System.out.pinrtln(map.get("v1"));
+// 이유?
+// => 자바스크립트는 변수나 함수를 맵으로 관리한다.
+/* 자바 코드로 표현하면 다음과 같다.
+HashMap map = new HashMap();
+map.put("v1", 200);
+System.out.println(map.get("v1"));
 
-  map.put("v1", 100);
-  System.out.pinrtln(map.get("v1"));
+map.put("v1", 100);
+System.out.println(map.get("v1"));
 
-  map.put("v1", 홍길동);
-  System.out.pinrtln(map.get("v1"));
-  */
-  </script>
+map.put("v1", "홍길동");
+System.out.println(map.get("v1"));
+
+*/
+</script>
 </body>
 </html>

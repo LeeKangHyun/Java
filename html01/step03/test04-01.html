@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
 <body>
-  <h1>값 다루기</h1>
+<h1>제어문 사용법</h1>
 
-  <script>
-    "use strict";
+<script>
+"use strict";
 
-    // 조건문 switch
-    var age = parseInt(prompt("등급을 입력하시오!"));
+// 조건문 if
+var age = parseInt(prompt("나이를 입력하시오!"));
+if (age < 19) {
+	console.log("미성년");
+} else if (age > 18 && age < 66) {
+	console.log("성년");
+} else {
+	console.log("노인");
+}
 
-    if (age < 19) {
-        console.log("미성년");
-    } else if (age > 18 && age < 66) {
-        console.log("성년");
-    } else {
-        console.log("노인");
-    }
-
-  </script>
+</script>
 </body>
-
 </html>

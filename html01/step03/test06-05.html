@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
 <body>
-  <h1>객체 사용법</h1>
+<h1>객체 사용법</h1>
 
-  <script>
-    "use strict";
+<script>
+"use strict";
 
-    //객체 만들기5 => 객체 생성 코드를 문자열로 받아 eval()을 통해 생성하기
-    // 예) ({"name":"ohora", 'age':20, "tel":'111-1111'})
-    //     => 객체일 경우 앞/뒤에 ()를 넣는다.
-    //     => 배열은 ()를 넣지 않아도 된다.
-    // eval(문자열로 된 자바스크립트코드)?
-    // => 아규먼트로 넘어온 자바스크립트 코드를 실행한다.
+//객체 만들기 5 => 객체 생성 코드를 문자열로 받아 eval()을 통해 생성하기 
+//예) ({"name":"홍길동", 'age':20, tel:'111-1111'})
+//    => 객체일 경우 앞/뒤에 괄호를 넣어라!
+//    => 배열은 괄호를 넣지 않아도 된다.
+// eval(문자열로 된 자바스크립트 코드)?
+// => 아규먼트로 넘어온 자바스크립트 코드를 실행한다.
+var code = prompt("객체 생성 코드를 입력하시오!");
+var obj1 = eval(code);
 
-    var code = prompt("객체 생성 코드를 입력하시오!");
-    var obj1 = eval(code);
+for (var key in obj1) {
+	console.log(key, obj1[key]);
+}
 
-    // for ~ in을 사용하여 객체의 값(프로퍼티) 꺼내기
-    for (var key in obj1) {
-        console.log(key, obj1[key]);
-    }
-
-  </script>
+</script>
 </body>
-
 </html>

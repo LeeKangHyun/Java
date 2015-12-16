@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>객체 사용법</h1>
+
+<script>
+"use strict";
+
+//객체 만들기 12 => getter/setter 추가하기 
+ 
+
+var obj1 = Object.create(Object.prototype);
+obj1.userName = "홍길동";
+
+var ageValue = 0;
+
+Object.defineProperty(obj1, 'age', {
+	enumerable: true,
+	configurable: true,
+	get: function() {
+		console.log("getter...");
+		return ageValue
+	},
+	set: function(v) {
+		console.log("setter...");
+		if (v < 0 || v > 120) {
+			ageValue = 20;
+		} else {
+			ageValue = v;
+		}
+	}
+});
+
+obj1.age = -30; // setter가 호출된다.
+
+console.log(obj1);
+console.log(obj1.age);
+
+</script>
+</body>
+</html>

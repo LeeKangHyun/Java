@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-  <h1>변수 선언</h1>
+<h1>변수 선언</h1>
 
-  <script>
-  "use strict";
+<script>
+"use strict";
 
-// 동적 타입 바인딩(Dynamic Type Binding)?
+// 동적 타입 바인딩(dynamic type binding)?
 // => 변수에 값을 넣을 때 변수의 타입이 결정된다.
 // => 변수에 다른 타입의 값을 넣으면 변수의 타입도 변경된다.
-  var v1;
+var v1;
 
-  v1 = "홍길동";
-  console.log(typeof v1); // v1 변수의 타입명을 출력
+v1 = "홍길동"; // string 타입
+console.log(typeof v1); // v1 변수의 타입명을 출력한다.
 
-  v1 = 20;
-  console.log(typeof v1);
+v1 = 20;  // number 타입
+console.log(typeof v1);  
 
 // 권고!
-// 가능한 한 변수를 동일한 용도로 사용하라.
+// 가능한 한 변수를 동일한 용도로 사용하라. 
 // 여러 타입의 값을 저장하는 용도로 사용하지 말라!
 // 유지보수가 어렵다.
-
-  </script>
+</script>
 </body>
 </html>

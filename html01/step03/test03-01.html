@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
 <body>
-  <h1>값 다루기</h1>
+<h1>값 다루기</h1>
 
-  <script>
-    "use strict";
+<script>
+"use strict";
 
-    // 문자열 다루기
-    var str1 = "Hello";
-    var str2 = new String("Hello");
+// 문자열 다루기
+var str1 = "Hello"; // string 타입 
+var str2 = new String("Hello"); // object 타입 
 
-    console.log(str1, typeof str1);
-    console.log(str2, typeof str2);
+console.log(str1, typeof str1);
+console.log(str2, typeof str2);
 
-    /* 자바스크립트의 primitive type과 object type
-       => primitive type: string, number, boolean
-       => object type: String(), Number(), Boolean()...
-    */
+/* 자바스크립트의 primitive type과 object type
+=> primitive type: string, number, boolean
+=> object type: String(), Number(), Boolean(), ...
+*/
 
-    /* primitive type 값은 대응하는 객체로 자동 변환(autoboxing)되기 때문에
-       객체처럼 사용할 수 있다. */
+/* 자바스크립트 문자열은 immutable이다.*/
+var str3 = str2.replace("ll", "xx"); // 새 문자열(string 타입) 리턴한다.
+console.log(str2, typeof str2); 
+console.log(str3, typeof str3); // replace() 리턴 값은 string 타입이다.
 
-    //자바스크립트 문자열은 immutable */
-    var str3 = str2.replace("ll", "xx"); // 새문자열 (String 타입)을 리턴한다.)
-    console.log(str2, str3);
-    console.log(str3, typeof str3); // replace() 리탄 값은 String 타입이다.
+/* primitive type 값은 대응하는 객체로 자동 변환(autoboxing)되기 때문에
+   객체처럼 사용할 수 있다.*/
+// str1은 string 타입인데도 불구하고 String 객체처럼 사용할 수 있다.
+var str4 = str1.replace("ll", "oo");
+console.log(str1, typeof str1);
+console.log(str4, typeof str4);
 
-    /* primiteve type 값은 대응하는 객체로 자동변환(autoboxing)되기 때문에
-
-  </script>
+</script>
 </body>
-
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>객체 사용법</h1>
+
+<script>
+"use strict";
+
+//객체 만들기 8 => Object.defineProperty()
+ 
+//1) 객체에 프로퍼티 넣기 
+var obj1 = Object.create(Object.prototype);
+
+// 프로퍼티 추가 일반적인 방법 
+obj1.userName = "홍길동";
+
+// 세밀하게 프로퍼티를 추가하는 방법
+var attrs = new Object();
+attrs.value = "30";
+Object.defineProperty(obj1, 'age', attrs);
+
+console.log(obj1);
+
+// 기존의 값 변경하기 
+obj1.userName = "임꺽정";
+obj1.age = 40; // 오류! defineProperty()로 추가한 값은 읽기 전용이다.
+console.log(obj1);
+
+</script>
+</body>
+</html>

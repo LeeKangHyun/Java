@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
 <body>
-  <h1>값 다루기</h1>
+<h1>값 다루기</h1>
 
-  <script>
-    "use strict";
+<script>
+"use strict";
 
-    // 배열 다루기2
-    var names = new Array();
-    names[0] = ("홍길동");
-    names[1] = ("임꺽정");
-    names[2] = ("유관순");
+// 배열 다루기2
+var names = new Array();
+names[0] = "홍길동";
+names[1] = "임꺽정";
+names[2] = "유관순";
 
-    console.log(names[0]);
-    console.log(names[1]);
-    console.log(names[2]);
+console.log(names[0]);
+console.log(names[1]);
+console.log(names[2]);
 
-    //pop()은 꺼낸다. 배열에서 제거한다.
-    console.log(names.pop());
-    console.log(names.pop());
-    console.log(names.pop());
-    console.log(names.length());
+// pop()은 꺼내고, 배열에서 제거한다. => LIFO(스택)
+console.log(names.pop());
+console.log(names.pop());
+console.log(names.pop());
+console.log(names.length);
 
-  </script>
+</script>
 </body>
-
 </html>

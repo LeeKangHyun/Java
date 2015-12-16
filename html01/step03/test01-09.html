@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-  <h1>변수 선언</h1>
+<h1>변수 선언</h1>
 
-  <script>
-  "use strict";
+<script>
+"use strict";
 
-  // 변수의 사용 범위
-  function f() {
-      var a = 20;
-      {
-          var b = 30;
-      }
-      console.log(a, b); // 결과? 정상으로 실행됨.
-  }
+// 변수의 사용 범위 
+function f() {
+	var a = 20;
+	{
+		var b = 30;
+	}
+	console.log(a, b); //결과? 정상으로 실행됨.
+}
 
-  f();
+f();
 
-  /* 변수의 범위
-     => 자바스크립트는 함수 로컬 변수와 글로벌 변수만 지원한다.
-     => 블록 범위는 지원하지 않는다.
-  */
+/* 변수의 범위
+=> 자바스크립트는 함수 로컬 변수와 글로벌 변수만 지원한다.
+=> 블록 범위는 지원하지 않는다.
+*/
 
-  // 글로벌 변수?
-  // => 함수 밖에 선언하는 변수.
-  var g1 = 100;
-  {
-      var g2 = 200;
-  }
-  console.log(g1, g2);
-  </script>
+// 글로벌 변수?
+// => 함수 밖에 선언하는 변수.
+var g1 = 100;
+{ 
+	var g2 = 200;
+}
+console.log(g1, g2);
+</script>
 </body>
 </html>

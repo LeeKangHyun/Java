@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
 <body>
-  <h1>객체 사용법</h1>
+<h1>객체 사용법</h1>
 
-  <script>
-    "use strict";
+<script>
+"use strict";
 
-    //객체 만들기2 => 프로퍼티 값을 설정할 때 대괄호를 쓰는 경우
-    var obj1 = new Object();
+//객체 만들기 2 => 프로퍼티 값을 설정할 때 대괄호를 쓰는 경우
+var obj1 = new Object();
 
-    // 일반적으로 프로퍼티 값을 설정할 때
-    obj1.name = "홍길동";
+// 일반적으로 프로퍼티 값을 설정할 때 
+obj1.name = "홍길동"; 
 
-    //obj1.haha ^^ = "안녕하세요"; 오류!
+// 프로퍼티 이름에 공백이나 특수 문자가 들어간 경우는 다음과 같이 할 수 없다.
+//obj1.haha ^^ = "안녕하세요";  // 오류!
 
-    obj1["haha ^^"] = "안녕하세요";
+// 그러나 대괄호를 쓴다면 가능하다.
+obj1["haha ^^"] = "안녕하세요";
 
-    // for ~ in을 사용하여 객체의 값(프로퍼티) 꺼내기
-    for (var key in obj1) {
-        console.log(key, obj1[key]);
-    }
+// for ~ in을 사용하여 객체의 값(프로퍼티) 꺼내기 
+for (var key in obj1) {
+	// 다음과 같이 프로퍼티 이름을 변수로 받을 때 대괄호를 사용한다.
+	console.log(key, obj1[key]);
+}
 
-  </script>
+</script>
 </body>
-
 </html>

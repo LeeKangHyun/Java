@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-  <h1>함수 선언</h1>
+<h1>변수 선언</h1>
 
-  <script>
-  "use strict";
+<script>
+"use strict";
 
-  // undefined의 의미?
-  var v1;
+// undefined의 의미?
+var v1;
 
-  // 값을 할당하지 않으면 변수의 타입은 정의되지 않는다.
-  console.log(v1); // undefined
+//값을 할당하지 않으면 변수의 타입은 정의되지 않는다.
+console.log(v1); // undefined
 
-  v1 = "홍길동";
-  console.log(v1, typeof v1);
+//값을 할당하면 그제서야 변수의 타입이 결정된다.
+v1 = "홍길동"; // string
+console.log(v1, typeof v1);
 
-  // 강제로 바인딩 된 타입을 끊기
-  v1 = undefined;
-  console.log(v1);
-  </script>
+//강제로 바인딩 된 타입을 끊기
+v1 = undefined;
+console.log(v1);
+</script>
 </body>
 </html>

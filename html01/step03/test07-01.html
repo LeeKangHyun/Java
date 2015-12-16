@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>객체 사용법</h1>
+
+<script>
+"use strict";
+
+// 생성자 1
+//=> 일반 함수이다. 특별한 문법이 아니다. 
+//=> 다만 객체를 초기화하는 코드를 실행한다는 의미에서 생성자라 부른다.
+//
+
+// Object() 생성자 함수 
+var obj1 = new Object();
+
+//1) new => 빈 객체를 생성한다.
+//2) Object() 함수가 호출되어 빈 객체에 필수 프로퍼티를 넣는다.
+
+//반드시 생성자를 호출해야 한다. 다음과 같이 생성자 호출을 생략할 순 없다.
+//var obj2 = new; // 문법 오류이다.
+
+// 예외 법칙!
+// Object.create(null) 사용하면 생성자를 호출하지 않는다.
+var obj3 = Object.create(null);
+</script>
+</body>
+</html>

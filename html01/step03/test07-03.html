@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>객체 사용법</h1>
+
+<script>
+"use strict";
+
+// 생성자 3 - 생성자 알아내기  
+
+function Student(n, t, e) {
+	this.sname = n;
+	this.tel = t;
+	this.email = e;
+} 
+
+var s1 = new Student("안중근", "111-4444", "ahn@test.com");
+console.log(s1);
+
+// 객체를 생성할 때 초기화를 수행한 생성자 정보 알아내기 
+// constructor 프로퍼티: 
+// => Object()가 추가한 프로퍼티.
+// => 생성자 함수를 보관하고 있다.
+console.log(s1.constructor);
+
+
+</script>
+</body>
+</html>

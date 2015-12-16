@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title></title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-  <h1>함수 선언</h1>
+<h1>함수 선언</h1>
 
-  <script>
-  "use strict";
+<script>
+"use strict";
 
-  // 익명 함수 선언과 호이스팅
-  // => 익명 함수는 호이스팅 되지 않는다.
-  result = plus(10,20);
-  console.log(result);
+// 익명 함수 선언과 호이스팅 
+// => 익명 함수는 호이스팅 되지 않는다.
+result = plus(10, 20); // 오류!
+console.log(result);
 
-  result = minus(10, 20);
-  console.log(result);
+result = minus(10, 20); // 오류!
+console.log(result);
 
-  // 익명 함수 선언과 호이스팅
-  var plus = function (a, b) {
-      return a + b;
-  }
+var plus = function (a, b) {
+	return a + b;
+};
 
-  var minus = function (a, b) {
-      return a - b;
-  }
+var minus = function (a, b) {
+	return a - b;
+};
 
-  var result = plus(10,20);
-  console.log(result);
+var result;
 
-  result = minus(10, 20);
-  console.log(result);
-
-  </script>
+</script>
 </body>
 </html>
