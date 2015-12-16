@@ -22,6 +22,9 @@ function Calculator() {
 var calc2 = new Calculator();
 var calc3 = new Calculator();
 
+console.log(calc2);
+console.log(calc3);
+
 calc2.plus(10);
 calc3.plus(20);
 calc2.multiple(4);
@@ -29,7 +32,9 @@ calc3.multiple(5);
 console.log(calc2.result);
 console.log(calc3.result);
 
-
+// 이 예제의 문제점?
+// => 각 객체마다 plus(), minus(), multiple(), divide() 함수가 
+//    중복해 추가된다.
 </script>
 </body>
 </html>

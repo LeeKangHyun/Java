@@ -10,19 +10,30 @@
 <script>
 "use strict";
 
-//객체에 인스턴스 함수 추가하기 3 - 생성자 이용 
+//객체에 인스턴스 함수 추가하기 3 - 인스턴스가 공통으로 사용하는 프로퍼티를 저장하기 
 function Calculator() {
-	this.result = 0;
-	this.plus = function(value) {this.result += value;};
-	this.minus = function(value) {this.result -= value;};
-	this.multiple = function(value) {this.result *= value;};
-	this.divide = function(value) {this.result /= value;};
+	this.result = 0;	
 }
 
-var calc2 = new Calculator();
-var calc3 = new Calculator();
+// 인스턴스가 공통으로 사용하는 프로퍼티 저장소 : prototype
+// => 함수는 prototype이라는 공통 저장소를 갖고 있다.
+// => prototype에 저장된 프로퍼티는 모든 인스턴스에서 사용할 수 있다.
+Calculator.prototype.plus = function(value) {this.result += value;};
+Calculator.prototype.minus = function(value) {this.result -= value;};
+Calculator.prototype.multiple = function(value) {this.result *= value;};
+Calculator.prototype.divide = function(value) {this.result /= value;};
 
-calc2.plus(10);
+// 객체 생성할 때 plus() 등의 함수는 객체에 추가되지 않는다.
+// => 메모리 절약!
+var calc2 = new Calculator(); // result, plus, minus, multiple, divide
+var calc3 = new Calculator(); // result, plus, minus, multiple, divide
+
+console.log(calc2);
+console.log(calc3);
+
+// 현재 객체에서 함수를 찾아보고 없으면, 
+// 생성자의 prototype에서 찾는다.
+calc2.plus(10); // 따라서 plus() 함수를 생성자 함수의 prototype에서 찾아 호출한다.
 calc3.plus(20);
 calc2.multiple(4);
 calc3.multiple(5);
