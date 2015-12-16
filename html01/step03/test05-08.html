@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>연산자 사용법</h1>
+
+<script>
+"use strict";
+
+/* 특수 관계 연산자  */
+// => in : 객체에 프로퍼티가 있는지 검사
+var obj = {
+    userName: "홍길동",
+    age: 20,
+    tel: "111-1111"
+}
+
+if ("userName" in obj) {
+    console.log("userName 있다");
+} else {
+    console.log("userName 없다");
+}
+
+if (obj.hasOwnProperty("age")) {
+    console.log("age 있다");
+} else {
+    console.log("age 없다");
+}
+
+// => 생성자의 인스턴스 인지 알아내기
+var obj2 = "Hello"; // string 원시 타입 
+obj2 = new String("Hello");
+
+if (obj2 instanceof String) {
+    console.log("String 인스턴스이다.");
+} else {
+    console.log("String 인스턴스가 아니다.");
+}
+
+//=> 프로퍼티 제거하기
+delete obj.userName;
+console.log(obj);
+ 
+</script>
+</body>
+</html>

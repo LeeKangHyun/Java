@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>생성자 사용법</h1>
+
+<script>
+"use strict";
+
+// 생성자 5 - 상속 구현하기 2: prototype도 상속 받기  
+
+function Calculator() {
+	this.result = 0;
+} 
+
+Calculator.prototype.plus = function(value) {this.result += value;};
+Calculator.prototype.minus = function(value) {this.result -= value;};
+
+function CalculatorEx() {
+	// 상위 생성자 호출 
+	Calculator.call(this);
+}
+
+// 상위 생성자의 prototype을 사용하기
+// => 함수의 기본 prototype을 상위 생성자의 prototype으로 교체하기 
+// prototype 교체 전 : CalculatorEx() 
+CalculatorEx.prototype = new Calculator();
+// prototype 교체 후 : Calculator()  
+
+// => CalculatorEx()에 의해 초기화되는 객체의 기본 생성자 정보를 설정한다.
+//    만약 설정하지 않으면, Calculator.prototype.constructor 값이 사용된다.
+CalculatorEx.prototype.constructor = CalculatorEx;
+
+// 하위 생성자의 prototype에 공용 함수 추가하기 
+CalculatorEx.prototype.multiple = function(value) {this.result *= value;};
+CalculatorEx.prototype.divide = function(value) {this.result /= value;};
+
+var c1 = new CalculatorEx();
+// 객체를 초기화시킨 기본 생성자 확인
+console.log(c1.constructor);
+
+// 객체를 초기화시킨 생성자를 검사하기 
+console.log(c1 instanceof Calculator);
+console.log(c1 instanceof CalculatorEx);
+
+
+c1.plus(100);
+c1.minus(50);
+c1.multiple(5);
+c1.divide(2);
+console.log(c1.result);
+console.log("------------------------");
+
+var c2 = new Calculator();
+c2.plus(1000);
+c2.minus(500);
+// c2객체는 Calculator()의 prototype을 사용하기 때문에 
+// multiple(), divide() 함수는 없다. 
+// 따라서 다음 코드는 오류를 발생시킨다.
+//c2.multiple(5); // 오류!
+//c2.divide(2);   // 오류!
+console.log(c2.result);
+console.log(c2.constructor);
+</script>
+</body>
+</html>

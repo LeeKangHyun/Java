@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>연산자 사용법</h1>
+
+<script>
+"use strict";
+
+/* 명시적 형변환  */
+// 1) boolean 형으로 변환
+console.log(Boolean(0));    // false
+console.log(Boolean(1));    // true
+console.log(Boolean(-1));   // true
+
+console.log(Boolean(''));   // false
+console.log(Boolean(' '));  // true
+console.log(Boolean('true'));// true
+console.log(Boolean('false'));// true
+
+console.log(Boolean(null)); // false
+console.log(Boolean(undefined));// false
+console.log(Boolean(NaN));  // false
+console.log("------------------------");
+
+// 2) number 형으로 변환
+console.log(Number(true));    // 1
+console.log(Number(false));   // 0
+
+console.log(Number(''));      // 0
+console.log(Number('  '));    // 0
+console.log(Number('12'));    // 12
+console.log(Number('017'));   // 17
+console.log(Number('true'));  // NaN
+console.log(Number('false')); // NaN
+
+console.log(Number(null));    // 0
+console.log(Number(undefined));// NaN
+console.log(Number(NaN));     // NaN
+
+console.log(Number('25000원')); // NaN
+console.log(Number('$25000')); // NaN
+
+console.log(parseInt('25000원')); // 25000
+console.log(parseInt('$25000')); // NaN
+
+console.log(Number([])); // 빈배열 => 0
+console.log(Number([10])); // 배열(한개 항목) => 10
+console.log(Number(["10"])); // 배열(한개 항목) => 10
+console.log(Number([10,20])); // 빈배열(여러개 항목) => NaN
+console.log(Number({})); // 기본 객체 => NaN
+console.log("------------------------");
+
+// 3) string 형으로 변환
+console.log(String(true));    // "true"
+console.log(String(false));   // "false"
+console.log(String(12));    // "12"
+//console.log(String(017)); // 문법 오류! strict 모드에서는 8진수 표현 불가!
+console.log(String(null));  // "null"
+console.log(String(undefined));// "undefined"
+console.log(String(NaN));     // "NaN"
+console.log(String([])); // ""
+console.log(String({})); // 객체 정보를 리턴 "[object 타입]" -> 예) "[object Object]"
+console.log("------------------------");
+</script>
+</body>
+</html>

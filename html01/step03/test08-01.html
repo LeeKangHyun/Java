@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>스크립트 실행 순서</h1>
+<ol>
+	<li>스크립트는 태그 단위로 순서대로 실행된다.</li>
+	<li>호이스팅도 해당 태그에 한정하여 실행된다.</li>
+	<li>스크립트 태그든 아니면 일반 태그든 순서대로 실행된다.</li>
+	<li>이전 스크립트에서 작업한 것은 마지막까지 유효하다.</li>
+	<li>스크립트 태그가 달라도 같은 메모리 공간을 사용한다.</li>
+</ol>
+
+<script>
+"use strict";
+
+f1();
+
+// 다른 스크립트 태그를 실행하기 전이기 때문에 
+// 다른 스크립트 태그에 선언된 함수를 호이스팅 하지 않는다.
+//f2(); // 오류!
+//f3(); // 오류!
+
+function f1() {
+	console.log("f1....");
+}
+
+alert("잠깐!"); 
+// alert 창을 닫아야만 리턴한다. 그래야 다음 태그로 간다.
+
+</script>
+<h2>첫 번째 스크립트 실행 종료</h2>
+
+<script>
+"use strict";
+
+f1(); // 이전 스크립트 태그에서 작업한 모든 것은 유효하다.
+      // 왜? 글로벌 변수와 함수는 window 객체에 저장되기 때문에.
+f2();
+
+function f2() {
+	console.log("f2....");
+}
+alert("잠깐!");
+</script>
+<h2>두 번째 스크립트 실행 종료</h2>
+
+<script>
+"use strict";
+
+console.log("------------------");
+f1();
+f2();
+f3();
+
+function f3() {
+	console.log("f3....");
+}
+alert("잠깐!");
+</script>
+<h2>세 번째 스크립트 실행 종료</h2>
+
+</body>
+</html>

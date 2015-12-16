@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>연산자 사용법</h1>
+
+<script>
+"use strict";
+
+/* 논리 연산자 */
+var v1 = true, 
+    v2 = false;  
+
+console.log(v1 && v2); // false
+console.log(v1 || v2); // true
+
+/* 논리 연산자의 외도 */
+//예) 짝수/홀수 알아내기 
+var value = parseInt(prompt("숫자를 입력하시오!"));
+
+((value % 2) == 0) && console.log("짝수입니다.");
+// => 분석 
+// 짝수라면 && 왼쪽의 값이 true가 되기 때문에 오른쪽 문장을 실행한다.
+// 홀수라면 && 왼쪽의 값이 false가 된다. 
+// && 왼쪽의 값이 false이면 이미 결과가 false이기 때문에 오른쪽 문장을 실행하지 않는다.
+ 
+
+((value % 2) == 0) || console.log("홀수입니다.");
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>생성자 사용법</h1>
+
+<script>
+"use strict";
+
+// 생성자 6 - 캡슐호 문법 없이 캡슐화 구현하기
+// => 클로저의 특징을 이용한 방법  : 적용 전
+function Calculator() {
+	this.result = 0;
+	this.plus = function(value) {this.result += value;};
+	this.minus = function(value) {this.result -= value;};
+	this.multiple = function(value) {this.result *= value;};
+	this.divide = function(value) {this.result /= value;};
+	this.getResult = function() {return this.result;};
+}
+
+var c1 = new Calculator();
+c1.plus(100);
+c1.minus(70);
+c1.result = "오호라"; // 일반 인스턴스 변수는 직접 접근 가능. 잘못된 사용 가능!
+console.log(c1.getResult());
+
+// => 클로저의 특징을 이용한 방법  : 적용 후
+function Calculator2() {
+	//외부에서 접근할 수 없게 로컬 변수로 만든다. => 캡슐화 기법 
+	var result = 0;
+	
+	//인스턴스 함수에서는 바깥 함수의 로컬 변수를 복제하여 사용한다.
+	//단, 같은 함수에서 만든 클로저는 메모리를 공유한다.
+	//복제한 result 변수를 공유한다.
+	this.plus = function(value) {result += value;};
+	this.minus = function(value) {result -= value;};
+	this.multiple = function(value) {result *= value;};
+	this.divide = function(value) {result /= value;};
+	this.getResult = function() {return result;};
+}
+
+var c2 = new Calculator2();
+c2.plus(100);
+c2.minus(70);
+c2.result = "오호라"; // 일반 인스턴스 변수는 직접 접근 가능. 잘못된 사용 가능!
+console.log(c2.getResult());
+
+</script>
+</body>
+</html>

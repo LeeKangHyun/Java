@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>객체 사용법</h1>
+<h1>생성자 사용법</h1>
 
 <script>
 "use strict";
@@ -33,22 +33,6 @@ console.log(s1 instanceof Student); // true
 // Student 생성자에서 내부적으로 호출했기 때문에 instanceof 연산자로는 알 수 없다.
 // 해결책? 다음 예제를 보라!
 console.log(s1 instanceof Member); // false
-
-/*
-// Student() 생성자와 Member() 생성자를 상속 관계로 연결한다.
-// => Student 객체를 만들 때 사용할 틀을 지정한다. 
-// => Student 객체를 만들 때 Member 틀을 기준으로 생성할 것이다.
-console.log(Student.prototype);
-Student.prototype = new Member();
-// => 그 틀의 생성자를 Student로 지정한다.
-Student.prototype.constructor = Student;
-
-console.log(s1.constructor);
-
-// 상속 관계 확인하기 
-
-
-*/
 
 </script>
 </body>

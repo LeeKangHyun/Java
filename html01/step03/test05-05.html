@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>연산자 사용법</h1>
+
+<script>
+"use strict";
+
+/* 2진수 비트 연산자   
+=> 값을 비트 단위로 연산한다.
+*/
+
+var v1 = 10, /* 00001010 */ 
+    v2 = 7;  /* 00000111 */
+
+console.log(v1 & v2); // 00000010 <== 둘 비트가 모두 1일 때 만 1
+console.log(v1 | v2); // 00001111 <== 둘 중 한 개라도 1이면 1
+console.log(v1 ^ v2); // 00001101 <== 비트의 값이 다를 때 1
+
+
+
+</script>
+</body>
+</html>

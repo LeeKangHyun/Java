@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>연산자 사용법</h1>
+
+<script>
+"use strict";
+
+/* 관계  연산자 */
+console.log(10 < 2);    // false
+console.log(10 <= 2);	// false
+console.log(10 > 2);	// true
+console.log(10 >= 2);	// true
+console.log("----------------------");
+
+/* 등가 비교 연산자 */
+var v1 = 10, v2 = 20;
+console.log(v1 == v2);  // false
+console.log(v1 != v2);  // true
+console.log(v1 === v2);  // false
+console.log(v1 !== v2);  // true
+console.log("----------------------");
+
+
+var v3 = 10, v4 = "10";
+/* == 와 != 는 타입이 다를 때 암시적 형변환을 통해 같은 타입으로 만든 다음 비교한다.*/
+console.log(v3 == v4);  // true : 10 == parseInt("10")
+console.log(v3 != v4);  // false : 10 != parseInt("10")
+
+/* === 와 !== 은 엄격한 비교를 수행한다. 타입이 같은 경우만 실행한다.*/
+console.log(v3 === v4);  // false : v3와 v4는 타입이 다르므로 false가 된다.
+console.log(v3 !== v4);  // true : 값이 다르거나 타입이 다르면 true이다.
+
+/* 자바스크립트 암시적 형변환 규칙
+1) number와 string 비교
+   => string을 number로 바꾼 후 비교한다.
+2) x와 boolean
+   => boolean을 number로 바꾼 후 비교한다.
+*/
+</script>
+</body>
+</html>

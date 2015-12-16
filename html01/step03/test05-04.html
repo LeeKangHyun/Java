@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>연산자 사용법</h1>
+
+<script>
+"use strict";
+
+/* 비트 이동 연산자   */
+var v = 10;
+console.log(v << 3); 	// 80 = v * 2^3
+v = 10; // 0000 1010
+console.log(v >> 2); // 0000 0010|10 <= 왼쪽 빈 자리는 부호 비트로 채운다.
+v = -10;
+console.log(v >> 2); // 2의 보수 표현 값을 오른쪽으로 2비트 이동. 
+v = -10;
+console.log(v >>> 2); // 왼쪽 빈 자리를 0으로 채운다. 음수인 경우 양수가 된다. 
+
+
+</script>
+</body>
+</html>
