@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#result {
+  border: 1px solid red;
+}
+</style>
+</head>
+<body>
+<h1>AJAX 테스트</h1>
+<div id="result"></div>
+<script>
+var xhr = new XMLHttpRequest();
+xhr.open('get', 'test02.jsp', false); // 동기 요청
+xhr.send();
+
+/* 동기 방식 요청의 문제점
+   - 서버에서 응답이 올 때까지 리턴하지 않는다.
+   - 다음 명령을 실행할 수 없다.
+   - 화면 멈춤 현상이 발생한다.
+ */
+
+document.querySelector('#result').innerHTML = xhr.responseText;
+</script>
+<img src="photo01.jpeg" width="100">
+<address>비트 캠프 자바76기</address>
+</body>
+</html>
+
+
+
+

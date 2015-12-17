@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>이벤트 다루기</h1>
+<form action="http://www.google.com" method="get" 
+      onsubmit="return submitForm()">
+* 이름: <input id="name" type="text"><br>
+* 이메일: <input id="email" type="text"><br>
+전화: <input id="tel" type="text"><br>
+<input type="submit" value="전송">
+</form>
+<script>
+/* submit 이벤트 처리 */
+
+// submit을 막는 방법
+// 1) event.preventDefault() 호출 
+// 2) return false;
+function submitForm(event){
+    if (document.querySelector('#name').value == "" 
+        || document.querySelector('#email').value == "") {
+      alert("필수 항목을 입력하세요.");
+      //event.preventDefault();
+      return false;
+    }
+}
+
+</script>
+</body>
+</html>

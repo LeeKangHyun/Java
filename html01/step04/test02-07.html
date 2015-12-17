@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>이벤트 다루기</h1>
+<button id="btn1" type="button" onclick="btn1Click(event)">버튼1</button><br>
+<button id="btn2" type="button">버튼2</button><br>
+<button id="btn3" type="button">버튼3</button><br>
+<button id="btn4" type="button">버튼4</button><br>
+
+<script>
+/* 이벤트 정보 추출하기 */
+
+/* onclick="btn1Click(event)" 의미?*/
+// => 위의 HTML은 다음 자바스크립트 코드와 같다.
+/*
+// 1) 임의의 리스너를 만든다.
+// => 임의의 리스너를 만들 때 파라미터 이름은 event로 짓는다.
+// => 따라서 리스너에 삽입되는 코드에서는 event 변수를 사용할 수 있는 것이다!
+function tempListener(event) {
+	// 2) onclick 속성에 작성한 코드를 그대로 복사한다.
+	btn1Click(event)
+}
+// 3) 리스너를 해당 태그에 등록한다.
+document.querySelector('#btn1').addEventListener('click', tempListener);
+*/
+
+function btn1Click(event) {
+	// MouseEvent 정보 추출
+	console.log(event);
+	console.log("웹브라우저 출력 영역(clientX, clientY):", event.clientX, event.clientY);
+	console.log("태그 기준 (offsetX, offsetY):", event.offsetX, event.offsetY);
+	console.log("모니터 기준 (screenX, screenY):", event.screenX, event.screenY);
+	console.log("ALT, SHIFT, CTRL:", event.altKey, event.shiftKey, event.ctrlKey);
+	console.log("이벤트가 발생한 태그:", event.target);
+	console.log("----------------------------------------------");
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>이벤트 다루기</h1>
+<button id="btn1" type="button">버튼1</button><br>
+<button id="btn2" type="button">버튼2</button><br>
+<button id="btn3" type="button">버튼3</button><br>
+<button id="btn4" type="button">버튼4</button><br>
+
+<script>
+/* 이벤트 처리 3*/
+//=> 자바스크립트 만으로 이벤트 처리 코드 등록하기
+//
+
+//=> 여러 개의 리스너를 등록할 수 있다.
+function btn1Click1(event) {
+	alert('첫 번째!')
+}
+
+function btn1Click2(event) {
+	alert('두 번째!')
+}
+
+function btn1Click3(event) {
+	alert('세 번째!')
+}
+
+var e1 = document.querySelector("#btn1");
+
+if (e1.addEventListener) { // Chrome, Safari, Firefox 등 표준 API 지원
+	e1.addEventListener('click', btn1Click1);
+	e1.addEventListener('click', btn1Click2);
+	e1.addEventListener('click', btn1Click3);
+} else {
+/* IE8 이하에서는 addEventListener() 표준 함수가 없다.
+   대신 attachEvent() 함수가 있다.*/
+   e1.attachEvent('onclick', btn1Click1);
+   e1.attachEvent('onclick', btn1Click2);
+   e1.attachEvent('onclick', btn1Click3);
+}
+</script>
+</body>
+</html>

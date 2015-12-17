@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>DOM API 다루기</h1>
+<p id="p1"></p>
+<p id="p2"></p>
+
+<script>
+/* 태그의 값 바꾸기 */
+
+var e1 = document.getElementById("p1");
+var e2 = document.getElementById("p2");
+
+//=> 태그의 콘텐츠 바꾸기
+//1) HTML 태그를 무시하기.
+//   콘텐츠 안에 HTML 태그가 있다 하더라도 일반 텍스트로 취급한다.
+e1.textContent = "오호라~ <b>비트캠프</b>에 오신 걸 환영합니다.";
+
+//2) HTML 태그를 인식하기 
+//   콘텐츠 안에 HTML 태그가 있다면 렌더링 엔진이 처리한다.
+e2.innerHTML = "오호라~ <b>비트캠프</b>에 오신 걸 환영합니다.";
+</script>
+</body>
+</html>

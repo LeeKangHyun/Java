@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#result {
+  border: 1px solid red;
+}
+</style>
+</head>
+<body>
+<button id="btn1" type="button">서버 실행 요청</button><br>
+<div id="result"></div>
+<script>
+document.querySelector("#btn1").addEventListener('click', 
+	function(event){
+	  //1) 서버에 요청을 수행하는 객체를 준비한다.
+	  var xhr = new XMLHttpRequest();
+	  
+	  //2) 요청할 서버 자원의 URL 지정 => 서버에 연결 
+	  // => 반드시 현재 페이지를 다운로드 받은 서버에게만 요청할 수 있다.
+	  // => 보안상 다른 서버는 안된다.
+	  xhr.open('get', 'test01.jsp', false); // 동기 요청
+	  
+	  //3) HTTP 요청을 수행
+	  // => 동기방식으로 요청하면 서버에서 응답이 올 때까지 리턴하지 않는다.
+	  xhr.send();
+	  
+	  //4) 서버가 응답한 내용을 꺼낸다.
+	  // => 서버가 보낸 응답 내용 중에서 본문이 responseText라는 이름으로 저장되어 있다.
+	  document.querySelector('#result').innerHTML = xhr.responseText;
+});
+</script>
+</body>
+</html>
+
+
+
+

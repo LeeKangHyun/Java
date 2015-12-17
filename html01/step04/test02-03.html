@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>이벤트 다루기</h1>
+<button id="btn1" type="button" onclick="btn1Click()">버튼1</button><br>
+<button id="btn2" type="button" onclick="btn2Click()">버튼2</button><br>
+<button id="btn3" type="button" onclick="btn3Click()">버튼3</button><br>
+<button id="btn4" type="button" onclick="btn4Click()">버튼4</button><br>
+
+<script>
+/* 이벤트 처리 2*/
+//=> HTML에 자바스크립트 코드를 최소한으로 섞기 
+//   자바스크립트 코드를 담은 함수를 만들고, onclick에서는 그 함수를 호출한다.
+
+function btn1Click() {
+	alert('okok')
+}
+
+function btn2Click() {
+	window.v1 = '홍길동'; 
+	window.v2 = 20
+}
+
+function btn3Click() {
+	window.v1 = '임꺽정'
+}
+
+function btn4Click() {
+	alert(window.v1 + ',' + window.v2)
+}
+</script>
+</body>
+</html>

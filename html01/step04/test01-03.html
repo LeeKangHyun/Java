@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>DOM API 다루기</h1>
+<button id="btn1" type="button" class="a">버튼1</button><br>
+<button id="btn2" type="button" class="a">버튼2</button><br>
+<button id="btn3" type="button" class="b">버튼3</button><br>
+<button id="btn4" type="button" class="b">버튼4</button><br>
+
+<script>
+/* 태그 찾기 */
+
+//=> 클래스 이름으로 찾기 
+var elements = document.getElementsByClassName("b");
+
+
+for (var i = 0; i < elements.length; i++) {
+	console.log(elements[i].textContent);
+}
+
+</script>
+</body>
+</html>

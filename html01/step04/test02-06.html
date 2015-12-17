@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>이벤트 다루기</h1>
+<button id="btn1" type="button" onclick="alert('onclick')">버튼1</button><br>
+<button id="btn2" type="button">버튼2</button><br>
+<button id="btn3" type="button">버튼3</button><br>
+<button id="btn4" type="button">버튼4</button><br>
+
+<script>
+/* 이벤트 처리 3*/
+//=> 자바스크립트 만으로 이벤트 처리 코드 등록하기
+//
+
+//onclick과 addEventListener()로 등록한 함수의 실행 순서
+function btn1Click(event) {
+	alert('addEventListener()')
+}
+
+var e1 = document.querySelector("#btn1");
+e1.addEventListener('click', btn1Click);
+
+</script>
+</body>
+</html>

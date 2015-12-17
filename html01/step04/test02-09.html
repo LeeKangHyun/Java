@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	border: 1px solid red;
+	margin: 20px;
+}
+</style>
+</head>
+<body>
+<h1>이벤트 다루기</h1>
+  <div>div
+     <h1>h1.........</h1>
+     <nav id="n01">nav#n01
+       <h2 class="g3 g1">h2.g3.g1 - 제목 1</h2>
+       <p class="g1">p.g1 - 내용 내용 내용 내용 내용</p>
+       <h2 class="g2">h2.g2 - 제목 2</h2>
+       <p class="g2">p.g2 - 내용2 내용2 내용2 내용2 내용2</p>
+     </nav>
+     
+     <h1>h1.........</h1>
+     <nav id="n02">nav#n02
+       <h2 class="g1 g3">h2.g1.g3 - 제목 3</h2>
+       <p class="g1">p.g1 - 내용3 내용3 내용3 내용3 내용3</p>
+       <h2 class="g2 g3">h2.g2.g3 - 제목 4</h2>
+       <p class="g2">p.g2 - 내용4 내용4 내용4 내용4 내용4</p>
+     </nav>
+     <p class="g1">p.g1 - 내용5 내용5 내용5 내용5 내용5</p>
+  </div>
+  <p class="g2 g3">p.g2.g3 - 내용6 내용6 내용6 내용6 내용6</p>
+
+<script>
+/* 이벤트 리스너 호출 원리 */
+
+/* 버블링 막기: stopPropagation()
+=> 상위 태그로 이벤트가 전달되는 것을 막는다.
+ */
+
+//1) 가장 위쪽 태그(h2)에 click 리스너 등록 
+var e1 = document.querySelector("#n01 h2:nth-child(3)");
+e1.addEventListener('click', function(event){
+	console.log('h2...(1)');
+  event.stopPropagation();
+});
+e1.addEventListener('click', function(event){
+	console.log('h2...(2)');
+});
+e1.addEventListener('click', function(event){
+	console.log('h2...(3)');
+});
+
+//2) h2의 부모 태그(nav#n01)에 click 리스너 등록 
+var e2 = document.querySelector("#n01");
+e2.addEventListener('click', function(event){
+	console.log('nav...');
+});
+
+//3) nav의 부모 태그(div)에 click 리스너 등록 
+var e3 = document.querySelector("div");
+e3.addEventListener('click', function(event){
+	console.log('div...');
+});
+
+//4) div의 부모 태그(body)에 click 리스너 등록 
+//=> body 객체는 많이 찾는 객체이기 때문에 document에 기본 프로퍼티로 포함되어 있다.
+//var e4 = document.querySelector("body");
+document.body.addEventListener('click', function(event){
+	console.log('body...');
+});
+</script>
+</body>
+</html>

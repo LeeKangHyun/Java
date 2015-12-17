@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#result {
+  border: 1px solid red;
+}
+</style>
+</head>
+<body>
+<h1>AJAX 테스트</h1>
+<div id="result"></div>
+<script>
+/* AJAX를 이용한 동적 화면 만들기 - JSON.parse() 사용 */
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(event) {
+	if (xhr.readyState == 4) {
+		if (xhr.status == 200) {
+      var resultObj = JSON.parse(xhr.responseText);
+      var ul = document.createElement("ul"); // <ul></ul>
+      var li;
+      for (var name of resultObj.names) {
+    	    li = document.createElement("li"); // <li></li>
+    	    li.innerHTML = name;  // <li>....</li>
+    	    ul.appendChild(li); //<ul><li>...</li>...
+      }
+      document.querySelector('#result').appendChild(ul); // <div><ul>...</ul>..
+		} else {
+			alert("서버와의 연결이 원활하지 않습니다.");
+		} 
+	}
+};
+xhr.open('get', 'test07.jsp', true); 
+xhr.send();
+</script>
+<img src="photo01.jpeg" width="100">
+<address>비트 캠프 자바76기</address>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#result {
+  border: 1px solid red;
+}
+</style>
+</head>
+<body>
+<h1>AJAX 테스트</h1>
+<table border="1">
+<tr>
+  <th>번호</th>
+  <th>제목</th>
+  <th>내용</th>
+</tr>
+</table>
+
+<script>
+/* AJAX를 이용한 동적 화면 만들기 - JSON 데이터를 가져와서 테이블을 만들기 */
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(event) {
+	if (xhr.readyState == 4) {
+		if (xhr.status == 200) {
+			//console.log(xhr.responseText);
+      var resultObj = JSON.parse(xhr.responseText);
+      if (resultObj.status == "success") {
+        console.log(resultObj.data);
+        var table = document.querySelector("table");
+        var tr;
+        for (var board of resultObj.data) {
+        	  	tr = document.createElement("tr");
+        	  tr.innerHTML = "<td>" + board.no + "</td>"
+              + "<td>" + board.title + "</td>"
+              + "<td>" + board.content + "</td>";
+          table.appendChild(tr);
+        }
+      }
+		} else {
+			alert("서버와의 연결이 원활하지 않습니다.");
+		} 
+	}
+};
+xhr.open('get', 'test09.jsp', true); 
+xhr.send();
+</script>
+
+<img src="photo01.jpeg" width="100">
+<address>비트 캠프 자바76기</address>
+</body>
+</html>
+
+
+
+

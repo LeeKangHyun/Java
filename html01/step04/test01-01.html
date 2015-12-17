@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>DOM API 다루기</h1>
+<button id="btn1" type="button">버튼1</button><br>
+<button id="btn2" type="button">버튼2</button><br>
+<button id="btn3" type="button">버튼3</button><br>
+<button id="btn4" type="button">버튼4</button><br>
+
+<script>
+/* 태그 찾기 */
+// DOM(Document Object Model)? 
+// => 엘리먼트를 관리하기 쉽게 트리 구조로 객체화시킨 것.
+//
+// DOM API?
+// => DOM 구조의 엘리먼트를 다루는 함수들의 집합.
+
+// document 객체?
+// => 웹브라우저에 제공하는 내장 객체.
+// 
+// 웹 브라우저에서 제공하는 객체?
+// => window, navigator, location, document 등 
+// 
+//=> 아이디로 태그 찾기 
+var e1 = document.getElementById("btn1");
+
+//=> 엘리먼트의 콘텐츠를 알아내는 방법: textContent, innerHTML 
+console.log(e1.textContent);
+console.log(e1.innerHTML);
+
+</script>
+</body>
+</html>

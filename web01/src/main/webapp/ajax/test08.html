@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#result {
+  border: 1px solid red;
+}
+</style>
+</head>
+<body>
+<h1>AJAX 테스트</h1>
+<form>
+제목: <input id="title" type="text"><br>
+내용: <textarea id="content"></textarea>
+<button id="addBtn" type="button">등록</button>
+</form>
+<div id="result"></div>
+<script>
+/* AJAX를 이용한 동적 화면 만들기 - POST 요청 보내기 */
+ 
+document.querySelector("#addBtn").addEventListener('click', function() { 
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(event) {
+		if (xhr.readyState == 4) {
+			if (xhr.status == 200) {
+	      var resultObj = JSON.parse(xhr.responseText);
+	      if (resultObj.status == "success") {
+	        document.querySelector('#result').innerHTML = "입력 성공입니다!";
+	      }
+			} else {
+				alert("서버와의 연결이 원활하지 않습니다.");
+			} 
+		}
+	};
+	xhr.open('post', 'test08.jsp', true); 
+	
+	// post 요청할 때, 반드시 콘텐츠 타입을 요청에 포함해야 한다.
+	// => 만약 post 요청을 의미하는 Content-Type을 보내지 않으면,
+	//    서버에서는 제대로 데이터를 꺼낼 수 없다.
+	//    즉 getParameter()의 리턴 값은 null이다.
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	
+	// post 요청할 때, 서버에 보내는 데이터는 쿼리스트링 형태가 되어야 한다.
+	// 쿼리스트링? 변수=값&변수=값&변수=값...
+	var queryString = "title=" 
+	    + document.querySelector('#title').value 
+	    + "&content=" 
+	    + document.querySelector('#content').value
+	console.log(queryString);
+	
+	// post 요청할 때, 데이터는 send()의 파라미터로 전달해야 한다.
+	xhr.send(queryString);
+});
+
+</script>
+<img src="photo01.jpeg" width="100">
+<address>비트 캠프 자바76기</address>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>DOM API 다루기</h1>
+<button id="btn1" type="button" class="a">버튼1</button><br>
+<button id="btn2" type="button" class="a">버튼2</button><br>
+<button id="btn3" type="button" class="b">버튼3</button><br>
+<button id="btn4" type="button" class="b">버튼4</button><br>
+
+<script>
+/* 태그 찾기 */
+
+//=> CSS selector 표기법을 사용하여 태그 찾기
+//1) 딱 한 개의 엘리먼트를 찾을 때 사용  
+var element = document.querySelector("#btn3")
+console.log(element.textContent);
+
+//2) 여러 개를 찾았을 때도 첫 번째 엘리먼트만 리턴한다.
+element = document.querySelector(".a")
+console.log(element.textContent);
+console.log("-----------------------");
+
+//3) 만약 여러 개의 엘리먼트를 찾고 리턴 받고 싶다면?
+var elements = document.querySelectorAll(".a")
+
+for (var i = 0; i < elements.length; i++) {
+	console.log(elements[i].textContent);
+}
+
+
+</script>
+</body>
+</html>

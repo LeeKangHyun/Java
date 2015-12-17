@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	border: 1px solid red;
+	margin: 20px;
+}
+</style>
+</head>
+<body>
+<h1>이벤트 다루기</h1>
+<a href="http://www.daum.net">다음</a>
+
+<form action="http://www.google.com" method="get">
+* 이름: <input id="name" type="text"><br>
+* 이메일: <input id="email" type="text"><br>
+전화: <input id="tel" type="text"><br>
+<input type="submit" value="전송">
+</form>
+<script>
+/* 태그에 기본적으로 등록된 리스너의 작동을 막기  */
+
+//a 태그에 click 리스너 등록 
+var e1 = document.querySelector("body a");
+e1.addEventListener('click', function(event){
+  alert("a 태그 눌렀음"); 
+  event.preventDefault();
+});
+
+//폼의 입력 값을 검증하여 필수 입력 항목이 비어 있으면 서버에 요청을 하지 않게 만들기 */
+document.querySelector("input[type=submit]").addEventListener(
+  'click', 
+  function(event){
+    // 폼 데이터 검증!
+    if (document.querySelector('#name').value == "" 
+        || document.querySelector('#email').value == "") {
+      alert("필수 항목을 입력하세요.");
+      event.preventDefault();
+    }
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>객체 사용법</h1>
+
+<script>
+"use strict";
+
+//스태틱 함수 흉내 내기 
+function Calculator() {
+	this.result = 0;	
+}
+
+//인스턴스 함수 추가 
+Calculator.prototype.plus = function(value) {this.result += value;};
+Calculator.prototype.minus = function(value) {this.result -= value;};
+Calculator.prototype.multiple = function(value) {this.result *= value;};
+Calculator.prototype.divide = function(value) {this.result /= value;};
+
+//전제조건: 함수도 객체다!
+//스태틱 함수 흉내 내기
+Calculator.about = function() {
+	return "BIT 계산기 ver 0.1";
+};
+
+//인스턴스 함수 호출
+var c1 = new Calculator();
+c1.plus(10);
+console.log(c1.result);
+
+//함수 객체에 등록된 함수 호출하기 
+console.log(Calculator.about());
+
+//함수에 대해 함수를 호출할 때 놀라지 말라!
+//왜? 자바스크립트에서는 함수도 객체이다.
+//당연히 객체에는 프로퍼티(변수와 함수)를 추가할 수 있다.
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>DOM API 다루기</h1>
+<button id="btn1" type="button" class="a">버튼1</button><br>
+<button id="btn2" type="button" class="a">버튼2</button><br>
+<button id="btn3" type="button" class="b">버튼3</button><br>
+<button id="btn4" type="button" class="b">버튼4</button><br>
+
+<script>
+/* 스타일 변경하기 */
+
+var e1 = document.getElementById("btn1");
+var e2 = document.getElementById("btn2");
+
+e1.style["background-color"] = "#ff0000";
+e2.style.backgroundColor = "#00ff00";
+</script>
+</body>
+</html>
