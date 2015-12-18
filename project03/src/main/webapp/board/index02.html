@@ -35,24 +35,26 @@ xhr.onreadystatechange = function(event) {
       console.log(xhr.responseText);
       var resultObj = JSON.parse(xhr.responseText);
       if (resultObj.status == "success") {
-        var table = $("#listTable");
+        var table = bit("#listTable")[0];
         var tr;
         for (var board of resultObj.data) {
-          tr = $("<tr>");
-          tr.html("<tr>" +
+          tr = document.createElement("tr");
+          tr.innerHTML = "<tr>" +
             "<td>" + board.no + "</td>" + 
             "<td><a class='detailLnk' href='#' boardNo='" + board.no + "'>"
             		+ board.title + "</a></td>" +
             "<td>" + board.views + "</td>" +
             "<td>" + board.createdDate + "</td>" +
-            "</tr>");
+            "</tr>";
         
-          table.append(tr);
+          table.appendChild(tr);
         }
         
         // 제목 링크에 클릭 이벤트 리스너를 등록한다.
-        $("a.detailLnk").click(clickDetailLnk);
-
+        var aList = bit("a.detailLnk");
+        for (var i = 0; i < aList.length; i++) {
+        	  aList[i].addEventListener('click', clickDetailLnk);
+        }
       }
     } else {
       alert("서버와의 연결이 원활하지 않습니다.");
@@ -63,14 +65,22 @@ xhr.open('get', 'ajax/list.do', true);
 xhr.setRequestHeader("Accept", "application/json");
 xhr.send();
 
-$('#newBtn').click(function(event){
+bit('#newBtn')[0].addEventListener('click', function(event){
 	location.href = "form.html?no=-1";
 });
 
 // 게시물 제목을 클릭했을 때 호출될 함수
 function clickDetailLnk(event) {
-	event.preventDefault(); 
+	event.preventDefault(); // AJAX로 처리할 것이기 때문에 a 태그의 실행을 취소한다.
+	
+	// 사용자 정의 속성은 getAttribute()를 통해 값을 꺼낼 수 있다.
+	//console.log(event.target.getAttribute("boardNo"));
+	
+	// 다른 페이지로 이동 
+	// => 자바스크립트 내장 객체 location을 이용한다.
+	// => 윈도우 프로그래밍에서 다른 윈도우를 띄우는 것과 같다.
 	location.href = "form.html?no=" + event.target.getAttribute("boardNo");
+	  
 }
 
 </script>

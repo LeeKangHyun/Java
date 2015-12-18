@@ -56,33 +56,31 @@
 <p><address>
 ** 이 웹 애플리케이션의 모든 권리는 Java76기에 있습니다. &copy; Java76. **
 </address></p>
-
-<script type="text/javascript" src="../js/bit.js"></script>
 <script>
 var no = location.href.split('?')[1].split('=')[1];
 
 if (no < 0) { // 새 글 입력을 위한 폼으로 전환한다.
 	// 상세정보 출력을 위한 폼 항목은 감춘다.
-	var elements = $('.detailForm');
+	var elements = document.querySelectorAll('.detailForm');
 	for (var i = 0; i < elements.length; i++) {
 		elements[i].style.display = 'none';
 	}
 	
 	// 새 글 등록을 위한 폼 항목은 보인다.
-	var elements = $('.newForm');
+	var elements = document.querySelectorAll('.newForm');
   for (var i = 0; i < elements.length; i++) {
     elements[i].style.display = ''; // 빈 문자열을 주면 화면에 나타나게 한다.
   }
   
 } else { // 상세정보 출력폼으로 전환한다.
 	// 새 글 등록을 위한 폼 항목은 감춘다.
-  var elements = $('.newForm');
+  var elements = document.querySelectorAll('.newForm');
   for (var i = 0; i < elements.length; i++) {
     elements[i].style.display = 'none';
   }
   
   // 상세정보 출력을 위한 폼 항목은 보인다.
-  var elements = $('.detailForm');
+  var elements = document.querySelectorAll('.detailForm');
   for (var i = 0; i < elements.length; i++) {
     elements[i].style.display = ''; // 빈 문자열을 주면 화면에 나타나게 한다.
   }
@@ -95,11 +93,11 @@ if (no < 0) { // 새 글 입력을 위한 폼으로 전환한다.
 	      var ajaxResult = JSON.parse(xhr.responseText).ajaxResult;
 	      if (ajaxResult.status == "success") {
 	    	    var board = ajaxResult.data;
-	        $("#fno").val(board.no);
-	        $("#ftitle").val(board.title);
-	        $("#fcontent").val(board.content);
-	        $("#fviews").val(board.views);
-	        $("#fcreatedDate").val(board.createdDate);
+	        document.querySelector("#fno").value = board.no;
+	        document.querySelector("#ftitle").value = board.title;
+	        document.querySelector("#fcontent").value = board.content;
+	        document.querySelector("#fviews").innerHTML = board.views;
+	        document.querySelector("#fcreatedDate").innerHTML = board.createdDate;
 	      }
 	    } else {
 	      alert("서버와의 연결이 원활하지 않습니다.");
@@ -112,7 +110,7 @@ if (no < 0) { // 새 글 입력을 위한 폼으로 전환한다.
 }
 
 // 등록 버튼을 위한 이벤트 리스너 추가하기
-$('#addBtn').click(function(event) {
+document.querySelector('#addBtn').addEventListener('click', function(event) {
 	var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function(event) {
     if (xhr.readyState == 4) {
@@ -135,14 +133,14 @@ $('#addBtn').click(function(event) {
   xhr.open('post', 'ajax/add.do', true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhr.setRequestHeader("Accept", "application/json");
-  var queryString = "title=" + $('#ftitle').val()
-     + "&content=" + $('#fcontent').val()
-     + "&password=" + $('#fpassword').val();
+  var queryString = "title=" + document.querySelector('#ftitle').value
+     + "&content=" + document.querySelector('#fcontent').value
+     + "&password=" + document.querySelector('#fpassword').value;
   xhr.send(queryString);
 });
 
 //변경 버튼을 위한 이벤트 리스너 추가하기
-$('#updateBtn').click(function(event) {
+document.querySelector('#updateBtn').addEventListener('click', function(event) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function(event) {
     if (xhr.readyState == 4) {
@@ -165,15 +163,15 @@ $('#updateBtn').click(function(event) {
   xhr.open('post', 'ajax/update.do', true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhr.setRequestHeader("Accept", "application/json");
-  var queryString = "no=" + $('#fno').val()
-	   + "&title=" + $('#ftitle').val()
-     + "&content=" + $('#fcontent').val()
-     + "&password=" + $('#fpassword').val();
+  var queryString = "no=" + document.querySelector('#fno').value
+	   + "&title=" + document.querySelector('#ftitle').value
+     + "&content=" + document.querySelector('#fcontent').value
+     + "&password=" + document.querySelector('#fpassword').value;
   xhr.send(queryString);
 });
 
 //삭제 버튼을 위한 이벤트 리스너 추가하기
-$('#deleteBtn').click(function(event) {
+document.querySelector('#deleteBtn').addEventListener('click', function(event) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function(event) {
     if (xhr.readyState == 4) {
@@ -195,8 +193,10 @@ $('#deleteBtn').click(function(event) {
   };
   xhr.open(
 		  'get' 
-		  ,'ajax/delete.do?no=' + $('#fno').val() 
-				 + '&password=' + $('#fpassword').val()
+		  ,'ajax/delete.do?no=' 
+		    + document.querySelector('#fno').value 
+		    + '&password='
+		    + document.querySelector('#fpassword').value
 		  , true); 
   xhr.setRequestHeader("Accept", "application/json");
   xhr.send();
