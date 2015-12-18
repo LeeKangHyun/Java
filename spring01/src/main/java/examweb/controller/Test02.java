@@ -1,13 +1,45 @@
 package examweb.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.google.gson.Gson;
+
+import examweb.domain.Board;
+
 @Controller
+@RequestMapping("/ajax/test02")  
 public class Test02 {
   
-  @RequestMapping("/test02")
-  public void execute() {
-    System.out.println("Test02.execute()");
+  @RequestMapping
+  public ResponseEntity<String> execute() {
+    ArrayList<Board> list = new ArrayList<>();
+    list.add(new Board().setNo(1)
+                        .setTitle("제목입니다.1111")
+                        .setContent("내용입니다...."));
+    list.add(new Board().setNo(2)
+                        .setTitle("제목입니다.2222")
+                        .setContent("내용입니다...."));
+    list.add(new Board().setNo(3)
+                        .setTitle("제목입니다.3333")
+                        .setContent("내용입니다...."));
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("status", "success");
+    resultMap.put("data", list);
+    
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Content-Type", "text/plain;charset=UTF-8");
+    
+    return new ResponseEntity<>(
+        new Gson().toJson(resultMap),
+        headers,
+        HttpStatus.OK);
   }
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>DOM API 다루기</h1>
+<a id="link" href="test01-11.html" mydata="okok">링크</a><br>
+
+<script>
+/* 태그에 사용자 정의 속성 추가하기  */
+
+var e1 = document.querySelector("#link");
+console.log(e1); // 태그 전체 내용 출력 
+console.log(e1.href); // 태그 고유 속성 값 출력 
+console.log(e1.mydata); // 태그의 사용자 정의 속성 값 출력 => undefined
+console.log(e1["mydata"]); // 태그의 사용자 정의 속성 값 출력 => undefined
+/* 사용자 정의 속성 값 출력 안됨?
+=> OGNL 또는 대괄호([])를 사용하여 사용자 정의 속성에 접근할 수 없다.
+=> 해결책? DOM API를 사용하라! 
+*/
+console.log(e1.getAttribute("mydata"));
+</script>
+</body>
+</html>

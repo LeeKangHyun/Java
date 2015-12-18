@@ -1,83 +1,31 @@
 package examweb.domain;
 
-import java.io.Serializable;
-import java.sql.Date;
-
-public class Board implements Serializable {
-  private static final long serialVersionUID = 1L;
-
-  protected int no;
-  protected String title;
-  protected String content;
-  protected int views;
-  protected Date createdDate;
-  protected String password;
-  protected String attachFile;
-
-  public Board() {}
-
-  @Override
-  public String toString() {
-    return "Board [no=" + no + ", title=" + title 
-        + ", content=" + content + ", views=" + views + ", createdDate="
-        + createdDate + ", password=" + password 
-        + ", attachFile=" + attachFile + "]";
-  }
-
-  public String getAttachFile() {
-    return attachFile;
-  }
-
-  public void setAttachFile(String attachFile) {
-    this.attachFile = attachFile;
-  }
-
+public class Board {
+  protected int     no;
+  protected String  title;
+  protected String  content;
+  
   public int getNo() {
     return no;
   }
-
-  public void setNo(int no) {
+  public Board setNo(int no) {
     this.no = no;
+    return this;
   }
-
   public String getTitle() {
     return title;
   }
-
-  public void setTitle(String title) {
+  public Board setTitle(String title) {
     this.title = title;
+    return this;
   }
-
   public String getContent() {
     return content;
   }
-
-  public void setContent(String content) {
+  public Board setContent(String content) {
     this.content = content;
+    return this;
   }
-
-  public int getViews() {
-    return views;
-  }
-
-  public void setViews(int views) {
-    this.views = views;
-  }
-
-  public Date getCreatedDate() {
-    return createdDate;
-  }
-
-  public void setCreatedDate(Date createdDate) {
-    this.createdDate = createdDate;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
+  
+  
 }

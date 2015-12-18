@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>DOM API 다루기</h1>
+<a id="link" href="test01-11.html">링크</a><br>
+
+<script>
+/* 태그에 사용자 정의 속성 추가하기 2 */
+
+var e1 = document.querySelector("#link");
+
+// 태그의 고유 속성은 OGNL 또는 대괄호([])를 사용하여 값을 설정할 수 있다.
+e1.href = "http://www.google.com";
+console.log(e1.href);
+
+// 사용자 정의 속성은 OGNL 또는 대괄호([])로 추가할 수 없다.  
+e1.mydata = "nono";
+console.log(e1.getAttribute("mydata"));
+
+// DOM API를 사용해야 한다.
+e1.setAttribute("mydata2", "nono");
+console.log(e1.getAttribute("mydata2"));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#result {
+  border: 1px solid red;
+}
+</style>
+</head>
+<body>
+<h1>스프링 AJAX 테스트</h1>
+<table border="1">
+<tr>
+  <th>번호</th>
+  <th>제목</th>
+  <th>내용</th>
+</tr>
+</table>
+
+<script>
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(event) {
+	if (xhr.readyState == 4) {
+		if (xhr.status == 200) {
+      console.log(xhr.responseText);
+      var resultObj = JSON.parse(xhr.responseText);
+      if (resultObj.status == "success") {
+        var table = document.querySelector("table");
+        var tr;
+        for (var board of resultObj.data) {
+        	  	tr = document.createElement("tr");
+        	  tr.innerHTML = "<td>" + board.no + "</td>"
+              + "<td>" + board.title + "</td>"
+              + "<td>" + board.content + "</td>";
+          table.appendChild(tr);
+        }
+      }
+		} else {
+			alert("서버와의 연결이 원활하지 않습니다.");
+		} 
+	}
+};
+xhr.open('get', 'test03.do', true); 
+// 요청 헤더 "Accept"에 JSON 결과를 요구해야만 
+// 스프링의 ContentNegotiatingViewResolver는 
+// 페이지 컨트롤러의 결과를 MappingJackson2JsonView에게 전달하여 실행시킨다.
+xhr.setRequestHeader("Accept", "application/json");
+xhr.send();
+</script>
+</body>
+</html>
+
+
+
+

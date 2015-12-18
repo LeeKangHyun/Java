@@ -28,7 +28,7 @@ xhr.onreadystatechange = function(event) {
 			//console.log(xhr.responseText);
       var resultObj = JSON.parse(xhr.responseText);
       if (resultObj.status == "success") {
-        console.log(resultObj.data);
+        //console.log(resultObj.data);
         var table = document.querySelector("table");
         var tr;
         for (var board of resultObj.data) {
@@ -44,7 +44,7 @@ xhr.onreadystatechange = function(event) {
 		} 
 	}
 };
-xhr.open('get', 'test09.jsp', true); 
+xhr.open('get', 'test10gsonAgent.jsp', true); 
 xhr.send();
 </script>
 
