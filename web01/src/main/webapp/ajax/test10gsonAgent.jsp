@@ -9,5 +9,5 @@
 <%-- 구글이나 페이스북처럼 다른 서버의 자원을 요청하여 클라이언트에게 중계한다.
 => 상대 서버의 응답에 Access-Control-Allow-Origin 헤더가 포함되어 있지 않아도 된다.
 --%>
-<c:import url="http://192.168.0.31:8080/web01/ajax/test10gson.jsp"/>
+<c:import url="http://localhost:8080/web01/ajax/test10gson.jsp"/>
     

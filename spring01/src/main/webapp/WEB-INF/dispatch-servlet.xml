@@ -31,6 +31,7 @@
     - 클라이언트가 application/json 을 요구하면 (요청헤더 => Accept: application/json) 
       MappingJackson2JsonView에게 결과 생성을 위임한다.   
   -->
+  
   <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
     <property name="viewResolvers">
       <list>
