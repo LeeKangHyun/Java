@@ -28,58 +28,29 @@
 
 <script type="text/javascript" src="../js/bit.js"></script>
 <script>
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function(event) {
-  if (xhr.readyState == 4) {
-    if (xhr.status == 200) {
-      console.log(xhr.responseText);
-      var resultObj = JSON.parse(xhr.responseText);
-      if (resultObj.status == "success") {
-        var table = $("#listTable");
-        var tr;
-        for (var board of resultObj.data) {
-          tr = $("<tr>");
-          tr.html("<tr>" +
-            "<td>" + board.no + "</td>" + 
-            "<td><a class='detailLnk' href='#' boardNo='" + board.no + "'>"
-            		+ board.title + "</a></td>" +
-            "<td>" + board.views + "</td>" +
-            "<td>" + board.createdDate + "</td>" +
-            "</tr>");
-        
-          table.append(tr);
-        }
-        
-        // 제목 링크에 클릭 이벤트 리스너를 등록한다.
-        $("a.detailLnk").click(clickDetailLnk);
-
-      }
-    } else {
-      alert("서버와의 연결이 원활하지 않습니다.");
-    } 
+$.getJSON('ajax/list.do', function(resultObj) {
+  var table = $("#listTable");
+  for (var board of resultObj.data) {
+    $("<tr>")
+      .html("<tr><td>" + board.no + 
+            "</td><td><a class='detailLnk' href='#' boardNo='" 
+                + board.no + "'>" + board.title + 
+            "</a></td><td>" + board.views +
+            "</td><td>" + board.createdDate + "</td></tr>")
+      .appendTo(table);
   }
-};
-xhr.open('get', 'ajax/list.do', true); 
-xhr.setRequestHeader("Accept", "application/json");
-xhr.send();
-
-$('#newBtn').click(function(event){
-	location.href = "form.html?no=-1";
+  // 제목 링크에 클릭 이벤트 리스너를 등록한다.
+  $("a.detailLnk").click(clickDetailLnk);
 });
-
+$('#newBtn').click(function(event){
+  location.href = "form.html?no=-1";
+});
 // 게시물 제목을 클릭했을 때 호출될 함수
 function clickDetailLnk(event) {
-	event.preventDefault(); 
-	location.href = "form.html?no=" + event.target.getAttribute("boardNo");
+  event.preventDefault(); 
+  location.href = "form.html?no=" + $(event.target).attr("boardNo");
 }
-
 </script>
 
     </body>
 </html>
-
-
-
-
-
-    
