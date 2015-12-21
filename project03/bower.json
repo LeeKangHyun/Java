@@ -1,0 +1,30 @@
+{
+  "name": "project03",
+  "homepage": "https://github.com/LeeKangHyun/Java",
+  "authors": [
+    "LeeKangHyun"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.3",
+    "bootstrap": "~3.3.6"
+  },
+  "install": {
+    "path": "src/main/webapp/lib",
+    "sources": {
+      "bootstrap": "bower_components/bootstrap/dist/**",
+      "jquery": "bower_components/jquery/dist/**"
+    }
+  }
+}

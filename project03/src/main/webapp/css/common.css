@@ -1,26 +1,19 @@
 @CHARSET "UTF-8";
 
-.button1 {
-	background-color:lightgray;
-	border:2px outset lightgray;
-  text-decoration:none;
-  font-size:11px;
-  height:22px;
-  width:44px;
-  padding-top:2px;
-  color:black;
-  text-align:center;
+body {
+  font-size: small;
 }
 
-.button2 {
-	background-color:lightgray;
-	border:2px outset lightgray;
-  text-decoration:none;
-  font-size:11px;
-  height:16px;
-  width:40px;
-  display:inline-block;
-  padding-top:2px;
-  color:black;
-  text-align:center;
+header {
+  background-color: yellow;  
+}
+
+footer {
+  background-color: black;  
+  color: white;
+}
+
+.container {
+  width: 500px;
+  margin: 0px auto;
 }
