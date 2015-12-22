@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="java76.pms.dao.CourseEnrollmentDao">
+
+  <resultMap type="courseEnrollment" id="courseEnrollmentMap">
+  	<id column="email" 		 	property="email"/>
+    <result column="reg_dt" 		property="registeredDate"/>
+  </resultMap>
+
+  <select id="selectList" resultMap="courseEnrollmentMap">
+    select email, name, tel, status, reg_dt 
+    from cour_enroll
+    order by reg_dt desc
+  </select>
+  
+  <insert id="insert" parameterType="courseEnrollment">
+    insert into cour_enroll(email,name,tel,reg_dt) 
+    values(#{email},#{name},#{tel},now())
+  </insert>
+  
+  <delete id="delete" parameterType="string">
+    delete from cour_enroll 
+  	where email=#{value}
+  </delete>
+  
+  <update id="update" parameterType="courseEnrollment">
+    update cour_enroll set 
+      name=#{name},
+      tel=#{tel},
+      status=#{status}
+    where email=#{email}
+  </update>
+  
+  <select id="selectOne" resultMap="courseEnrollmentMap" parameterType="string">
+    select email, name, tel, status, reg_dt 
+    from cour_enroll
+    where email=#{value}
+  </select>
+</mapper>
+
+
+
+
+
+

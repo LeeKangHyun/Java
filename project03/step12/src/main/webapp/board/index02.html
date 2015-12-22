@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>게시판-목록</title>
+</head>
+<body>
+        
+<div style="boarder:1px solid gray;background-color:yellow;">
+프로젝트 관리 시스템 - 
+  <a href="/project03t/auth/login.do">로그인</a>
+</div><h1>게시판</h1>
+
+<button id="newBtn" type="button">새 글</button><br>
+
+<table id="listTable" border='1'>
+  <tr>
+    <th>번호</th>
+    <th>제목</th>
+    <th>조회수</th>
+    <th>등록일</th>
+  </tr>
+</table>
+
+<p><address>
+** 이 웹 애플리케이션의 모든 권리는 Java76기에 있습니다. &copy; Java76. **
+</address></p>
+
+<script type="text/javascript" src="../js/bit.js"></script>
+<script>
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(event) {
+  if (xhr.readyState == 4) {
+    if (xhr.status == 200) {
+      console.log(xhr.responseText);
+      var resultObj = JSON.parse(xhr.responseText);
+      if (resultObj.status == "success") {
+        var table = bit("#listTable")[0];
+        var tr;
+        for (var board of resultObj.data) {
+          tr = document.createElement("tr");
+          tr.innerHTML = 
+            "<td>" + board.no + "</td>" + 
+            "<td><a class='detailLnk' href='#' boardNo='" + board.no + "'>"
+            		+ board.title + "</a></td>" +
+            "<td>" + board.views + "</td>" +
+            "<td>" + board.createdDate + "</td>";
+        
+          table.appendChild(tr);
+        }
+        
+        // 제목 링크에 클릭 이벤트 리스너를 등록한다.
+        var aList = bit("a.detailLnk");
+        for (var i = 0; i < aList.length; i++) {
+        	  aList[i].addEventListener('click', clickDetailLnk);
+        }
+      }
+    } else {
+      alert("서버와의 연결이 원활하지 않습니다.");
+    } 
+  }
+};
+xhr.open('get', 'ajax/list.do', true); 
+xhr.setRequestHeader("Accept", "application/json");
+xhr.send();
+
+bit('#newBtn')[0].addEventListener('click', function(event){
+	location.href = "form.html?no=-1";
+});
+
+// 게시물 제목을 클릭했을 때 호출될 함수
+function clickDetailLnk(event) {
+	event.preventDefault(); // AJAX로 처리할 것이기 때문에 a 태그의 실행을 취소한다.
+	
+	// 사용자 정의 속성은 getAttribute()를 통해 값을 꺼낼 수 있다.
+	//console.log(event.target.getAttribute("boardNo"));
+	
+	// 다른 페이지로 이동 
+	// => 자바스크립트 내장 객체 location을 이용한다.
+	// => 윈도우 프로그래밍에서 다른 윈도우를 띄우는 것과 같다.
+	location.href = "form.html?no=" + event.target.getAttribute("boardNo");
+	  
+}
+
+</script>
+
+    </body>
+</html>
+
+
+
+
+
+    
