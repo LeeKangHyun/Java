@@ -1,70 +1,30 @@
-[주제: AJAX와 JSON 적용]
-0. AJAX, JSON 사용을 위한 준비 
-  - build.gradle 파일에 jackson-databind 라이브러리 추가
-    => compile 'com.fasterxml.jackson.core:jackson-databind:2.6.4'
-  - 스프링 WebMVC 설정 파일에 ContentNegotiatingViewResolver 적용
-  <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-    <property name="viewResolvers">
-      <list>
-        <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
-        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-          <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-          <property name="prefix" value="/WEB-INF/jsp/"/>
-          <property name="suffix" value=".jsp"/>
-        </bean>
-      </list>
-    </property>
-    <property name="defaultViews">
-      <list>
-        <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
-      </list>
-    </property>
-  </bean>  
-  
-1. 게시판 UI 작성
-  - /webapp/board/index.html
-  - /webapp/board/form.html
-  
-2. 게시판 페이지 컨트롤러 작성
-  - *.controller.ajax.BoardController.java 
-  
-=> 기존 코드 백업: index01.html, form01.html
+[주제: 트랜잭션 다루기]
+1. 수강신청 테이블 생성
+  - sql/project.sql 실행
 
-[주제: 코드 재사용성 높이기]
-1. 엘리먼트 찾는 코드를 함수로 만들기
-  - BIT 자바스크립트 라이브러리 생성: webapp/js/bit.js
-  - bit() {}
+2. 도메인 클래스 생성 
+  - CourseEnrollment.java 
 
-=> 기존 코드 백업: index02.html, form02.html, bit02.js
-  
-2. bit() 함수를 최소 이름의 변수에 저장하기 
-  
-  - $ 변수를 만들고 bit() 함수의 주소를 저장한다.
-  - 기존 코드에서 bit() 호출을 $()로 변경한다.
-  
-3. 이벤트를 등록하는 함수를 만든다.
-  - IE8 이하에서도 사용할 수 있는 함수.
-  - click() 함수 추가
-  
-4. 폼 입력 항목의 값을 설정하는 함수를 만든다.
-  - val() 함수 추가
-  
-5. 엘리먼트 만드는 함수를 만든다.
-  - bit() 함수 변경  
-  
-6. innerHTML, textContent를 설정할 함수를 만든다.
-  - innerHTML -> html()
-  - textContent -> text()  
+3. DAO 인터페이스 생성
+  - CourseEnrollmentDao.java
 
-7. 자식 엘리먼트를 추가하는 함수 만든다.
-  - append()  
+4. SQL 맵퍼 파일 생성
+  - CourseEnrollmentDao.xml  
   
+5. 수강 신청 페이지 생성
+  - webapp/WEB-INF/jsp/enroll 폴더 생성 
+  - EnrollForm.jsp 작성 
+  - CourseEnrollmentController.java 페이지 컨트롤러 작성
   
-  
+6. 
 
+7. 여러 개의 작업을 한 단위(트랜잭션)으로 묶기
+  - 스프링 설정 파일에 트랜잭션 관리 객체 추가하기
+  
+  <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource" />
+  </bean>
   
   
   
-  
-  
-  
+    

@@ -5,7 +5,7 @@ import java.sql.Date;
 public class CourseEnrollment {
   public static final int STATUS_WAIT = 0;
   public static final int STATUS_REJECT = 1;
-  public static final int STATUS_ALLOW = 2;
+  public static final int STATUS_APPROVE = 2;
   
   protected String    email;
   protected String    name;

@@ -29,7 +29,12 @@
   <update id="update" parameterType="courseEnrollment">
     update cour_enroll set 
       name=#{name},
-      tel=#{tel},
+      tel=#{tel}
+    where email=#{email}
+  </update>
+  
+  <update id="updateForStatus" parameterType="map">
+    update cour_enroll set 
       status=#{status}
     where email=#{email}
   </update>

@@ -8,7 +8,7 @@
 <html>
 <head>
   <meta charset='UTF-8'>
-  <title>학생-목록</title>
+  <title>수강신청-목록</title>
 </head>
 <body>
 

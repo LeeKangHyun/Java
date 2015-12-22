@@ -5,12 +5,11 @@
 <html>
 <head>
   <meta charset='UTF-8'>
-  <title>학생-등록</title>
+  <title>수강신청</title>
 </head>
 <body>
-<h1>새 학생</h1>
-<form id='form1' action='add.do' method='post'
-      enctype="multipart/form-data">
+<h1>수강신청</h1>
+<form id='form1' action='add.do' method='post'>
 <table border='1'>
 <tr>
   <th>이름</th>
@@ -23,18 +22,6 @@
 <tr>
   <th>전화</th>
   <td><input type='text' name='tel' size='20'></td>
-</tr>
-<tr>
-  <th>기수</th>
-  <td><input type='text' name='cid' size='20'></td>
-</tr>
-<tr>
-  <th>사진</th>
-  <td><input type='file' name='photofile'></td>
-</tr>
-<tr>
-  <th>암호</th>
-  <td><input type='password' name='password'></td>
 </tr>
 </table>
 
