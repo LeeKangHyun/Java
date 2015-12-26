@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>게시판-목록</title>
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+<div class="container">        
+<header>
+프로젝트 관리 시스템 - 
+  <a href="/project03t/auth/login.do">로그인</a>
+</header>
+
+<section>
+<h1>게시판</h1>
+
+<button id="newBtn" type="button" class="btn btn-primary btn-xs">새 글</button><br>
+
+<table id="listTable" class="table table-hover">
+  <thead>
+	  <tr>
+	    <th>번호</th>
+	    <th>제목</th>
+	    <th>조회수</th>
+	    <th>등록일</th>
+	  </tr>
+  </thead>
+</table>
+</section>
+
+<footer>
+<p><address>
+** 이 웹 애플리케이션의 모든 권리는 Java76기에 있습니다. &copy; Java76. **
+</address></p>
+</footer>
+</div><!-- container div -->
+
+<script type="text/javascript" src="../lib/jquery/jquery.js"></script>
+<script>
+
+$.getJSON('ajax/list.do', function(resultObj) {
+	var table = $("#listTable");
+  for (var board of resultObj.data) {
+    $("<tr>")
+      .html("<td>" + board.no + 
+			      "</td><td><a class='detailLnk' href='#' boardNo='" 
+			          + board.no + "'>" + board.title + 
+			      "</a></td><td>" + board.views +
+			      "</td><td>" + board.createdDate + "</td>")
+			.appendTo(table);
+  }
+  // 제목 링크에 클릭 이벤트 리스너를 등록한다.
+  $("a.detailLnk").click(clickDetailLnk);
+});
+
+
+$('#newBtn').click(function(event){
+	location.href = "form.html?no=-1";
+});
+
+// 게시물 제목을 클릭했을 때 호출될 함수
+function clickDetailLnk(event) {
+	event.preventDefault(); 
+	location.href = "form.html?no=" + $(event.target).attr("boardNo");
+}
+
+</script>
+
+    </body>
+</html>
+
+
+
+
+
+    

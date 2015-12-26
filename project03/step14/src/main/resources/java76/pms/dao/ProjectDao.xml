@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+namespace: SQL문을 분류하는 용도로 사용하는 그룹명.
+           프로그래밍의 일관성을 위해서 가능한 DAO의 패키지명과 같게 하라!
+ -->
+<mapper namespace="java76.pms.dao.ProjectDao">
+
+  <!-- 컬럼 이름과 프로퍼티 이름이 다를 때, 연결 정보를 정의해두면 select할 때 편리하다. -->
+  <resultMap type="project" id="projectMap">
+    <!-- PK 컬럼은 가능한 <id> 태그로 정의한다. 
+        => 객체 풀에서 PK로 객체를 찾을 때 사용된다. 
+     -->
+    <id column="pno" property="no"/>
+    <result column="sdt" property="startDate"/>
+    <result column="edt" property="endDate"/>
+  </resultMap>
+  
+  
+  <!-- SQL문은 <select>, <insert>, <update>, <delete> 엘리먼트에 작성한다.
+       => id 속성: SQL문을 찾을 때 사용할 아이디. 가능한 DAO의 메서드 이름과 같게 하라!
+       => resultType 속성: select 결과를 담을 값 객체 이름. fully qualified name.
+   -->
+  <select id="selectList" resultMap="projectMap" parameterType="map">
+    select 
+      pno,
+      title,
+      sdt,
+      edt,
+      member 
+    from project
+    order by 
+    <choose>
+      <when test="keyword == 'title'"> title </when>
+      <when test="keyword == 'startDate'"> sdt </when>
+      <when test="keyword == 'endDate'"> edt </when>
+      <otherwise> pno </otherwise>
+    </choose>
+    <choose>
+      <when test="align == 'asc'">asc</when>
+      <otherwise>desc</otherwise>
+    </choose>
+    limit #{startIndex}, #{length}
+    
+  </select>
+  
+  <insert id="insert" parameterType="project">
+    insert into project(title,sdt,edt,member) 
+    values(#{title},#{startDate},#{endDate},#{member})
+  </insert>
+  
+  <delete id="delete" parameterType="int">
+    delete from project where pno=#{value}
+  </delete>
+  
+  <update id="update" parameterType="project">
+    update project set 
+      title=#{title},
+      sdt=#{startDate},
+      edt=#{endDate},
+      member=#{member} 
+    where pno=#{no}
+  </update>
+  
+  <select id="selectOne" resultMap="projectMap" parameterType="int">
+    select 
+      pno,
+      title,
+      sdt,
+      edt,
+      member 
+    from project
+    where pno=#{no}
+  </select>
+</mapper>
+
+
+
+
+

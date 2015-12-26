@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+  
+  <bean id="c1" class="step01.Computer"/>
+  
+  <!-- AOP 관련 작업을 처리할 객체를 등록한다. 
+       단, 태그를 사용하여 직접 설정할 때는 필요가 없음.
+       애노테이션을 통해 AOP를 설정할 때만 필요하다.-->
+  <!-- <aop:aspectj-autoproxy/> -->
+ 
+  <aop:config>
+    <!-- 로그 작업을 끼워넣을 지점을 선언한다. -->
+    <aop:pointcut id="setterpoint" expression="execution(* set*(..))" />
+    
+    <!-- 포인트컷에 끼워넣을 메서드(advice)를 지정한다. -->
+    <aop:aspect ref="logAspect">
+      <aop:after pointcut-ref="setterpoint" method="printLog"/>
+    </aop:aspect>
+    
+  </aop:config>
+  
+  <!-- 로그 작업을 수행할 객체를 등록 -->
+  <bean id="logAspect" class="step01.LogAspect"/>
+</beans>
+
+
+

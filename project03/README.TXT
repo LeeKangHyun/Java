@@ -1,30 +1,38 @@
-[주제: 트랜잭션 다루기]
-1. 수강신청 테이블 생성
-  - sql/project.sql 실행
+[주제: 트랜잭션에 AOP 적용]
+1. AOP 의존 라이브러리 가져오기 
+  - build.gradle 파일에 라이브러리 추가
 
-2. 도메인 클래스 생성 
-  - CourseEnrollment.java 
+2. @Transactional 애노테이션을 모두 제거한다.
+  
+3. 스프링 설정 파일 변경    
+  <!-- 어떤 조건의 메서드에 대해 트랜잭션을 적용할 지 설정한다. -->
+  <tx:advice id="txAdvice" transaction-manager="txManager">
+    <tx:attributes>
+      <tx:method name="get*" read-only="true"/>
+      <tx:method name="retrieve*" read-only="true"/>
+      <tx:method name="*"/> <!-- 그 밖의 모든 메서드에 대해 트랜잭션 적용하라! -->
+    </tx:attributes>
+  </tx:advice>
+  
+  <!-- 위에서 정의한 트랜잭션 advice를 어떤 지점(pointcut)에 연결할지 설정한다. -->
+  <aop:config>
+    <aop:pointcut id="serviceOperation" 
+         expression="execution(* *..service..*(..))"/>
+    <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
+  </aop:config>
+  
+  <!-- AOP 애노테이션 처리자 등록 -->
+  <aop:aspectj-autoproxy/>
+  
+  
+[참고: Aspect 객체의 메서드에서 pointcut 정보를 알아내기]
+=> 파라미터에 JoinPoint 타입의 변수를 선언하라.
 
-3. DAO 인터페이스 생성
-  - CourseEnrollmentDao.java
 
-4. SQL 맵퍼 파일 생성
-  - CourseEnrollmentDao.xml  
-  
-5. 수강 신청 페이지 생성
-  - webapp/WEB-INF/jsp/enroll 폴더 생성 
-  - EnrollForm.jsp 작성 
-  - CourseEnrollmentController.java 페이지 컨트롤러 작성
-  
-6. 
 
-7. 여러 개의 작업을 한 단위(트랜잭션)으로 묶기
-  - 스프링 설정 파일에 트랜잭션 관리 객체 추가하기
+
+
+
+
+
   
-  <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-    <property name="dataSource" ref="dataSource" />
-  </bean>
-  
-  
-  
-    

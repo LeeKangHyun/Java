@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>게시판</title>
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+</head>
+<body>
+
+<div class="container">        
+<header>
+프로젝트 관리 시스템 - 
+  <a href="/project03t/auth/login.do">로그인</a>
+</header>
+
+<section>
+<h1>게시물 폼</h1>
+
+<form id='form1' class="form-horizontal">
+  <div class="detailForm form-group">
+    <label for="fno" class="col-sm-2 control-label" readonly>번호</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="fno">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="ftitle" class="col-sm-2 control-label">제목</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="ftitle" placeholder="제목">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fcontent" class="col-sm-2 control-label">내용</label>
+    <div class="col-sm-10">
+      <textarea id="fcontent" class="form-control" 
+                rows='10' cols='60' placeholder="제목"></textarea>
+    </div>
+  </div>
+  <div class="detailForm form-group">
+    <label class="col-sm-2 control-label">조회수</label>
+    <div class="col-sm-10">
+      <p id="fviews" class="form-control-static"></p>
+    </div>
+  </div>
+  <div class="detailForm form-group">
+    <label class="col-sm-2 control-label">등록일</label>
+    <div class="col-sm-10">
+      <p id="fcreatedDate" class="form-control-static"></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="ffile" class="col-sm-2 control-label">첨부파일</label>
+    <div class="col-sm-10">
+      <input type='file' class="form-control" id="ffile"><br>
+      <input type='hidden' class="form-control" id='fattachFile'>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fpassword" class="col-sm-2 control-label">암호</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="fpassword" 
+             placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button id='addBtn' type='button' 
+        class="newForm btn btn-primary btn-xs">등록</button>
+      <button id='updateBtn' type='button' 
+        class="detailForm btn btn-primary btn-xs">변경</button>
+      <button id='deleteBtn' type='button' 
+        class="detailForm btn btn-primary btn-xs">삭제</button>
+    </div>
+  </div>
+</form>
+</section>
+
+<footer>
+<p><address>
+** 이 웹 애플리케이션의 모든 권리는 Java76기에 있습니다. &copy; Java76. **
+</address></p>
+</footer>
+</div><!-- container div -->
+
+<script type="text/javascript" src="../lib/jquery/jquery.js"></script>
+<script>
+var no = location.href.split('?')[1].split('=')[1];
+
+if (no < 0) { // 새 글 입력을 위한 폼으로 전환한다.
+	$('.detailForm').css('display', 'none');// 상세정보 출력을 위한 폼 항목은 감춘다.
+	$('.newForm').css('display', '');// 새 글 등록을 위한 폼 항목은 보인다.
+  
+} else { // 상세정보 출력폼으로 전환한다.
+	$('.detailForm').css('display', '');
+	$('.newForm').css('display', 'none');
+	
+	$.getJSON('ajax/detail.do?no=' + no, function(resultObj) {
+		var ajaxResult = resultObj.ajaxResult;
+		if (ajaxResult.status == "success") {
+      var board = ajaxResult.data;
+      $("#fno").val(board.no);
+      $("#ftitle").val(board.title);
+      $("#fcontent").val(board.content);
+      $("#fviews").text(board.views);
+      $("#fcreatedDate").text(board.createdDate);
+    }
+	});
+}
+
+// 등록 버튼을 위한 이벤트 리스너 추가하기
+$('#addBtn').click(function(event) {
+	$.post('ajax/add.do', {
+		title: $('#ftitle').val(),
+		content: $('#fcontent').val(),
+		password: $('#fpassword').val()
+		
+	}, function(resultObj) {
+		var ajaxResult = resultObj.ajaxResult;
+		if (ajaxResult.status == "success") {
+      location.href = "index.html";
+    } else {
+        alert("게시물 등록에 실패했습니다.");
+    }
+	}, 'json');
+});
+
+//변경 버튼을 위한 이벤트 리스너 추가하기
+$('#updateBtn').click(function(event) {
+  $.post('ajax/update.do', {
+	    no: $('#fno').val(),
+	    title: $('#ftitle').val(),
+	    content: $('#fcontent').val(),
+	    password: $('#fpassword').val()
+	    
+  }, function(resultObj) {
+    var ajaxResult = resultObj.ajaxResult;
+    if (ajaxResult.status == "success") {
+      location.href = "index.html";
+    } else {
+        alert("게시물 변경에 실패했습니다.");
+    }
+  }, 'json');
+});
+
+//삭제 버튼을 위한 이벤트 리스너 추가하기
+$('#deleteBtn').click(function(event) {
+	$.getJSON('ajax/delete.do?no=' + $('#fno').val() 
+	         + '&password=' + $('#fpassword').val(), 
+	  function(resultObj) {
+	    var ajaxResult = resultObj.ajaxResult;
+	    if (ajaxResult.status == "success") {
+	      location.href = "index.html";
+	    } else {
+	        alert("게시물 삭제에 실패했습니다.");
+	    }
+  });
+});
+
+</script>
+</body>
+</html>

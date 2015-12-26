@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+body {
+	font-size: small;
+}
+
+header {
+	background-color: lightgray;
+}
+
+footer {
+	background-color: black;
+	color: white;
+}
+
+.container {
+	width: 500px;
+	margin: 0px auto;
+}
