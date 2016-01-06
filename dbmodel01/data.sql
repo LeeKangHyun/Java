@@ -76,10 +76,24 @@ insert into LEC_TRAIN(LNO,TNO) values(2, 1);
 insert into LEC_TRAIN(LNO,TNO) values(2, 2);
 insert into LEC_TRAIN(LNO,TNO) values(3, 3);
 
+/* 과정에 매니저 배정 */
+update lectures set mno=1 where lno=2;
+update lectures set mno=3 where lno=3;
+update lectures set mno=3 where lno=4;
   
-  
-  
-  
-  
+/* 과정에 강의실 배정 */
+update lectures set cid = 'KN301' where lno = 1;
+update lectures set cid = 'KN402' where lno = 2;
+update lectures set cid = 'JR703' where lno = 3;
+
+
+
+
+
+
+
+
+
+
   
 

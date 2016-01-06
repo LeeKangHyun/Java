@@ -23,5 +23,10 @@ step03 - DML
   => test03.sql
   
 step04 - DQL
-  => 
+  => test01.sql
+  
+  step05 - 정렬, 페이징 처리
+  
+  step06 - 조인
+  
   
