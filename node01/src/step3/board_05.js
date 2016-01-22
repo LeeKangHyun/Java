@@ -1,22 +1,20 @@
-// DB 커넥션풀 적용하기
+//요청 핸들러를 맵으로 관리한다.
 var http = require('http');
 var mysql = require('mysql');
 var url = require('url');
 var dateFormat = require('dateformat');
 
-var pool = mysql.createPool({
-    connectionLimit : 10,
+//1) DB 커넥션 준비
+var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'java76',
     password : '1111',
     database : 'java76db'
 });
 
-// 커넥션풀에 새 커넥션이 생성되면 connection 이벤트가 발생한다.
-pool.on('connection', function() {
-    console.log("커넥션 객체가 생성되었음.");
-});
+connection.connect();
 
+//요청 핸들러 맵 객체를 준비한다.
 var handlerMap = {};
 
 handlerMap["/board/list.do"] = function(request, response) {
@@ -25,7 +23,7 @@ handlerMap["/board/list.do"] = function(request, response) {
         'Content-Type': 'text/html; charset=UTF-8'
     });
 
-    pool.query('select bno, title, views, cre_dt from board', 
+    connection.query('select bno, title, views, cre_dt from board', 
             function(err, rows, fields) {
         if (err) throw err;
         response.write("<!DOCTYPE html>\n");
@@ -63,10 +61,9 @@ handlerMap["/board/detail.do"] = function(request, response) {
         'Content-Type': 'text/html; charset=UTF-8'
     });
 
-    pool.query(
-            'select bno, title, content, views, cre_dt from board where bno=?', 
-            [urlInfo.query.no], 
-        function(err, rows, fields) {
+    connection.query('select bno, title, content, views, cre_dt '
+        + 'from board where bno=' + urlInfo.query.no, 
+        function(err, rows, fields) { // 서버에서 결과를 받았을 때 호출되는 함수
             if (err) throw err;
             response.write("<!DOCTYPE html>\n");
             response.write("<html>\n");
@@ -111,7 +108,7 @@ handlerMap["/board/detail.do"] = function(request, response) {
 
 handlerMap["/board/delete.do"] = function(request, response) {
     var urlInfo = url.parse(request.url, true);
-    pool.query('delete from board where bno=?', [urlInfo.query.no],
+    connection.query('delete from board where bno=?', [urlInfo.query.no],
         function(err, rows, fields) {
           if (err) throw err;
           response.writeHead(302, {
@@ -138,6 +135,7 @@ function notSupport(request, response) {
     response.write("</html>\n");
 };
 
+//2) HTTP 서버 준비 
 var httpServer = http.createServer(function(request, response) {
     var urlInfo = url.parse(request.url, true);
 
@@ -150,6 +148,7 @@ var httpServer = http.createServer(function(request, response) {
     }
 });
 
+//3) HTTP 서버 가동
 httpServer.listen(8989);
 console.log("서버 실행중...")
 
