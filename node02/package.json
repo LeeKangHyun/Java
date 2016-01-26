@@ -1,0 +1,16 @@
+{
+  "name": "node02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dateformat": ">=1.0.12",
+    "express": "^4.13.4",
+    "mysql": ">=2.10.2"
+  }
+}
