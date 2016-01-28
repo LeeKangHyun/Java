@@ -5,13 +5,7 @@
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
 		<wb-resource deploy-path="/" source-path="src/main/webapp"/>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.reflections/reflections/0.9.10/c7f4ea230aedc757ca1499ebcfb2953c81cf8b67/reflections-0.9.10.jar">
-			<dependency-type>uses</dependency-type>
-		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.37/2c378637f6faff77541244e8257b446f04324bd8/mysql-connector-java-5.1.37.jar">
-			<dependency-type>uses</dependency-type>
-		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.17/5af35056b4d257e4b64b9e8069c0746e8b08629f/log4j-1.2.17.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis/3.3.0/7c0e3582a1518b6d8e4e37ce2fc49b7bb6f2040f/mybatis-3.3.0.jar">
@@ -41,16 +35,16 @@
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.imgscalr/imgscalr-lib/4.2/e2838f7119361511ef7d54fe0d502bf07f3325eb/imgscalr-lib-4.2.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.reflections/reflections/0.9.10/c7f4ea230aedc757ca1499ebcfb2953c81cf8b67/reflections-0.9.10.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.17/5af35056b4d257e4b64b9e8069c0746e8b08629f/log4j-1.2.17.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.6.4/f2abadd10891512268b16a1a1a6f81890f3e2976/jackson-databind-2.6.4.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar">
-			<dependency-type>uses</dependency-type>
-		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.18.2-GA/1180a90fbad732b60fb728a6bbe8fcb3151423d7/javassist-3.18.2-GA.jar">
-			<dependency-type>uses</dependency-type>
-		</dependent-module>
-		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/annotations/2.0.1/9ef6656259841cebfb9fb0697bb122ada4485498/annotations-2.0.1.jar">
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.7/f753e78bbe484e58b3b4e5ce3cc1751e50d11f6c/aspectjweaver-1.8.7.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.2.3.RELEASE/249921ead97248410ac04f854075f0a1c1a567e4/spring-beans-4.2.3.RELEASE.jar">
@@ -75,6 +69,15 @@
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.2/83b5b8a7ba1c08f9e8c8ff2373724e33d3c1e22a/commons-io-2.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.18.2-GA/1180a90fbad732b60fb728a6bbe8fcb3151423d7/javassist-3.18.2-GA.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/annotations/2.0.1/9ef6656259841cebfb9fb0697bb122ada4485498/annotations-2.0.1.jar">
 			<dependency-type>uses</dependency-type>
 		</dependent-module>
 		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/leekanghyun/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.6.0/a0990e2e812ac6639b6ce955c91b13228500476e/jackson-annotations-2.6.0.jar">
